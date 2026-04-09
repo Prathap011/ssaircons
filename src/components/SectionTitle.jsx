@@ -3,13 +3,15 @@ import { motion } from 'framer-motion'
 
 /**
  * Reusable section title with animated reveal.
+ * Title words fly in one by one; subtitle fades up after.
  * Props: label, title, subtitle, center (bool), dark (bool)
  */
 export default function SectionTitle({ label, title, subtitle, center = false, dark = false }) {
   const { ref, inView } = useInView()
+  const words = title.split(' ')
 
   return (
-    <div ref={ref} className={`mb-12 ${center ? 'text-center mx-auto' : ''} max-w-2xl ${center ? 'mx-auto' : ''}`}>
+    <div ref={ref} className={`mb-12 max-w-2xl ${center ? 'text-center mx-auto' : ''}`}>
       {label && (
         <motion.span
           initial={{ opacity: 0, y: 10 }}
@@ -20,19 +22,27 @@ export default function SectionTitle({ label, title, subtitle, center = false, d
           {label}
         </motion.span>
       )}
-      <motion.h2
-        initial={{ opacity: 0, y: 16 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className={`section-title ${dark ? 'text-white' : ''}`}
-      >
-        {title}
-      </motion.h2>
+
+      {/* Word-by-word reveal */}
+      <h2 className={`section-title ${dark ? 'text-white' : ''}`}>
+        {words.map((word, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.05 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block mr-[0.3em]"
+          >
+            {word}
+          </motion.span>
+        ))}
+      </h2>
+
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 + words.length * 0.07 }}
           className={`section-subtitle ${dark ? 'text-blue-200' : ''} ${center ? 'mx-auto' : ''}`}
         >
           {subtitle}

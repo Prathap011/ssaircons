@@ -31,25 +31,34 @@ function OfficeCard({ office, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.15, duration: 0.5 }}
-      className="bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:shadow-lg transition-shadow"
     >
-      <div className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
-        <HiLocationMarker className="w-5 h-5 text-primary-700" />
-      </div>
-      <h3 className="font-heading font-bold text-primary-800 text-lg mb-3">{office.city}</h3>
-      <p className="text-slate-500 text-sm leading-relaxed mb-4">{office.address}</p>
-      <div className="space-y-2">
-        <a href={`tel:${office.phone}`} className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-700 transition-colors">
-          <HiPhone className="w-4 h-4 text-primary-500" />
-          {office.phone}
-        </a>
-        {office.email.map((e) => (
-          <a key={e} href={`mailto:${e}`} className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-700 transition-colors">
-            <HiMail className="w-4 h-4 text-primary-500" />
-            {e}
+      <motion.div
+        whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(30,58,138,0.18)' }}
+        transition={{ duration: 0.3 }}
+        className="bg-white rounded-2xl p-6 shadow-md border border-slate-100 h-full"
+      >
+        <motion.div
+          whileHover={{ scale: 1.15, rotate: [0, -8, 8, 0] }}
+          transition={{ duration: 0.4 }}
+          className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center mb-4"
+        >
+          <HiLocationMarker className="w-5 h-5 text-primary-700" />
+        </motion.div>
+        <h3 className="font-heading font-bold text-primary-800 text-lg mb-3">{office.city}</h3>
+        <p className="text-slate-500 text-sm leading-relaxed mb-4">{office.address}</p>
+        <div className="space-y-2">
+          <a href={`tel:${office.phone}`} className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-700 transition-colors">
+            <HiPhone className="w-4 h-4 text-primary-500" />
+            {office.phone}
           </a>
-        ))}
-      </div>
+          {office.email.map((e) => (
+            <a key={e} href={`mailto:${e}`} className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-700 transition-colors">
+              <HiMail className="w-4 h-4 text-primary-500" />
+              {e}
+            </a>
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   )
 }
