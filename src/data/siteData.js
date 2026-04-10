@@ -1,6 +1,6 @@
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const navLinks = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/home' },
   {
     label: 'About Us',
     href: '/about',
