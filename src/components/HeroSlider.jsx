@@ -91,18 +91,45 @@ function LocationCard({ loc, entryDelay }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.16 }}
-            className="absolute z-50 bottom-full mb-3 left-1/2 -translate-x-1/2 pointer-events-none"
+            style={{
+              position: 'absolute',
+              bottom: '100%',
+              left: '-10%',
+              transform: 'translateX(-50%)',
+              marginBottom: 10,
+              zIndex: 50,
+              pointerEvents: 'none',
+              width: 200,
+            }}
           >
-            <div className="bg-slate-800 border border-cyan-500/25 rounded-xl px-4 py-3 shadow-2xl min-w-[190px]" style={{ textAlign: 'center' }}>
-              <p className="font-semibold text-cyan-300 text-xs mb-1.5 text-center">{loc.city} Branch</p>
-              <p className="text-slate-300 text-[11px] leading-relaxed whitespace-pre-line text-center">{loc.address}</p>
-              <div className="flex items-center justify-center gap-1.5 mt-2.5 text-cyan-400 text-[11px] font-medium">
+            {/* Card */}
+            <div style={{
+              position: 'relative',
+              background: 'rgb(30,41,59)',
+              border: '1px solid rgba(6,182,212,0.25)',
+              borderRadius: 12,
+              padding: '12px 16px',
+              textAlign: 'center',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+            }}>
+              <p style={{ color: '#67e8f9', fontSize: 12, fontWeight: 600, marginBottom: 6 }}>{loc.city} Branch</p>
+              <p style={{ color: '#cbd5e1', fontSize: 11, lineHeight: 1.6, whiteSpace: 'pre-line' }}>{loc.address}</p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 10, color: '#22d3ee', fontSize: 11, fontWeight: 500 }}>
                 <HiPhone />
                 <span>{loc.phone}</span>
               </div>
-            </div>
-            <div className="flex justify-center -mt-px">
-              <div className="w-3 h-3 rotate-45" style={{ background: 'rgb(30,41,59)', borderRight: '1px solid rgba(6,182,212,0.25)', borderBottom: '1px solid rgba(6,182,212,0.25)' }} />
+              {/* Arrow — centered inside card at bottom */}
+              <div style={{
+                position: 'absolute',
+                bottom: -7,
+                left: '50%',
+                transform: 'translateX(-50%) rotate(45deg)',
+                width: 13,
+                height: 13,
+                background: 'rgb(30,41,59)',
+                borderRight: '1px solid rgba(6,182,212,0.25)',
+                borderBottom: '1px solid rgba(6,182,212,0.25)',
+              }} />
             </div>
           </motion.div>
         )}
@@ -253,7 +280,7 @@ export default function HeroSlider() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           AIRFLOW (top exhaust zone)
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      {contentReady && (
+      {contentReady && page === 0 && (
         <div className="absolute top-0 left-0 right-0 h-[46%] overflow-hidden z-10 pointer-events-none">
           <AirStreak topPct={8}  delay={0}    widthPx={130} opacity={0.6}  />
           <AirStreak topPct={24} delay={0.5}  widthPx={90}  opacity={0.48} />
@@ -277,7 +304,7 @@ export default function HeroSlider() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <div className="absolute inset-x-0 top-0 h-[46%] flex items-center justify-center z-30 pointer-events-none px-4">
         <AnimatePresence>
-          {curtainsOpen && (
+          {curtainsOpen && page === 0 && (
             <motion.div
               className="relative text-center"
               initial={{ opacity: 0, y: 40, scale: 0.86 }}
@@ -303,7 +330,7 @@ export default function HeroSlider() {
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               >
-                SS AIRCONS
+                SS AIRCON
               </motion.h1>
 
               <motion.div
@@ -416,53 +443,53 @@ export default function HeroSlider() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           BOTTOM BAR â€” location cards + dots + scroll
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      {contentReady && (
-        <div className="absolute inset-x-0 bottom-0 z-40 pb-5 pt-3 px-6 flex flex-col items-center gap-3">
-
-          {/* Location cards — ONLY on animation slide (page 0) */}
-          <AnimatePresence>
-            {page === 0 && (
-              <motion.div
-                key="locations"
-                className="flex gap-3 w-full max-w-xl justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
-              >
-                {locations.map((loc, i) => (
-                  <div key={loc.city} className="flex-1">
-                    <LocationCard loc={loc} entryDelay={0.25 + i * 0.1} />
-                  </div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Slide dots — 5 total */}
-          <div className="flex items-center gap-2.5">
-            {Array.from({ length: heroSlides.length + 1 }, (_, i) => (
-              <motion.button
-                key={`dot-${i}`}
-                onClick={() => setPage([i, i > page ? 1 : -1])}
-                whileHover={{ scale: 1.3 }}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
-                  i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
-                }`}
-              />
+      {/* ── Location cards — fixed at bottom only on slide 0 ── */}
+      <AnimatePresence>
+        {contentReady && page === 0 && (
+          <motion.div
+            key="locations"
+            className="absolute inset-x-0 z-40 flex gap-3 justify-center px-6"
+            style={{ bottom: 118 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {locations.map((loc, i) => (
+              <div key={loc.city} style={{ width: 160 }}>
+                <LocationCard loc={loc} entryDelay={0.2 + i * 0.1} />
+              </div>
             ))}
-          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-          {/* Scroll indicator */}
-          <div className="flex flex-col items-center gap-1">
-            <motion.div
-              className="w-px rounded-full bg-white/30"
-              animate={{ height: [12, 36, 12], opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      {/* ── Slide dots — always at fixed position ── */}
+      {contentReady && (
+        <div className="absolute inset-x-0 z-40 flex justify-center" style={{ bottom: 78 }}>
+          {Array.from({ length: heroSlides.length + 1 }, (_, i) => (
+            <motion.button
+              key={`dot-${i}`}
+              onClick={() => setPage([i, i > page ? 1 : -1])}
+              whileHover={{ scale: 1.3 }}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`rounded-full mx-1 transition-all duration-300 ${
+                i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
+              }`}
             />
-            <span className="text-white/30 text-[8px] tracking-[0.22em] uppercase">Scroll</span>
-          </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── Scroll indicator — always at fixed position ── */}
+      {contentReady && (
+        <div className="absolute inset-x-0 z-40 flex flex-col items-center gap-1" style={{ bottom: 20 }}>
+          <motion.div
+            className="w-px rounded-full bg-white/30"
+            animate={{ height: [12, 36, 12], opacity: [0.3, 0.7, 0.3] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <span className="text-white/30 text-[8px] tracking-[0.22em] uppercase">Scroll</span>
         </div>
       )}
 
