@@ -2,8 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { heroSlides } from '../data/siteData'
-import { HiArrowRight, HiChevronLeft, HiChevronRight, HiX } from 'react-icons/hi'
-import { FaPlay } from 'react-icons/fa'
+import { HiArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 const bgVariants = {
@@ -35,7 +34,6 @@ const floatingCards = [
 export default function HeroSlider() {
   const [[page, dir], setPage] = useState([0, 0])
   const [autoplay, setAutoplay] = useState(true)
-  const [videoOpen, setVideoOpen] = useState(false)
 
   const go = useCallback((newDir) => {
     setPage(([p]) => {
@@ -49,13 +47,6 @@ export default function HeroSlider() {
     const id = setInterval(() => go(1), 5500)
     return () => clearInterval(id)
   }, [autoplay, go])
-
-  // Close video modal with Escape key
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') setVideoOpen(false) }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [])
 
   const slide = heroSlides[page]
 
@@ -173,26 +164,6 @@ export default function HeroSlider() {
                   <a href="tel:8056041921" className="btn-outline">
                     Call Us Now
                   </a>
-
-                  {/* Video play button */}
-                  <button
-                    onClick={() => setVideoOpen(true)}
-                    className="inline-flex items-center gap-3 text-white/75 hover:text-white transition-colors group"
-                    aria-label="Watch company video"
-                  >
-                    <div className="relative w-12 h-12 rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm flex items-center justify-center group-hover:border-accent-400 group-hover:bg-accent-500/20 transition-all">
-                      <FaPlay className="w-3.5 h-3.5 ml-0.5 text-white" />
-                      <motion.span
-                        className="absolute inset-0 rounded-full border-2 border-white/25"
-                        animate={{ scale: [1, 1.6, 1], opacity: [0.5, 0, 0.5] }}
-                        transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-                      />
-                    </div>
-                    <div className="hidden sm:block text-left">
-                      <div className="text-sm font-semibold leading-none">Watch Our Work</div>
-                      <div className="text-xs text-white/45 mt-0.5">Company Overview</div>
-                    </div>
-                  </button>
                 </motion.div>
 
                 {/* Quick stat strip — mobile / tablet (hidden on xl where floating cards show) */}
@@ -212,25 +183,29 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* ── Prev / Next buttons ───────────────────── */}
-        <motion.button
-          whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.22)' }}
-          whileTap={{ scale: 0.92 }}
-          onClick={() => go(-1)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/10 transition-colors"
-          aria-label="Previous slide"
-        >
-          <HiChevronLeft className="w-6 h-6" />
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.22)' }}
-          whileTap={{ scale: 0.92 }}
-          onClick={() => go(1)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/10 transition-colors"
-          aria-label="Next slide"
-        >
-          <HiChevronRight className="w-6 h-6" />
-        </motion.button>
+        {/* ── Prev / Next buttons ── positioning wrapper keeps translate-y intact ── */}
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20">
+          <motion.button
+            whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.22)' }}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => go(-1)}
+            className="p-3 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/10 transition-colors block"
+            aria-label="Previous slide"
+          >
+            <HiChevronLeft className="w-6 h-6" />
+          </motion.button>
+        </div>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20">
+          <motion.button
+            whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.22)' }}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => go(1)}
+            className="p-3 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/10 transition-colors block"
+            aria-label="Next slide"
+          >
+            <HiChevronRight className="w-6 h-6" />
+          </motion.button>
+        </div>
 
         {/* ── Animated slide dots ───────────────────── */}
         <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
@@ -269,48 +244,6 @@ export default function HeroSlider() {
           </span>
         </div>
       </section>
-
-      {/* ── Video modal ──────────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {videoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/85 backdrop-blur-sm z-[300] flex items-center justify-center p-4"
-            onClick={() => setVideoOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.75, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.75, opacity: 0, y: 30 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl bg-primary-900 border border-white/10"
-              style={{ aspectRatio: '16/9' }}
-            >
-              {/* Replace the video ID below with your own YouTube video ID */}
-              <iframe
-                src="https://www.youtube.com/embed/Bey4XXJAqS8?autoplay=1&rel=0&modestbranding=1"
-                title="SS Aircon Company Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setVideoOpen(false)}
-                aria-label="Close video"
-                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-accent-500 transition-colors"
-              >
-                <HiX className="w-5 h-5" />
-              </motion.button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   )
 }

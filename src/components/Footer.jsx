@@ -127,12 +127,23 @@ export default function Footer() {
               <HiPhone className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
               <a href="tel:8056041921" className="hover:text-white transition-colors">8056041921</a>
             </div>
-            <div className="flex gap-2 text-blue-200 text-sm">
-              <HiMail className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
-              <div className="flex flex-col gap-1">
-                <a href="mailto:sales@ssaircons.com" className="hover:text-white transition-colors">sales@ssaircons.com</a>
-                <a href="mailto:service@ssaircons.com" className="hover:text-white transition-colors">service@ssaircons.com</a>
-              </div>
+            <div className="flex items-center gap-3">
+              <a
+                href="mailto:sales@ssaircons.com"
+                aria-label="Email sales@ssaircons.com"
+                title="sales@ssaircons.com"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-accent-500 flex items-center justify-center transition-colors"
+              >
+                <HiMail className="w-4 h-4 text-white" />
+              </a>
+              <a
+                href="mailto:service@ssaircons.com"
+                aria-label="Email service@ssaircons.com"
+                title="service@ssaircons.com"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-accent-500 flex items-center justify-center transition-colors"
+              >
+                <HiMail className="w-4 h-4 text-white" />
+              </a>
             </div>
             <div>
               <p className="text-white text-xs font-semibold uppercase mb-2">Thanjavur</p>

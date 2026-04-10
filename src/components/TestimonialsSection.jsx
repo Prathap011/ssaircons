@@ -36,7 +36,7 @@ const glowVariants = {
 
 const quoteVariants = {
   rest: { scale: 1, rotate: 0 },
-  hover: { scale: 1.2, rotate: -10, transition: { duration: 0.3 } },
+  hover: { scale: 1.08, rotate: -6, transition: { duration: 0.3 } },
 }
 
 export default function TestimonialsSection() {
@@ -72,10 +72,12 @@ export default function TestimonialsSection() {
                   className="absolute inset-0 bg-gradient-to-br from-primary-100/60 to-blue-100/60 rounded-2xl pointer-events-none"
                 />
 
-                {/* Quote icon */}
-                <motion.div variants={quoteVariants} className="relative z-10">
-                  <FaQuoteLeft className="w-8 h-8 text-primary-200 group-hover:text-primary-400 mb-4 transition-colors duration-300" />
-                </motion.div>
+                {/* Quote icon — constrained in a fixed box so it never overflows the card */}
+                <div className="w-10 h-10 mb-4 overflow-hidden relative z-10 flex-shrink-0">
+                  <motion.div variants={quoteVariants}>
+                    <FaQuoteLeft className="w-8 h-8 text-primary-200 group-hover:text-primary-400 transition-colors duration-300" />
+                  </motion.div>
+                </div>
 
                 <p className="text-slate-600 text-sm leading-relaxed mb-5 flex-grow relative z-10">{t.text}</p>
 

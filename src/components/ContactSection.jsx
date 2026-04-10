@@ -51,12 +51,19 @@ function OfficeCard({ office, index }) {
             <HiPhone className="w-4 h-4 text-primary-500" />
             {office.phone}
           </a>
-          {office.email.map((e) => (
-            <a key={e} href={`mailto:${e}`} className="flex items-center gap-2 text-sm text-slate-600 hover:text-primary-700 transition-colors">
-              <HiMail className="w-4 h-4 text-primary-500" />
-              {e}
-            </a>
-          ))}
+          <div className="flex items-center gap-2 pt-1">
+            {office.email.map((e) => (
+              <a
+                key={e}
+                href={`mailto:${e}`}
+                aria-label={`Email ${e}`}
+                title={e}
+                className="w-8 h-8 rounded-full bg-primary-100 hover:bg-primary-600 flex items-center justify-center transition-colors group/mail"
+              >
+                <HiMail className="w-4 h-4 text-primary-600 group-hover/mail:text-white transition-colors" />
+              </a>
+            ))}
+          </div>
         </div>
       </motion.div>
     </motion.div>
