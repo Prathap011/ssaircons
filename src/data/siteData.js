@@ -1,6 +1,6 @@
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const navLinks = [
-  { label: 'Home', href: '/home' },
+  { label: 'Home', href: '/' },
   {
     label: 'About Us',
     href: '/about',
@@ -21,7 +21,6 @@ export const navLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Our Projects', href: '/about#projects' },
   { label: 'Clients', href: '/about#clients' },
-  { label: 'Contact Us', href: '/contact' },
 ]
 
 // ─── Hero Slides ──────────────────────────────────────────────────────────────
@@ -31,7 +30,7 @@ export const heroSlides = [
     tagline: 'Comfort For Every Season',
     title: 'BRING HOME\nALL WEATHER COMFORT',
     subtitle: 'With Air Conditioner',
-    cta: { label: 'Discover More', href: '/about' },
+    cta: { label: 'Explore', href: '/about' },
     bg: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80',
   },
   {

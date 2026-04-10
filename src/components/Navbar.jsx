@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrolled } from '../hooks/useScrolled'
 import { navLinks } from '../data/siteData'
-import { HiMenu, HiX, HiChevronDown, HiPhone } from 'react-icons/hi'
+import { HiMenu, HiX, HiChevronDown, HiPhone, HiMail } from 'react-icons/hi'
 
 export default function Navbar() {
   const scrolled = useScrolled(80)
@@ -43,7 +43,8 @@ export default function Navbar() {
               8056041921
             </a>
             <span className="text-slate-500">|</span>
-            <a href="mailto:sales@ssaircons.com" className="hover:text-accent-400 transition-colors">
+            <a href="mailto:sales@ssaircons.com" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
+              <HiMail className="w-4 h-4" />
               sales@ssaircons.com
             </a>
           </div>
@@ -134,7 +135,7 @@ export default function Navbar() {
             href="/contact"
             className="hidden lg:inline-flex btn-primary text-sm py-2.5"
           >
-            Get a Quote
+            Contact Us
           </a>
 
           {/* Mobile hamburger */}
@@ -219,7 +220,7 @@ export default function Navbar() {
                   </div>
                 ))}
                 <a href="/contact" className="btn-primary mt-3 justify-center">
-                  Get a Free Quote
+                  Contact Us
                 </a>
               </div>
             </motion.nav>
