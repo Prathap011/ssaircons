@@ -353,8 +353,8 @@ export default function HeroSlider() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SLIDE CONTENT â€” bottom 54% (left-aligned)
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <div className="absolute inset-x-0 bottom-0 h-[54%] z-30 flex items-center">
-        <div className="w-full px-8 sm:px-12 lg:px-16 max-w-3xl">
+      <div className="absolute inset-0 z-30 flex items-center">
+        <div className="w-full pl-20 sm:pl-24 lg:pl-28 pr-8 sm:pr-12 lg:pr-16 max-w-4xl text-left">
           <AnimatePresence mode="wait">
             {contentReady && page !== 0 && (
               <motion.div
@@ -365,8 +365,8 @@ export default function HeroSlider() {
                 exit="exit"
               >
                 {/* Tagline badge */}
-                <motion.div variants={contentItem}>
-                  <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold text-xs uppercase tracking-[0.18em] px-4 py-1.5 rounded-full mb-4">
+                <motion.div variants={contentItem} className="flex justify-start">
+                  <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold text-sm uppercase tracking-[0.18em] px-5 py-2 rounded-full mb-5">
                     + {slide.tagline}
                   </span>
                 </motion.div>
@@ -374,19 +374,19 @@ export default function HeroSlider() {
                 {/* Title */}
                 <motion.h2
                   variants={contentItem}
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] mb-4 font-heading whitespace-pre-line"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-5 font-heading whitespace-pre-line"
                   style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
                 >
                   {slide.title}
                 </motion.h2>
 
                 {/* Subtitle */}
-                <motion.p variants={contentItem} className="text-white/85 text-base md:text-lg mb-6 leading-relaxed max-w-md">
+                <motion.p variants={contentItem} className="text-white/85 text-lg md:text-xl mb-8 leading-relaxed max-w-2xl">
                   {slide.subtitle}
                 </motion.p>
 
-                {/* CTA buttons — slide 1: Explore + Contact Us; slides 2-3: Contact Us only */}
-                <motion.div variants={contentItem} className="flex flex-wrap items-center gap-4">
+                {/* CTA buttons */}
+                <motion.div variants={contentItem} className="flex flex-wrap items-center justify-start gap-4">
                   {page === 1 ? (
                     <>
                       <Link to="/about" className="btn-primary group shadow-lg shadow-accent-500/30">
@@ -464,41 +464,22 @@ export default function HeroSlider() {
         )}
       </AnimatePresence>
 
-      {/* ── Slide dots — always at fixed position ── */}
+      {/* ── Slide dots ── */}
       {contentReady && (
-        <div className="absolute inset-x-0 z-40 flex justify-center" style={{ bottom: 78 }}>
-          {Array.from({ length: heroSlides.length + 1 }, (_, i) => (
-            <motion.button
-              key={`dot-${i}`}
-              onClick={() => setPage([i, i > page ? 1 : -1])}
-              whileHover={{ scale: 1.3 }}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`rounded-full mx-1 transition-all duration-300 ${
-                i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
-              }`}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* ── Scroll indicator — always at fixed position ── */}
-      {contentReady && (
-        <div className="absolute inset-x-0 z-40 flex flex-col items-center gap-1" style={{ bottom: 20 }}>
-          <motion.div
-            className="w-px rounded-full bg-white/30"
-            animate={{ height: [12, 36, 12], opacity: [0.3, 0.7, 0.3] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <span className="text-white/30 text-[8px] tracking-[0.22em] uppercase">Scroll</span>
-        </div>
-      )}
-
-      {/* Slide counter (bottom right) */}
-      {contentReady && (
-        <div className="absolute bottom-5 right-6 z-40 hidden md:flex items-center gap-1.5 font-mono">
-          <span className="text-white font-bold text-base">{String(page + 1).padStart(2, '0')}</span>
-          <span className="text-white/30 text-sm">/</span>
-          <span className="text-white/40 text-xs">{String(heroSlides.length + 1).padStart(2, '0')}</span>
+        <div className="absolute inset-x-0 z-40 flex justify-center pointer-events-none" style={{ bottom: 52 }}>
+          <div className="flex items-center gap-2 pointer-events-auto">
+            {Array.from({ length: heroSlides.length + 1 }, (_, i) => (
+              <motion.button
+                key={`dot-${i}`}
+                onClick={() => setPage([i, i > page ? 1 : -1])}
+                whileHover={{ scale: 1.3 }}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </section>

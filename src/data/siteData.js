@@ -31,7 +31,7 @@ export const heroSlides = [
     title: 'BRING HOME\nALL WEATHER COMFORT',
     subtitle: 'With Air Conditioner',
     cta: { label: 'Explore', href: '/about' },
-    bg: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80',
+    bg: '/assets/hvaclanding02.jpeg',
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const heroSlides = [
     title: 'HVAC CONTRACTING\nCOMPANY WHO IS SERVING',
     subtitle: 'The Industry for the Past 18 Years',
     cta: { label: 'Contact Us', href: '/contact' },
-    bg: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80',
+    bg: '/assets/hvaclanding03.jpeg',
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const heroSlides = [
     title: 'HEATER BANK',
     subtitle: 'Provide Electrical Heating to Condition Supply Air in Commercial & Industrial Applications',
     cta: { label: 'Contact Us', href: '/contact' },
-    bg: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&auto=format&fit=crop&q=80',
+    bg: '/assets/hvaclanding04.jpeg',
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const heroSlides = [
     title: "INDIA'S CHEAPEST\nAPPLIANCE SERVICE",
     subtitle: 'At Your Door Step',
     cta: { label: 'Contact Us', href: '/contact' },
-    bg: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600&auto=format&fit=crop&q=80',
+    bg: '/assets/hvaclanding05.jpeg',
   },
 ]
 
