@@ -1,117 +1,261 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
-import { products } from '../data/siteData'
-import SectionTitle from './SectionTitle'
-import { HiArrowRight } from 'react-icons/hi'
+import {
+  HiArrowRight,
+  HiCog,
+  HiDeviceMobile,
+  HiTemplate,
+} from 'react-icons/hi'
+import { MdAcUnit } from 'react-icons/md'
+import { FaWind, FaFire } from 'react-icons/fa'
 
-const cardVariants = {
-  rest: { y: 0, boxShadow: '0 4px 6px -1px rgba(0,0,0,0.08)' },
-  hover: { y: -10, boxShadow: '0 25px 50px -12px rgba(30,58,138,0.25)' },
-}
+const services = [
+  {
+    id: 'ac-install',
+    productId: 'precision',
+    num: '01',
+    Icon: MdAcUnit,
+    title: 'Precision Air Conditioning',
+    description:
+      'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level for critical environments.',
+  },
+  {
+    id: 'ac-repair',
+    productId: 'ahu',
+    num: '02',
+    Icon: HiCog,
+    title: 'Air Handling Unit (AHU)',
+    description:
+      'An AHU is used to re-condition and circulate air as part of a heating & air-conditioning system, improving indoor air quality.',
+  },
+  {
+    id: 'heating',
+    productId: 'cassette',
+    num: '03',
+    Icon: FaFire,
+    title: 'Cassette Air Conditioner',
+    description:
+      'Gives you the freedom to choose a model according to your requirements and budget for optimal ceiling-mounted cooling.',
+  },
+  {
+    id: 'ventilation',
+    productId: 'chiller',
+    num: '04',
+    Icon: FaWind,
+    title: 'Chillers',
+    description:
+      'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools fluid for large commercial applications.',
+  },
+  {
+    id: 'thermostat',
+    productId: 'ductable',
+    num: '05',
+    Icon: HiDeviceMobile,
+    title: 'Ductable Air Conditioner',
+    description:
+      'A balanced air controlling device which makes the air capable to breathe in for large commercial and industrial spaces.',
+  },
+  {
+    id: 'hvac-design',
+    productId: 'fcu',
+    num: '06',
+    Icon: HiTemplate,
+    title: 'Fan Coil Unit (FCU)',
+    description:
+      'A fan coil unit uses a coil and a fan to heat or cool a room without connecting to ductwork, ideal for individual room control.',
+  },
+]
 
-const imageVariants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.08, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
-const overlayVariants = {
-  rest: { opacity: 0 },
-  hover: { opacity: 1, transition: { duration: 0.3 } },
-}
-
-const arrowVariants = {
-  rest: { x: 0 },
-  hover: { x: 5, transition: { duration: 0.2 } },
-}
-
-function ProductCard({ product, index }) {
-  const { ref, inView } = useInView()
-  const [imgError, setImgError] = useState(false)
+// ─── Service card ─────────────────────────────────────────────────────────────
+function ServiceCard({ service, index }) {
+  const [hovered, setHovered] = useState(false)
+  const { Icon } = service
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.12 }}
+    <Link
+      to={`/products#${service.productId}`}
+      className="block"
+      tabIndex={-1}
     >
-      <motion.div
-        variants={cardVariants}
-        initial="rest"
-        whileHover="hover"
-        transition={{ duration: 0.3 }}
-        className="group bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col h-full cursor-default"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative p-8 border overflow-hidden cursor-pointer transition-colors duration-300"
+      style={{
+        background: hovered ? 'rgba(207,250,254,0.7)' : 'rgba(255,255,255,0.85)',
+        borderColor: hovered ? 'rgba(8,145,178,0.45)' : 'rgba(165,243,252,0.6)',
+      }}
+    >
+      {/* Number */}
+      <div
+        className="text-5xl font-bold font-heading leading-none mb-4 select-none transition-colors duration-300"
+        style={{ color: hovered ? 'rgba(6,182,212,0.22)' : 'rgba(14,116,144,0.1)' }}
       >
-        <div className="relative h-52 overflow-hidden bg-slate-100">
-          {!imgError ? (
-            <motion.img
-              variants={imageVariants}
-              src={product.image}
-              alt={product.title}
-              className="w-full h-full object-cover"
-              onError={() => setImgError(true)}
-              loading="lazy"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200 text-primary-600 text-5xl">
-              ❄️
-            </div>
-          )}
-          <motion.div
-            variants={overlayVariants}
-            className="absolute inset-0 bg-gradient-to-t from-primary-900/60 to-primary-600/10"
-          />
-        </div>
+        {service.num}
+      </div>
 
-        <div className="p-5 flex flex-col flex-grow">
-          <h3 className="font-heading font-semibold text-primary-800 text-lg mb-2 group-hover:text-primary-600 transition-colors duration-200">
-            {product.title}
-          </h3>
-          <p className="text-slate-500 text-sm leading-relaxed flex-grow">{product.description}</p>
-          <Link
-            to="/products"
-            className="mt-4 inline-flex items-center gap-1 text-primary-700 font-semibold text-sm hover:text-accent-500 transition-colors"
-          >
-            More Info
-            <motion.span variants={arrowVariants}>
-              <HiArrowRight className="w-4 h-4" />
-            </motion.span>
-          </Link>
-        </div>
+      {/* Icon box */}
+      <motion.div
+        animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
+        style={{
+          background: hovered ? 'rgba(249,115,22,0.12)' : 'rgba(6,182,212,0.1)',
+          border: hovered ? '1px solid rgba(249,115,22,0.35)' : '1px solid rgba(6,182,212,0.3)',
+        }}
+      >
+        <Icon
+          className="w-5 h-5 transition-colors duration-300"
+          style={{ color: hovered ? '#f97316' : '#0891b2' }}
+        />
       </motion.div>
+
+      {/* Title */}
+      <h3 className="font-heading font-semibold text-lg text-primary-800 mb-2">
+        {service.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-slate-500 leading-relaxed">
+        {service.description}
+      </p>
+
+      {/* Discover link */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+        className="mt-5 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
+      >
+        Discover
+        <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
+          <HiArrowRight className="w-3.5 h-3.5" />
+        </motion.span>
+      </motion.div>
+
+      {/* Bottom accent line */}
+      <motion.div
+        animate={{ scaleX: hovered ? 1 : 0 }}
+        initial={{ scaleX: 0 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 origin-left"
+      />
+
+      {/* Top-left corner glow */}
+      {hovered && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at top left, rgba(6,182,212,0.12) 0%, transparent 70%)',
+          }}
+        />
+      )}
     </motion.div>
+    </Link>
   )
 }
 
+// ─── Section ──────────────────────────────────────────────────────────────────
 export default function ProductsSection() {
+  const { ref, inView } = useInView()
+
   return (
-    <section className="section-padding bg-white" id="products">
-      <div className="container-custom">
-        <SectionTitle
-          label="Our Products"
-          title="Top-Quality HVAC Products"
-          subtitle="From precision cooling to large-scale chillers — we supply and install the right solution for every need."
-          center
+    <section
+      className="relative bg-gradient-to-br from-slate-50 to-primary-50"
+      id="products"
+    >
+      {/*
+        Background effects in a separate div that clips itself — does NOT affect
+        the sticky context of child elements.
+      */}
+      <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'clip' }}>
+        {/* Blue grid line */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(14,116,144,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14,116,144,0.06) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {products.map((p, i) => (
-            <ProductCard key={p.id} product={p} index={i} />
-          ))}
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-10"
+        {/* Glow blobs */}
+        <div
+          className="absolute top-0 right-0 w-96 h-96 rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)' }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-80 h-80 rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)' }}
+        />
+      </div>
+
+      {/*
+        KEY: items-start on this flex row makes position:sticky work on the left child.
+        The section has NO overflow:hidden so sticky is never blocked.
+      */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start">
+
+        {/* LEFT sticky panel — sticks to top while right column scrolls */}
+        <div
+          ref={ref}
+          className="lg:sticky lg:top-0 lg:h-screen
+                     flex flex-col justify-center
+                     py-16 lg:py-0
+                     w-full lg:w-[420px] lg:min-w-[420px]
+                     lg:border-r border-primary-200 lg:pr-14"
         >
-          <Link to="/products" className="btn-primary group">
-            View All Products{' '}
-            <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -28 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px bg-accent-500" />
+              <span className="text-accent-500 text-xs font-semibold uppercase tracking-widest">
+                Our Products
+              </span>
+            </div>
+
+            <h2
+              className="font-heading font-bold text-primary-800 leading-tight mb-5"
+              style={{ fontSize: 'clamp(1.9rem, 3.4vw, 2.75rem)' }}
+            >
+              Top-Quality<br />
+              <span className="text-primary-500">HVAC</span> Products
+            </h2>
+
+            <div className="w-12 h-0.5 bg-primary-300 mb-5" />
+
+            <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-xs">
+              From precision cooling to large-scale chillers — we supply and
+              install the right solution for every need.
+            </p>
+
+            <Link to="/products" className="btn-primary group">
+              View All Products
+              <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* RIGHT: scrollable service card grid — 2 columns, shared borders */}
+        <div className="flex-1 py-16 lg:pl-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 border border-primary-200">
+            {services.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )
