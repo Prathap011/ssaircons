@@ -129,7 +129,7 @@ export default function WhyUsSection() {
               style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.5rem)' }}
             >
               Why Choose<br />
-              <span className="italic text-accent-400">SS Aircon?</span>
+              <span className="text-accent-400">SS Aircon?</span>
             </motion.h2>
 
             <motion.p

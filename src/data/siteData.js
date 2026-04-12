@@ -57,7 +57,7 @@ export const heroSlides = [
   {
     id: 4,
     tagline: "India's Best Value",
-    title: "INDIA'S CHEAPEST\nAPPLIANCE SERVICE",
+    title: "INDIA'S LOW-COST\nAPPLIANCE SERVICE",
     subtitle: 'At Your Door Step',
     cta: { label: 'Contact Us', href: '/contact' },
     bg: '/assets/hvaclanding05.jpeg',
@@ -230,12 +230,6 @@ export const offices = [
     email: ['sales@ssaircons.com', 'service@ssaircons.com'],
   },
   {
-    city: 'Thanjavur',
-    address: 'No.4 & 5, Sai Ram Complex, Kamala Avenue, Alagammal Nagar, Thanjavur - 613 005',
-    phone: '8056041921',
-    email: ['sales@ssaircons.com', 'tnj@ssaircons.com'],
-  },
-  {
     city: 'Trichy',
     address: 'No.14, Jaya Nagar, 2nd Street, RMS Colony, Karumandapam, Trichy - 620 001',
     phone: '8056041921',
@@ -245,12 +239,12 @@ export const offices = [
 
 // ─── Clients / Partners ───────────────────────────────────────────────────────
 export const partners = [
-  'Blue Star Limited',
-  'Symphony Industrial Air Coolers'
+  'BLUE STAR',
+  'SYMPHONY'
 ]
 
 export const partners1 = [
-  'Vertiv Energy Pvt Ltd'
+  'VERTIV'
 ]
 
 // ─── Enquiry dropdown options ─────────────────────────────────────────────────

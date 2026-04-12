@@ -11,11 +11,6 @@ const locations = [
     phone: '+91 80560 41921',
   },
   {
-    city: 'Thanjavur',
-    address: 'No.4 & 5, Sai Ram Complex,\nKamala Avenue, Alagammal Nagar,\nThanjavur – 613 005',
-    phone: '+91 80560 41921',
-  },
-  {
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai – 600 091',
     phone: '+91 80560 41921',

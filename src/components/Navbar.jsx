@@ -36,7 +36,7 @@ export default function Navbar() {
       {/* Top bar */}
       <div className="hidden lg:block bg-primary-900 text-white text-sm">
         <div className="container-custom flex justify-between items-center py-2">
-          <span className="text-slate-300">India's Cheapest Appliance Service — At Your Door Step</span>
+          <span className="text-slate-300">India's Low-Cost Appliance Service — At Your Door Step</span>
           <div className="flex items-center gap-4">
             <a href="tel:8056041921" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
               <HiPhone className="w-4 h-4" />

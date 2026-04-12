@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     name: 'Priya Nair',
-    role: 'Facility Manager, Thanjavur',
+    role: 'Facility Manager, Chennai',
     text: 'Their 24/7 breakdown support saved us during a critical server room failure. Response time was under 30 minutes. Outstanding service!',
     rating: 5,
   },

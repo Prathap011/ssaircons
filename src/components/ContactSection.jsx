@@ -108,7 +108,7 @@ export default function ContactSection() {
 
   return (
     <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50" id="contact">
-      <div className="container-custom">
+      <div className="container-custom flex flex-col items-center">
         <SectionTitle
           label="Get In Touch"
           title="Contact Us"
@@ -116,8 +116,8 @@ export default function ContactSection() {
           center
         />
 
-        {/* Office cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        {/* Office cards — centred for 2 */}
+        <div className="grid sm:grid-cols-2 gap-6 mb-14 max-w-3xl w-full mx-auto">
           {offices.map((o, i) => (
             <OfficeCard key={o.city} office={o} index={i} />
           ))}
@@ -129,7 +129,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100"
+          className="max-w-2xl w-full mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100 text-center"
         >
           <h3 className="font-heading font-bold text-primary-800 text-2xl mb-8 text-center">
             Send Us a Message

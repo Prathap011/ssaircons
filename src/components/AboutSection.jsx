@@ -236,7 +236,7 @@ export default function AboutSection() {
 
                 {/* Partners */}
               <div className="bg-slate-50 rounded-xl p-4 mb-6">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Authorized Partner of</p>
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Authorized Dealer</p>
                 <div className="flex flex-wrap gap-2">
                   {partners.map((p) => (
                     <motion.span
@@ -253,7 +253,7 @@ export default function AboutSection() {
 
               {/* Partners */}
               <div className="bg-slate-50 rounded-xl p-4 mb-6">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Franchise Partner of</p>
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Franchise Dealer</p>
                 <div className="flex flex-wrap gap-2">
                   {partners1.map((p) => (
                     <motion.span

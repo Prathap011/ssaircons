@@ -146,10 +146,10 @@ export default function Footer() {
               </a>
             </div>
             <div>
-              <p className="text-accent-400 text-xs font-bold uppercase tracking-widest mb-2">Thanjavur</p>
+              <p className="text-accent-400 text-xs font-bold uppercase tracking-widest mb-2">Trichy</p>
               <div className="flex gap-2 text-white text-sm">
                 <HiLocationMarker className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
-                <span>No.4 &amp; 5, Sai Ram Complex, Kamala Avenue, Alagammal Nagar, Thanjavur - 613 005</span>
+                <span>No.14, Jaya Nagar, 2nd Street, RMS Colony, Karumandapam, Trichy - 620 001</span>
               </div>
             </div>
           </div>
@@ -158,11 +158,8 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/80">
+        <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-center text-sm text-white/80 text-center">
           <span>&copy; {year} SS Aircon. All rights reserved.</span>
-          <span className="flex items-center gap-1.5">
-            Crafted with <HiLocationMarker className="w-4 h-4 text-accent-400" /> in Chennai
-          </span>
         </div>
       </div>
     </footer>

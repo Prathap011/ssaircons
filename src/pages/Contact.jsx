@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Us | SS Aircon HVAC</title>
-        <meta name="description" content="Contact SS Aircon for AC service, HVAC installation, and maintenance. Offices in Chennai, Thanjavur, and Trichy." />
+        <meta name="description" content="Contact SS Aircon for AC service, HVAC installation, and maintenance. Offices in Chennai and Trichy." />
       </Helmet>
 
       <PageHero
