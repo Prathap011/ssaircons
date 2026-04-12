@@ -101,14 +101,14 @@ function ServiceCard({ service, index }) {
 
 export default function ServicesSection() {
   return (
-    <section className="section-padding bg-gradient-to-br from-slate-900 to-primary-900" id="services">
+    // <section className="section-padding bg-gradient-to-br from-slate-900 to-primary-900" id="services">
+    <section className="section-padding" id="services">
       <div className="container-custom">
         <SectionTitle
           label="Our Services"
           title="Comprehensive HVAC Services"
           subtitle="From routine maintenance to full HVAC installations — we handle it all with expert precision."
           center
-          dark
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s, i) => (
