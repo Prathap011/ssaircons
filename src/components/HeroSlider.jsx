@@ -8,17 +8,12 @@ import { HiArrowRight, HiChevronLeft, HiChevronRight, HiLocationMarker, HiPhone 
 const locations = [
   {
     city: 'Trichy',
-    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy â€“ 620 001',
-    phone: '+91 80560 41921',
-  },
-  {
-    city: 'Thanjavur',
-    address: 'No.4 & 5, Sai Ram Complex,\nKamala Avenue, Alagammal Nagar,\nThanjavur â€“ 613 005',
+    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy - 620 001',
     phone: '+91 80560 41921',
   },
   {
     city: 'Chennai',
-    address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai â€“ 600 091',
+    address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai - 600 091',
     phone: '+91 80560 41921',
   },
 ]

@@ -28,7 +28,7 @@ export default function About() {
     <>
       <Helmet>
         <title>About SS Aircon | HVAC Experts Since 2004</title>
-        <meta name="description" content="SS Aircon – Established 2004. Authorized dealer for Bluestar, Symphony and Vertiv. 300+ completed projects, 18+ years of HVAC excellence." />
+        <meta name="description" content="SS Aircon – Established 2004. Authorized dealer for Bluestar, Symphony and Vertiv. 300+ completed projects, 24+ years of HVAC excellence." />
       </Helmet>
 
       <PageHero
@@ -49,7 +49,7 @@ export default function About() {
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
                   SS AIRCON was started on <strong>14th April 2004</strong> and is one of the leading HVAC contracting
-                  companies serving the industry for the past 18+ years. We are an authorized dealer for
+                  companies serving the industry for the past 24+ years. We are an authorized dealer for
                   <strong> Blue Star Limited</strong> and <strong>Symphony Industrial Air Coolers</strong>.
                 </p>
                 <p>

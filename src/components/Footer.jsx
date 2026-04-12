@@ -33,11 +33,11 @@ export default function Footer() {
         <div>
           <Link to="/" className="inline-block mb-4">
             <div className="font-heading font-bold text-2xl">
-              <span className="text-accent-400">SS</span> AIRCON
+              <span className="text-accent-800">SS AIRCON</span>
             </div>
-            <div className="text-xs text-blue-300 mt-0.5">HVAC Experts Since 2004</div>
+            <div className="text-xs text-primary-300 mt-0.5">HVAC Experts Since 2004</div>
           </Link>
-          <p className="text-blue-200 text-sm leading-relaxed mb-5">
+          <p className="text-white text-sm leading-relaxed mb-5">
             SS AIRCON was started on 14th April 2004. We are an authorized dealer for Blue Star Limited
             and Symphony Industrial Air Coolers, and an authorized franchisee of Vertiv Energy Pvt Ltd.
           </p>
@@ -74,17 +74,18 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5 text-accent-400">
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider mb-5 text-white border-b border-white/10 pb-3">
             Quick Links
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {quickLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   to={l.href}
-                  className="text-blue-200 text-sm hover:text-white hover:translate-x-1 inline-block transition-all"
+                  className="text-white text-sm hover:text-accent-300 inline-flex items-center gap-1.5 transition-all duration-200 group hover:translate-x-1"
                 >
-                  › {l.label}
+                  <span className="text-accent-400 group-hover:translate-x-1 transition-transform duration-200">&rsaquo;</span>
+                  {l.label}
                 </Link>
               </li>
             ))}
@@ -93,17 +94,18 @@ export default function Footer() {
 
         {/* Products */}
         <div>
-          <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5 text-accent-400">
-            Products & Services
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider mb-5 text-white border-b border-white/10 pb-3">
+            Products &amp; Services
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {productLinks.map((l) => (
               <li key={l.label}>
                 <Link
                   to={l.href}
-                  className="text-blue-200 text-sm hover:text-white hover:translate-x-1 inline-block transition-all"
+                  className="text-white text-sm hover:text-accent-300 inline-flex items-center gap-1.5 transition-all duration-200 group hover:translate-x-1"
                 >
-                  › {l.label}
+                  <span className="text-accent-400 group-hover:translate-x-1 transition-transform duration-200">&rsaquo;</span>
+                  {l.label}
                 </Link>
               </li>
             ))}
@@ -112,44 +114,42 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5 text-accent-400">
+          <h4 className="font-heading font-bold text-sm uppercase tracking-wider mb-5 text-white border-b border-white/10 pb-3">
             Contact Info
           </h4>
           <div className="space-y-5">
             <div>
-              <p className="text-white text-xs font-semibold uppercase mb-2">Chennai</p>
-              <div className="flex gap-2 text-blue-200 text-sm">
+              <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 text-accent-400">Chennai</p>
+              <div className="flex gap-2 text-white text-sm">
                 <HiLocationMarker className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
                 <span>No.18/2, Village Road, Balaji Nagar, Puzhuthivakkam, Chennai - 600091</span>
               </div>
             </div>
-            <div className="flex gap-2 text-blue-200 text-sm">
+            <div className="flex gap-2 text-white text-sm">
               <HiPhone className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
-              <a href="tel:8056041921" className="hover:text-white transition-colors">8056041921</a>
+              <a href="tel:8056041921" className="hover:text-accent-300 transition-colors">8056041921</a>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-2">
               <a
                 href="mailto:sales@ssaircons.com"
-                aria-label="Email sales@ssaircons.com"
-                title="sales@ssaircons.com"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-accent-500 flex items-center justify-center transition-colors"
+                className="flex items-center gap-2 text-white text-sm hover:text-accent-300 transition-colors"
               >
-                <HiMail className="w-4 h-4 text-white" />
+                <HiMail className="w-4 h-4 text-accent-400 flex-shrink-0" />
+                sales@ssaircons.com
               </a>
               <a
                 href="mailto:service@ssaircons.com"
-                aria-label="Email service@ssaircons.com"
-                title="service@ssaircons.com"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-accent-500 flex items-center justify-center transition-colors"
+                className="flex items-center gap-2 text-white text-sm hover:text-accent-300 transition-colors"
               >
-                <HiMail className="w-4 h-4 text-white" />
+                <HiMail className="w-4 h-4 text-accent-400 flex-shrink-0" />
+                service@ssaircons.com
               </a>
             </div>
             <div>
-              <p className="text-white text-xs font-semibold uppercase mb-2">Thanjavur</p>
-              <div className="flex gap-2 text-blue-200 text-sm">
+              <p className="text-accent-400 text-xs font-bold uppercase tracking-widest mb-2">Thanjavur</p>
+              <div className="flex gap-2 text-white text-sm">
                 <HiLocationMarker className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
-                <span>No.4 & 5, Sai Ram Complex, Kamala Avenue, Alagammal Nagar, Thanjavur - 613 005</span>
+                <span>No.4 &amp; 5, Sai Ram Complex, Kamala Avenue, Alagammal Nagar, Thanjavur - 613 005</span>
               </div>
             </div>
           </div>
@@ -158,9 +158,11 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-blue-300">
-          <span>© {year} SS Aircon. All rights reserved.</span>
-          <span>Crafted with ❤️ in Chennai</span>
+        <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/80">
+          <span>&copy; {year} SS Aircon. All rights reserved.</span>
+          <span className="flex items-center gap-1.5">
+            Crafted with <HiLocationMarker className="w-4 h-4 text-accent-400" /> in Chennai
+          </span>
         </div>
       </div>
     </footer>

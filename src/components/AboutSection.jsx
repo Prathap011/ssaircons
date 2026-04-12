@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
-import { capabilities, partners } from '../data/siteData'
+import { capabilities, partners, partners1 } from '../data/siteData'
 import SectionTitle from './SectionTitle'
 import { HiCheckCircle, HiArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
@@ -130,13 +130,6 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 pointer-events-none z-10" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none z-10" />
 
-            {/* Slide counter — top right */}
-            <div className="absolute top-5 right-5 z-20 flex items-center gap-1.5 bg-black/30 backdrop-blur-sm rounded-full px-3.5 py-1.5">
-              <span className="text-white font-bold text-sm">{String(current + 1).padStart(2, '0')}</span>
-              <span className="text-white/40 text-xs">/</span>
-              <span className="text-white/50 text-xs">{String(slides.length).padStart(2, '0')}</span>
-            </div>
-
             {/* Slide text — above bottom bar */}
             <div className="absolute bottom-20 left-0 right-0 px-7 z-20">
               <AnimatePresence mode="wait">
@@ -240,6 +233,40 @@ export default function AboutSection() {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Partners */}
+              <div className="bg-slate-50 rounded-xl p-4 mb-6">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Authorized Partner of</p>
+                <div className="flex flex-wrap gap-2">
+                  {partners.map((p) => (
+                    <motion.span
+                      key={p}
+                      whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
+                    >
+                      {p}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Partners */}
+              <div className="bg-slate-50 rounded-xl p-4 mb-6">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Franchise Partner of</p>
+                <div className="flex flex-wrap gap-2">
+                  {partners1.map((p) => (
+                    <motion.span
+                      key={p}
+                      whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
+                    >
+                      {p}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
 
                 <Link to="/about" className="btn-primary group inline-flex items-center gap-2">
                   Learn More About Us

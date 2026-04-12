@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 flex-shrink-0">
             <div className={`font-heading font-bold text-xl md:text-2xl transition-colors ${scrolled ? 'text-primary-800' : 'text-white'}`}>
-              <span className="text-accent-500">SS</span> AIRCON
+              SS AIRCON 
             </div>
             <div className={`hidden sm:block text-xs leading-tight transition-colors ${scrolled ? 'text-slate-500' : 'text-blue-200'}`}>
               <div>HVAC Experts</div>
@@ -88,7 +88,7 @@ export default function Navbar() {
                       className={`flex items-center gap-1 px-3 py-2 rounded-md font-medium text-sm transition-colors ${
                         scrolled
                           ? 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
-                          : 'text-blue-100 hover:text-white hover:bg-white/10'
+                          : 'text-white hover:text-white hover:bg-white/10'
                       }`}
                     >
                       {link.label}
@@ -103,7 +103,7 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.18 }}
-                          className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50"
+                          className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50"
                         >
                           {link.children.map((child) => (
                             <Link
@@ -123,12 +123,29 @@ export default function Navbar() {
                   <NavLink
                     to={link.href}
                     className={({ isActive }) => {
-                      const activeClass = scrolled ? 'bg-primary-700 text-white' : 'bg-white/20 text-white'
-                      const inactiveClass = scrolled ? 'text-slate-700 hover:text-primary-700 hover:bg-primary-50' : 'text-blue-100 hover:text-white hover:bg-white/10'
-                      return `px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive ? activeClass : inactiveClass}`
+                      if (scrolled) {
+                        return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${
+                          isActive
+                            ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm'
+                            : 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
+                        }`
+                      }
+                      return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${
+                        isActive ? 'bg-white/25 text-white' : 'text-white hover:text-white hover:bg-white/10'
+                      }`
                     }}
                   >
-                    {link.label}
+                    {({ isActive }) => (
+                      <>
+                        {link.label}
+                        {isActive && scrolled && (
+                          <span
+                            className="absolute -bottom-[9px] left-1/2 -translate-x-1/2 pointer-events-none z-10"
+                            style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '5px solid #1d4ed8' }}
+                          />
+                        )}
+                      </>
+                    )}
                   </NavLink>
                 )}
               </div>
@@ -138,7 +155,8 @@ export default function Navbar() {
           {/* CTA */}
           <a
             href="/contact"
-            className="hidden lg:inline-flex btn-primary text-sm py-2.5"
+            className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg, #1e40af, #3b82f6)' }}
           >
             Contact Us
           </a>

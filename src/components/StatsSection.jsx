@@ -8,7 +8,7 @@ const highlights = [
   { Icon: HiCog,           text: 'Highly Skilled & Experienced Engineers' },
   { Icon: HiOfficeBuilding, text: "We're Professional Contractors" },
   { Icon: HiLightningBolt, text: 'Service Within 24 Hours' },
-  { Icon: HiStar,          text: '18 Years of Experience' },
+  { Icon: HiStar,          text: '24 Years of Experience' },
 ]
 
 function parseStat(value) {

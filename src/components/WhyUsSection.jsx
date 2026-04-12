@@ -38,7 +38,7 @@ const reasons = [
   },
   {
     Icon: HiStar,
-    title: '18+ Years of Trust',
+    title: '24+ Years of Trust',
     description: '300+ completed projects across IT, Telecom, Banking, Healthcare, and Hospitality.',
   },
 ]
@@ -67,7 +67,7 @@ export default function WhyUsSection() {
         <SectionTitle
           label="Why Choose Us"
           title="Reasons to Choose SS Aircon"
-          subtitle="Trusted by leading organizations across Tamil Nadu for 18+ years of reliable HVAC expertise."
+          subtitle="Trusted by leading organizations across Tamil Nadu for 24+ years of reliable HVAC expertise."
           center
         />
         <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -16,6 +16,11 @@ export const navLinks = [
       { label: 'Precision Air Conditioning', href: '/products#precision' },
       { label: 'Bluestar Chiller / VRF / Ductable', href: '/products#bluestar' },
       { label: 'Symphony Air Coolers', href: '/products#symphony' },
+      { label: 'Air Testing & Balancing', href: '/services' },
+      { label: 'Water Balancing', href: '/services' },
+      { label: 'VRF / VRV', href: '/services' },
+      { label: 'Ventilation System', href: '/services' },
+      { label: 'Centralized HVAC Services', href: '/services' },
     ],
   },
   { label: 'Services', href: '/services' },
@@ -35,9 +40,9 @@ export const heroSlides = [
   },
   {
     id: 2,
-    tagline: '18+ Years of Excellence',
+    tagline: '24+ Years of Excellence',
     title: 'HVAC CONTRACTING\nCOMPANY WHO IS SERVING',
-    subtitle: 'The Industry for the Past 18 Years',
+    subtitle: 'The Industry for the Past 24 Years',
     cta: { label: 'Contact Us', href: '/contact' },
     bg: '/assets/hvaclanding03.jpeg',
   },
@@ -62,7 +67,7 @@ export const heroSlides = [
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const stats = [
   { value: '300+', label: 'Projects Completed' },
-  { value: '18+', label: 'Years of Experience' },
+  { value: '24+', label: 'Years of Experience' },
   { value: '24/7', label: 'Service Support' },
   { value: '30+', label: 'Service Executives' },
 ]
@@ -200,7 +205,7 @@ export const highlights = [
   { icon: 'users', label: 'Highly Skilled & Experienced Engineers' },
   { icon: 'hardhat', label: "We're Professional Contractors" },
   { icon: 'clock', label: 'Service Within 24 Hours' },
-  { icon: 'award', label: '18 Years of Experience' },
+  { icon: 'award', label: '24 Years of Experience' },
 ]
 
 // ─── About capabilities ───────────────────────────────────────────────────────
@@ -241,9 +246,11 @@ export const offices = [
 // ─── Clients / Partners ───────────────────────────────────────────────────────
 export const partners = [
   'Blue Star Limited',
-  'Symphony Industrial Air Coolers',
-  'Vertiv Energy Pvt Ltd',
-  'Trane – Ingersoll-Rand',
+  'Symphony Industrial Air Coolers'
+]
+
+export const partners1 = [
+  'Vertiv Energy Pvt Ltd'
 ]
 
 // ─── Enquiry dropdown options ─────────────────────────────────────────────────
