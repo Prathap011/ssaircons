@@ -47,6 +47,11 @@ export default function Navbar() {
               <HiMail className="w-4 h-4" />
               sales@ssaircons.com
             </a>
+            <span className="text-slate-500">|</span>
+            <a href="mailto:service@ssaircons.com" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
+              <HiMail className="w-4 h-4" />
+              service@ssaircons.com
+            </a>
           </div>
         </div>
       </div>

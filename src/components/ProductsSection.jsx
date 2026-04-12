@@ -15,62 +15,63 @@ const services = [
   {
     id: 'ac-install',
     productId: 'precision',
-    num: '01',
     Icon: MdAcUnit,
     title: 'Precision Air Conditioning',
     description:
       'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level for critical environments.',
+    image: 'https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 'ac-repair',
     productId: 'ahu',
-    num: '02',
     Icon: HiCog,
     title: 'Air Handling Unit (AHU)',
     description:
       'An AHU is used to re-condition and circulate air as part of a heating & air-conditioning system, improving indoor air quality.',
+    image: 'https://images.unsplash.com/photo-1581094271901-8022df4c53f0?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 'heating',
     productId: 'cassette',
-    num: '03',
     Icon: FaFire,
     title: 'Cassette Air Conditioner',
     description:
       'Gives you the freedom to choose a model according to your requirements and budget for optimal ceiling-mounted cooling.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 'ventilation',
     productId: 'chiller',
-    num: '04',
     Icon: FaWind,
     title: 'Chillers',
     description:
       'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools fluid for large commercial applications.',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 'thermostat',
     productId: 'ductable',
-    num: '05',
     Icon: HiDeviceMobile,
     title: 'Ductable Air Conditioner',
     description:
       'A balanced air controlling device which makes the air capable to breathe in for large commercial and industrial spaces.',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 'hvac-design',
     productId: 'fcu',
-    num: '06',
     Icon: HiTemplate,
     title: 'Fan Coil Unit (FCU)',
     description:
       'A fan coil unit uses a coil and a fan to heat or cool a room without connecting to ductwork, ideal for individual room control.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
   },
 ]
 
 // ─── Service card ─────────────────────────────────────────────────────────────
 function ServiceCard({ service, index }) {
   const [hovered, setHovered] = useState(false)
+  const [imgError, setImgError] = useState(false)
   const { Icon } = service
 
   return (
@@ -86,58 +87,76 @@ function ServiceCard({ service, index }) {
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative p-8 border overflow-hidden cursor-pointer transition-colors duration-300"
+      className="relative border overflow-hidden cursor-pointer transition-colors duration-300"
       style={{
-        background: hovered ? 'rgba(207,250,254,0.7)' : 'rgba(255,255,255,0.85)',
-        borderColor: hovered ? 'rgba(8,145,178,0.45)' : 'rgba(165,243,252,0.6)',
+        background: hovered ? 'rgba(219,234,254,0.7)' : 'rgba(255,255,255,0.92)',
+        borderColor: hovered ? 'rgba(37,99,235,0.35)' : 'rgba(191,219,254,0.7)',
       }}
     >
-      {/* Number */}
-      <div
-        className="text-5xl font-bold font-heading leading-none mb-4 select-none transition-colors duration-300"
-        style={{ color: hovered ? 'rgba(6,182,212,0.22)' : 'rgba(14,116,144,0.1)' }}
-      >
-        {service.num}
+      {/* Product image */}
+      <div className="relative overflow-hidden" style={{ height: 180 }}>
+        {!imgError ? (
+          <motion.img
+            src={service.image}
+            alt={service.title}
+            onError={() => setImgError(true)}
+            className="w-full h-full object-cover"
+            animate={{ scale: hovered ? 1.07 : 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full bg-primary-50 flex items-center justify-center">
+            <Icon className="w-14 h-14 text-primary-200" />
+          </div>
+        )}
+        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/70 to-transparent pointer-events-none" />
       </div>
 
-      {/* Icon box */}
-      <motion.div
-        animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
-        style={{
-          background: hovered ? 'rgba(249,115,22,0.12)' : 'rgba(6,182,212,0.1)',
-          border: hovered ? '1px solid rgba(249,115,22,0.35)' : '1px solid rgba(6,182,212,0.3)',
-        }}
-      >
-        <Icon
-          className="w-5 h-5 transition-colors duration-300"
-          style={{ color: hovered ? '#f97316' : '#0891b2' }}
-        />
-      </motion.div>
+      {/* Card body */}
+      <div className="p-6">
+        {/* Icon box */}
+        <motion.div
+          animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+          style={{
+            background: hovered ? 'rgba(37,99,235,0.12)' : 'rgba(96,165,250,0.12)',
+            border: hovered ? '1px solid rgba(37,99,235,0.3)' : '1px solid rgba(147,197,253,0.5)',
+          }}
+        >
+          <Icon
+            className="w-5 h-5 transition-colors duration-300"
+            style={{ color: hovered ? '#2563eb' : '#3b82f6' }}
+          />
+        </motion.div>
 
-      {/* Title */}
-      <h3 className="font-heading font-semibold text-lg text-primary-800 mb-2">
-        {service.title}
-      </h3>
+        {/* Title */}
+        <h3
+          className="font-heading font-semibold text-base text-primary-800 mb-2 leading-snug transition-colors duration-300"
+          style={{ color: hovered ? '#1d4ed8' : '#1e40af' }}
+        >
+          {service.title}
+        </h3>
 
-      {/* Description */}
-      <p className="text-sm text-slate-500 leading-relaxed">
-        {service.description}
-      </p>
+        {/* Description */}
+        <p className="text-sm text-slate-500 leading-relaxed">
+          {service.description}
+        </p>
 
-      {/* Discover link */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-        className="mt-5 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
-      >
-        Discover
-        <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
-          <HiArrowRight className="w-3.5 h-3.5" />
-        </motion.span>
-      </motion.div>
+        {/* Discover link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="mt-4 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
+        >
+          Discover
+          <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
+            <HiArrowRight className="w-3.5 h-3.5" />
+          </motion.span>
+        </motion.div>
+      </div>
 
       {/* Bottom accent line */}
       <motion.div
@@ -155,7 +174,7 @@ function ServiceCard({ service, index }) {
           exit={{ opacity: 0 }}
           className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
           style={{
-            background: 'radial-gradient(circle at top left, rgba(6,182,212,0.12) 0%, transparent 70%)',
+            background: 'radial-gradient(circle at top left, rgba(59,130,246,0.1) 0%, transparent 70%)',
           }}
         />
       )}

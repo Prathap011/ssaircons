@@ -7,24 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deep Teal-Navy — professional HVAC / cooling brand
+        // Royal Blue — matches SS Aircon logo shield colour
         primary: {
-          50:  '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#0c2d3e',
+          50:  '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
-        // Warm amber / orange — high-contrast CTAs
+        // Sky blue — professional secondary CTAs (replaces orange)
         accent: {
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
         },
       },
       fontFamily: {

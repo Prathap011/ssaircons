@@ -2,12 +2,13 @@ import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { useCountUp } from '../hooks/useCountUp'
 import { stats } from '../data/siteData'
+import { HiCog, HiLightningBolt, HiStar, HiOfficeBuilding } from 'react-icons/hi'
 
 const highlights = [
-  { emoji: '🔧', text: 'Highly Skilled & Experienced Engineers' },
-  { emoji: '🏗️', text: "We're Professional Contractors" },
-  { emoji: '⚡', text: 'Service Within 24 Hours' },
-  { emoji: '🏆', text: '18 Years of Experience' },
+  { Icon: HiCog,           text: 'Highly Skilled & Experienced Engineers' },
+  { Icon: HiOfficeBuilding, text: "We're Professional Contractors" },
+  { Icon: HiLightningBolt, text: 'Service Within 24 Hours' },
+  { Icon: HiStar,          text: '18 Years of Experience' },
 ]
 
 function parseStat(value) {
@@ -39,13 +40,13 @@ export default function StatsSection() {
                 transition={{ delay: i * 0.12, duration: 0.5, ease: 'easeOut' }}
                 className="flex items-center gap-3 group"
               >
-                <motion.span
-                  className="text-2xl flex-shrink-0"
+                <motion.div
+                  className="w-9 h-9 rounded-lg bg-white/12 flex items-center justify-center flex-shrink-0"
                   animate={{ rotate: [0, -8, 8, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 2 + i * 1.5, ease: 'easeInOut' }}
                 >
-                  {h.emoji}
-                </motion.span>
+                  <h.Icon className="w-5 h-5 text-accent-400" />
+                </motion.div>
                 <span className="text-sm font-medium text-blue-100 leading-snug group-hover:text-white transition-colors duration-200">
                   {h.text}
                 </span>

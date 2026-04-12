@@ -4,7 +4,8 @@ import { useInView } from '../hooks/useInView'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { capabilities, partners } from '../data/siteData'
-import { HiCheckCircle } from 'react-icons/hi'
+import { HiCheckCircle, HiCog, HiLocationMarker, HiSupport } from 'react-icons/hi'
+import { MdPrecisionManufacturing } from 'react-icons/md'
 
 const sectors = [
   'IT & ITES', 'Telecom', 'Banking', 'Hospitals', 'Automobiles',
@@ -13,10 +14,10 @@ const sectors = [
 ]
 
 const team = [
-  { emoji: '🔧', role: 'Project Team', count: '12 Members', detail: 'Fitters, welders, brazers, plumbers & electricians' },
-  { emoji: '🏗️', role: 'Ducting Team', count: '8 Members', detail: 'Specialized ducting & insulation crew' },
-  { emoji: '📍', role: 'Service Executives', count: '30+ Members', detail: 'Deployed across various zones in Chennai' },
-  { emoji: '🚨', role: 'Emergency Team', count: '24/7', detail: 'Dedicated breakdown service support' },
+  { Icon: HiCog,                    role: 'Project Team',        count: '12 Members', detail: 'Fitters, welders, brazers, plumbers & electricians' },
+  { Icon: MdPrecisionManufacturing, role: 'Ducting Team',        count: '8 Members',  detail: 'Specialized ducting & insulation crew' },
+  { Icon: HiLocationMarker,         role: 'Service Executives',  count: '30+ Members',detail: 'Deployed across various zones in Chennai' },
+  { Icon: HiSupport,                role: 'Emergency Team',      count: '24/7',       detail: 'Dedicated breakdown service support' },
 ]
 
 export default function About() {
@@ -103,7 +104,9 @@ export default function About() {
                 transition={{ delay: i * 0.12 }}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center hover:shadow-md hover:-translate-y-1 transition-all"
               >
-                <div className="text-4xl mb-3">{t.emoji}</div>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-3">
+                  <t.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <div className="text-2xl font-bold text-primary-800 font-heading mb-1">{t.count}</div>
                 <div className="font-semibold text-slate-800 mb-2">{t.role}</div>
                 <p className="text-slate-500 text-sm">{t.detail}</p>
