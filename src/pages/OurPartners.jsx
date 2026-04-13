@@ -74,13 +74,13 @@ function ProjectImage({ item, index }) {
   )
 }
 
-export default function OurProjects() {
+export default function OurPartners() {
   const { ref: statsRef, inView: statsIn } = useInView()
 
   return (
     <>
       <Helmet>
-        <title>Our Projects | SS Aircon HVAC Experts</title>
+        <title>Our Partners | SS Aircon HVAC Experts</title>
         <meta
           name="description"
           content="SS Aircon's project portfolio — 300+ completed HVAC projects for Tata, HCL, Airtel, IBM and many more. Achievements, Vertiv projects and client list."
@@ -88,8 +88,8 @@ export default function OurProjects() {
       </Helmet>
 
       <PageHero
-        title="Our Projects"
-        breadcrumbs={[{ label: 'Our Projects' }]}
+        title="Our Partners"
+        breadcrumbs={[{ label: 'Our Partners' }]}
         bg="https://images.unsplash.com/photo-1581094271901-8022df4c53f0?w=1600&auto=format&fit=crop&q=80"
       />
 

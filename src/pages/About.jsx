@@ -7,6 +7,7 @@ import { capabilities, partners, partners1 } from '../data/siteData'
 import { HiCheckCircle, HiCog, HiLocationMarker, HiSupport } from 'react-icons/hi'
 import { MdPrecisionManufacturing } from 'react-icons/md'
 import ExperienceSection from '../components/ExperienceSection'
+import CertificatesSection from '../components/CertificatesSection'
 
 const sectors = [
   'IT & ITES', 'Telecom', 'Banking', 'Hospitals', 'Automobiles',
@@ -136,6 +137,8 @@ export default function About() {
 
       {/* Experience Section (NEW) */}
       <ExperienceSection />
+
+      <CertificatesSection />
 
       {/* Sectors */}
       <section className="section-padding bg-primary-800 text-white">

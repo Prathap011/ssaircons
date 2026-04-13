@@ -240,9 +240,9 @@ export default function HeroSlider() {
           style={{ opacity: contentReady ? 1 : 0 }}
         >
           <img
-            src={page > 0 ? slide.bg : '/assets/landing2.jpeg'}
+            src={page > 0 ? slide.bg : '/assets/landing1.jpeg'}
             alt={page > 0 ? slide.title : 'AC System'}
-            className="w-full object-contain bg-slate-950"
+            className="w-full h-full object-cover"
             loading="eager"
           />
           {/* Overlays */}
@@ -253,9 +253,7 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          CURTAINS
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+
       <motion.div
         className="absolute left-0 right-0 top-0 z-20 bg-slate-950"
         style={{ height: '50%', transformOrigin: 'top' }}
@@ -271,9 +269,6 @@ export default function HeroSlider() {
         transition={{ duration: 1.05, ease: [0.76, 0, 0.24, 1] }}
       />
 
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          AIRFLOW (top exhaust zone)
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       {contentReady && page === 0 && (
         <div className="absolute top-0 left-0 right-0 h-[46%] overflow-hidden z-10 pointer-events-none">
           <AirStreak topPct={8}  delay={0}    widthPx={130} opacity={0.6}  />
@@ -293,9 +288,7 @@ export default function HeroSlider() {
         </div>
       )}
 
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          SS AIRCONS â€” top exhaust zone (fixed)
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+
       <div className="absolute inset-x-0 top-0 h-[46%] flex items-center justify-center z-30 pointer-events-none px-4">
         <AnimatePresence>
           {curtainsOpen && page === 0 && (

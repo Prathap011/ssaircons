@@ -1,12 +1,232 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { clientLogos, completedProjects, partners, partners1 } from '../data/siteData'
 import { HiArrowRight } from 'react-icons/hi'
+
+const industryCategories = [
+  {
+    label: 'IT Industry',
+    images: [
+      '/assets/It_Industry/it1.jpg', '/assets/It_Industry/it2.jpg', '/assets/It_Industry/it3.jpg',
+      '/assets/It_Industry/it5.jpg', '/assets/It_Industry/it6.jpg', '/assets/It_Industry/it7.jpg',
+      '/assets/It_Industry/it8.jpg', '/assets/It_Industry/it9.jpg', '/assets/It_Industry/it10.jpg',
+      '/assets/It_Industry/it11.jpg', '/assets/It_Industry/it12.jpg', '/assets/It_Industry/it13.jpg',
+      '/assets/It_Industry/it14.jpg', '/assets/It_Industry/it15.jpg', '/assets/It_Industry/it16.jpg',
+      '/assets/It_Industry/it17.jpg', '/assets/It_Industry/it18.jpg', '/assets/It_Industry/it19.jpg',
+      '/assets/It_Industry/it20.jpg', '/assets/It_Industry/it21.jpg', '/assets/It_Industry/it22.jpg',
+    ],
+  },
+  {
+    label: 'Automobile Industry',
+    images: ['/assets/automobile/auto1.jpg', '/assets/automobile/auto2.jpg'],
+  },
+  {
+    label: 'Bank',
+    images: [
+      '/assets/bank/bank1.jpg', '/assets/bank/bank2.jpg', '/assets/bank/bank3.jpg',
+      '/assets/bank/bank4.jpg', '/assets/bank/bank5.jpg', '/assets/bank/bank6.jpg',
+    ],
+  },
+  {
+    label: 'College & University',
+    images: ['/assets/college/college1.jpg', '/assets/college/college2.jpg', '/assets/college/college3.jpg'],
+  },
+  {
+    label: 'Hospital',
+    images: [
+      '/assets/hospital/hospital1.jpg', '/assets/hospital/hospital2.jpg',
+      '/assets/hospital/hospital3.jpg', '/assets/hospital/hospital4.jpg',
+    ],
+  },
+  {
+    label: 'Office',
+    images: [
+      '/assets/office/office1.jpg', '/assets/office/office2.jpg', '/assets/office/office3.jpg',
+      '/assets/office/office4.jpg', '/assets/office/office5.jpg', '/assets/office/office6.jpg',
+      '/assets/office/office7.jpg', '/assets/office/office8.jpg',
+    ],
+  },
+  {
+    label: 'Telecom',
+    images: [
+      '/assets/tele/tele1.jpg', '/assets/tele/tele2.jpg', '/assets/tele/tele3.jpg',
+      '/assets/tele/tele4.jpg', '/assets/tele/tele5.jpg',
+    ],
+  },
+  {
+    label: 'Hotels & Malls',
+    images: [
+      '/assets/hotal/hotal1.jpg', '/assets/hotal/hotal2.jpg', '/assets/hotal/hotal3.jpg',
+      '/assets/hotal/hotal4.jpg', '/assets/hotal/hotal5.jpg',
+    ],
+  },
+]
+
+const VISIBLE = 6
+
+function IndustryCarousel({ images }) {
+  const [start, setStart] = useState(0)
+  const [direction, setDirection] = useState(1)
+  const total = images.length
+  const canSlide = total > VISIBLE
+  const visible = images.slice(start, start + VISIBLE)
+
+  // Auto-play: advance one image every 2.5 s, loop back to start
+  useEffect(() => {
+    setStart(0)
+    setDirection(1)
+  }, [images])
+
+  useEffect(() => {
+    if (!canSlide) return
+    const timer = setInterval(() => {
+      setDirection(1)
+      setStart((s) => {
+        const next = s + 1
+        return next + VISIBLE > total ? 0 : next
+      })
+    }, 2500)
+    return () => clearInterval(timer)
+  }, [canSlide, total])
+
+  const isLessThan6 = total <= VISIBLE
+
+  return (
+    <div className="mt-8">
+      {/* Slider window */}
+      <div className="overflow-hidden">
+        <AnimatePresence mode="popLayout" custom={direction}>
+          <motion.div
+            key={start}
+            custom={direction}
+            initial={{ opacity: 0, x: direction * 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction * -30 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className={
+              isLessThan6
+                ? 'flex flex-wrap justify-center gap-5'
+                : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5'
+            }
+          >
+            {visible.map((img, i) => (
+              <motion.div
+                key={img}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.35 }}
+                className="overflow-hidden rounded-xl group cursor-default"
+                style={{ width: '280px', height: '150px', maxWidth: '100%' }}
+              >
+                <img
+                  src={img}
+                  alt="client"
+                  className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Progress dots */}
+      {canSlide && (
+        <div className="flex justify-center gap-1.5 mt-6">
+          {Array.from({ length: total - VISIBLE + 1 }).map((_, i) => (
+            <button
+              key={`dot-${i}`}
+              onClick={() => { setDirection(i > start ? 1 : -1); setStart(i) }}
+              className={`rounded-full transition-all duration-200 ${
+                i === start ? 'w-5 h-2 bg-primary-600' : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function IndustrySection() {
+  const [activeCategory, setActiveCategory] = useState(0)
+  const tabsRef = useRef(null)
+
+  const handleCategory = (i) => {
+    setActiveCategory(i)
+    // Scroll active tab into view on mobile
+    if (tabsRef.current) {
+      const btn = tabsRef.current.querySelectorAll('button')[i]
+      btn?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    }
+  }
+
+  const cat = industryCategories[activeCategory]
+
+  return (
+    <section className="section-padding bg-white">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+        >
+          <SectionTitle
+            label="Our Clients"
+            title="Industries We Serve"
+            subtitle="SS Aircon delivers precision HVAC solutions across a wide spectrum of industries — from IT campuses and hospitals to hotels, banks, and manufacturing plants. Explore the sectors we proudly serve."
+            center
+          />
+        </motion.div>
+
+        {/* Category tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, delay: 0.1 }}
+          ref={tabsRef}
+          className="flex flex-nowrap overflow-x-auto gap-0 justify-start lg:justify-center pb-1 scrollbar-none -mx-4 px-4 lg:mx-0 lg:px-0"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {industryCategories.map((c, i) => (
+            <button
+              key={c.label}
+              onClick={() => handleCategory(i)}
+              className={`flex-shrink-0 px-4 py-2 text-sm font-semibold transition-all duration-200 border-b-2 whitespace-nowrap ${
+                i === activeCategory
+                  ? 'text-primary-700 border-primary-600'
+                  : 'text-slate-500 border-transparent hover:text-primary-600 hover:border-primary-200'
+              }`}
+            >
+              {c.label}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Carousel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <IndustryCarousel images={cat.images} key={activeCategory} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  )
+}
 
 function ClientLogo({ client, index }) {
   const [error, setError] = useState(false)
@@ -107,6 +327,9 @@ export default function Clients() {
           </div>
         </div>
       </section>
+
+      {/* Industry Clients Section */}
+      <IndustrySection />
 
       {/* Client logos grid */}
       <section className="section-padding bg-slate-50">

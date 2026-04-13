@@ -7,20 +7,20 @@ const quickLinks = [
   { label: 'Company Profile', href: '/about' },
   { label: 'Products', href: '/products' },
   { label: 'Services', href: '/services' },
-  { label: 'Our Projects', href: '/about#projects' },
+  { label: 'Our Partners', href: '/about#partners' },
   { label: 'Clients', href: '/about#clients' },
   { label: 'Contact Us', href: '/contact' },
 ]
 
 const productLinks = [
-  { label: 'Precision Air Conditioning', href: '/products#precision' },
-  { label: 'Bluestar Chiller / VRF / Ductable', href: '/products#bluestar' },
-  { label: 'Symphony Air Coolers', href: '/products#symphony' },
-  { label: 'Air Testing & Balancing', href: '/services' },
-  { label: 'Water Balancing', href: '/services' },
-  { label: 'VRF / VRV', href: '/services' },
-  { label: 'Ventilation System', href: '/services' },
-  { label: 'Centralized HVAC Services', href: '/services' },
+  { label: 'Precision Air Conditioning', href: '/products/precision-ac' },
+  { label: 'Bluestar Chiller / VRF / Ductable', href: '/products/bluestar' },
+  { label: 'Symphony Air Coolers', href: '/products/symphony' },
+  { label: 'Air Testing & Balancing', href: '/products/air-testing' },
+  { label: 'Water Balancing', href: '/products/water-balancing' },
+  { label: 'VRF / VRV', href: '/products/vrf-vrv' },
+  { label: 'Ventilation System', href: '/products/ventilation' },
+  { label: 'Centralized HVAC Services', href: '/products/centralized-hvac' },
 ]
 
 export default function Footer() {
@@ -32,10 +32,11 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <Link to="/" className="inline-block mb-4">
-            <div className="font-heading font-bold text-2xl">
+            {/* <div className="font-heading font-bold text-2xl">
               <span className="text-accent-800">SS AIRCON</span>
             </div>
-            <div className="text-xs text-primary-300 mt-0.5">The HVAC Experts Since 2004</div>
+            <div className="text-xs text-primary-300 mt-0.5">The HVAC Experts Since 2004</div> */}
+            <img src="/assets/logo.jpg" alt="SS Aircon" className="h-16 w-auto object-contain" />
           </Link>
           <p className="text-white text-sm leading-relaxed mb-5">
             SS AIRCON was started on 14th April 2004. We are an authorized dealer for Blue Star Limited
