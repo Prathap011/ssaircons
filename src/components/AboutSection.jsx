@@ -8,32 +8,58 @@ import { HiCheckCircle, HiArrowRight, HiChevronLeft, HiChevronRight } from 'reac
 
 const slides = [
   {
-    id: 'slide-1',
-    src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&auto=format&fit=crop&q=85',
-    alt: 'HVAC technician at work',
-    title: 'Precision AC Installation',
-    subtitle: 'Every system engineered for your space',
+    id: 'slide-sales',
+    src: '/assets/homeAbout/93648.jpeg',
+    alt: 'Blue Star AC units — Sales',
+    category: 'Sales',
+    title: 'AC Sales & Supply',
+    subtitle: 'Authorised dealer for Blue Star, Daikin & more leading brands',
+    accent: 'from-blue-600 to-cyan-400',
   },
   {
-    id: 'slide-2',
-    src: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=900&auto=format&fit=crop&q=85',
-    alt: 'Expert AC Service',
-    title: 'Expert AC Service',
-    subtitle: 'Certified technicians at your doorstep',
+    id: 'slide-service',
+    src: '/assets/homeAbout/93666.jpeg',
+    alt: 'HVAC ductwork service',
+    category: 'Service',
+    title: 'HVAC Service & Repairs',
+    subtitle: 'Certified technicians delivering peak-performance servicing',
+    accent: 'from-primary-600 to-blue-400',
   },
   {
-    id: 'slide-3',
-    src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&auto=format&fit=crop&q=85',
-    alt: 'Industrial HVAC',
-    title: 'Industrial HVAC Solutions',
-    subtitle: 'Powering comfort for large-scale facilities',
+    id: 'slide-project',
+    src: '/assets/homeAbout/93642.jpg',
+    alt: 'SS Aircon project execution team',
+    category: 'Project & Execution',
+    title: 'End-to-End Project Execution',
+    subtitle: 'Turnkey HVAC delivery — on time, within budget',
+    accent: 'from-orange-500 to-yellow-400',
   },
   {
-    id: 'slide-4',
-    src: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=900&auto=format&fit=crop&q=85',
-    alt: 'Air conditioning unit',
-    title: 'Year-Round Climate Control',
-    subtitle: 'Reliable cooling & heating, always',
+    id: 'slide-manpower',
+    src: '/assets/homeAbout/93668.jpeg',
+    alt: 'SS Aircon manpower team on site',
+    category: 'Manpower',
+    title: 'Expert Manpower Deployment',
+    subtitle: 'Skilled, safety-trained field teams across Tamil Nadu',
+    accent: 'from-green-600 to-teal-400',
+  },
+  {
+    id: 'slide-om',
+    src: '/assets/homeAbout/93651.jpeg',
+    alt: 'Large rooftop HVAC plant — Operation & Maintenance',
+    category: 'Operation & Maintenance',
+    title: 'Operations & Maintenance',
+    subtitle: 'AMC / CAMC packages ensuring maximum uptime year-round',
+    accent: 'from-violet-600 to-purple-400',
+  },
+  {
+    id: 'slide-om2',
+    src: '/assets/homeAbout/93645.jpeg',
+    alt: 'Industrial HVAC piping system',
+    category: 'Operation & Maintenance',
+    title: 'Industrial Plant Maintenance',
+    subtitle: 'Comprehensive care for chillers, cooling towers & piping systems',
+    accent: 'from-violet-600 to-purple-400',
   },
 ]
 
@@ -135,17 +161,42 @@ export default function AboutSection() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`txt-${current}`}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.45, ease: 'easeOut' }}
+                  className="flex flex-col gap-2"
                 >
-                  <p className="text-white font-bold text-xl lg:text-2xl leading-snug drop-shadow-lg">
+                  {/* Animated category badge */}
+                  <motion.span
+                    initial={{ opacity: 0, x: -16, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: 16 }}
+                    transition={{ duration: 0.35, delay: 0.1, ease: 'easeOut' }}
+                    className={`inline-flex items-center self-start gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${slides[current].accent} shadow-lg backdrop-blur-sm`}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/80 inline-block" />
+                    {slides[current].category}
+                  </motion.span>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, delay: 0.15 }}
+                    className="text-white font-bold text-xl lg:text-2xl leading-snug drop-shadow-lg"
+                  >
                     {slides[current].title}
-                  </p>
-                  <p className="text-white/65 text-sm mt-1.5 drop-shadow">
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, delay: 0.22 }}
+                    className="text-white/70 text-sm drop-shadow"
+                  >
                     {slides[current].subtitle}
-                  </p>
+                  </motion.p>
                 </motion.div>
               </AnimatePresence>
             </div>

@@ -37,7 +37,7 @@ export default function About() {
       <PageHero
         title="About Our Company"
         breadcrumbs={[{ label: 'About Us' }]}
-        bg="/assets/slide1.jpeg"
+        bg="/assets/slide1.png"
       />
 
       {/* About intro */}
