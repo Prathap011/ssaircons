@@ -25,13 +25,43 @@ const services = [
     ],
   },
   {
-    label: 'HVAC Services & Maintenance',
+    label: 'HVAC Services & Maintenance Works',
     badge: 'Maintenance',
     title: 'HVAC Services & Maintenance Works',
     body: 'Comprehensive AMC and NAMC packages to keep your systems running at peak efficiency. Our certified technicians perform scheduled servicing, filter changes, and performance checks.',
     stats: [
       { num: '1000+', lbl: 'Units Maintained' },
       { num: '24/7', lbl: 'Support' },
+    ],
+  },
+  {
+    label: 'Ventilation System Design & Installation',
+    badge: 'Ventilation',
+    title: 'Ventilation System Design & Installation',
+    body: 'Expert design and installation of fresh-air ventilation, exhaust, and pressurisation systems for commercial, industrial, and institutional buildings to ensure healthy indoor air quality.',
+    stats: [
+      { num: '200+', lbl: 'Systems Installed' },
+      { num: '100%', lbl: 'Code Compliant' },
+    ],
+  },
+  {
+    label: 'ITC of Domestic & Industrial A/C Systems',
+    badge: 'Testing',
+    title: 'ITC of All Type of Domestic & Industrial A/C Systems',
+    body: 'Initial testing and commissioning (ITC) of all domestic and industrial air-conditioning systems, ensuring correct operation, optimal performance, and compliance with manufacturer specifications.',
+    stats: [
+      { num: '400+', lbl: 'Systems Commissioned' },
+      { num: '100%', lbl: 'First-Pass Rate' },
+    ],
+  },
+  {
+    label: 'Planned Preventive Maintenance (CAMC/NCAMC)',
+    badge: 'AMC',
+    title: 'Planned Preventive Maintenance Services (CAMC/NCAMC)',
+    body: 'Structured CAMC and NCAMC contracts with scheduled visits, performance audits, and priority response, keeping your HVAC assets in peak condition and extending equipment life.',
+    stats: [
+      { num: '150+', lbl: 'Active AMC Clients' },
+      { num: '30%', lbl: 'Energy Savings' },
     ],
   },
   {
@@ -42,6 +72,26 @@ const services = [
     stats: [
       { num: '<30 min', lbl: 'Response Time' },
       { num: '365', lbl: 'Days a Year' },
+    ],
+  },
+  {
+    label: 'Rental / Standby A/C Solutions',
+    badge: 'Rental',
+    title: 'Rental / Standby A/C Solutions',
+    body: 'Flexible short-term and long-term rental of portable and packaged air-conditioning units for events, construction sites, server rooms, and disaster-recovery situations.',
+    stats: [
+      { num: '50+', lbl: 'Rental Units' },
+      { num: 'Same Day', lbl: 'Deployment' },
+    ],
+  },
+  {
+    label: 'Complete Ducting Solutions',
+    badge: 'Ducting',
+    title: 'Complete Ducting Solutions',
+    body: 'Design, fabrication, and installation of GI, pre-insulated, and flexible ducting systems for efficient air distribution across commercial, industrial, and cleanroom environments.',
+    stats: [
+      { num: '10,000+', lbl: 'Sq ft Ducted' },
+      { num: '15+', lbl: 'Years Expertise' },
     ],
   },
 ]

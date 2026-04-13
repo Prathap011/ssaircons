@@ -129,7 +129,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl w-full mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100 text-center"
+          className="max-w-2xl w-full mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100"
         >
           <h3 className="font-heading font-bold text-primary-800 text-2xl mb-8 text-center">
             Send Us a Message
