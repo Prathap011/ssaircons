@@ -6,6 +6,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Products from './pages/Products'
 import Contact from './pages/Contact'
+import OurProjects from './pages/OurProjects'
+import Clients from './pages/Clients'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/our-projects" element={<OurProjects />} />
+          <Route path="/clients" element={<Clients />} />
         </Routes>
       </main>
       <Footer />

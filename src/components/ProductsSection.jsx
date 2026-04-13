@@ -200,11 +200,11 @@ export default function ProductsSection() {
         {/* Blue grid line */}
         <div
           className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(14,116,144,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14,116,144,0.06) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
+          // style={{
+          //   backgroundImage:
+          //     'linear-gradient(rgba(14,116,144,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14,116,144,0.06) 1px, transparent 1px)',
+          //   backgroundSize: '48px 48px',
+          // }}
         />
         {/* Glow blobs */}
         <div
@@ -230,7 +230,7 @@ export default function ProductsSection() {
                      flex flex-col justify-center
                      py-16 lg:py-0
                      w-full lg:w-[420px] lg:min-w-[420px]
-                     lg:border-r border-primary-200 lg:pr-14"
+                      border-primary-200 lg:pr-14"
         >
           <motion.div
             initial={{ opacity: 0, x: -28 }}

@@ -7,7 +7,7 @@ export default function PageHero({ title, breadcrumbs = [], bg }) {
 
   return (
     <section
-      className="relative py-24 md:py-32 flex items-center"
+      className="relative py-36 md:py-44 flex items-center"
       style={{
         backgroundImage: bg ? `url(${bg})` : undefined,
         backgroundColor: bg ? undefined : '#1e3a8a',

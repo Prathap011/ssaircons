@@ -176,12 +176,13 @@ export default function WhyUsSection() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative flex items-center justify-center"
-              style={{ width: 360, height: 360 }}
+              style={{ width: 500, height: 500 }}
             >
               {/* Orbit rings + dots */}
-              <OrbitRing size={360} duration={24} dotColor="#0ea5e9" dotSize={10} clockwise />
-              <OrbitRing size={265} duration={16} dotColor="#38bdf8" dotSize={8} clockwise={false} delay={1.8} />
-              <OrbitRing size={175} duration={10} dotColor="#7dd3fc" dotSize={6} clockwise delay={0.9} />
+              <OrbitRing size={500} duration={24} dotColor="#0ea5e9" dotSize={12} clockwise />
+              <OrbitRing size={340} duration={16} dotColor="#38bdf8" dotSize={10} clockwise={false} delay={1.8} />
+              <OrbitRing size={230} duration={10} dotColor="#7dd3fc" dotSize={8} clockwise delay={0.9} />
+
 
               {/* Ambient glow */}
               <div
@@ -197,8 +198,8 @@ export default function WhyUsSection() {
               <div
                 className="relative z-10 flex items-center justify-center rounded-full"
                 style={{
-                  width: 148,
-                  height: 148,
+                  width: 160,
+                  height: 160,
                   background: 'rgba(14,165,233,0.06)',
                   border: '1.5px solid rgba(56,189,248,0.3)',
                   boxShadow: '0 0 0 10px rgba(14,165,233,0.04), 0 0 48px rgba(14,165,233,0.18)',

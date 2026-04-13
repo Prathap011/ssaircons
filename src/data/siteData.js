@@ -4,10 +4,9 @@ export const navLinks = [
   {
     label: 'About Us',
     href: '/about',
-    children: [
-      { label: 'Company Overview', href: '/about' },
-      { label: 'Experience & Knowledge', href: '/about#experience' },
-    ],
+    // children: [
+    //   { label: 'Company Overview', href: '/about' }
+    // ],
   },
   {
     label: 'Products',
@@ -24,8 +23,16 @@ export const navLinks = [
     ],
   },
   { label: 'Services', href: '/services' },
-  { label: 'Our Projects', href: '/about#projects' },
-  { label: 'Clients', href: '/about#clients' },
+  {
+    label: 'Our Projects',
+    href: '/our-projects',
+    children: [
+      { label: 'Achievements', href: '/our-projects#achievements' },
+      { label: 'Our Vertiv Project', href: '/our-projects#vertiv-project' },
+      { label: 'Completed Projects', href: '/our-projects#completed-projects' },
+    ],
+  },
+  { label: 'Clients', href: '/clients' },
 ]
 
 // ─── Hero Slides ──────────────────────────────────────────────────────────────
@@ -40,7 +47,7 @@ export const heroSlides = [
   },
   {
     id: 2,
-    tagline: '24+ Years of Excellence',
+    tagline: '24 Years of Excellence',
     title: 'HVAC CONTRACTING\nCOMPANY WHO IS SERVING',
     subtitle: 'The Industry for the Past 24 Years',
     cta: { label: 'Contact Us', href: '/contact' },
@@ -238,13 +245,116 @@ export const offices = [
 ]
 
 // ─── Clients / Partners ───────────────────────────────────────────────────────
+// logo: place image files in public/assets/ using these filenames
 export const partners = [
-  'BLUE STAR',
-  'SYMPHONY'
+  { name: 'BLUE STAR', logo: '/assets/bluestar.jpg', type: 'Authorized Dealer' },
+  { name: 'SYMPHONY', logo: '/assets/sympothy.jpeg', type: 'Authorized Dealer' },
 ]
 
 export const partners1 = [
-  'VERTIV'
+  { name: 'VERTIV', logo: '/assets/vertiv.jpg', type: 'Authorized Franchisee' },
+]
+
+// flat list for text use (backward compat)
+export const partnerNames = ['BLUE STAR', 'SYMPHONY', 'VERTIV']
+
+// ─── Achievements ─────────────────────────────────────────────────────────────
+export const achievements = [
+  {
+    title: 'No.1 Franchisee Award',
+    description:
+      'Out of 7 Vertiv franchisees, SS Aircon secured the No. 1 position for outstanding project execution and service quality.',
+    icon: 'award',
+  },
+  {
+    title: 'Tata Communications — 110 PAC Units',
+    description:
+      'Erection & commissioning of 110 Precision Air Conditioning units (~1500 TR) at Tata Communications, Swami Sivanantha Salai, Chennai. Deputed 3-man power in general shift and maintained uptime for 3 years.',
+    icon: 'server',
+  },
+  {
+    title: 'Scope International — Dual Fluid PAC',
+    description:
+      'Handled ~400 TR dual-fluid Precision Air Conditioners with complete MS & copper piping in a live Data Center at Scope International, Nungambakkam.',
+    icon: 'cpu',
+  },
+  {
+    title: 'Bharti Airtel — 500m MS Piping',
+    description:
+      'Completed MS piping work of ~500 meters for chilled water-type Precision Air Conditioning at Bharti Airtel DRC, Siruseri.',
+    icon: 'zap',
+  },
+  {
+    title: 'Bharti Data Center — 100 TR HDPAC',
+    description:
+      'Installed ~100 TR High-Density Precision Air Conditioners (XDC, XDP, XDV & XDO — CHW & DX supplementary cooling) at Bharti Data Center, Siruseri.',
+    icon: 'wind',
+  },
+  {
+    title: 'HCL Technologies — 150 TR Dual Fluid',
+    description:
+      'Erected & commissioned ~150 TR dual-fluid imported PAC units (20 systems) at HCL Technologies, Sholinganallur.',
+    icon: 'settings',
+  },
+]
+
+// ─── Our Vertiv Project images ─────────────────────────────────────────────────
+export const vertivProjectImages = [
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-1.jpg',
+    alt: 'Vertiv Precision AC Installation - Data Center',
+  },
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-2.jpg',
+    alt: 'Vertiv Project - CRAC Unit Setup',
+  },
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-3.jpg',
+    alt: 'Vertiv Project - Server Room Cooling',
+  },
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-4.jpg',
+    alt: 'Vertiv Project - Precision Air Conditioning',
+  },
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-5.jpg',
+    alt: 'Vertiv Project - Industrial HVAC',
+  },
+  {
+    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-6.jpg',
+    alt: 'Vertiv Project - Commissioning Work',
+  },
+]
+
+// ─── Completed Projects (client companies) ────────────────────────────────────
+export const completedProjects = [
+  'Bank of America', 'State Bank of India', 'Airtel Limited', 'BHEL',
+  'Caterpillar', 'Citi Bank', 'HCL Technologies', 'Hyundai Motors',
+  'IBM DLF', 'VI (Vodafone Idea)', 'IGCAR Kalpakkam', 'KVB Bank',
+  'L & T', 'NLC Neyveli', 'Nokia Siemens', 'Mahindra Satyam',
+  'Sutherland', 'Renault Nissan', 'Sify Technologies', 'NetMagic Solutions',
+  'Hexaware Technologies', 'Infosys Technologies', 'National Stock Exchange',
+  'Tata Communications', 'Tata Consultancy Services', 'Scope International',
+]
+
+// ─── Clients (logo images from website) ───────────────────────────────────────
+export const clientLogos = [
+  { name: 'Bank of America', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bank_of_America_logo.svg/320px-Bank_of_America_logo.svg.png' },
+  { name: 'State Bank of India', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/58/State_Bank_of_India_logo.svg/200px-State_Bank_of_India_logo.svg.png' },
+  { name: 'Airtel', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Bharti_Airtel_Logo.svg/320px-Bharti_Airtel_Logo.svg.png' },
+  { name: 'BHEL', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/BHEL_logo.svg/200px-BHEL_logo.svg.png' },
+  { name: 'Caterpillar', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Caterpillar_logo.svg/320px-Caterpillar_logo.svg.png' },
+  { name: 'Citi Bank', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Citi.svg/320px-Citi.svg.png' },
+  { name: 'HCL Technologies', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/HCL_Technologies_logo.svg/320px-HCL_Technologies_logo.svg.png' },
+  { name: 'Hyundai', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hyundai_Motor_Company_logo.svg/320px-Hyundai_Motor_Company_logo.svg.png' },
+  { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/320px-IBM_logo.svg.png' },
+  { name: 'L & T', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Larsen_%26_Toubro_logo.svg/320px-Larsen_%26_Toubro_logo.svg.png' },
+  { name: 'Infosys', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/320px-Infosys_logo.svg.png' },
+  { name: 'National Stock Exchange', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/16/National_Stock_Exchange_of_India_logo.svg/200px-National_Stock_Exchange_of_India_logo.svg.png' },
+  { name: 'Tata Communications', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/200px-Tata_logo.svg.png' },
+  { name: 'TCS', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/320px-Tata_Consultancy_Services_Logo.svg.png' },
+  { name: 'Hexaware', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Hexaware_Technologies_logo.svg/320px-Hexaware_Technologies_logo.svg.png' },
+  { name: 'Renault', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Renault_2021_Text.svg/320px-Renault_2021_Text.svg.png' },
 ]
 
 // ─── Enquiry dropdown options ─────────────────────────────────────────────────

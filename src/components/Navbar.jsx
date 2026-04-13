@@ -72,7 +72,7 @@ export default function Navbar() {
               SS AIRCON 
             </div>
             <div className={`hidden sm:block text-xs leading-tight transition-colors ${scrolled ? 'text-slate-500' : 'text-blue-200'}`}>
-              <div>HVAC Experts</div>
+              <div>The HVAC Experts</div>
               <div>Since 2004</div>
             </div>
           </Link>

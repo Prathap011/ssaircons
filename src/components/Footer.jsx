@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="font-heading font-bold text-2xl">
               <span className="text-accent-800">SS AIRCON</span>
             </div>
-            <div className="text-xs text-primary-300 mt-0.5">HVAC Experts Since 2004</div>
+            <div className="text-xs text-primary-300 mt-0.5">The HVAC Experts Since 2004</div>
           </Link>
           <p className="text-white text-sm leading-relaxed mb-5">
             SS AIRCON was started on 14th April 2004. We are an authorized dealer for Blue Star Limited

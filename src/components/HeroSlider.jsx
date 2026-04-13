@@ -7,13 +7,12 @@ import { HiArrowRight, HiChevronLeft, HiChevronRight, HiLocationMarker, HiPhone 
 // â”€â”€â”€ Branch locations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const locations = [
   {
-    city: 'Trichy',
-    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy - 620 001',
-    phone: '+91 80560 41921',
-  },
-  {
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai - 600 091',
+    phone: '+91 80560 41921',
+  },  {
+    city: 'Trichy',
+    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy - 620 001',
     phone: '+91 80560 41921',
   },
 ]
@@ -218,7 +217,7 @@ export default function HeroSlider() {
         <img
           src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80"
           alt="AC System"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-contain object-center bg-slate-950"
           loading="eager"
         />
         <div className="absolute inset-0 bg-slate-950/60" />
@@ -241,9 +240,9 @@ export default function HeroSlider() {
           style={{ opacity: contentReady ? 1 : 0 }}
         >
           <img
-            src={page > 0 ? slide.bg : 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80'}
+            src={page > 0 ? slide.bg : '/assets/landing2.jpeg'}
             alt={page > 0 ? slide.title : 'AC System'}
-            className="w-full h-full object-cover"
+            className="w-full object-contain bg-slate-950"
             loading="eager"
           />
           {/* Overlays */}
@@ -336,7 +335,7 @@ export default function HeroSlider() {
               >
                 <div className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-400/55" />
                 <span className="text-[10px] tracking-[0.42em] text-cyan-300/60 font-light uppercase">
-                  Est. 2004 | HVAC Specialists
+                  The HVAC Experts | An ISO 9001 : 2015 Certified Company
                 </span>
                 <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-400/55" />
               </motion.div>

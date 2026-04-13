@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { capabilities, partners } from '../data/siteData'
+import { capabilities, partners, partners1 } from '../data/siteData'
 import { HiCheckCircle, HiCog, HiLocationMarker, HiSupport } from 'react-icons/hi'
 import { MdPrecisionManufacturing } from 'react-icons/md'
+import ExperienceSection from '../components/ExperienceSection'
 
 const sectors = [
   'IT & ITES', 'Telecom', 'Banking', 'Hospitals', 'Automobiles',
@@ -14,11 +15,13 @@ const sectors = [
 ]
 
 const team = [
-  { Icon: HiCog,                    role: 'Project Team',        count: '12 Members', detail: 'Fitters, welders, brazers, plumbers & electricians' },
-  { Icon: MdPrecisionManufacturing, role: 'Ducting Team',        count: '8 Members',  detail: 'Specialized ducting & insulation crew' },
-  { Icon: HiLocationMarker,         role: 'Service Executives',  count: '30+ Members',detail: 'Deployed across various zones in Chennai' },
-  { Icon: HiSupport,                role: 'Emergency Team',      count: '24/7',       detail: 'Dedicated breakdown service support' },
+  { Icon: HiCog, role: 'Project Team', count: '12 Members', detail: 'Fitters, welders, brazers, plumbers & electricians' },
+  { Icon: MdPrecisionManufacturing, role: 'Ducting Team', count: '8 Members', detail: 'Specialized ducting & insulation crew' },
+  { Icon: HiLocationMarker, role: 'Service Executives', count: '30+ Members', detail: 'Deployed across various zones in Chennai' },
+  { Icon: HiSupport, role: 'Emergency Team', count: '24/7', detail: 'Dedicated breakdown service support' },
 ]
+
+
 
 export default function About() {
   const { ref, inView } = useInView()
@@ -27,14 +30,14 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About SS Aircon | HVAC Experts Since 2004</title>
+        <title>About SS Aircon | The HVAC Experts Since 2004</title>
         <meta name="description" content="SS Aircon – Established 2004. Authorized dealer for Bluestar, Symphony and Vertiv. 300+ completed projects, 24+ years of HVAC excellence." />
       </Helmet>
 
       <PageHero
         title="About Our Company"
         breadcrumbs={[{ label: 'About Us' }]}
-        bg="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80"
+        bg="/assets/slide1.jpeg"
       />
 
       {/* About intro */}
@@ -48,11 +51,11 @@ export default function About() {
               />
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  SS AIRCON was started on <strong>14th April 2004</strong> and is one of the leading HVAC contracting
+                  SS AIRCON was established on <strong> 2004</strong> and is one of the leading HVAC contracting
                   companies serving the industry for the past 24+ years. We are an authorized dealer for
                   <strong> Blue Star Limited</strong> and <strong>Symphony Industrial Air Coolers</strong>.
                 </p>
-                <p>
+                {/* <p>
                   We are also associated with <strong>Vertiv Energy Pvt Ltd</strong> (formerly known as Emerson Network
                   Power Pvt Ltd) and <strong>Trane – Ingersoll-Rand</strong> as an authorized franchisee and service partner.
                 </p>
@@ -64,6 +67,21 @@ export default function About() {
                   At SS AIRCON, our innovative methods of servicing and engineering are a sustainable competitive advantage.
                   We deliver market-leading products and services with a touch of extravagance and innovation, leading to
                   improved energy conservation and customer-centric styling.
+                </p> */}
+                <p>
+                  <strong>SS AIRCON</strong> is one of the <strong>leading HVAC contracting companies</strong> serving the industry for over <strong>14 years</strong>. Established in <strong>2004</strong>, the company has successfully completed more than <strong>300 projects</strong> across various sectors.
+                </p>
+
+                <p>
+                  Based in <strong>Chennai, India</strong>, we specialize in <strong>design, sales, installation, project execution, and operation & maintenance</strong> of <strong>high-efficiency air conditioning systems</strong> for both <strong>domestic and commercial applications</strong>.
+                </p>
+
+                <p>
+                  We are an <strong>authorized franchisee of Vertiv Energy Pvt Ltd</strong> (formerly Emerson Network Power) and an <strong>authorized dealer for Blue Star Ltd and Symphony Industrial Air Coolers</strong>.
+                </p>
+
+                <p>
+                  With a strong reputation for <strong>quality workmanship, competitive pricing, and reliable service</strong>, we provide <strong>post-sales support, preventive maintenance, and breakdown services</strong>, ensuring maximum uptime for our valued customers.
                 </p>
               </div>
             </div>
@@ -116,6 +134,9 @@ export default function About() {
         </div>
       </section>
 
+      {/* Experience Section (NEW) */}
+      <ExperienceSection />
+
       {/* Sectors */}
       <section className="section-padding bg-primary-800 text-white">
         <div className="container-custom">
@@ -142,18 +163,46 @@ export default function About() {
           <SectionTitle
             label="Our Partners"
             title="Authorized Partnerships"
-            subtitle="We are proud to be the authorized partner of industry-leading HVAC brands."
+            subtitle="We are proud to be the authorized partner and franchisee of industry-leading HVAC brands."
             center
           />
-          <div className="flex flex-wrap justify-center gap-5">
+
+          {/* Authorized Dealer */}
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
+            Authorized Dealer
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-10 mb-14">
             {partners.map((p) => (
-              <div key={p} className="bg-primary-50 border-2 border-primary-100 rounded-2xl px-8 py-5 font-semibold text-primary-700 hover:border-primary-400 hover:shadow-md transition-all">
-                {p}
-              </div>
+              <img
+                key={p.name}
+                src={p.logo}
+                alt={p.name}
+                className="h-16 object-contain transition duration-300 hover:scale-110"
+                onError={(e) => (e.currentTarget.style.display = 'none')}
+              />
+            ))}
+          </div>
+
+          {/* Authorized Franchise */}
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
+            Authorized Franchisee
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-10">
+            {partners1.map((p) => (
+              <img
+                key={p.name}
+                src={p.logo}
+                alt={p.name}
+                className="h-16 object-contain transition duration-300 hover:scale-110"
+                onError={(e) => (e.currentTarget.style.display = 'none')}
+              />
             ))}
           </div>
         </div>
       </section>
+
     </>
   )
 }

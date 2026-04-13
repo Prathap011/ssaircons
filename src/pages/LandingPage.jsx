@@ -6,13 +6,13 @@ import { HiArrowRight, HiLocationMarker, HiPhone } from 'react-icons/hi'
 // ─── Branch data ──────────────────────────────────────────────────────────────
 const locations = [
   {
-    city: 'Trichy',
-    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy – 620 001',
+    city: 'Chennai',
+    address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai – 600 091',
     phone: '+91 80560 41921',
   },
   {
-    city: 'Chennai',
-    address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai – 600 091',
+    city: 'Trichy',
+    address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy – 620 001',
     phone: '+91 80560 41921',
   },
 ]
@@ -149,7 +149,7 @@ export default function LandingPage() {
           transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <img
-            src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80"
+            src="/assets/hvaclanding02.jpeg"
             alt="AC Unit"
             className="w-full h-full object-cover object-center"
             loading="eager"
@@ -187,20 +187,20 @@ export default function LandingPage() {
         {/* ── Airflow streaks (loop forever after reveal) ── */}
         {contentVisible && (
           <div className="absolute top-0 left-0 right-0 h-[52%] overflow-hidden z-10 pointer-events-none">
-            <AirStreak topPct={10}  delay={0}    widthPx={130} opacity={0.65} />
-            <AirStreak topPct={24}  delay={0.5}  widthPx={90}  opacity={0.50} />
-            <AirStreak topPct={38}  delay={1.1}  widthPx={170} opacity={0.75} />
-            <AirStreak topPct={54}  delay={0.25} widthPx={100} opacity={0.55} />
-            <AirStreak topPct={70}  delay={0.8}  widthPx={150} opacity={0.60} />
-            <AirStreak topPct={86}  delay={0.4}  widthPx={75}  opacity={0.45} />
-            <AirParticle leftPct={18} delay={0}    size={2.5} duration={3.2} />
-            <AirParticle leftPct={33} delay={0.5}  size={2}   duration={2.8} />
-            <AirParticle leftPct={48} delay={0.9}  size={3}   duration={3.6} />
-            <AirParticle leftPct={63} delay={0.3}  size={2.5} duration={2.6} />
-            <AirParticle leftPct={76} delay={1.2}  size={2}   duration={3.1} />
-            <AirParticle leftPct={41} delay={0.7}  size={2}   duration={2.5} />
-            <AirParticle leftPct={56} delay={1.5}  size={3}   duration={3.4} />
-            <AirParticle leftPct={27} delay={1}    size={2}   duration={2.9} />
+            <AirStreak topPct={10} delay={0} widthPx={130} opacity={0.65} />
+            <AirStreak topPct={24} delay={0.5} widthPx={90} opacity={0.50} />
+            <AirStreak topPct={38} delay={1.1} widthPx={170} opacity={0.75} />
+            <AirStreak topPct={54} delay={0.25} widthPx={100} opacity={0.55} />
+            <AirStreak topPct={70} delay={0.8} widthPx={150} opacity={0.60} />
+            <AirStreak topPct={86} delay={0.4} widthPx={75} opacity={0.45} />
+            <AirParticle leftPct={18} delay={0} size={2.5} duration={3.2} />
+            <AirParticle leftPct={33} delay={0.5} size={2} duration={2.8} />
+            <AirParticle leftPct={48} delay={0.9} size={3} duration={3.6} />
+            <AirParticle leftPct={63} delay={0.3} size={2.5} duration={2.6} />
+            <AirParticle leftPct={76} delay={1.2} size={2} duration={3.1} />
+            <AirParticle leftPct={41} delay={0.7} size={2} duration={2.5} />
+            <AirParticle leftPct={56} delay={1.5} size={3} duration={3.4} />
+            <AirParticle leftPct={27} delay={1} size={2} duration={2.9} />
           </div>
         )}
 
@@ -287,11 +287,11 @@ export default function LandingPage() {
       <div className="mt-14 px-6 max-w-3xl w-full grid grid-cols-1 sm:grid-cols-3 gap-5">
         {contentVisible
           ? locations.map((loc, i) => (
-              <LocationCard key={loc.city} loc={loc} delay={i * 0.15} />
-            ))
+            <LocationCard key={loc.city} loc={loc} delay={i * 0.15} />
+          ))
           : locations.map((loc) => (
-              <div key={loc.city} className="h-[130px] rounded-2xl bg-white/[0.02] border border-white/[0.04]" />
-            ))}
+            <div key={loc.city} className="h-[130px] rounded-2xl bg-white/[0.02] border border-white/[0.04]" />
+          ))}
       </div>
 
       {/* ══════════════════════════════════════════════════════

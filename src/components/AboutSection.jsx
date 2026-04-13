@@ -205,7 +205,7 @@ export default function AboutSection() {
               <SectionTitle
                 label="About SS Aircon"
                 title="High Standard Trusted & Professional Services"
-                subtitle="Established on 14th April 2004, SS Aircon is one of the leading HVAC contracting companies serving the industry with distinction."
+                subtitle="Established on 2004, SS Aircon is one of the leading HVAC contracting companies serving the industry with distinction."
               />
 
               <motion.div
@@ -214,10 +214,9 @@ export default function AboutSection() {
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <p className="text-slate-600 leading-relaxed mb-5 text-sm">
-                  SS AIRCON is associated with <strong>VERTIV ENERGY PVT LTD</strong> (formerly Emerson Network Power) and{' '}
-                  <strong>TRANE–Ingersoll-Rand</strong> as an authorized franchisee and service partner. We have successfully
-                  completed <strong>300+ projects</strong> across IT, ITES, Telecom, Banking, Hospitals, Hotels, and more.
+                  <strong>SS AIRCON</strong> is one of the <strong>leading HVAC contracting company</strong> serving the industry for the past <strong>14 years</strong>. We have handled various types of <strong>HVAC projects, services, operations & maintenance</strong>. From <strong>2004 to till date</strong>, we have successfully completed more than <strong>300 projects</strong> and are providing <strong>post-sales support, preventive maintenance service, and breakdown service support</strong> for our valued customers while maintaining <strong>maximum uptime</strong>.
                 </p>
+
 
                 <div className="space-y-2 mb-7">
                   {capabilities.slice(0, 5).map((cap, i) => (
@@ -234,39 +233,49 @@ export default function AboutSection() {
                   ))}
                 </div>
 
-                {/* Partners */}
-              <div className="bg-slate-50 rounded-xl p-4 mb-6">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Authorized Dealer</p>
-                <div className="flex flex-wrap gap-2">
-                  {partners.map((p) => (
-                    <motion.span
-                      key={p}
-                      whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
-                    >
-                      {p}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
+                {/* Partners - Combined Row */}
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
 
-              {/* Partners */}
-              <div className="bg-slate-50 rounded-xl p-4 mb-6">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Franchise Dealer</p>
-                <div className="flex flex-wrap gap-2">
-                  {partners1.map((p) => (
-                    <motion.span
-                      key={p}
-                      whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
-                    >
-                      {p}
-                    </motion.span>
-                  ))}
+                  {/* Authorized Dealer */}
+                  <div className="bg-slate-50 rounded-xl p-4">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                      Authorized Dealer
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {partners.map((p) => (
+                        <motion.span
+                          key={p.name}
+                          whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
+                          transition={{ duration: 0.2 }}
+                          className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
+                        >
+                          {p.name}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Franchise Dealer */}
+                  <div className="bg-slate-50 rounded-xl p-4">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                      Franchise Dealer
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {partners1.map((p) => (
+                        <motion.span
+                          key={p.name}
+                          whileHover={{ scale: 1.05, backgroundColor: '#dbeafe' }}
+                          transition={{ duration: 0.2 }}
+                          className="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full cursor-default"
+                        >
+                          {p.name}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
-              </div>
+
 
                 <Link to="/about" className="btn-primary group inline-flex items-center gap-2">
                   Learn More About Us
@@ -275,7 +284,7 @@ export default function AboutSection() {
               </motion.div>
             </div>
 
-            
+
           </div>
 
         </div>
