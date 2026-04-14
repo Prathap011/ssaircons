@@ -10,7 +10,7 @@ const locations = [
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai - 600 091',
     phone: '+91 80560 41921',
-  },  {
+  }, {
     city: 'Trichy',
     address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy - 620 001',
     phone: '+91 80560 41921',
@@ -75,7 +75,9 @@ function LocationCard({ loc, entryDelay }) {
           <HiLocationMarker className="text-cyan-400 text-base" />
         </div>
         <h3 className="font-heading font-bold text-white text-sm tracking-wide">{loc.city}</h3>
-        <p className="text-cyan-400/50 text-[9px] tracking-widest mt-0.5 uppercase">Branch</p>
+        <p className="text-cyan-400/50 text-[9px] tracking-widest mt-0.5 uppercase">
+          {loc.city === 'Chennai' ? 'Head Office' : 'Branch Office'}
+        </p>
       </div>
 
       <AnimatePresence>
@@ -162,8 +164,8 @@ export default function HeroSlider() {
   const [phase, setPhase] = useState('dark')
   useEffect(() => {
     const t1 = setTimeout(() => setPhase('reveal'), 200)
-    const t2 = setTimeout(() => setPhase('open'),   2000)
-    const t3 = setTimeout(() => setPhase('done'),   2600)
+    const t2 = setTimeout(() => setPhase('open'), 2000)
+    const t3 = setTimeout(() => setPhase('done'), 2600)
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
   }, [])
 
@@ -271,20 +273,20 @@ export default function HeroSlider() {
 
       {contentReady && page === 0 && (
         <div className="absolute top-0 left-0 right-0 h-[46%] overflow-hidden z-10 pointer-events-none">
-          <AirStreak topPct={8}  delay={0}    widthPx={130} opacity={0.6}  />
-          <AirStreak topPct={24} delay={0.5}  widthPx={90}  opacity={0.48} />
-          <AirStreak topPct={40} delay={1.1}  widthPx={170} opacity={0.72} />
+          <AirStreak topPct={8} delay={0} widthPx={130} opacity={0.6} />
+          <AirStreak topPct={24} delay={0.5} widthPx={90} opacity={0.48} />
+          <AirStreak topPct={40} delay={1.1} widthPx={170} opacity={0.72} />
           <AirStreak topPct={56} delay={0.25} widthPx={105} opacity={0.52} />
-          <AirStreak topPct={72} delay={0.8}  widthPx={150} opacity={0.58} />
-          <AirStreak topPct={88} delay={0.4}  widthPx={75}  opacity={0.44} />
-          <AirParticle leftPct={15} delay={0}    size={2.5} duration={3.2} />
-          <AirParticle leftPct={30} delay={0.5}  size={2}   duration={2.8} />
-          <AirParticle leftPct={46} delay={0.9}  size={3}   duration={3.6} />
-          <AirParticle leftPct={61} delay={0.3}  size={2.5} duration={2.6} />
-          <AirParticle leftPct={75} delay={1.2}  size={2}   duration={3.1} />
-          <AirParticle leftPct={39} delay={0.7}  size={2}   duration={2.5} />
-          <AirParticle leftPct={54} delay={1.5}  size={3}   duration={3.4} />
-          <AirParticle leftPct={26} delay={1}    size={2}   duration={2.9} />
+          <AirStreak topPct={72} delay={0.8} widthPx={150} opacity={0.58} />
+          <AirStreak topPct={88} delay={0.4} widthPx={75} opacity={0.44} />
+          <AirParticle leftPct={15} delay={0} size={2.5} duration={3.2} />
+          <AirParticle leftPct={30} delay={0.5} size={2} duration={2.8} />
+          <AirParticle leftPct={46} delay={0.9} size={3} duration={3.6} />
+          <AirParticle leftPct={61} delay={0.3} size={2.5} duration={2.6} />
+          <AirParticle leftPct={75} delay={1.2} size={2} duration={3.1} />
+          <AirParticle leftPct={39} delay={0.7} size={2} duration={2.5} />
+          <AirParticle leftPct={54} delay={1.5} size={3} duration={3.4} />
+          <AirParticle leftPct={26} delay={1} size={2} duration={2.9} />
         </div>
       )}
 
@@ -461,9 +463,8 @@ export default function HeroSlider() {
                 onClick={() => setPage([i, i > page ? 1 : -1])}
                 whileHover={{ scale: 1.3 }}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
-                  i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
-                }`}
+                className={`rounded-full transition-all duration-300 ${i === page ? 'w-7 h-2 bg-accent-500' : 'w-2 h-2 bg-white/35 hover:bg-white/65'
+                  }`}
               />
             ))}
           </div>

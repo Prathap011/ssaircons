@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
+import { Link } from 'react-router-dom'
+import { HiArrowRight } from 'react-icons/hi'
 
 const clients = [
   {
@@ -137,13 +139,23 @@ export default function TestimonialsSection() {
                 key={groupKey}
                 onClick={() => setPage(i)}
                 aria-label={`Go to client group ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === page ? 'bg-primary-600 w-6' : 'bg-primary-200 w-2'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === page ? 'bg-primary-600 w-6' : 'bg-primary-200 w-2'
+                  }`}
               />
             )
           })}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-10"
+        >
+          <Link to="/clients" className="btn-outline border-accent-400 text-accent-400 hover:bg-accent-500 hover:text-white hover:border-accent-500">
+            View more clients <HiArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

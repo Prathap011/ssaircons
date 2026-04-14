@@ -332,7 +332,7 @@ export default function Clients() {
       <IndustrySection />
 
       {/* Client logos grid */}
-      <section className="section-padding bg-slate-50">
+      {/* <section className="section-padding bg-slate-50">
         <div className="container-custom">
           <SectionTitle
             label="Client Portfolio"
@@ -347,10 +347,10 @@ export default function Clients() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* All client names as pills */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="Full Client List"
@@ -374,7 +374,7 @@ export default function Clients() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Authorized Partners section */}
       <section className="section-padding bg-primary-800 text-white">
