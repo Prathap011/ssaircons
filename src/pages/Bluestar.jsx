@@ -15,7 +15,7 @@ const products = [
     name: 'Blue Star Chillers',
     subtitle: 'Air-cooled & Water-cooled Chillers',
     description:
-      'Blue Star chillers deliver energy-efficient, large-scale cooling for commercial buildings, data centres, hospitals, and industrial facilities. Available in scroll, screw, and centrifugal variants from 10 TR to 2000 TR — engineered for Indian climatic conditions with high COP ratings.',
+      'Blue Star offers Process Chillers for medical, pharmaceutical industries and varied industrial applications like plastic mould cooling, printing and lamination processes. These chillers incorporate microprocessor based controls which offer intelligent cooling and are energy efficient apart from being extremely compact with a small footprint.',
     image: '/assets/bluestar/bluestar_chiller.jpg',
     specs: [
       { label: 'Capacity', value: '10 – 2000 TR' },
@@ -36,7 +36,7 @@ const products = [
     name: 'VRF / VRV Systems',
     subtitle: 'Variable Refrigerant Flow Technology',
     description:
-      'Blue Star VRF systems provide simultaneous heating and cooling across multiple zones. Ideal for office complexes, hotels, and malls — with centralised control and exceptional energy savings of up to 40% compared to conventional systems.',
+      'The Blue Star VRF is an inverter compressor driven VRF system, designed with sleek and compact side air discharge outdoor units. This system is ideal for applications with limited floor space where conventional top discharge outdoor units cannot be placed.',
     image: '/assets/bluestar/bluestar_vrf.jpg',
     specs: [
       { label: 'Indoor Units', value: 'Up to 64 per ODU' },
@@ -57,7 +57,7 @@ const products = [
     name: 'Ductable Split Units',
     subtitle: 'Ceiling Concealed & Floor Standing',
     description:
-      'Blue Star ductable split systems are designed for large open-plan commercial spaces — offices, showrooms, and retail outlets. High static pressure fans ensure uniform air distribution across extended duct runs.',
+      'Ducted air conditioning provides heating or cooling through a system of ducts spread out all over your home or commercial space. A central unit, consisting of a condenser, compressor, and an air handling unit, is usually located in the basement, attic, or garage.',
     image: '/assets/bluestar/bluestar_ductable.jpg',
     specs: [
       { label: 'Capacity', value: '1 – 15 TR' },
@@ -78,7 +78,7 @@ const products = [
     name: 'Cassette Air Conditioners',
     subtitle: '4-Way / 2-Way Ceiling Cassette Units',
     description:
-      'Ceiling-flush cassette units blend seamlessly into any interior while delivering powerful, uniform cooling in four directions. Perfect for boardrooms, restaurants, and retail stores where aesthetics and performance both matter.',
+      'Cassette air conditioners are ceiling air conditioners and are one of the main types of inverter split systems. Cassette air conditioners work like other wall-mounted split system units. The difference is that the cassette systems are mounted on the ceiling, not on the wall.',
     image: '/assets/bluestar/bluestar_cassette.jpg',
     specs: [
       { label: 'Airflow Pattern', value: '4-Way / 2-Way' },
@@ -99,7 +99,7 @@ const products = [
     name: 'Split & Window ACs',
     subtitle: 'Residential & Light Commercial',
     description:
-      'Blue Star split ACs deliver precise, fast cooling with ultra-quiet operation for homes, offices, and small commercial spaces — backed by advanced inverter technology, the highest BEE star ratings, and 100% copper condenser coils.',
+      'Here’s an AC that thinks and adjusts according to your needs. It’s Blue Star’s Inverter AC. The compressor of this AC changes frequentl y as per the ambient load. As the frequency changes, RPM of the compressor also changes. This eliminates any temperature fluctuations and helps maintain a comfortable temperature.',
     image: '/assets/bluestar/bluestar_split_ac.jpg',
     specs: [
       { label: 'BEE Rating', value: '5-Star' },
@@ -201,24 +201,24 @@ function ProductCard({ product, index }) {
         </motion.p>
 
         {/* Spec chips */}
-        <div className="flex flex-wrap gap-3 mb-5">
+        {/* <div className="flex flex-wrap gap-3 mb-5">
           {product.specs.map((s) => (
             <div key={s.label} className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-2 text-center min-w-[80px]">
               <p className="text-blue-800 font-bold text-sm leading-tight">{s.value}</p>
               <p className="text-blue-400 text-xs mt-0.5">{s.label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Features */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-6">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-6">
           {product.features.map((f) => (
             <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
               <HiCheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0" />
               {f}
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </motion.div>

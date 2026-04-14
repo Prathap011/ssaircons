@@ -13,10 +13,10 @@ import { MdOutlineEmojiEvents } from 'react-icons/md'
 const products = [
   {
     id: 'pac',
-    name: 'Liebert PAC',
+    name: 'Vertiv (PAC)',
     subtitle: 'Precision Air Conditioning',
     description:
-      'Liebert PAC units are designed for computer rooms and data centres requiring precise temperature and humidity control to ±0.5°C accuracy. Available in upflow, downflow, and ceiling-suspended configurations with DX and chilled-water refrigerant options.',
+      'For all-time temperature and moisture control in network closets, computer rooms, and other little spaces. Its low profile allows floor-mount or wall-mount fitting and requires little or no floor space.',
     image: '/assets/vertiv/verti_pac.jpg',
     specs: [
       { label: 'Capacity Range', value: '3 – 60 TR' },
@@ -34,10 +34,10 @@ const products = [
   },
   {
     id: 'pcw',
-    name: 'Liebert PCW',
+    name: 'Vertiv (PCW)',
     subtitle: 'Chilled Water Precision Cooling',
     description:
-      'Liebert PCW connects directly to the building chilled water loop — the ideal solution for large data centres where a central chiller plant already exists. Features a supplementary DX backup coil for continuous operation during chiller maintenance.',
+      'Liebert PCW is the ideal chilled water cooling unit, providing an efficient solution for data center and server room air conditioning. This water cooling system is available in a wide variety of configurations and capacities, ranging from 25 to 220 kW.',
     image: '/assets/vertiv/verti_pcw.jpg',
     specs: [
       { label: 'Cooling Capacity', value: 'Up to 200 kW' },
@@ -55,10 +55,10 @@ const products = [
   },
   {
     id: 'pdx',
-    name: 'Liebert PDX',
+    name: 'Vertiv (PDX)',
     subtitle: 'DX Close Control Precision Unit',
     description:
-      'Liebert PDX is a close-control DX precision cooling unit for medium to large data centres and server rooms. Its dual independent refrigerant circuits deliver high reliability and exceptional energy efficiency with intelligent iCOM control.',
+      'The Liebert PDX direct expansion large room cooling unit is equipped with the most advanced industry cooling system technology, which allows the unit to provide thermal management efficiency for data centers, server rooms, VFD Rooms, Electrical rooms, textile and Quality Control Labs.',
     image: '/assets/vertiv/verti_pdx.jpg',
     specs: [
       { label: 'Cooling Type', value: 'Direct Expansion' },
@@ -76,10 +76,10 @@ const products = [
   },
   {
     id: 'pahu',
-    name: 'Liebert PAHU',
+    name: 'Vertiv (PAHU)',
     subtitle: 'Precision Air Handling Unit',
     description:
-      'Liebert PAHU delivers centralised large-scale precision air treatment for hyperscale facilities and mega data centres. Engineered for high-volume airflow with HEPA-grade filtration options and full building automation system integration.',
+      'Properly used, complete air conditioning system with high quality and energy safe, durable, long lasting performance characteristics. 5 functions: universal function, light perception, long distance.',
     image: '/assets/vertiv/verti_pahu.jpg',
     specs: [
       { label: 'Type', value: 'Central AHU' },
@@ -97,10 +97,10 @@ const products = [
   },
   {
     id: 'crv',
-    name: 'Liebert CRV',
+    name: 'Vertiv (CRV)',
     subtitle: 'Close Coupled Row Variable Cooling',
     description:
-      'Liebert CRV eliminates hot spots at the source by placing cooling units directly between server racks in the aisle. Delivers up to 80 kW of targeted, precisely managed cooling — ideal for high-density computing deployments.',
+      'The Vertiv™ Liebert® CRV is a precision data center cooling solution, integrated within a row of data center racks and was designed to address some of the major challenges seen in high density applications. With adjustable airflow baffles and controls that independently manage airflow and temperature, the Liebert CRV can precisely deliver highly efficient cooling in the row where it’s needed. The system is available in multiple options, providing flexibility for any installation.',
     image: '/assets/vertiv/verti_crv.jpg',
     specs: [
       { label: 'Cooling Capacity', value: 'Up to 80 kW' },
@@ -118,10 +118,10 @@ const products = [
   },
   {
     id: 'src',
-    name: 'Liebert SRC',
+    name: 'Vertiv (SRC)',
     subtitle: 'Small / Medium Room Cooling',
     description:
-      'Liebert SRC is purpose-built for small server rooms, telecom PoPs, and edge computing sites. Its compact footprint and reliable close-control performance make it the ideal solution for distributed IT infrastructure across multiple locations.',
+      'Liebert® SRC is designed for High air quantity to match equipment Sensible Load application. It is coupled with high energy efficient components and advanced control system which helps in maximum energy efficiency and guarantees proper environmental conditions inside Critical Technological rooms.',
     image: '/assets/vertiv/verti_src.jpg',
     specs: [
       { label: 'Capacity Range', value: '3 – 20 TR' },
@@ -234,7 +234,7 @@ function ProductCard({ product, index }) {
           {product.description}
         </motion.p>
 
-        <div className="flex flex-wrap gap-3 mb-5">
+        {/* <div className="flex flex-wrap gap-3 mb-5">
           {product.specs.map((s) => (
             <div key={s.label} className="bg-primary-50 border border-primary-100 rounded-xl px-4 py-2 text-center min-w-[80px]">
               <p className="text-primary-800 font-bold text-sm leading-tight">{s.value}</p>
@@ -250,7 +250,7 @@ function ProductCard({ product, index }) {
               {f}
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </motion.div>

@@ -303,7 +303,7 @@ function ProductCard({ product, index }) {
           </h3>
 
           {/* Spec chips */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          {/* <div className="flex flex-wrap gap-2 mb-4">
             {[
               { label: 'Airflow', val: product.airflow },
               { label: 'Power', val: product.power },
@@ -314,13 +314,13 @@ function ProductCard({ product, index }) {
                 <p className="text-primary-400 text-xs mt-0.5">{label}</p>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Description */}
           <p className="text-slate-600 text-sm leading-relaxed mb-4">{product.description}</p>
 
           {/* Highlights */}
-          {product.highlights && (
+          {/* {product.highlights && (
             <div className="mb-4 space-y-1">
               {product.highlights.map((h) => (
                 <p key={h} className="text-sm text-primary-700 font-medium flex items-start gap-1.5">
@@ -328,17 +328,17 @@ function ProductCard({ product, index }) {
                 </p>
               ))}
             </div>
-          )}
+          )} */}
 
           {/* Full feature list */}
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+          {/* <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
             {product.features.map((f) => (
               <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
                 <HiCheckCircle className="w-4 h-4 text-primary-500 mt-0.5 shrink-0" />
                 {f}
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </motion.div>
