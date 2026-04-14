@@ -350,7 +350,7 @@ export default function Clients() {
       </section> */}
 
       {/* All client names as pills */}
-      {/* <section className="section-padding bg-white">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="Full Client List"
@@ -374,7 +374,7 @@ export default function Clients() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Authorized Partners section */}
       <section className="section-padding bg-primary-800 text-white">
