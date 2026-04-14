@@ -1,335 +1,556 @@
-import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { HiArrowRight, HiCheckCircle, HiRefresh, HiTemplate, HiCube, HiChartBar, HiBeaker, HiVolumeOff, HiCog, HiStar } from 'react-icons/hi'
+import {
+  HiCheckCircle, HiArrowRight, HiStar,
+  HiLightningBolt, HiShieldCheck, HiGlobe,
+} from 'react-icons/hi'
+import { MdOutlineAir, MdOutlineEnergySavingsLeaf } from 'react-icons/md'
 
-const productLines = [
+// ─── Product Data ─────────────────────────────────────────────────────────────
+
+const xlSeries = [
   {
-    id: 'diet',
-    title: 'Diet Series',
-    subtitle: 'Mid-range commercial coolers',
-    description:
-      'The Symphony Diet series is designed for medium commercial spaces — gyms, workshops, and small warehouses. Compact frame, powerful 25 m air throw, and ultra-low 215 W power consumption.',
-    Icon: HiRefresh,
+    name: 'Symphony XL 100G',
+    series: 'XL Series',
     airflow: '8,500 m³/hr',
     power: '215 W',
     throw: '25 m',
-    features: ['3-side honeycomb cooling pads', 'Digital touchscreen remote', 'Auto vertical swing', 'Float valve auto water filling'],
-    color: 'from-primary-600 to-primary-500',
-    light: 'bg-primary-50',
+    image: '/assets/symphony/symphony-XL100G.jpg',
+    description:
+      'A high-performance XL-series industrial air cooler delivering 8,500 m³/hr of fresh, filtered air. Equipped with a digital touchscreen remote and 3-side honeycomb cooling pads for wide-area spot cooling in factories, workshops, and large open spaces.',
+    highlights: ['Powerful 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 m³/hr Air Delivery',
+      'Digital Touchscreen Full Control Remote',
+      'Empty Water Tank Alarm',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
   },
   {
-    id: 'cloud',
-    title: 'Cloud Series',
-    subtitle: 'Large commercial air coolers',
+    name: 'Symphony XL 200G',
+    series: 'XL Series',
+    airflow: '8,500 m³/hr',
+    power: '215 W',
+    throw: '25 m',
+    image: '/assets/symphony/symphony-XL200G.jpg',
     description:
-      'Symphony Cloud series coolers are engineered for large factories, warehouses, and event halls. Twin-unit design delivers dual 25+25 m air throws for wide-area rapid cooling.',
-    Icon: HiTemplate,
+      'The XL 200G features Symphony\'s exclusive Cool Flow Dispenser for enhanced evaporative efficiency, distributing water uniformly across 3-side honeycomb cooling pads. Ideal for medium-sized industrial bays, loading docks, and large retail spaces.',
+    highlights: ['Powerful 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 m³/hr Air Delivery',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Empty Water Tank Alarm',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+  {
+    name: 'Symphony XL 200i',
+    series: 'XL Series',
+    airflow: '8,500 m³/hr',
+    power: '215 W',
+    throw: '25 m',
+    image: '/assets/symphony/symphony-XL200i.jpg',
+    description:
+      'An upgraded XL model with automatic vertical swing for even air distribution across the full height of the workspace. The digital touchscreen remote gives operators full speed and louver control, making it ideal for large production floors and assembly areas.',
+    highlights: ['Powerful 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 m³/hr Air Delivery',
+      'Digital Touchscreen Full Control Remote',
+      'Auto Vertical Swing',
+      'Empty Water Tank Alarm',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+  {
+    name: 'Symphony DD 125',
+    series: 'DD Series',
+    airflow: '8,500 m³/hr',
+    power: '215 W',
+    throw: '25 m',
+    image: '/assets/symphony/symphony-DD125.jpg',
+    description:
+      'The DD 125 (Dual Discharge) delivers 8,500 m³/hr through dual cooling pad sections for broader horizontal coverage from a single unit. The Cool Flow Dispenser ensures consistent, high-efficiency evaporative cooling across large open areas.',
+    highlights: ['Powerful 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 m³/hr Air Delivery',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Dual-discharge honeycomb cooling media',
+      'Empty Water Tank Alarm',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+  {
+    name: 'Symphony L 2001',
+    series: 'Dual Unit',
     airflow: '8,500 + 8,500 m³/hr',
     power: '215 W × 2',
     throw: '25 m × 2',
-    features: ['4-side honeycomb cooling pads', 'Cool Flow Dispenser enhanced cooling', 'Auto vertical swing', 'Lockable heavy-duty wheels'],
-    color: 'from-primary-500 to-accent-400',
-    light: 'bg-primary-50',
-  },
-  {
-    id: 'industrial',
-    title: 'Industrial Series',
-    subtitle: 'Heavy-duty plant cooling',
+    image: '/assets/symphony/symphony-L-2001.jpg',
     description:
-      'Built for demanding industrial environments, the Symphony Industrial series delivers 18,000 m³/hr airflow across 26 m — suitable for large manufacturing plants, textile mills, and logistics hubs.',
-    Icon: HiCube,
+      'A unique dual-blower configuration housing two independent cooling units in one chassis, delivering a combined 17,000 m³/hr. Designed for superior coverage across very large industrial spaces, warehouses, and exhibition halls where a single unit is insufficient.',
+    highlights: ['Two cooling units for uniform wide area cooling', 'Powerful 25m / 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 + 8500 m³/hr Air Delivery',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Auto Vertical Swing',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W × 2 Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+]
+
+const heavySeries = [
+  {
+    name: 'Symphony LSV',
+    series: 'Heavy Industrial',
     airflow: '18,000 m³/hr',
     power: '580 W',
     throw: '26 m',
-    features: ['3-side HDPE honeycomb pads', 'Powder-coated steel chassis', 'Cool Flow Dispenser', 'Large water inlet door'],
-    color: 'from-primary-500 to-accent-500',
-    light: 'bg-primary-50',
+    image: '/assets/symphony/symphony-LSV.jpg',
+    description:
+      'The flagship Symphony heavy-duty industrial cooler with a powerful 18,000 m³/hr airflow and 26-metre throw. Built for large-scale factory floors, aircraft hangars, and warehouses where standard-capacity units fall short. Features a large water inlet door for easy topping up.',
+    highlights: ['Powerful 26m air throw for faster cooling', '3-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
+    features: [
+      '18000 m³/hr Air Delivery',
+      'Low Power Consumption – 580W Only',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Large Water Inlet Door',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
   },
   {
-    id: 'jumbo',
-    title: 'Jumbo Series',
-    subtitle: 'Maximum capacity coolers',
+    name: 'Symphony Movicool L125',
+    series: 'Heavy Industrial',
+    airflow: '18,000 m³/hr',
+    power: '580 W',
+    throw: '26 m',
+    image: '/assets/symphony/symphony_movicool-L125.jpg',
     description:
-      'The Symphony Jumbo series is designed for massive open spaces — aircraft hangars, stadiums, and large warehouses. Delivers 20,000 m³/hr with 4-side cooling pads for superior coverage.',
-    Icon: HiChartBar,
+      'An 18,000 m³/hr industrial air cooler engineered for large-scale manufacturing plants, textile mills, and foundries. The Movicool L125 combines a large water tank capacity with the Cool Flow Dispenser for sustained high-performance cooling during extended shifts.',
+    highlights: ['Powerful 26m air throw for faster cooling', '3-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
+    features: [
+      '18000 m³/hr Air Delivery',
+      'Low Power Consumption – 580W Only',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Large Water Inlet Door',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+  {
+    name: 'Symphony Movicool 65iS',
+    series: 'Heavy Industrial',
+    airflow: '18,000 m³/hr',
+    power: '580 W',
+    throw: '30 m',
+    image: '/assets/symphony/symphony-Movicool-65is.jpg',
+    description:
+      'Top-end heavy-duty cooler delivering 18,000 m³/hr with an extended 30-metre air throw. The digital touchscreen and auto vertical swing make the 65iS the preferred choice for airports, sports halls, auditoriums, and large event venues.',
+    highlights: ['Powerful 30m air throw for faster cooling', '3-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
+    features: [
+      '18000 m³/hr Air Delivery',
+      'Digital Touchscreen Full Control Remote',
+      'Empty Water Tank Alarm',
+      'Auto Vertical Swing',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 580W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+]
+
+const jumboSeries = [
+  {
+    name: 'Symphony XXL Movicool',
+    series: 'Jumbo Series',
     airflow: '20,000 m³/hr',
     power: '1,100 W',
     throw: '30 m',
-    features: ['4-side dust filter system', 'Auto vertical swing', 'Cool Flow Dispenser', 'Float valve for auto water filling'],
-    color: 'from-primary-700 to-primary-600',
-    light: 'bg-primary-50',
+    image: '/assets/symphony/symphony-xxl_movicool.jpg',
+    description:
+      'Symphony\'s most powerful unit — 20,000 m³/hr of cool air distributed through 4-side honeycomb cooling pads with an incredible 30-metre throw. Designed for mega warehouses, large event spaces, sports complexes, and demanding outdoor industrial operations.',
+    highlights: ['Powerful 30m air throw for faster cooling', '4-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
+    features: [
+      '20000 m³/hr Air Delivery',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Auto Vertical Swing',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 1100W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '4-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
+  },
+  {
+    name: 'Symphony Movi-cool',
+    series: 'Movicool Series',
+    airflow: '8,500 m³/hr',
+    power: '215 W',
+    throw: '25 m',
+    image: '/assets/symphony/symphony_movi-cool.jpg',
+    description:
+      'A compact yet powerful Movicool unit offering 8,500 m³/hr with all-terrain lockable heavy-duty wheels for easy repositioning. Perfect for temporary events, construction sites, garments factories, and seasonal spot-cooling where flexibility is essential.',
+    highlights: ['Powerful 25m air throw for faster cooling', '3-side high efficiency honeycomb cooling', 'Robust weather resistant body long life'],
+    features: [
+      '8500 m³/hr Air Delivery',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 215W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '3-Side Dust Filters for Pure Healthy Air',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels – All-terrain',
+    ],
   },
 ]
 
-const advantages = [
-  { Icon: HiBeaker, label: 'Water-Based Cooling', desc: 'No compressor — 90% lower power vs AC' },
-  { Icon: HiRefresh, label: 'Eco-Friendly', desc: 'Zero refrigerant, zero ozone impact' },
-  { Icon: HiArrowRight, label: 'Fresh Air', desc: 'Continuously draws in fresh outside air' },
-  { Icon: HiVolumeOff, label: 'Low Noise', desc: 'Whisper-quiet operation in large spaces' },
-  { Icon: HiCog, label: 'Easy Maintenance', desc: 'Removable & washable honeycomb pads' },
-  { Icon: HiStar, label: 'Authorized Dealer', desc: 'SS Aircon — official Symphony partner' },
+const stats = [
+  { value: '20,000', label: 'm³/hr Max Airflow', Icon: MdOutlineAir },
+  { value: '90%', label: 'Less Energy vs AC', Icon: MdOutlineEnergySavingsLeaf },
+  { value: '30 m', label: 'Max Air Throw', Icon: HiArrowRight },
+  { value: '10+', label: 'Models Available', Icon: HiStar },
 ]
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+// ─── Sub-components ────────────────────────────────────────────────────────────
+
+function SeriesDivider({ label }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex items-center gap-4 mb-10"
+    >
+      <span className="section-label whitespace-nowrap">{label}</span>
+      <div className="flex-1 h-px bg-gradient-to-r from-primary-200 to-transparent" />
+    </motion.div>
+  )
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+function ProductCard({ product, index }) {
+  const isEven = index % 2 === 0
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-shadow duration-300"
+    >
+      {/* Image — full height, white background */}
+      <div className={`relative min-h-[420px] bg-white ${isEven ? '' : 'md:order-2'}`}>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+        />
+        <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-primary-800 to-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+          {product.series}
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className={`p-8 flex flex-col justify-between ${isEven ? '' : 'md:order-1'}`}>
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold font-heading text-primary-900 mb-3">
+            {product.name}
+          </h3>
+
+          {/* Spec chips */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {[
+              { label: 'Airflow', val: product.airflow },
+              { label: 'Power', val: product.power },
+              { label: 'Throw', val: product.throw },
+            ].map(({ label, val }) => (
+              <div key={label} className="bg-primary-50 border border-primary-100 rounded-xl px-4 py-2 text-center min-w-[90px]">
+                <p className="text-primary-800 font-bold text-sm leading-tight">{val}</p>
+                <p className="text-primary-400 text-xs mt-0.5">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Description */}
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">{product.description}</p>
+
+          {/* Highlights */}
+          {product.highlights && (
+            <div className="mb-4 space-y-1">
+              {product.highlights.map((h) => (
+                <p key={h} className="text-sm text-primary-700 font-medium flex items-start gap-1.5">
+                  <span className="text-primary-500 mt-0.5">›</span>{h}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Full feature list */}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+            {product.features.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
+                <HiCheckCircle className="w-4 h-4 text-primary-500 mt-0.5 shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </motion.div>
+  )
 }
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Symphony() {
-  const [activeTab, setActiveTab] = useState(0)
-  const current = productLines[activeTab]
-
   return (
-    <>
+    <div className="min-h-screen">
       <Helmet>
-        <title>Symphony Air Coolers | SS Aircon — Authorized Dealer</title>
+        <title>Symphony Industrial Air Coolers — SS Aircon</title>
         <meta
           name="description"
-          content="SS Aircon is an authorized Symphony Industrial Air Cooler dealer. Explore the Diet, Cloud, Industrial, and Jumbo series — eco-friendly, high-airflow cooling for factories and warehouses."
+          content="SS Aircon is an authorised Symphony dealer offering the complete range of industrial air coolers — XL, DD, LSV, Movicool, XXL Jumbo and more — across Tamil Nadu."
         />
       </Helmet>
 
       <PageHero
-        title="Symphony Air Coolers"
+        title="Symphony Industrial Air Coolers"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Symphony' }]}
-        bg="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?w=1600&auto=format&fit=crop&q=80"
+        bg="/assets/hvaclanding04.jpeg"
       />
 
-      {/* Brand intro banner */}
-      <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white overflow-hidden relative">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 0.12, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_#60a5fa_0%,_transparent_60%)] pointer-events-none"
-        />
-        <div className="container-custom flex flex-col md:flex-row items-center gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex-1"
-          >
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/20 rounded-full px-4 py-1.5 mb-4">
-              <span className="w-2 h-2 rounded-full bg-primary-300 animate-pulse" />
-              <span className="text-sm font-medium text-primary-100">Authorized Dealer — Symphony Ltd.</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-3">
-              Industrial Air Cooling.<br />Powerful. Efficient. Natural.
-            </h2>
-            <p className="text-primary-100 leading-relaxed max-w-xl">
-              SS Aircon is a proud authorized dealer of <strong className="text-white">Symphony Ltd.</strong> — the world's largest air cooler company. We supply and maintain Symphony's full industrial cooler range across Tamil Nadu — delivering powerful, eco-friendly cooling for factories, warehouses, and open-air venues.
-            </p>
-          </motion.div>
+      {/* ── Brand Banner ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-14">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* Animated stat chips */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-3 flex-shrink-0"
-          >
-            {[
-              { num: '20,000', lbl: 'm³/hr max airflow' },
-              { num: '90%', lbl: 'less energy than AC' },
-              { num: '30 m', lbl: 'air throw distance' },
-              { num: '4-side', lbl: 'honeycomb pad cooling' },
-            ].map((s, i) => (
-              <motion.div
-                key={s.lbl}
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
-                className="bg-white/15 backdrop-blur border border-white/20 rounded-xl px-5 py-3 flex items-center gap-4"
-              >
-                <span className="text-2xl font-bold text-white">{s.num}</span>
-                <span className="text-primary-100 text-sm">{s.lbl}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Left: logo + description */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65 }}
+              className="flex flex-col gap-5"
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 w-fit">
+                <img src="/assets/sympothy.jpeg" alt="Symphony Logo" className="h-20 object-contain" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-3">Authorised Symphony Dealer</h2>
+                <p className="text-primary-200 leading-relaxed">
+                  Symphony is India's No. 1 industrial air cooler brand. SS Aircon brings the complete
+                  Symphony portfolio — from compact XL units to massive Jumbo coolers — with expert
+                  installation and after-sales support across Tamil Nadu.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right: stat chips */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.12 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {stats.map(({ value, label, Icon }) => (
+                <div key={label} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 flex flex-col gap-2">
+                  <Icon className="w-6 h-6 text-primary-300" />
+                  <p className="text-2xl font-extrabold text-white">{value}</p>
+                  <p className="text-primary-200 text-sm">{label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Tab selector */}
-      <section className="py-14 bg-slate-50">
+      {/* ── XL & DD Series (5 products) ────────────────────────────────────────── */}
+      <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
         <div className="container-custom">
           <SectionTitle
-            label="Product Range"
-            title="Symphony Cooler Series"
-            subtitle="From medium commercial to heavy-duty industrial — the right cooler for every application."
-            center
+            title="XL & DD Series Products"
+            subtitle="Versatile, portable industrial air coolers for medium to large spaces"
           />
-
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {productLines.map((p, i) => (
-              <motion.button
-                key={p.id}
-                onClick={() => setActiveTab(i)}
-                whileTap={{ scale: 0.96 }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border flex items-center gap-1.5 ${
-                  activeTab === i
-                    ? `bg-gradient-to-r ${p.color} text-white border-transparent shadow-md`
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-primary-400 hover:text-primary-700'
-                }`}
-              >
-                <p.Icon className="w-4 h-4" />
-                {p.title}
-              </motion.button>
+          <SeriesDivider label="XL / DD Series — 8,500 m³/hr" />
+          <div className="space-y-10">
+            {xlSeries.map((product, i) => (
+              <ProductCard key={product.name} product={product} index={i} />
             ))}
           </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100"
-            >
-              <div>
-                <motion.span
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full text-white bg-gradient-to-r ${current.color} mb-4`}
-                >
-                  {current.subtitle}
-                </motion.span>
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-4"
-                >
-                  {current.title}
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-slate-600 leading-relaxed mb-5"
-                >
-                  {current.description}
-                </motion.p>
-
-                {/* Specs row */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.22 }}
-                  className="flex gap-4 mb-6"
-                >
-                  {[
-                    { l: 'Airflow', v: current.airflow },
-                    { l: 'Power', v: current.power },
-                    { l: 'Air Throw', v: current.throw },
-                  ].map((s) => (
-                    <div key={s.l} className="flex flex-col gap-0.5">
-                      <span className={`text-lg font-bold bg-gradient-to-r ${current.color} bg-clip-text text-transparent`}>
-                        {s.v}
-                      </span>
-                      <span className="text-xs text-slate-400">{s.l}</span>
-                    </div>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.27 }}
-                  className="space-y-2 mb-8"
-                >
-                  {current.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
-                      <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                      {f}
-                    </div>
-                  ))}
-                </motion.div>
-                <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-                  Get a Quote <HiArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center shadow-inner`}
-              >
-                <current.Icon className="w-32 h-32 text-primary-400" />
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
         </div>
       </section>
 
-      {/* Why air coolers */}
+      {/* ── Heavy Industrial Series (3 products) ───────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            label="Why Symphony?"
-            title="Advantages of Industrial Air Coolers"
-            subtitle="Air coolers are the smart, eco-friendly alternative to conventional AC for large semi-open spaces."
-            center
+            title="Heavy Industrial Series Products"
+            subtitle="High-capacity coolers delivering 18,000 m³/hr for demanding industrial environments"
           />
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {advantages.map((a) => (
-              <motion.div
-                key={a.label}
-                variants={cardVariants}
-                whileHover={{ y: -5, boxShadow: '0 16px 32px -8px rgba(37,99,235,0.15)' }}
-                className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm text-center"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-3">
-                  <a.Icon className="w-6 h-6 text-primary-600" />
-                </div>
-                <h3 className="font-bold text-primary-800 text-base mt-3 mb-1">{a.label}</h3>
-                <p className="text-slate-500 text-sm">{a.desc}</p>
-              </motion.div>
+          <SeriesDivider label="Heavy Industrial — 18,000 m³/hr" />
+          <div className="space-y-10">
+            {heavySeries.map((product, i) => (
+              <ProductCard key={product.name} product={product} index={i} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="container-custom"
-        >
-          <HiCube className="w-10 h-10 mx-auto text-primary-300 mb-4 block" />
-          <h2 className="text-3xl font-bold font-heading mb-4">Cool Your Facility the Smart Way</h2>
-          <p className="text-primary-100 mb-8 max-w-xl mx-auto">
-            Let our team help you choose the right Symphony cooler series for your factory, warehouse, or venue — and handle supply, installation, and AMC.
-          </p>
-          <Link to="/contact" className="btn-primary">
-            Contact Us <HiArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
+      {/* ── Jumbo / Movicool Series (2 products) ───────────────────────────────── */}
+      <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
+        <div className="container-custom">
+          <SectionTitle
+            title="Jumbo & Movicool Series Products"
+            subtitle="Maximum cooling power — up to 20,000 m³/hr with a 30-metre air throw"
+          />
+          <SeriesDivider label="Jumbo / Movicool — 20,000 m³/hr" />
+          <div className="space-y-10">
+            {jumboSeries.map((product, i) => (
+              <ProductCard key={product.name} product={product} index={i} />
+            ))}
+          </div>
+        </div>
       </section>
-    </>
+
+      {/* ── Why SS Aircon + Symphony ─────────────────────────────────────────────── */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="section-label">Our Partnership</span>
+              <h2 className="section-title mt-2 mb-4">Why Choose SS Aircon for Symphony?</h2>
+              <p className="section-subtitle mb-6">
+                As an authorised Symphony dealer, SS Aircon provides genuine products, professional site
+                surveys, expert installation, and prompt after-sales service across Tamil Nadu.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  'Genuine Symphony products with manufacturer warranty',
+                  'Free site assessment & cooler capacity calculation',
+                  'Professional installation by trained technicians',
+                  'Annual Maintenance Contracts (AMC) available',
+                  'Spare parts & consumable supply across Tamil Nadu',
+                  'Emergency service support — fast response times',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate-700 text-sm">
+                    <HiCheckCircle className="w-5 h-5 text-primary-500 mt-0.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { metric: '10+', label: 'Symphony Models', Icon: HiStar },
+                { metric: '100+', label: 'Cooler Installations', Icon: HiGlobe },
+                { metric: '24/7', label: 'Service Support', Icon: HiShieldCheck },
+                { metric: 'Pan TN', label: 'Service Coverage', Icon: HiLightningBolt },
+              ].map(({ metric, label, Icon }) => (
+                <div key={label} className="bg-primary-50 border border-primary-100 rounded-xl p-5 text-center">
+                  <Icon className="w-6 h-6 text-primary-600 mx-auto mb-2" />
+                  <p className="text-2xl font-extrabold text-primary-900">{metric}</p>
+                  <p className="text-xs text-slate-600 mt-1">{label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────────────────────────────── */}
+      <section className="section-padding bg-gradient-to-r from-primary-800 to-primary-600">
+        <div className="container-custom text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <MdOutlineAir className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready to Cool Your Industrial Space?
+            </h2>
+            <p className="text-primary-200 text-lg mb-8 max-w-2xl mx-auto">
+              Get a free site assessment and the right Symphony model for your factory, warehouse, or
+              event venue. Contact SS Aircon today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="bg-white text-primary-800 font-bold px-8 py-3 rounded-xl hover:bg-primary-50 transition-colors duration-200 inline-flex items-center justify-center gap-2"
+              >
+                Get a Free Quote <HiArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/services"
+                className="border-2 border-white/40 text-white font-semibold px-8 py-3 rounded-xl hover:bg-white/10 transition-colors duration-200"
+              >
+                View Our Services
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   )
 }

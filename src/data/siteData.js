@@ -141,7 +141,7 @@ export const services = [
       'Grab the best deal on AC maintenance here. Contact our service center and book maintenance services for your AC unit.',
     icon: 'wrench',
     image:
-      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_airtesting.jpg',
   },
   {
     id: 'cooling',
@@ -150,7 +150,7 @@ export const services = [
       'Common central air conditioning problems occur when rooms are closed off and air flow through the home is disrupted.',
     icon: 'thermometer',
     image:
-      'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_dpac.jpg',
   },
   {
     id: 'service',
@@ -159,7 +159,7 @@ export const services = [
       'Get AC service with a certified technician. Hire expert professionals for all brands and types of air conditioners.',
     icon: 'cog',
     image:
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_engineering.jpg',
   },
   {
     id: 'gas',
@@ -168,7 +168,7 @@ export const services = [
       'Book your AC gas filling services at SS Aircon. Our AC technician will provide you world-class experience.',
     icon: 'droplets',
     image:
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_hvac.jpg',
   },
   {
     id: 'air-testing',
@@ -177,7 +177,7 @@ export const services = [
       'Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and ventilation systems.',
     icon: 'wind',
     image:
-      'https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_chiller-unit.jpg',
   },
   {
     id: 'vrv',
@@ -186,7 +186,7 @@ export const services = [
       'We specialize in HVAC domain and provide VRV (Variable Refrigerant Volume) & VRF (Variable Refrigerant Flow) services.',
     icon: 'activity',
     image:
-      'https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_water_balancing.jpg',
   },
   {
     id: 'ventilation',
@@ -195,7 +195,7 @@ export const services = [
       'Ventilation contractor for industrial ventilation, pollution control, and acoustics services for all building types.',
     icon: 'airVent',
     image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_centrailized_ac.jpg',
   },
   {
     id: 'hvac',
@@ -204,7 +204,7 @@ export const services = [
       'We take care of every kind of centralized & industrial air conditioning solutions for any building type with full turnkey.',
     icon: 'building',
     image:
-      'https://images.unsplash.com/photo-1581094271901-8022df4c53f0?w=600&auto=format&fit=crop&q=80',
+      'assets/service/service_vrf_vrv.jpg',
   },
 ]
 

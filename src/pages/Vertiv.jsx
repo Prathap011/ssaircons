@@ -1,122 +1,289 @@
-import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiDesktopComputer, HiDatabase, HiServer, HiOfficeBuilding, HiCog, HiLightBulb } from 'react-icons/hi'
+import {
+  HiArrowRight, HiCheckCircle, HiShieldCheck,
+  HiCog, HiLightBulb, HiOfficeBuilding,
+} from 'react-icons/hi'
 import { MdOutlineEmojiEvents } from 'react-icons/md'
 
-const productLines = [
+// ─── Product Data ──────────────────────────────────────────────────────────────
+const products = [
   {
     id: 'pac',
-    title: 'Precision Air Conditioning',
-    subtitle: 'Close Control Units (CCU)',
+    name: 'Liebert PAC',
+    subtitle: 'Precision Air Conditioning',
     description:
-      'Vertiv Liebert precision cooling units maintain ±0.5°C temperature accuracy and ±2% RH humidity stability — critical for data centres, server rooms, telecom PoPs, and cleanrooms.',
-    Icon: HiDesktopComputer,
-    features: ['±0.5°C temperature precision', 'N+1 / N+N redundancy support', 'Remote SNMP / iCOM management', 'Upflow & downflow variants'],
-    color: 'from-primary-600 to-primary-500',
-    light: 'bg-primary-50',
+      'Liebert PAC units are designed for computer rooms and data centres requiring precise temperature and humidity control to ±0.5°C accuracy. Available in upflow, downflow, and ceiling-suspended configurations with DX and chilled-water refrigerant options.',
+    image: '/assets/vertiv/verti_pac.jpg',
+    specs: [
+      { label: 'Capacity Range', value: '3 – 60 TR' },
+      { label: 'Temp Accuracy', value: '±0.5°C' },
+      { label: 'Humidity', value: '±2% RH' },
+    ],
+    features: [
+      'Upflow & downflow configurations',
+      'DX and chilled-water refrigerant options',
+      'Integrated SNMP / iCOM / BMS management',
+      'N+1 / N+N redundancy support',
+      'EC fan technology for energy savings',
+      'Free-cooling economiser mode',
+    ],
   },
   {
-    id: 'inrow',
-    title: 'In-Row Cooling',
-    subtitle: 'Close-coupled server row cooling',
+    id: 'pcw',
+    name: 'Liebert PCW',
+    subtitle: 'Chilled Water Precision Cooling',
     description:
-      'Vertiv Liebert XR in-row cooling eliminates hot spots by placing cooling at the source of heat. Designed for high-density data centre aisles with targeted airflow management.',
-    Icon: HiServer,
-    features: ['Up to 80 kW per unit', 'Hot-aisle / cold-aisle containment', 'Rear-door heat exchangers', 'EC fan technology for PUE improvement'],
-    color: 'from-primary-700 to-primary-600',
-    light: 'bg-primary-50',
+      'Liebert PCW connects directly to the building chilled water loop — the ideal solution for large data centres where a central chiller plant already exists. Features a supplementary DX backup coil for continuous operation during chiller maintenance.',
+    image: '/assets/vertiv/verti_pcw.jpg',
+    specs: [
+      { label: 'Cooling Capacity', value: 'Up to 200 kW' },
+      { label: 'Cooling Type', value: 'Chilled Water' },
+      { label: 'Backup Coil', value: 'DX Supplementary' },
+    ],
+    features: [
+      'Direct building chilled water connection',
+      'Supplementary DX backup coil for continuity',
+      'High-density room support',
+      'Variable speed EC fan motors',
+      'Intelligent iCOM controller',
+      'Remote DCIM / BMS monitoring ready',
+    ],
   },
   {
-    id: 'crac',
-    title: 'Computer Room AC (CRAC)',
-    subtitle: 'Room-level cooling for IT environments',
+    id: 'pdx',
+    name: 'Liebert PDX',
+    subtitle: 'DX Close Control Precision Unit',
     description:
-      'Vertiv Liebert CRAC units provide room-based precision cooling with configurable airflow and free-cooling economiser modes, reducing total operational costs for mid-sized server rooms.',
-    Icon: HiDatabase,
-    features: ['3 – 60 TR capacity range', 'Multiple refrigerant options', 'Integrated free-cooling mode', 'BMS & DCIM integration'],
-    color: 'from-primary-500 to-accent-500',
-    light: 'bg-primary-50',
+      'Liebert PDX is a close-control DX precision cooling unit for medium to large data centres and server rooms. Its dual independent refrigerant circuits deliver high reliability and exceptional energy efficiency with intelligent iCOM control.',
+    image: '/assets/vertiv/verti_pdx.jpg',
+    specs: [
+      { label: 'Cooling Type', value: 'Direct Expansion' },
+      { label: 'Circuits', value: 'Dual Independent' },
+      { label: 'Control', value: 'iCOM / SNMP' },
+    ],
+    features: [
+      'Dual independent refrigerant circuits',
+      'Multiple airflow configurations available',
+      'Intelligent iCOM main controller',
+      'Remote monitoring & alert management',
+      'High-efficiency EC fan technology',
+      'Wide ambient temperature tolerance',
+    ],
   },
   {
-    id: 'chw',
-    title: 'Chilled Water PAC',
-    subtitle: 'Dual-fluid precision units',
+    id: 'pahu',
+    name: 'Liebert PAHU',
+    subtitle: 'Precision Air Handling Unit',
     description:
-      'Chilled-water precision air conditioners from Vertiv are ideal where a central chiller plant already exists. They connect directly to the building chilled water loop for highly efficient cooling.',
-    Icon: HiOfficeBuilding,
-    features: ['Up to 200 kW cooling capacity', 'DX or chilled-water coils', 'Supplementary DX backup coil', 'High-density room support'],
-    color: 'from-primary-600 to-accent-500',
-    light: 'bg-primary-50',
+      'Liebert PAHU delivers centralised large-scale precision air treatment for hyperscale facilities and mega data centres. Engineered for high-volume airflow with HEPA-grade filtration options and full building automation system integration.',
+    image: '/assets/vertiv/verti_pahu.jpg',
+    specs: [
+      { label: 'Type', value: 'Central AHU' },
+      { label: 'Filtration', value: 'HEPA Grade Option' },
+      { label: 'Integration', value: 'BAS / DCIM Ready' },
+    ],
+    features: [
+      'Centralised precision air treatment',
+      'Optional HEPA-grade filtration module',
+      'Integrated heat recovery',
+      'Full BAS and DCIM integration',
+      'Modular and scalable design',
+      'Supports full perimeter containment',
+    ],
+  },
+  {
+    id: 'crv',
+    name: 'Liebert CRV',
+    subtitle: 'Close Coupled Row Variable Cooling',
+    description:
+      'Liebert CRV eliminates hot spots at the source by placing cooling units directly between server racks in the aisle. Delivers up to 80 kW of targeted, precisely managed cooling — ideal for high-density computing deployments.',
+    image: '/assets/vertiv/verti_crv.jpg',
+    specs: [
+      { label: 'Cooling Capacity', value: 'Up to 80 kW' },
+      { label: 'Deployment', value: 'In-Row / Aisle' },
+      { label: 'Fan Speed', value: 'Variable EC Drive' },
+    ],
+    features: [
+      'Hot-aisle / cold-aisle containment',
+      'In-row and rear-door configurations',
+      'Variable speed EC fan technology',
+      'Significantly reduces overall PUE',
+      'Supports high-density rack loads',
+      'Rapid plug-and-play commissioning',
+    ],
+  },
+  {
+    id: 'src',
+    name: 'Liebert SRC',
+    subtitle: 'Small / Medium Room Cooling',
+    description:
+      'Liebert SRC is purpose-built for small server rooms, telecom PoPs, and edge computing sites. Its compact footprint and reliable close-control performance make it the ideal solution for distributed IT infrastructure across multiple locations.',
+    image: '/assets/vertiv/verti_src.jpg',
+    specs: [
+      { label: 'Capacity Range', value: '3 – 20 TR' },
+      { label: 'Application', value: 'Small / Edge Sites' },
+      { label: 'Refrigerant', value: 'R410A / R407C' },
+    ],
+    features: [
+      'Compact design for space-constrained rooms',
+      'Free-cooling economiser option',
+      'Digital scroll compressor technology',
+      'Integrated electrical panel',
+      'Auto restart on power restoration',
+      'Optional humidity control module',
+    ],
   },
 ]
 
 const achievements = [
   {
     label: 'No. 1 Franchisee Award',
-    desc: 'Ranked No. 1 among 7 Vertiv franchisees in South India for outstanding execution and service quality.',
+    desc: 'Ranked No. 1 among 7 Vertiv franchisees in South India for outstanding project execution and service quality.',
     Icon: MdOutlineEmojiEvents,
   },
   {
     label: 'Tata Communications — 110 PAC Units',
-    desc: 'Erection & commissioning of 110 Vertiv Liebert PAC units (~1500 TR) at Tata Communications, Chennai.',
+    desc: 'Erection & commissioning of 110 Vertiv Liebert PAC units (~1500 TR) at Tata Communications, Swami Sivanantha Salai, Chennai.',
     Icon: HiOfficeBuilding,
   },
   {
-    label: 'Bharti Airtel — 500m Piping',
-    desc: 'Completed ~500 m MS chilled-water piping for Vertiv PAC at Bharti Airtel DRC, Siruseri.',
+    label: 'Bharti Airtel — 500m MS Piping',
+    desc: 'Completed ~500 m MS chilled-water piping for Vertiv Liebert PAC at Bharti Airtel Data Centre, Siruseri.',
     Icon: HiCog,
   },
   {
-    label: 'HCL Technologies — 150 TR',
-    desc: 'Erected and commissioned 20 dual-fluid Vertiv PAC units (~150 TR) at HCL Technologies, Sholinganallur.',
+    label: 'HCL Technologies — 150 TR Dual Fluid',
+    desc: 'Erected and commissioned 20 dual-fluid Vertiv Liebert PAC units (~150 TR) at HCL Technologies, Sholinganallur.',
     Icon: HiLightBulb,
+  },
+  {
+    label: 'Scope International — 400 TR Live DC',
+    desc: 'Handled ~400 TR dual-fluid Precision ACs with complete MS & copper piping in a live Data Centre at Scope International, Nungambakkam.',
+    Icon: HiShieldCheck,
+  },
+  {
+    label: 'Bharti Data Centre — 100 TR HDPAC',
+    desc: 'Installed ~100 TR High-Density Precision ACs (XDC, XDP, XDV & XDO) at Bharti Data Centre, Siruseri.',
+    Icon: HiOfficeBuilding,
   },
 ]
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-}
-
-const cardVariants = {
+const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 }
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
+
+function ProductCard({ product, index }) {
+  const isEven = index % 2 === 0
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      className="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch py-14 border-b border-slate-100 last:border-0"
+    >
+      <div className={isEven ? '' : 'md:order-2'}>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4 }}
+          className="rounded-2xl overflow-hidden shadow-2xl min-h-[450px] h-full bg-white relative group"
+        >
+          <img
+            src={product.image}
+            alt={product.name}
+            className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </motion.div>
+      </div>
+
+      <div className={isEven ? '' : 'md:order-1'}>
+        <motion.span
+          initial={{ opacity: 0, x: -12 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15, duration: 0.4 }}
+          className="inline-block text-xs font-bold px-3 py-1.5 rounded-full text-white bg-gradient-to-r from-primary-800 to-primary-500 mb-3"
+        >
+          {product.subtitle}
+        </motion.span>
+
+        <motion.h3
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.45 }}
+          className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-3"
+        >
+          {product.name}
+        </motion.h3>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25, duration: 0.4 }}
+          className="text-slate-600 leading-relaxed text-sm mb-5"
+        >
+          {product.description}
+        </motion.p>
+
+        <div className="flex flex-wrap gap-3 mb-5">
+          {product.specs.map((s) => (
+            <div key={s.label} className="bg-primary-50 border border-primary-100 rounded-xl px-4 py-2 text-center min-w-[80px]">
+              <p className="text-primary-800 font-bold text-sm leading-tight">{s.value}</p>
+              <p className="text-primary-400 text-xs mt-0.5">{s.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-6">
+          {product.features.map((f) => (
+            <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
+              <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
+              {f}
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </motion.div>
+  )
+}
 
 export default function Vertiv() {
-  const [activeTab, setActiveTab] = useState(0)
-  const current = productLines[activeTab]
-
   return (
     <>
       <Helmet>
-        <title>Vertiv Products | SS Aircon — Authorized Franchisee</title>
+        <title>Vertiv Products | SS Aircon — No. 1 Authorized Franchisee</title>
         <meta
           name="description"
-          content="SS Aircon is the No. 1 Vertiv authorized franchisee in South India. We supply, install and service Vertiv Liebert precision air conditioning units for data centres and critical environments."
+          content="SS Aircon is the No. 1 Vertiv authorized franchisee in South India. We supply, install and service Vertiv Liebert PAC, PCW, PDX, PAHU, CRV and SRC precision cooling units for data centres."
         />
       </Helmet>
 
       <PageHero
         title="Vertiv Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Vertiv' }]}
-        bg="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&auto=format&fit=crop&q=80"
+        bg="/assets/hvaclanding05.jpeg"
       />
 
-      {/* Brand intro banner */}
-      <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white overflow-hidden relative">
+      {/* Brand Intro Banner */}
+      <section className="py-14 bg-gradient-to-r from-primary-800 to-primary-900 text-white overflow-hidden relative">
         <motion.div
-          initial={{ opacity: 0, scale: 1.08 }}
+          initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#60a5fa_0%,_transparent_70%)] pointer-events-none"
         />
-        <div className="container-custom flex flex-col md:flex-row items-center gap-8">
+        <div className="container-custom flex flex-col md:flex-row items-start md:items-center gap-10">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,23 +293,47 @@ export default function Vertiv() {
           >
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/20 rounded-full px-4 py-1.5 mb-4">
               <span className="w-2 h-2 rounded-full bg-primary-300 animate-pulse" />
-              <span className="text-sm font-medium text-primary-100">Authorized Franchisee — Vertiv Energy Pvt. Ltd.</span>
+              <span className="text-sm font-medium text-primary-100">
+                Authorized Franchisee — Vertiv Energy Pvt. Ltd.
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-3">
               Precision Cooling for<br />Mission-Critical Environments
             </h2>
-            <p className="text-primary-200 leading-relaxed max-w-xl">
-              SS Aircon is the ranked <strong className="text-white">No. 1 Vertiv franchisee</strong> (formerly Emerson Network Power) in South India. We specialise in the design, supply, erection, and long-term maintenance of Vertiv Liebert precision air conditioning systems.
+            <p className="text-primary-200 leading-relaxed max-w-xl mb-6">
+              SS Aircon is ranked <strong className="text-white">No. 1 Vertiv franchisee</strong> (formerly
+              Emerson Network Power) in South India. We specialise in design, supply, erection, testing,
+              commissioning, and long-term maintenance of Vertiv Liebert precision air conditioning systems
+              for data centres and critical IT environments.
             </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { v: '110+', l: 'PAC Units Installed' },
+                { v: 'No. 1', l: 'Vertiv Franchisee' },
+                { v: '24/7', l: 'Service Support' },
+                { v: '24 yr', l: 'Industry Experience' },
+              ].map((s, i) => (
+                <motion.div
+                  key={s.l}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  className="bg-white/10 border border-white/15 rounded-xl p-3 text-center"
+                >
+                  <p className="text-xl font-bold text-white">{s.v}</p>
+                  <p className="text-primary-300 text-xs mt-0.5">{s.l}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Award badge pulse */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, type: 'spring', stiffness: 200 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 self-center"
           >
             <div className="relative w-44 h-44 flex items-center justify-center">
               <motion.div
@@ -156,7 +347,7 @@ export default function Vertiv() {
                 className="absolute inset-4 rounded-full bg-primary-500/25"
               />
               <div className="relative bg-white/15 border-2 border-white/25 rounded-full w-32 h-32 flex flex-col items-center justify-center text-center">
-                <MdOutlineEmojiEvents className="w-8 h-8 text-yellow-300 mx-auto" />
+                <MdOutlineEmojiEvents className="w-9 h-9 text-yellow-300 mx-auto" />
                 <p className="text-white font-bold text-xs mt-1 leading-tight">No. 1<br />Franchisee</p>
               </div>
             </div>
@@ -164,128 +355,117 @@ export default function Vertiv() {
         </div>
       </section>
 
-      {/* Tab selector */}
-      <section className="py-14 bg-slate-50">
+      {/* Products */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            label="Product Range"
-            title="Vertiv Liebert Solutions"
-            subtitle="Precision cooling engineered for data centres, server rooms, and critical infrastructure."
+            label="Vertiv Liebert Products"
+            title="Precision Cooling Solutions"
+            subtitle="From close-control units to in-row cooling — the complete Vertiv Liebert range supplied, installed, and serviced by SS Aircon."
             center
           />
-
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {productLines.map((p, i) => (
-              <motion.button
-                key={p.id}
-                onClick={() => setActiveTab(i)}
-                whileTap={{ scale: 0.96 }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border flex items-center gap-1.5 ${
-                  activeTab === i
-                    ? `bg-gradient-to-r ${p.color} text-white border-transparent shadow-md`
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-primary-400 hover:text-primary-700'
-                }`}
-              >
-                <p.Icon className="w-4 h-4" />
-                {p.title}
-              </motion.button>
+          <div>
+            {products.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100"
-            >
-              <div>
-                <motion.span
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full text-white bg-gradient-to-r ${current.color} mb-4`}
-                >
-                  {current.subtitle}
-                </motion.span>
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-4"
-                >
-                  {current.title}
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-slate-600 leading-relaxed mb-6"
-                >
-                  {current.description}
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.25 }}
-                  className="space-y-2 mb-8"
-                >
-                  {current.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
-                      <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                      {f}
-                    </div>
-                  ))}
-                </motion.div>
-                <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-                  Get a Quote <HiArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center shadow-inner`}
-              >
-                <current.Icon className="w-32 h-32 text-primary-400" />
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
         </div>
       </section>
 
-      {/* Key achievements */}
-      <section className="section-padding bg-white">
+      {/* Achievements */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 to-primary-50">
         <div className="container-custom">
           <SectionTitle
             label="Project Highlights"
             title="Proven Track Record with Vertiv"
-            subtitle="SS Aircon has successfully delivered high-stakes Vertiv PAC projects for India's top enterprises."
+            subtitle="SS Aircon has successfully delivered high-stakes Vertiv PAC projects for India's top enterprises across data centres, DRCs, and critical IT facilities."
             center
           />
           <motion.div
-            variants={containerVariants}
+            variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid sm:grid-cols-2 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {achievements.map((a) => (
               <motion.div
                 key={a.label}
-                variants={cardVariants}
-                whileHover={{ y: -5, boxShadow: '0 16px 32px -8px rgba(37,99,235,0.15)' }}
+                variants={fadeUp}
+                whileHover={{ y: -5, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.15)' }}
                 className="flex gap-4 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
                   <a.Icon className="w-6 h-6 text-primary-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary-800 mb-1">{a.label}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{a.desc}</p>
+                  <h3 className="font-bold text-primary-800 mb-1 text-sm">{a.label}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{a.desc}</p>
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why SS Aircon + Vertiv */}
+      <section className="section-padding bg-white">
+        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle label="Why SS Aircon + Vertiv?" title="Your Trusted Vertiv Partner" />
+            <p className="text-slate-600 text-sm leading-relaxed mb-5">
+              SS Aircon has been an authorized Vertiv franchisee since the days of Emerson Network Power. Our
+              factory-trained team has hands-on experience with every Liebert product — from installation
+              through long-term AMC and CAMC support.
+            </p>
+            <div className="space-y-2.5">
+              {[
+                'Factory-trained & certified Vertiv engineers',
+                'Own transportation for equipment & materials',
+                '24/7 dedicated breakdown service team',
+                'Complete MS & copper piping in-house capability',
+                'BMS / SNMP / DCIM integration expertise',
+                'Annual Maintenance Contracts (AMC / CAMC)',
+              ].map((f) => (
+                <div key={f} className="flex items-center gap-2.5 text-sm text-slate-700">
+                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
+                  {f}
+                </div>
+              ))}
+            </div>
+            <Link to="/contact" className="btn-primary mt-8 inline-flex items-center gap-2">
+              Talk to Our Experts <HiArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 gap-4"
+          >
+            {[
+              { v: 'No. 1', l: 'Among 7 Franchisees', bg: 'bg-yellow-50 border-yellow-100', tc: 'text-yellow-700' },
+              { v: '300+', l: 'Projects Delivered', bg: 'bg-primary-50 border-primary-100', tc: 'text-primary-700' },
+              { v: '1500 TR', l: 'Tata Comms Alone', bg: 'bg-primary-50 border-primary-100', tc: 'text-primary-700' },
+              { v: '24/7', l: 'Uptime Maintenance', bg: 'bg-primary-50 border-primary-100', tc: 'text-primary-700' },
+            ].map((s, i) => (
+              <motion.div
+                key={s.l}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.45 }}
+                className={`${s.bg} border rounded-2xl p-6 text-center`}
+              >
+                <p className={`text-3xl font-black ${s.tc}`}>{s.v}</p>
+                <p className="text-slate-500 text-xs mt-1">{s.l}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -303,8 +483,9 @@ export default function Vertiv() {
         >
           <HiShieldCheck className="w-10 h-10 mx-auto text-primary-300 mb-4" />
           <h2 className="text-3xl font-bold font-heading mb-4">Need Precision Cooling for Your Data Centre?</h2>
-            <p className="text-primary-200 mb-8 max-w-xl mx-auto">
-            Our certified Vertiv engineers will design, supply, and commission the right Liebert PAC solution for your critical environment.
+          <p className="text-primary-200 mb-8 max-w-xl mx-auto">
+            Our certified Vertiv engineers will design, supply, and commission the right Liebert PAC solution
+            for your critical environment — backed by 24/7 support.
           </p>
           <Link to="/contact" className="btn-primary">
             Contact Us <HiArrowRight className="w-4 h-4" />
