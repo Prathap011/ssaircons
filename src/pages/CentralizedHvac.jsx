@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiOfficeBuilding, HiHeart, HiHome, HiTag, HiCube, HiAcademicCap, HiStar, HiGlobe } from 'react-icons/hi'
 
 const sectors = [
-  { icon: '🏢', title: 'Offices & Buildings', desc: 'Full turnkey HVAC for corporate headquarters, IT parks, and commercial towers.' },
-  { icon: '🏥', title: 'Hospitals & OT / Labs', desc: 'NABH-compliant precision HVAC for operating theatres, ICUs, and pathology labs.' },
-  { icon: '🏨', title: 'Malls, Hotels & Restaurants', desc: 'Energy-efficient central HVAC for high foot-traffic hospitality and retail environments.' },
-  { icon: '🛒', title: 'Retail Stores & Supermarkets', desc: 'Integrated HVAC and cold-room systems keeping products and shoppers comfortable.' },
-  { icon: '🏭', title: 'Industrial Facilities', desc: 'Process cooling, comfort cooling, and clean-room HVAC for manufacturing plants.' },
-  { icon: '🎓', title: 'Educational Institutions', desc: 'Centralised HVAC for schools, colleges, and auditoriums ensuring healthy learning environments.' },
+  { Icon: HiOfficeBuilding, title: 'Offices & Buildings', desc: 'Full turnkey HVAC for corporate headquarters, IT parks, and commercial towers.' },
+  { Icon: HiHeart, title: 'Hospitals & OT / Labs', desc: 'NABH-compliant precision HVAC for operating theatres, ICUs, and pathology labs.' },
+  { Icon: HiHome, title: 'Malls, Hotels & Restaurants', desc: 'Energy-efficient central HVAC for high foot-traffic hospitality and retail environments.' },
+  { Icon: HiTag, title: 'Retail Stores & Supermarkets', desc: 'Integrated HVAC and cold-room systems keeping products and shoppers comfortable.' },
+  { Icon: HiCube, title: 'Industrial Facilities', desc: 'Process cooling, comfort cooling, and clean-room HVAC for manufacturing plants.' },
+  { Icon: HiAcademicCap, title: 'Educational Institutions', desc: 'Centralised HVAC for schools, colleges, and auditoriums ensuring healthy learning environments.' },
 ]
 
 const scope = [
@@ -143,9 +143,9 @@ export default function CentralizedHvac() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-80 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-80 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            🏗️
+            <HiCube className="w-32 h-32 text-primary-300" />
           </motion.div>
         </div>
       </section>
@@ -173,7 +173,9 @@ export default function CentralizedHvac() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{s.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <s.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{s.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
               </motion.div>
@@ -218,9 +220,9 @@ export default function CentralizedHvac() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            🏆
+            <HiStar className="w-32 h-32 text-primary-300" />
           </motion.div>
           <div ref={hi}>
             <SectionTitle label="Why SS Aircon?" title="Our HVAC Capabilities" />
@@ -254,7 +256,7 @@ export default function CentralizedHvac() {
           transition={{ duration: 0.6 }}
           className="container-custom"
         >
-          <span className="text-5xl block mb-4">🌐</span>
+          <HiGlobe className="w-10 h-10 mx-auto text-primary-300 mb-4" />
           <h2 className="text-3xl font-bold font-heading mb-4">Plan Your Centralised HVAC System</h2>
           <p className="text-primary-200 mb-8 max-w-xl mx-auto">
             Our experienced HVAC consultants will perform an on-site heat load study and recommend the optimal central plant for your building — within budget and on schedule.

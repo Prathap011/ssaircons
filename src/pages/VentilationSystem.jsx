@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiHome, HiCube, HiLocationMarker, HiRefresh, HiDatabase, HiOfficeBuilding } from 'react-icons/hi'
 
 const ventTypes = [
-  { icon: '🍳', title: 'Commercial Kitchen Ventilation', desc: 'Grease exhaust hoods, make-up air systems, and fire suppression integration for restaurants and central kitchens.' },
-  { icon: '🏭', title: 'Industrial Ventilation', desc: 'Dilution and local exhaust ventilation (LEV) for factories, chemical plants, and manufacturing environments.' },
-  { icon: '🏠', title: 'Roof / Ceiling Ventilation', desc: 'Natural and mechanical roof ventilators to remove heat and moisture from large industrial buildings.' },
-  { icon: '🏗️', title: 'Factory & Warehouse Ventilation', desc: 'High-volume fresh-air systems for large open facilities to maintain safe working conditions and reduce heat stress.' },
-  { icon: '🅿️', title: 'Basement & Parking Ventilation', desc: 'CO-detection-based jet fan systems and extract fans for underground car parks meeting NBC/NFPA norms.' },
-  { icon: '🌿', title: 'Pollution Control Systems', desc: 'Dust collectors, fume extraction, and scrubber systems for manufacturing and industrial environments.' },
+  { Icon: HiHome, title: 'Commercial Kitchen Ventilation', desc: 'Grease exhaust hoods, make-up air systems, and fire suppression integration for restaurants and central kitchens.' },
+  { Icon: HiCube, title: 'Industrial Ventilation', desc: 'Dilution and local exhaust ventilation (LEV) for factories, chemical plants, and manufacturing environments.' },
+  { Icon: HiDatabase, title: 'Roof / Ceiling Ventilation', desc: 'Natural and mechanical roof ventilators to remove heat and moisture from large industrial buildings.' },
+  { Icon: HiOfficeBuilding, title: 'Factory & Warehouse Ventilation', desc: 'High-volume fresh-air systems for large open facilities to maintain safe working conditions and reduce heat stress.' },
+  { Icon: HiLocationMarker, title: 'Basement & Parking Ventilation', desc: 'CO-detection-based jet fan systems and extract fans for underground car parks meeting NBC/NFPA norms.' },
+  { Icon: HiRefresh, title: 'Pollution Control Systems', desc: 'Dust collectors, fume extraction, and scrubber systems for manufacturing and industrial environments.' },
 ]
 
 const purposes = [
@@ -122,7 +122,9 @@ export default function VentilationSystem() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{v.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <v.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{v.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{v.desc}</p>
               </motion.div>
@@ -159,9 +161,9 @@ export default function VentilationSystem() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            🌬️
+            <HiRefresh className="w-32 h-32 text-primary-300" />
           </motion.div>
         </div>
       </section>
@@ -175,7 +177,7 @@ export default function VentilationSystem() {
           transition={{ duration: 0.6 }}
           className="container-custom"
         >
-          <span className="text-5xl block mb-4">🏭</span>
+          <HiCube className="w-10 h-10 mx-auto text-primary-300 mb-4" />
           <h2 className="text-3xl font-bold font-heading mb-4">Need an Industrial Ventilation System?</h2>
           <p className="text-primary-200 mb-8 max-w-xl mx-auto">
             Our ventilation engineers will survey your facility, design the right system, and handle complete installation and commissioning.

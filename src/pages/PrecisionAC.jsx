@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle, HiShieldCheck } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiServer, HiDatabase, HiBeaker, HiOfficeBuilding, HiDesktopComputer, HiStar } from 'react-icons/hi'
 
 const applications = [
-  { icon: '🖥️', title: 'Data Centres', desc: 'Mission-critical precision cooling with redundancy support for 24/7 uptime.' },
-  { icon: '🗄️', title: 'Server Rooms', desc: 'Compact close-control units maintaining exact temperature & humidity.' },
-  { icon: '🧪', title: 'Research Labs', desc: 'Stable climate for sensitive research instruments and specimens.' },
-  { icon: '🏨', title: 'IT / Call Centres', desc: 'High-density cooling for large numbers of workstations and servers.' },
-  { icon: '🏥', title: 'Control Rooms', desc: 'Reliable precision cooling for 24‑hour operational control environments.' },
-  { icon: '⭐', title: 'Luxury Hotels', desc: 'Silent, efficient climate control integrated into premium interiors.' },
+  { Icon: HiServer, title: 'Data Centres', desc: 'Mission-critical precision cooling with redundancy support for 24/7 uptime.' },
+  { Icon: HiDatabase, title: 'Server Rooms', desc: 'Compact close-control units maintaining exact temperature & humidity.' },
+  { Icon: HiBeaker, title: 'Research Labs', desc: 'Stable climate for sensitive research instruments and specimens.' },
+  { Icon: HiOfficeBuilding, title: 'IT / Call Centres', desc: 'High-density cooling for large numbers of workstations and servers.' },
+  { Icon: HiDesktopComputer, title: 'Control Rooms', desc: 'Reliable precision cooling for 24‑hour operational control environments.' },
+  { Icon: HiStar, title: 'Luxury Hotels', desc: 'Silent, efficient climate control integrated into premium interiors.' },
 ]
 
 const features = [
@@ -154,9 +154,9 @@ export default function PrecisionAC() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-80 flex items-center justify-center text-9xl shadow-sm border border-primary-100"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-80 flex items-center justify-center shadow-sm border border-primary-100"
           >
-            🖥️
+            <HiServer className="w-32 h-32 text-primary-300" />
           </motion.div>
         </div>
       </section>
@@ -184,7 +184,9 @@ export default function PrecisionAC() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{a.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <a.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{a.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{a.desc}</p>
               </motion.div>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { products } from '../data/siteData'
-import { HiArrowRight } from 'react-icons/hi'
+import { HiArrowRight, HiCube } from 'react-icons/hi'
 
 function ProductDetailCard({ product, index }) {
   const [imgError, setImgError] = useState(false)
@@ -31,7 +31,7 @@ function ProductDetailCard({ product, index }) {
               loading="lazy"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300 text-7xl">❄️</div>
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300"><HiCube className="w-20 h-20 text-primary-400" /></div>
           )}
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function Products() {
                 href={`#${p.id}`}
                 className="bg-white rounded-xl p-4 text-center shadow-sm border border-slate-100 hover:border-primary-400 hover:shadow-md transition-all hover:-translate-y-0.5"
               >
-                <div className="text-2xl mb-2">❄️</div>
+                <div className="flex items-center justify-center mb-2"><HiCube className="w-7 h-7 text-primary-600" /></div>
                 <p className="text-xs font-semibold text-primary-800 leading-tight">{p.title}</p>
               </a>
             ))}

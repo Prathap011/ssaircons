@@ -24,12 +24,13 @@ export const navLinks = [
   },
   { label: 'Services', href: '/services' },
   {
-    label: 'Our Partners',
+    label: 'Collaborators',
     href: '/our-partners',
     children: [
       { label: 'Blue Star', href: '/products/bluestar' },
-      { label: 'Vertiv', href: '/products/vertiv' },
       { label: 'Symphony', href: '/products/symphony' },
+      { separator: true },
+      { label: 'Vertiv', href: '/products/vertiv' },
     ],
   },
   { label: 'Clients', href: '/clients' },

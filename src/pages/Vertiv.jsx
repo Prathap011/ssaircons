@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { HiArrowRight, HiCheckCircle, HiShieldCheck } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiDesktopComputer, HiDatabase, HiServer, HiOfficeBuilding, HiCog, HiLightBulb } from 'react-icons/hi'
+import { MdOutlineEmojiEvents } from 'react-icons/md'
 
 const productLines = [
   {
@@ -13,7 +14,7 @@ const productLines = [
     subtitle: 'Close Control Units (CCU)',
     description:
       'Vertiv Liebert precision cooling units maintain ±0.5°C temperature accuracy and ±2% RH humidity stability — critical for data centres, server rooms, telecom PoPs, and cleanrooms.',
-    icon: '🖥️',
+    Icon: HiDesktopComputer,
     features: ['±0.5°C temperature precision', 'N+1 / N+N redundancy support', 'Remote SNMP / iCOM management', 'Upflow & downflow variants'],
     color: 'from-primary-600 to-primary-500',
     light: 'bg-primary-50',
@@ -24,7 +25,7 @@ const productLines = [
     subtitle: 'Close-coupled server row cooling',
     description:
       'Vertiv Liebert XR in-row cooling eliminates hot spots by placing cooling at the source of heat. Designed for high-density data centre aisles with targeted airflow management.',
-    icon: '🗄️',
+    Icon: HiServer,
     features: ['Up to 80 kW per unit', 'Hot-aisle / cold-aisle containment', 'Rear-door heat exchangers', 'EC fan technology for PUE improvement'],
     color: 'from-primary-700 to-primary-600',
     light: 'bg-primary-50',
@@ -35,7 +36,7 @@ const productLines = [
     subtitle: 'Room-level cooling for IT environments',
     description:
       'Vertiv Liebert CRAC units provide room-based precision cooling with configurable airflow and free-cooling economiser modes, reducing total operational costs for mid-sized server rooms.',
-    icon: '❄️',
+    Icon: HiDatabase,
     features: ['3 – 60 TR capacity range', 'Multiple refrigerant options', 'Integrated free-cooling mode', 'BMS & DCIM integration'],
     color: 'from-primary-500 to-accent-500',
     light: 'bg-primary-50',
@@ -46,7 +47,7 @@ const productLines = [
     subtitle: 'Dual-fluid precision units',
     description:
       'Chilled-water precision air conditioners from Vertiv are ideal where a central chiller plant already exists. They connect directly to the building chilled water loop for highly efficient cooling.',
-    icon: '💧',
+    Icon: HiOfficeBuilding,
     features: ['Up to 200 kW cooling capacity', 'DX or chilled-water coils', 'Supplementary DX backup coil', 'High-density room support'],
     color: 'from-primary-600 to-accent-500',
     light: 'bg-primary-50',
@@ -57,22 +58,22 @@ const achievements = [
   {
     label: 'No. 1 Franchisee Award',
     desc: 'Ranked No. 1 among 7 Vertiv franchisees in South India for outstanding execution and service quality.',
-    icon: '🏆',
+    Icon: MdOutlineEmojiEvents,
   },
   {
     label: 'Tata Communications — 110 PAC Units',
     desc: 'Erection & commissioning of 110 Vertiv Liebert PAC units (~1500 TR) at Tata Communications, Chennai.',
-    icon: '🏢',
+    Icon: HiOfficeBuilding,
   },
   {
     label: 'Bharti Airtel — 500m Piping',
     desc: 'Completed ~500 m MS chilled-water piping for Vertiv PAC at Bharti Airtel DRC, Siruseri.',
-    icon: '🔧',
+    Icon: HiCog,
   },
   {
     label: 'HCL Technologies — 150 TR',
     desc: 'Erected and commissioned 20 dual-fluid Vertiv PAC units (~150 TR) at HCL Technologies, Sholinganallur.',
-    icon: '💡',
+    Icon: HiLightBulb,
   },
 ]
 
@@ -155,7 +156,7 @@ export default function Vertiv() {
                 className="absolute inset-4 rounded-full bg-primary-500/25"
               />
               <div className="relative bg-white/15 border-2 border-white/25 rounded-full w-32 h-32 flex flex-col items-center justify-center text-center">
-                <span className="text-3xl">🏆</span>
+                <MdOutlineEmojiEvents className="w-8 h-8 text-yellow-300 mx-auto" />
                 <p className="text-white font-bold text-xs mt-1 leading-tight">No. 1<br />Franchisee</p>
               </div>
             </div>
@@ -179,13 +180,13 @@ export default function Vertiv() {
                 key={p.id}
                 onClick={() => setActiveTab(i)}
                 whileTap={{ scale: 0.96 }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border ${
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border flex items-center gap-1.5 ${
                   activeTab === i
                     ? `bg-gradient-to-r ${p.color} text-white border-transparent shadow-md`
                     : 'bg-white text-slate-600 border-slate-200 hover:border-primary-400 hover:text-primary-700'
                 }`}
               >
-                <span className="mr-1.5">{p.icon}</span>
+                <p.Icon className="w-4 h-4" />
                 {p.title}
               </motion.button>
             ))}
@@ -246,9 +247,9 @@ export default function Vertiv() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.5 }}
-                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center text-8xl shadow-inner`}
+                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center shadow-inner`}
               >
-                {current.icon}
+                <current.Icon className="w-32 h-32 text-primary-400" />
               </motion.div>
             </motion.div>
           </AnimatePresence>
@@ -278,8 +279,8 @@ export default function Vertiv() {
                 whileHover={{ y: -5, boxShadow: '0 16px 32px -8px rgba(37,99,235,0.15)' }}
                 className="flex gap-4 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-2xl flex-shrink-0">
-                  {a.icon}
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+                  <a.Icon className="w-6 h-6 text-primary-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-primary-800 mb-1">{a.label}</h3>

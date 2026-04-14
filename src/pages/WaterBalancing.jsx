@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiDatabase, HiLightningBolt, HiHome, HiCog, HiRefresh, HiChartBar } from 'react-icons/hi'
 
 const systemTypes = [
-  { icon: '🧊', title: 'Chilled Water Systems', desc: 'Ensure balanced chilled water distribution to every AHU and FCU coil for optimal cooling performance.' },
-  { icon: '🔥', title: 'Heating Water Systems', desc: 'Balance hot water circuits in HVAC heating applications to eliminate temperature stratification.' },
-  { icon: '🏠', title: 'Domestic Water Systems', desc: 'Balance domestic cold and hot water circuits in commercial and residential buildings.' },
-  { icon: '🌡️', title: 'Condenser Water Systems', desc: 'Optimise cooling tower and condenser loop flow distribution to maximise chiller COP.' },
-  { icon: '⚙️', title: 'Process Cooling Systems', desc: 'Balance industrial process cooling circuits for consistent equipment temperatures and product quality.' },
-  { icon: '🔄', title: 'Primary-Secondary Loops', desc: 'Balance variable-flow primary-secondary chilled water loops with decoupler legs for energy optimisation.' },
+  { Icon: HiDatabase, title: 'Chilled Water Systems', desc: 'Ensure balanced chilled water distribution to every AHU and FCU coil for optimal cooling performance.' },
+  { Icon: HiLightningBolt, title: 'Heating Water Systems', desc: 'Balance hot water circuits in HVAC heating applications to eliminate temperature stratification.' },
+  { Icon: HiHome, title: 'Domestic Water Systems', desc: 'Balance domestic cold and hot water circuits in commercial and residential buildings.' },
+  { Icon: HiChartBar, title: 'Condenser Water Systems', desc: 'Optimise cooling tower and condenser loop flow distribution to maximise chiller COP.' },
+  { Icon: HiCog, title: 'Process Cooling Systems', desc: 'Balance industrial process cooling circuits for consistent equipment temperatures and product quality.' },
+  { Icon: HiRefresh, title: 'Primary-Secondary Loops', desc: 'Balance variable-flow primary-secondary chilled water loops with decoupler legs for energy optimisation.' },
 ]
 
 const benefits = [
@@ -114,7 +114,9 @@ export default function WaterBalancing() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{s.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <s.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{s.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
               </motion.div>
@@ -151,9 +153,9 @@ export default function WaterBalancing() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            💧
+            <HiDatabase className="w-32 h-32 text-primary-300" />
           </motion.div>
         </div>
       </section>
@@ -167,7 +169,7 @@ export default function WaterBalancing() {
           transition={{ duration: 0.6 }}
           className="container-custom"
         >
-          <span className="text-5xl block mb-4">🔄</span>
+          <HiRefresh className="w-10 h-10 mx-auto text-primary-300 mb-4" />
           <h2 className="text-3xl font-bold font-heading mb-4">Fix Unbalanced Water Systems Today</h2>
           <p className="text-primary-200 mb-8 max-w-xl mx-auto">
             An unbalanced hydronic system wastes energy and shortens equipment life. Our specialists will restore your system to design specification.

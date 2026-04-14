@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiRefresh, HiChartBar, HiScale, HiBeaker, HiVolumeUp, HiDocumentText } from 'react-icons/hi'
 
 const balancingTasks = [
-  { icon: '🌀', title: 'Airflow Distribution', desc: 'Set up the correct amount of airflow distributed from each air diffuser for uniform conditioning.' },
-  { icon: '📏', title: 'Total Airflow Measurement', desc: 'Measure total airflow on all A/C, supply, and exhaust systems against design specifications.' },
-  { icon: '⚖️', title: 'Grille Balancing', desc: 'Balance airflow on each supply and exhaust grille to match the design intent precisely.' },
-  { icon: '💧', title: 'Water System Balance', desc: 'Balance water flow on all pumps, cooling towers, chillers, boilers, and AHU coils.' },
-  { icon: '🔊', title: 'Sound & Vibration', desc: 'Measure and report sound and vibration levels across HVAC equipment where required.' },
-  { icon: '📋', title: 'TAB Report', desc: 'Issue a detailed test and balance report with all measured vs design parameters documented.' },
+  { Icon: HiRefresh, title: 'Airflow Distribution', desc: 'Set up the correct amount of airflow distributed from each air diffuser for uniform conditioning.' },
+  { Icon: HiChartBar, title: 'Total Airflow Measurement', desc: 'Measure total airflow on all A/C, supply, and exhaust systems against design specifications.' },
+  { Icon: HiScale, title: 'Grille Balancing', desc: 'Balance airflow on each supply and exhaust grille to match the design intent precisely.' },
+  { Icon: HiBeaker, title: 'Water System Balance', desc: 'Balance water flow on all pumps, cooling towers, chillers, boilers, and AHU coils.' },
+  { Icon: HiVolumeUp, title: 'Sound & Vibration', desc: 'Measure and report sound and vibration levels across HVAC equipment where required.' },
+  { Icon: HiDocumentText, title: 'TAB Report', desc: 'Issue a detailed test and balance report with all measured vs design parameters documented.' },
 ]
 
 const whyBalance = [
@@ -113,7 +113,9 @@ export default function AirTesting() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{t.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <t.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{t.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{t.desc}</p>
               </motion.div>
@@ -130,9 +132,9 @@ export default function AirTesting() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            ⚖️
+            <HiScale className="w-32 h-32 text-primary-300" />
           </motion.div>
           <div ref={why}>
             <SectionTitle label="Why It Matters" title="Benefits of Air Balancing" />
@@ -166,7 +168,7 @@ export default function AirTesting() {
           transition={{ duration: 0.6 }}
           className="container-custom"
         >
-          <span className="text-5xl block mb-4">🌀</span>
+          <HiRefresh className="w-10 h-10 mx-auto text-primary-300 mb-4" />
           <h2 className="text-3xl font-bold font-heading mb-4">Get Your HVAC System Properly Balanced</h2>
           <p className="text-primary-200 mb-8 max-w-xl mx-auto">
             Improve comfort, reduce energy wastage, and extend equipment life. Contact our TAB specialists today.

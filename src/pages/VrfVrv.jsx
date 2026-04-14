@@ -4,36 +4,36 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiLightningBolt, HiVolumeOff, HiLockClosed, HiTemplate, HiRefresh, HiOfficeBuilding } from 'react-icons/hi'
 
 const advantages = [
   {
-    icon: '⚡',
+    Icon: HiLightningBolt,
     title: 'Energy Efficiency',
     desc: 'VRF systems regulate refrigerant flow precisely to match the current cooling or heating demand — running less frequently and at lower partial loads, saving up to 40% in energy vs conventional systems.',
   },
   {
-    icon: '🔇',
+    Icon: HiVolumeOff,
     title: 'Quiet Operation',
     desc: 'The condensing unit is placed outside. Indoor air handlers are compact and whisper-quiet, making VRF ideal for offices, hotels, and healthcare environments.',
   },
   {
-    icon: '🌡️',
+    Icon: HiTemplate,
     title: 'Consistent Comfort',
     desc: 'The compressor detects the exact requirement of each zone and supplies the precise refrigerant needed — eliminating hot and cold spots and maintaining steady humidity.',
   },
   {
-    icon: '🔒',
+    Icon: HiLockClosed,
     title: 'Less Downtime',
     desc: 'Designed to run under partial load with fewer on/off cycles, VRF systems experience less wear. If one air handler fails, the others remain unaffected.',
   },
   {
-    icon: '📐',
+    Icon: HiOfficeBuilding,
     title: 'Space Saving',
     desc: 'Without bulky ducts, VRF air handlers fit into tight ceiling spaces, preserving the high ceilings and clean interiors your architects intended.',
   },
   {
-    icon: '♻️',
+    Icon: HiRefresh,
     title: 'Heat Recovery',
     desc: 'Heat recovery VRF systems capture rejected heat from cooling zones and reuse it where heating is needed simultaneously — ideal for mixed-use buildings.',
   },
@@ -152,7 +152,9 @@ export default function VrfVrv() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
                 className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
               >
-                <span className="text-4xl block mb-3">{a.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <a.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mb-1">{a.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{a.desc}</p>
               </motion.div>
@@ -169,9 +171,9 @@ export default function VrfVrv() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center text-9xl border border-primary-100 shadow-sm"
+            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-72 flex items-center justify-center border border-primary-100 shadow-sm"
           >
-            🏢
+            <HiOfficeBuilding className="w-32 h-32 text-primary-300" />
           </motion.div>
           <div ref={app}>
             <SectionTitle label="Applications" title="Where VRF Is the Ideal Choice" />

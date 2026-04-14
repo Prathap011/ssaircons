@@ -112,7 +112,10 @@ export default function Navbar() {
                           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                           className="absolute top-full left-0 mt-1 z-50 min-w-[220px] bg-white rounded-xl shadow-xl border border-primary-100 py-1.5 overflow-hidden"
                         >
-                          {link.children.map((child, ci) => (
+                          {link.children.map((child, ci) =>
+                            child.separator ? (
+                              <div key={`sep-${ci}`} className="mx-3 my-1 border-t border-slate-100" />
+                            ) : (
                             <motion.div
                               key={child.href}
                               initial={{ opacity: 0, x: -10 }}
@@ -127,7 +130,8 @@ export default function Navbar() {
                                 {child.label}
                               </Link>
                             </motion.div>
-                          ))}
+                            )
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -226,7 +230,10 @@ export default function Navbar() {
                               exit={{ height: 0 }}
                               className="overflow-hidden pl-4"
                             >
-                              {link.children.map((child) => (
+                              {link.children.map((child, ci) =>
+                                child.separator ? (
+                                  <div key={`msep-${ci}`} className="my-1 border-t border-slate-100" />
+                                ) : (
                                 <Link
                                   key={child.href}
                                   to={child.href}
@@ -235,7 +242,8 @@ export default function Navbar() {
                                 >
                                   {child.label}
                                 </Link>
-                              ))}
+                                )
+                              )}
                             </motion.div>
                           )}
                         </AnimatePresence>

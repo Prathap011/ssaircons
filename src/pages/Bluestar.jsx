@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { HiArrowRight, HiCheckCircle, HiLightningBolt } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiLightningBolt, HiDatabase, HiRefresh, HiArrowUp, HiCollection, HiSun, HiStar, HiCog, HiShieldCheck } from 'react-icons/hi'
 
 const productLines = [
   {
@@ -13,7 +13,7 @@ const productLines = [
     subtitle: 'Water-cooled & Air-cooled',
     description:
       'Blue Star chillers deliver energy-efficient, large-scale cooling for commercial buildings, data centres, hospitals and industrial facilities. Available in scroll, screw and centrifugal variants.',
-    icon: '🏭',
+    Icon: HiDatabase,
     features: ['Up to 2000 TR capacity', 'High COP / energy star rated', 'Remote monitoring ready', 'Low noise operation'],
     color: 'from-blue-600 to-cyan-500',
     light: 'bg-blue-50',
@@ -24,7 +24,7 @@ const productLines = [
     subtitle: 'Variable Refrigerant Flow',
     description:
       'Blue Star VRF systems provide simultaneous heating and cooling across multiple zones. Ideal for office complexes, hotels, and malls with centralised control and exceptional energy savings.',
-    icon: '🌬️',
+    Icon: HiRefresh,
     features: ['Up to 64 indoor units per system', 'Simultaneous heat recovery', 'Inverter compressor technology', 'Smart Wi-Fi control'],
     color: 'from-indigo-600 to-blue-500',
     light: 'bg-indigo-50',
@@ -35,7 +35,7 @@ const productLines = [
     subtitle: 'Ceiling Concealed & Floor Standing',
     description:
       'Blue Star ductable split systems are designed for large open plan spaces — offices, showrooms and retail. High static pressure fans ensure uniform air distribution across extended duct runs.',
-    icon: '💨',
+    Icon: HiArrowUp,
     features: ['1 to 15 TR range', 'High ESP for long duct runs', 'R-410A eco-friendly refrigerant', 'Auto restart & fault diagnosis'],
     color: 'from-sky-600 to-blue-400',
     light: 'bg-sky-50',
@@ -46,7 +46,7 @@ const productLines = [
     subtitle: '4-Way / 2-Way Ceiling Cassette',
     description:
       'Ceiling-flush cassette units blend seamlessly into any interior while delivering powerful, uniform cooling in four directions. Perfect for boardrooms, restaurants, and retail stores.',
-    icon: '🔲',
+    Icon: HiCollection,
     features: ['360° airflow distribution', 'Auto swing & auto clean', 'Compact aesthetics', 'QuietDrive technology'],
     color: 'from-blue-500 to-teal-400',
     light: 'bg-teal-50',
@@ -57,7 +57,7 @@ const productLines = [
     subtitle: 'Residential & Light Commercial',
     description:
       'Blue Star split ACs are designed to deliver precise, fast cooling with ultra-quiet operation for homes, offices, and small commercial spaces — backed by advanced inverter technology.',
-    icon: '❄️',
+    Icon: HiSun,
     features: ['5-star BEE rated models', 'Inverter compressor', 'Self-clean filter', '100% copper condenser'],
     color: 'from-cyan-600 to-blue-500',
     light: 'bg-cyan-50',
@@ -65,10 +65,10 @@ const productLines = [
 ]
 
 const highlights = [
-  { icon: '🏆', label: '70+ Years', desc: 'Blue Star heritage since 1943' },
-  { icon: '🔧', label: 'Authorized Dealer', desc: 'SS Aircon — official Blue Star partner' },
-  { icon: '⚡', label: 'Energy Efficient', desc: '5-star rated, inverter-driven range' },
-  { icon: '🛡️', label: '5-Year Warranty', desc: 'Comprehensive brand warranty' },
+  { Icon: HiStar, label: '70+ Years', desc: 'Blue Star heritage since 1943' },
+  { Icon: HiCog, label: 'Authorized Dealer', desc: 'SS Aircon — official Blue Star partner' },
+  { Icon: HiLightningBolt, label: 'Energy Efficient', desc: '5-star rated, inverter-driven range' },
+  { Icon: HiShieldCheck, label: '5-Year Warranty', desc: 'Comprehensive brand warranty' },
 ]
 
 const containerVariants = {
@@ -145,7 +145,9 @@ export default function Bluestar() {
                 transition={{ delay: i * 0.1, duration: 0.45 }}
                 className="bg-white/10 backdrop-blur border border-white/15 rounded-2xl p-4 text-center"
               >
-                <span className="text-3xl">{h.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-1.5">
+                  <h.Icon className="w-5 h-5 text-white" />
+                </div>
                 <p className="font-bold text-white mt-1.5 text-sm">{h.label}</p>
                 <p className="text-blue-200 text-xs mt-0.5">{h.desc}</p>
               </motion.div>
@@ -171,13 +173,13 @@ export default function Bluestar() {
                 key={p.id}
                 onClick={() => setActiveTab(i)}
                 whileTap={{ scale: 0.96 }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border ${
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border flex items-center gap-1.5 ${
                   activeTab === i
                     ? `bg-gradient-to-r ${p.color} text-white border-transparent shadow-md`
                     : 'bg-white text-slate-600 border-slate-200 hover:border-primary-400 hover:text-primary-700'
                 }`}
               >
-                <span className="mr-1.5">{p.icon}</span>
+                <p.Icon className="w-4 h-4" />
                 {p.title}
               </motion.button>
             ))}
@@ -239,9 +241,9 @@ export default function Bluestar() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.5 }}
-                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center text-8xl shadow-inner`}
+                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center shadow-inner`}
               >
-                {current.icon}
+                <current.Icon className="w-32 h-32 text-primary-400" />
               </motion.div>
             </motion.div>
           </AnimatePresence>
@@ -272,8 +274,8 @@ export default function Bluestar() {
                 transition={{ duration: 0.25 }}
                 className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm cursor-default"
               >
-                <div className={`w-12 h-12 rounded-xl ${p.light} flex items-center justify-center text-2xl mb-4`}>
-                  {p.icon}
+                <div className={`w-12 h-12 rounded-xl ${p.light} flex items-center justify-center mb-4`}>
+                  <p.Icon className="w-6 h-6 text-primary-600" />
                 </div>
                 <h3 className="font-bold text-primary-800 text-lg mb-1">{p.title}</h3>
                 <p className="text-xs text-slate-400 font-medium mb-3">{p.subtitle}</p>

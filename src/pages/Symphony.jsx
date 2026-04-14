@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle, HiRefresh, HiTemplate, HiCube, HiChartBar, HiBeaker, HiVolumeOff, HiCog, HiStar } from 'react-icons/hi'
 
 const productLines = [
   {
@@ -13,7 +13,7 @@ const productLines = [
     subtitle: 'Mid-range commercial coolers',
     description:
       'The Symphony Diet series is designed for medium commercial spaces — gyms, workshops, and small warehouses. Compact frame, powerful 25 m air throw, and ultra-low 215 W power consumption.',
-    icon: '🌀',
+    Icon: HiRefresh,
     airflow: '8,500 m³/hr',
     power: '215 W',
     throw: '25 m',
@@ -27,7 +27,7 @@ const productLines = [
     subtitle: 'Large commercial air coolers',
     description:
       'Symphony Cloud series coolers are engineered for large factories, warehouses, and event halls. Twin-unit design delivers dual 25+25 m air throws for wide-area rapid cooling.',
-    icon: '☁️',
+    Icon: HiTemplate,
     airflow: '8,500 + 8,500 m³/hr',
     power: '215 W × 2',
     throw: '25 m × 2',
@@ -41,7 +41,7 @@ const productLines = [
     subtitle: 'Heavy-duty plant cooling',
     description:
       'Built for demanding industrial environments, the Symphony Industrial series delivers 18,000 m³/hr airflow across 26 m — suitable for large manufacturing plants, textile mills, and logistics hubs.',
-    icon: '🏗️',
+    Icon: HiCube,
     airflow: '18,000 m³/hr',
     power: '580 W',
     throw: '26 m',
@@ -55,7 +55,7 @@ const productLines = [
     subtitle: 'Maximum capacity coolers',
     description:
       'The Symphony Jumbo series is designed for massive open spaces — aircraft hangars, stadiums, and large warehouses. Delivers 20,000 m³/hr with 4-side cooling pads for superior coverage.',
-    icon: '🦣',
+    Icon: HiChartBar,
     airflow: '20,000 m³/hr',
     power: '1,100 W',
     throw: '30 m',
@@ -66,12 +66,12 @@ const productLines = [
 ]
 
 const advantages = [
-  { icon: '💧', label: 'Water-Based Cooling', desc: 'No compressor — 90% lower power vs AC' },
-  { icon: '🌿', label: 'Eco-Friendly', desc: 'Zero refrigerant, zero ozone impact' },
-  { icon: '💨', label: 'Fresh Air', desc: 'Continuously draws in fresh outside air' },
-  { icon: '🔇', label: 'Low Noise', desc: 'Whisper-quiet operation in large spaces' },
-  { icon: '🔧', label: 'Easy Maintenance', desc: 'Removable & washable honeycomb pads' },
-  { icon: '🏆', label: 'Authorized Dealer', desc: 'SS Aircon — official Symphony partner' },
+  { Icon: HiBeaker, label: 'Water-Based Cooling', desc: 'No compressor — 90% lower power vs AC' },
+  { Icon: HiRefresh, label: 'Eco-Friendly', desc: 'Zero refrigerant, zero ozone impact' },
+  { Icon: HiArrowRight, label: 'Fresh Air', desc: 'Continuously draws in fresh outside air' },
+  { Icon: HiVolumeOff, label: 'Low Noise', desc: 'Whisper-quiet operation in large spaces' },
+  { Icon: HiCog, label: 'Easy Maintenance', desc: 'Removable & washable honeycomb pads' },
+  { Icon: HiStar, label: 'Authorized Dealer', desc: 'SS Aircon — official Symphony partner' },
 ]
 
 const containerVariants = {
@@ -179,13 +179,13 @@ export default function Symphony() {
                 key={p.id}
                 onClick={() => setActiveTab(i)}
                 whileTap={{ scale: 0.96 }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border ${
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-250 border flex items-center gap-1.5 ${
                   activeTab === i
                     ? `bg-gradient-to-r ${p.color} text-white border-transparent shadow-md`
                     : 'bg-white text-slate-600 border-slate-200 hover:border-primary-400 hover:text-primary-700'
                 }`}
               >
-                <span className="mr-1.5">{p.icon}</span>
+                <p.Icon className="w-4 h-4" />
                 {p.title}
               </motion.button>
             ))}
@@ -268,9 +268,9 @@ export default function Symphony() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.5 }}
-                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center text-8xl shadow-inner`}
+                className={`${current.light} rounded-2xl h-64 md:h-80 flex items-center justify-center shadow-inner`}
               >
-                {current.icon}
+                <current.Icon className="w-32 h-32 text-primary-400" />
               </motion.div>
             </motion.div>
           </AnimatePresence>
@@ -300,7 +300,9 @@ export default function Symphony() {
                 whileHover={{ y: -5, boxShadow: '0 16px 32px -8px rgba(37,99,235,0.15)' }}
                 className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm text-center"
               >
-                <span className="text-4xl">{a.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-3">
+                  <a.Icon className="w-6 h-6 text-primary-600" />
+                </div>
                 <h3 className="font-bold text-primary-800 text-base mt-3 mb-1">{a.label}</h3>
                 <p className="text-slate-500 text-sm">{a.desc}</p>
               </motion.div>
@@ -318,7 +320,7 @@ export default function Symphony() {
           transition={{ duration: 0.6 }}
           className="container-custom"
         >
-          <span className="text-5xl mb-4 block">🌬️</span>
+          <HiCube className="w-10 h-10 mx-auto text-primary-300 mb-4 block" />
           <h2 className="text-3xl font-bold font-heading mb-4">Cool Your Facility the Smart Way</h2>
           <p className="text-primary-100 mb-8 max-w-xl mx-auto">
             Let our team help you choose the right Symphony cooler series for your factory, warehouse, or venue — and handle supply, installation, and AMC.
