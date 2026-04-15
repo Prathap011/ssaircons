@@ -3,13 +3,53 @@ import { motion, AnimatePresence } from 'framer-motion'
 import SectionTitle from './SectionTitle'
 
 const certificates = [
-  { name: 'ISO 9001:2015', sub: 'Quality Management System', badge: 'ISO', color: '#1d4ed8', bg: '#dbeafe' },
-  { name: 'ISO 14001:2015', sub: 'Environmental Management', badge: 'ISO', color: '#0f6e56', bg: '#d1fae5' },
-  { name: 'ASHRAE Member', sub: 'American Society of HVAC Engineers', badge: 'ASHRAE', color: '#854f0b', bg: '#fef3c7' },
-  { name: 'Bureau of Energy', sub: 'BEE Star Rating Certified', badge: 'BEE', color: '#6d28d9', bg: '#ede9fe' },
-  { name: 'ESIC Registered', sub: 'Employee State Insurance Corp.', badge: 'ESIC', color: '#065f46', bg: '#d1fae5' },
-  { name: 'MSME Certified', sub: 'Ministry of MSME, Govt. of India', badge: 'MSME', color: '#9a3412', bg: '#ffedd5' },
+  {
+    name: 'Appreciation Certificate',
+    sub: 'Gunasekaran Hospitals Pvt Ltd',
+    image: '/assets/certificates/cert1.jpeg', // 👈 your uploaded image
+  },
+  {
+    name: 'ISO 9001:2015',
+    sub: 'Quality Management System',
+    image: '/assets/certificates/cert2.jpeg',
+  },
+  {
+    name: 'ISO 14001:2015',
+    sub: 'Environmental Management',
+    image: '/assets/certificates/cert3.jpeg',
+  },
+  {
+    name: 'OHSAS 18001:2007',
+    sub: 'Occupational Health & Safety',
+    image: '/assets/certificates/cert4.jpeg',
+  },
+  {
+    name: 'Certificate of Excellence',
+    sub: 'For Outstanding Service in HVAC Solutions',
+    image: '/assets/certificates/cert5.jpeg',
+  },
+  {
+    name: 'Energy Efficiency Award',
+    sub: 'Recognizing Commitment to Sustainable HVAC Practices',
+    image: '/assets/certificates/cert6.jpeg',
+  },
+  {
+    name: 'Customer Satisfaction Award',
+    sub: 'For Exceptional Client Service and Support',
+    image: '/assets/certificates/cert7.jpeg',
+  },
+  {
+    name: 'Safety Excellence Certificate',
+    sub: 'For Maintaining High Safety Standards in HVAC Installations',
+    image: '/assets/certificates/cert8.jpeg',
+  },
+  {
+    name: 'Innovation in HVAC Solutions',
+    sub: 'Awarded for Implementing Cutting-Edge HVAC Technologies',
+    image: '/assets/certificates/cert9.jpeg',
+  },
 ]
+
 
 export default function CertificatesSection() {
   const [active, setActive] = useState(0)
@@ -72,23 +112,22 @@ export default function CertificatesSection() {
               >
                 {/* CARD */}
                 <div
-                  className="rounded-2xl shadow-lg flex items-center justify-center"
+                  className="rounded-2xl w-full h-full object-contain shadow-lg bg-white"
                   style={{
-                    width: isActive ? 260 : 160,
-                    height: isActive ? 260 : 160,
-                    background: cert.bg,
+                    width: isActive ? 340 : 240,
+                    height: isActive ? 400 : 280, // 👈 taller like real certificate
                   }}
                 >
-                  <span
-                    className="px-3 py-1 rounded-full font-semibold"
-                    style={{ color: cert.color, background: '#fff' }}
-                  >
-                    {cert.badge}
-                  </span>
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
 
+
                 {/* TEXT OUTSIDE (ONLY ACTIVE) */}
-                <AnimatePresence>
+                {/* <AnimatePresence>
                   {isActive && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -101,7 +140,7 @@ export default function CertificatesSection() {
                       <p className="text-sm text-gray-400">{cert.sub}</p>
                     </motion.div>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
               </motion.div>
             )
           })}
@@ -113,9 +152,8 @@ export default function CertificatesSection() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`transition-all duration-300 rounded-full ${
-                i === active ? 'w-6 h-2 bg-blue-600' : 'w-2 h-2 bg-gray-300'
-              }`}
+              className={`transition-all duration-300 rounded-full ${i === active ? 'w-6 h-2 bg-blue-600' : 'w-2 h-2 bg-gray-300'
+                }`}
             />
           ))}
         </div>
