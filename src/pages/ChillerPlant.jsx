@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle, HiLightningBolt, HiRefresh, HiChartBar, HiCog } from 'react-icons/hi'
+import { HiArrowRight, HiLightningBolt, HiRefresh, HiChartBar, HiCog } from 'react-icons/hi'
 
 const chillerTypes = [
   { Icon: HiLightningBolt, title: 'Air-Cooled Chillers', desc: 'Ideal for facilities without a dedicated cooling tower. Uses ambient air to reject heat from the refrigerant cycle.' },
@@ -19,7 +18,7 @@ const designFeatures = [
   'Pump sizing and piping layout for primary and secondary circuits',
   'BMS integration for energy monitoring and remote diagnostics',
   'Commissioning and performance verification against design load',
-  'Chiller plant retrofits and energy optimization audits',
+  'Chiller plant retrofits and energy optimisation audits',
 ]
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
@@ -29,8 +28,6 @@ const fadeUp = {
 }
 
 export default function ChillerPlant() {
-  const { ref, inView } = useInView()
-
   return (
     <>
       <Helmet>
@@ -44,61 +41,74 @@ export default function ChillerPlant() {
         bg="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80"
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl overflow-hidden shadow-sm border border-primary-100 h-[400px]"
-          >
-            <img
-              src="https://www.ssaircons.com/wp-content/uploads/2022/04/chiller-unit.jpg"
-              alt="Chiller Plant"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              label="Chiller Systems"
-              title="Best Chiller Plant Design & Installation"
-            />
-            <p className="text-slate-600 leading-relaxed mb-4 text-sm">
-              SS AIRCON is the best Chiller Plant Design and Installation Service Provider. Our chiller plant operates on a refrigerant cycle — the refrigerant absorbs heat from the water in the evaporator, cooling it down.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              The chilled water then circulates through the building to cool it. We offer Air-Cooled Chillers, Water-Cooled Chillers, Skidded Chillers, and Green / Modular Chillers — designed and installed to meet your building's exact load requirements.
-            </p>
-            <div ref={ref} className="space-y-2">
-              {designFeatures.map((f, i) => (
-                <motion.div
-                  key={f}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
-                  className="flex items-start gap-2.5 text-sm text-slate-700"
-                >
-                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" />
-                  {f}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+      {/* ── Full-bleed image banner with overlay ── */}
+      <section className="relative h-[360px] overflow-hidden">
+        <img
+          src="https://www.ssaircons.com/wp-content/uploads/2022/04/chiller-unit.jpg"
+          alt="Chiller Plant"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-900/70 to-transparent" />
+        <div className="relative h-full flex items-center">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65 }}
+              className="max-w-xl text-white"
+            >
+              <span className="inline-block bg-accent-500/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                Chiller Systems
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-4">
+                Best Chiller Plant Design & Installation
+              </h2>
+              <p className="text-primary-200 text-sm leading-relaxed">
+                Our chiller plant operates on a refrigerant cycle — the refrigerant absorbs heat from the water
+                in the evaporator, cooling it. The chilled water then circulates through the building.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
+      {/* ── Numbered design features ── */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <SectionTitle
+            label="Our Scope"
+            title="What Our Chiller Plant Service Includes"
+            subtitle="End-to-end design, installation and commissioning for every type of chiller plant."
+            center
+          />
+          <div className="grid md:grid-cols-2 gap-4 mt-10">
+            {designFeatures.map((f, i) => (
+              <motion.div
+                key={f}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.45 }}
+                className="flex items-start gap-4 bg-primary-50 rounded-2xl p-5 border border-primary-100"
+              >
+                <span className="text-3xl font-black text-primary-200 leading-none flex-shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="text-slate-700 text-sm leading-relaxed">{f}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Chiller types ── */}
       <section className="section-padding bg-slate-50">
         <div className="container-custom">
           <SectionTitle
             label="Our Solutions"
             title="Chiller Types We Install"
-            subtitle="We supply, install, and commission all major chiller types for commercial, industrial, and data centre applications."
+            subtitle="We supply, install, and commission all major chiller types for any application."
             center
           />
           <motion.div
@@ -126,21 +136,12 @@ export default function ChillerPlant() {
         </div>
       </section>
 
+      {/* ── CTA ── */}
       <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="container-custom"
-        >
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="container-custom">
           <h2 className="text-3xl font-bold font-heading mb-4">Plan Your Chiller Plant with Us</h2>
-          <p className="text-primary-200 mb-8 max-w-xl mx-auto">
-            From load calculation to final commissioning — SS Aircon delivers turnkey chiller plant solutions for every building type.
-          </p>
-          <Link to="/contact" className="btn-primary">
-            Request a Design Consultation <HiArrowRight className="w-4 h-4" />
-          </Link>
+          <p className="text-primary-200 mb-8 max-w-xl mx-auto">From load calculation to final commissioning — SS Aircon delivers turnkey chiller plant solutions.</p>
+          <Link to="/contact" className="btn-primary">Request a Design Consultation <HiArrowRight className="w-4 h-4" /></Link>
         </motion.div>
       </section>
     </>

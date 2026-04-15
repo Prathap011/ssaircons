@@ -68,7 +68,6 @@ const fadeUp = {
 
 export default function CentralizedAC() {
     const { ref: feat, inView: featIn } = useInView()
-    const { ref: sol, inView: solIn } = useInView()
 
     return (
         <>
@@ -135,111 +134,118 @@ export default function CentralizedAC() {
                 </div>
             </section>
 
-            <section className="section-padding bg-white">
-                <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.94 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-                    >
-                        <img
-                            src="/assets/cen1.jpg"
-                            alt="Precision Air Conditioning"
-                            className="w-full h-full object-cover"
-                        />
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <SectionTitle
-                            // label="Centralized Air Conditioning"
-                            title="Centralized Air Conditioning"
-                        />
-                        <h4 className="text-slate-600 leading-relaxed mb-4 text-sm">
-                            <strong>SS AIRCON – The Expert in Centralized Air Conditioning for Listed Properties :</strong>
-                        </h4>
-                        {/* <div ref={feat} className="space-y-2 mb-2">
-                            {features1.map((f, i) => (
-                                <motion.div
-                                    key={f}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={featIn ? { opacity: 1, x: 0 } : {}}
-                                    transition={{ delay: i * 0.06, duration: 0.4 }}
-                                    className="flex items-center gap-2.5 text-sm text-slate-700"
-                                >
-                                    <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                                    {f}
-                                </motion.div>
-                            ))}
-                        </div> */}
-                        <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-                            These systems work by distributing conditioned air evenly to every corner of the space through a network of ducts, improving overall air quality and maintaining uniform temperature levels. Centralized AC solutions are ideal for large indoor areas where consistent cooling and comfort are essential.
-                        </p>
-                        <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-                            Basically, air conditioning machines are used to manage the refrigeration cycle due to which air temperature remains cool. Often, evaporation or free cooling also works to keep the temperature down.
-                        </p>
-
-                    </motion.div>
+            {/* Centralized AC intro - full-bleed image dark overlay + centered text + property pills */}
+            <section className="relative py-24 overflow-hidden">
+              <img
+                src="/assets/cen1.jpg"
+                alt="Centralized Air Conditioning"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-primary-900/88" />
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65 }}
+                className="relative container-custom text-white text-center"
+              >
+                <SectionTitle
+                  title="Centralized Air Conditioning"
+                  center
+                />
+                <div className="max-w-2xl mx-auto">
+                  <h4 className="text-primary-200 text-sm font-semibold mb-4">
+                    SS AIRCON – The Expert in Centralized Air Conditioning for:
+                  </h4>
+                  <p className="text-primary-200 leading-relaxed mb-3 text-sm">
+                    These systems distribute conditioned air evenly through a network of ducts, improving
+                    overall air quality and maintaining uniform temperature levels. Centralized AC solutions
+                    are ideal for large indoor areas where consistent cooling and comfort are essential.
+                  </p>
+                  <p className="text-primary-200 leading-relaxed mb-8 text-sm">
+                    Air conditioning machines manage the refrigeration cycle to keep air temperature cool.
+                    Evaporation or free cooling also works to keep temperature down across all climates.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {features1.map((f) => (
+                      <span key={f} className="px-4 py-2 bg-white/15 border border-white/25 rounded-full text-sm text-primary-100">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              </motion.div>
             </section>
 
-            <section className="section-padding bg-white">
-                <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-
-
+            {/* Scope of services - numbered vertical step cards full-width */}
+            <section className="section-padding bg-slate-50">
+              <div className="container-custom">
+                <SectionTitle
+                  label="Our Scope"
+                  title="Centralized Air Conditioning Services We Offer"
+                  subtitle="Offering best suited centralized air conditioning solutions is our prime factor — we have the best solutions for all properties."
+                  center
+                />
+                <div ref={feat} className="space-y-4 max-w-3xl mx-auto">
+                  {features2.map((f, i) => (
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                      key={f}
+                      initial={{ opacity: 0, x: 24 }}
+                      animate={featIn ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: i * 0.09, duration: 0.45 }}
+                      className="flex gap-5 bg-white rounded-2xl p-5 border-l-4 border-primary-500 shadow-sm"
                     >
-                        <SectionTitle
-                            label=""
-                            title="Our Scope of Centralized Air Conditioning Services"
-                        />
-                        <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-                            Offering best suited centralized air conditioning solutions is prime factor which will be never compromised if you are getting facilities from SS AIRCON. We have best Centralized Air Conditioning solutions for all properties, like :
-                        </p>
-                        <div ref={feat} className="space-y-2 mb-2">
-                            {features2.map((f, i) => (
-                                <motion.div
-                                    key={f}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={featIn ? { opacity: 1, x: 0 } : {}}
-                                    transition={{ delay: i * 0.06, duration: 0.4 }}
-                                    className="flex items-center gap-2.5 text-sm text-slate-700"
-                                >
-                                    <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                                    {f}
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-                            However, our AC design & installation services are not limited for aforementioned specific areas only. We customise and extend our Centralized Air Conditioning services according to your needs.
-                        </p>
-
+                      <span className="text-3xl font-black text-primary-100 leading-none flex-shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <p className="text-sm text-slate-700 leading-relaxed">{f}</p>
+                      </div>
                     </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.94 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-                    >
-                        <img
-                            src="/assets/cen2.jpg"
-                            alt="Precision Air Conditioning"
-                            className="w-full h-full object-cover"
-                        />
-                    </motion.div>
+                  ))}
                 </div>
+                <p className="text-slate-500 text-sm mt-6 italic text-center max-w-2xl mx-auto">
+                  Our AC design and installation services are not limited to these specific areas only —
+                  we customise and extend our services according to your needs.
+                </p>
+              </div>
+            </section>
+            {/* What sets us apart - dark bg feature pills + image strip */}
+            <section className="section-padding bg-white">
+              <div className="container-custom">
+                <SectionTitle label="Why SS Aircon?" title="What Sets Our Service Apart" center />
+                <motion.div
+                  variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-10"
+                >
+                  {features.map((f, i) => (
+                    <motion.div
+                      key={f}
+                      variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
+                      className="flex gap-3 bg-primary-50 rounded-xl p-4 border border-primary-100"
+                    >
+                      <HiCheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-slate-700 leading-relaxed">{f}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="rounded-3xl overflow-hidden h-56 shadow-sm"
+                >
+                  <img
+                    src="/assets/cen3.jpg"
+                    alt="Centralized AC Installation"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </div>
             </section>
 
             {/* <section className="section-padding bg-white">
@@ -357,43 +363,6 @@ export default function CentralizedAC() {
                     </div>
                 </div>
             </section> */}
-
-            {/* Features */}
-            <section className="section-padding bg-white">
-                <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-                    <div ref={feat}>
-                        <SectionTitle label="Why SS Aircon?" title="What Sets Our Service Apart" />
-                        <div className="space-y-3">
-                            {features.map((f) => (
-                                <motion.div
-                                    key={f}
-                                    initial={{ opacity: 0, x: -24 }}
-                                    animate={featIn ? { opacity: 1, x: 0 } : {}}
-                                    transition={{ delay: features.indexOf(f) * 0.1, duration: 0.4 }}
-                                    className="flex items-start gap-2.5 text-sm text-slate-700"
-                                >
-                                    <HiCheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                                    <span>{f}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.94 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-                    >
-                        <img
-                            src="/assets/cen3.jpg"
-                            alt="Precision Air Conditioning"
-                            className="w-full h-full object-cover"
-                        />
-                    </motion.div>
-                </div>
-            </section>
 
             {/* CTA */}
             <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">

@@ -42,9 +42,7 @@ const fadeUp = {
 }
 
 export default function AirTesting() {
-  const { ref: why, inView: whyIn } = useInView()
   const { ref: feat, inView: featIn } = useInView()
-    const { ref: proc, inView: procIn } = useInView()
 
   return (
     <>
@@ -59,50 +57,67 @@ export default function AirTesting() {
         bg="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&auto=format&fit=crop&q=80"
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+      {/* Full-bleed image with gradient overlay */}
+      <section className="relative h-[400px] overflow-hidden">
+        <img
+          src="/assets/air-testing.jpg"
+          alt="Air Testing and Balancing"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-900/65 to-transparent" />
+        <div className="relative h-full flex items-center">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65 }}
+              className="max-w-xl text-white"
+            >
+              <span className="inline-block bg-accent-500/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                TAB Services
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-4">
+                Professional Air Testing, Adjusting and Balancing
+              </h2>
+              <p className="text-primary-200 text-sm leading-relaxed">
+                Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and
+                ventilation systems. Independent TAB companies were created to handle complex HVAC inspections
+                as systems grew more advanced through the 1980s.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-          >
-            <img
-              src="/assets/air-testing.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              label="Precision Cooling"
-              title="What Is Precision Air Conditioning?"
-            />
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and ventilation systems. The need for balancing first came in the early 1980’s when new and more advanced A/C systems were being developed and installed. As these systems began to get more complex, the need for balancing increased. Most companies were not equipped to handle the TAB inspections. Independent TAB companies were created to handle these tasks.
-            </p>
-            <div ref={feat} className="space-y-2">
-              {features.map((f, i) => (
-                <motion.div
-                  key={f}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={featIn ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
-                  className="flex items-center gap-2.5 text-sm text-slate-700"
-                >
-                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                  {f}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+      {/* Numbered task cards */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <SectionTitle
+            label="What We Do"
+            title="Balancing Tasks We Perform"
+            subtitle="Our certified TAB technicians cover every aspect of air-side measurement and adjustment."
+            center
+          />
+          <div ref={feat} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+            {features.map((f, i) => (
+              <motion.div
+                key={f}
+                initial={{ opacity: 0, y: 24 }}
+                animate={featIn ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative overflow-hidden bg-primary-50 border border-primary-100 rounded-2xl p-6"
+              >
+                <span className="absolute -top-2 -right-2 text-7xl font-black text-primary-100 leading-none select-none pointer-events-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="relative">
+                  <HiCheckCircle className="w-5 h-5 text-primary-600 mb-3" />
+                  <p className="text-slate-700 text-sm leading-relaxed">{f}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

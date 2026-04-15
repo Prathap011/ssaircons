@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
-import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle, HiShieldCheck, HiServer, HiDatabase, HiBeaker, HiOfficeBuilding, HiDesktopComputer, HiStar } from 'react-icons/hi'
+import { HiArrowRight, HiShieldCheck, HiServer, HiDatabase, HiBeaker, HiOfficeBuilding, HiDesktopComputer, HiStar } from 'react-icons/hi'
 
 const applications = [
   { Icon: HiServer, title: 'Data Centres', desc: 'Mission-critical precision cooling with redundancy support for 24/7 uptime.' },
@@ -43,8 +42,7 @@ const fadeUp = {
 }
 
 export default function PrecisionAC() {
-  const { ref: feat, inView: featIn } = useInView()
-  const { ref: proc, inView: procIn } = useInView()
+
 
   return (
     <>
@@ -115,95 +113,95 @@ export default function PrecisionAC() {
         </div>
       </section> */}
 
-      {/* What is section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              label="Precision Cooling"
-              title="What Is Precision Air Conditioning?"
-            />
-            <h4 className="text-slate-600 leading-relaxed mb-4">
-              <strong>SS Aircon deal in precision and central Air Conditioning services all across India for below mentioned applications:</strong>
-            </h4>
-            <h4 className="text-slate-600 leading-relaxed mb-4 text-sm">
-              <strong>IT Cooling Soutions, Research Labs AC’s, Server Room Air Conditioner, Data center Air Conditioner, Control Room etc.</strong>
-            </h4>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              SS AIRCON – We offers complete precision air conditioning solutions starting from Supplying, Installing, Testing & Commissioning. We are tied up with EMERSON NETWORK POWER (I) PVT LTD in the Precision air-conditioning to help you choose best machines as per your requirements.
+      {/* What is section - Full bleed image + dark overlay + centered text + feature pills */}
+      <section className="relative py-28 overflow-hidden">
+        <img
+          src="/assets/precision-ac.jpg"
+          alt="Precision Air Conditioning"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary-900/85" />
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="relative container-custom text-center text-white"
+        >
+          <SectionTitle
+            label="Precision Cooling"
+            title="What Is Precision Air Conditioning?"
+            center
+          />
+          <div className="max-w-3xl mx-auto">
+            <p className="text-primary-200 leading-relaxed mb-3">
+              <strong className="text-white">SS Aircon deals in precision and central Air Conditioning services all across India for: IT Cooling Solutions, Research Labs ACs, Server Room Air Conditioners, Data Center Air Conditioners, Control Rooms etc.</strong>
             </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              SS AIRCON – We offers complete precision air conditioning solutions starting from Supplying, Installing, Testing & Commissioning. We are tied up with EMERSON NETWORK POWER (I) PVT LTD in the Precision air-conditioning to help you choose best machines as per your requirements.
+            <p className="text-primary-200 leading-relaxed mb-8 text-sm">
+              SS AIRCON offers complete precision air conditioning solutions starting from Supplying, Installing, Testing and Commissioning. We are tied up with EMERSON NETWORK POWER (I) PVT LTD in the Precision air-conditioning to help you choose best machines as per your requirements.
             </p>
-            {/* <div ref={feat} className="space-y-2">
-              {features.map((f, i) => (
-                <motion.div
+            <div className="flex flex-wrap justify-center gap-3">
+              {features.map((f) => (
+                <span
                   key={f}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={featIn ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
-                  className="flex items-center gap-2.5 text-sm text-slate-700"
+                  className="px-4 py-2 bg-white/15 border border-white/25 rounded-full text-sm text-primary-100"
                 >
-                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
                   {f}
-                </motion.div>
+                </span>
               ))}
-            </div> */}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-          >
-            <img
-              src="/assets/precision-ac.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-                    <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+      {/* Details section - full-width image banner + dark application card grid */}
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+            className="rounded-3xl overflow-hidden h-56 mb-10 shadow-sm"
           >
             <img
               src="/assets/precision-ac2.jpg"
-              alt="Precision Air Conditioning"
+              alt="Precision Air Conditioning Details"
               className="w-full h-full object-cover"
             />
           </motion.div>
+          <SectionTitle
+            label="More about Precision AC"
+            title="Precision Air Conditioning Details"
+            center
+          />
+          <p className="text-slate-600 leading-relaxed mb-3 text-sm max-w-3xl mx-auto text-center">
+            Precision Air conditioning is a precise form of air conditioning specifically meant to control temperature and humidity of costly and sensitive electrical equipment for a longer time, providing constant temperature and humidity conditions throughout the year.
+          </p>
+          <p className="text-slate-600 leading-relaxed mb-10 text-sm max-w-3xl mx-auto text-center">
+            Precision Air Conditioning has widespread applications in environments where high volumes of heat need to be dissipated — Data Centers, Server Rooms, IT Cooling, Research Labs, Control Rooms, Luxury Hotels, Call Centers etc.
+          </p>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            <SectionTitle
-              label="More about Precision AC"
-              title="Precision Air Conditioning Details"
-            />
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              Precision Air conditioning is a precise form of air conditioning specifically meant to control temperature and humidity of costly and sophistically sensitive electrical equipments for a longer time. Precision AC’s performs the above function by providing constant temperature to the last degree and humidity conditions throughout the year. In data centers and server room operations, their continuous operation reliably ensures the high availability of computer systems. Precision Air Conditioner has widespread applications in Data Center and Server Room Cooling to make them work efficiently and effectively and we help our client with complete execution up to their satisfaction.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              Precision Air Conditioning has widespread applications in environment where high level and volume of heat needs to be dissipated. Hence, precision air conditioning is required for Data Center, Server room, IT Cooling Solutions, Research Labs, Control Rooms, Luxury Hotels, Call Centers etc.
-            </p>
+            {applications.map((a) => (
+              <motion.div
+                key={a.title}
+                variants={fadeUp}
+                className="bg-primary-900 text-white rounded-2xl p-6 flex flex-col gap-3"
+              >
+                <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
+                  <a.Icon className="w-5 h-5 text-primary-200" />
+                </div>
+                <h3 className="font-bold text-base">{a.title}</h3>
+                <p className="text-primary-300 text-sm leading-relaxed">{a.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
-
         </div>
       </section>
 

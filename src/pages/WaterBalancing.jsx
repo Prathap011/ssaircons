@@ -2,9 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
-import SectionTitle from '../components/SectionTitle'
-import { useInView } from '../hooks/useInView'
-import { HiArrowRight, HiCheckCircle, HiDatabase, HiLightningBolt, HiHome, HiCog, HiRefresh, HiChartBar } from 'react-icons/hi'
+import { HiArrowRight, HiDatabase, HiLightningBolt, HiHome, HiCog, HiRefresh, HiChartBar } from 'react-icons/hi'
 
 const systemTypes = [
   { Icon: HiDatabase, title: 'Chilled Water Systems', desc: 'Ensure balanced chilled water distribution to every AHU and FCU coil for optimal cooling performance.' },
@@ -35,7 +33,6 @@ const fadeUp = {
 }
 
 export default function WaterBalancing() {
-  const { ref: ben, inView: benIn } = useInView()
 
   return (
     <>
@@ -50,38 +47,47 @@ export default function WaterBalancing() {
         bg="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80"
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-          >
-            <img
-              src="/assets/water-filling-aircon.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              title="Water Balancing"
-            />
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              Water balancing crosses a large expanse of different type systems. Chilled, Heating, Domestic, Condenser, and Process water systems require adjustment and balancing for proper operation. Unbalanced distribution of any type of fluid results in inefficiencies and causes the system served to work improperly.
+      {/* SPLIT SCREEN: dark left panel + right image */}
+      <section className="lg:flex min-h-[500px]">
+        {/* Left dark panel */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="bg-primary-900 text-white lg:w-1/2 flex items-center px-10 xl:px-20 py-20"
+        >
+          <div className="max-w-lg">
+            <span className="inline-block text-accent-400 text-xs font-bold uppercase tracking-widest mb-4">Hydronic Balancing</span>
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading leading-tight mb-6">
+              Water Balancing for HVAC Systems
+            </h2>
+            <p className="text-primary-200 text-sm leading-relaxed mb-4">
+              Water balancing crosses a large expanse of different type systems. Chilled, Heating, Domestic,
+              Condenser, and Process water systems require adjustment and balancing for proper operation.
+              Unbalanced distribution of any type of fluid results in inefficiencies.
             </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              Proper water balance has long been ignored in existing facilities and has proven to be the cause of many systems’ failure. Air Balancing Company understands that proper water balancing is as important as air balancing. Through this understanding ABC has become a premier water balancing company.                  </p>
-          </motion.div>
-        </div>
+            <p className="text-primary-300 text-sm leading-relaxed">
+              Proper water balance has long been ignored in existing facilities and has proven to be the
+              cause of many systems failures. SS AIRCON understands that proper water balancing is as
+              important as air balancing.
+            </p>
+          </div>
+        </motion.div>
+        {/* Right image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="lg:w-1/2 h-72 lg:h-auto overflow-hidden"
+        >
+          <img
+            src="/assets/water-filling-aircon.jpg"
+            alt="Water Balancing HVAC"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
       </section>
 
       {/* Intro banner */}

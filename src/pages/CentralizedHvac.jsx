@@ -121,118 +121,143 @@ export default function CentralizedHvac() {
         </div>
       </section>
 
+      {/* HVAC Services - Bento grid layout */}
       <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+        <div className="container-custom">
+          <motion.div
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid lg:grid-cols-5 gap-6"
+          >
+            {/* Image card */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } }}
+              className="lg:col-span-3 rounded-3xl overflow-hidden min-h-[420px]"
+            >
+              <img
+                src="/assets/cent-hvac1.jpg"
+                alt="Centralized HVAC Services"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
-          >
-            <img
-              src="/assets/cent-hvac1.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionTitle
-              title="Centralized HVAC Services"
-            />
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              We take care of every kind of Centralized & Industrial Air Conditioning Solutions (HVAC Solutions) for any building type & take care of entire turnkey projects i.e. Designing, Sales & Execution, all across India for below mentioned work:
-            </p>
-            <div ref={feat} className="space-y-2 mb-2">
-              {features.map((f, i) => (
-                <motion.div
-                  key={f}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={featIn ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
-                  className="flex items-center gap-2.5 text-sm text-slate-700"
-                >
-                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                  {f}
-                </motion.div>
-              ))}
-            </div>
+            {/* Right column: dark title card + checklist card */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } }}
+              className="lg:col-span-2 flex flex-col gap-5"
+            >
+              <div className="bg-primary-900 text-white rounded-3xl p-7 flex-1">
+                <SectionTitle
+                  title="Centralized HVAC Services"
+                  className="text-white"
+                />
+                <p className="text-primary-200 text-sm leading-relaxed">
+                  We take care of every kind of Centralized and Industrial Air Conditioning Solutions (HVAC) for
+                  any building type and handle entire turnkey projects — Designing, Sales and Execution, all across India.
+                </p>
+              </div>
+              <div className="bg-primary-50 rounded-3xl p-6">
+                <div ref={feat} className="space-y-2.5">
+                  {features.map((f, i) => (
+                    <motion.div
+                      key={f}
+                      initial={{ opacity: 0, x: 16 }}
+                      animate={featIn ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: i * 0.07, duration: 0.4 }}
+                      className="flex items-start gap-2.5 text-sm text-slate-700"
+                    >
+                      <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" />
+                      {f}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-
+      {/* About HVAC - Full-width text panel + image strip */}
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <SectionTitle label="About" title="HVAC for All Kinds of Requirements" center />
+            <p className="text-slate-600 leading-relaxed mb-4 text-sm">
+              We are into the business of providing HVAC solutions for all kinds of requirements — Industries,
+              Commercial Establishments, Pharmaceutical Labs and Hospitals, and High-end Residences. We offer
+              total solutions which include System Design, Project Consultancy and Project Execution.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-4 text-sm">
+              We build different types of HVAC systems which are different in design and operational approach,
+              depending on the architecture of the building. SS AIRCON provides complete support by first
+              calculating the heat load, designing, and further installation and execution.
+            </p>
+            <p className="text-slate-600 leading-relaxed text-sm">
+              We have a team of technicians and HVAC engineers who work hard in completing assigned projects in
+              stipulated time, offering exceptional techno-commercial air-conditioning solutions that ensure
+              quality work for every client.
+            </p>
+          </div>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              We are into the business of providing HVAC (Heating Ventilation and Air Conditioning) solutions all kind of requirements for Industries, Commercial Establishments, Pharmaceutical Labs & Hospitals Air Conditioning , High end Residence Air Conditioning. We offer total solution for HVAC which includes System Design, Project Consultancy & Project execution. We have a rich experience in designing and project execution of all kinds of HVAC systems i.e. Chillers, Package and Ductable Systems, VRF systems.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              We build different types of HVAC systems which are different in Design and in Operational approach, depending on the architecture design of building. SS AIRCON provide complete support by helping our clients in first calculating the heat load, Designing and further Installation & Execution. SS AIRCON has employed professionals centralized HVAC consultants on board strive together to deliver quality work.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              We also have a team of technicians and HVAC engineers who work hard in completing assigned projects in stipulated time. We pride ourselves in offering exceptional techno-commercial air-conditioning solution and project execution that ensures our client to get quality work. MG Cooling Solutions listed top in the list of Best HVAC service providers Delhi, India
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+            transition={{ duration: 0.65 }}
+            className="rounded-3xl overflow-hidden h-64 shadow-sm"
           >
             <img
               src="/assets/cent-hvac2.jpg"
-              alt="Precision Air Conditioning"
+              alt="HVAC Solutions"
               className="w-full h-full object-cover"
             />
           </motion.div>
         </div>
       </section>
 
+      {/* HVAC Principles - Bold H·A·V letter cards in horizontal row */}
       <section className="section-padding bg-white">
-        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
-
+        <div className="container-custom">
+          <SectionTitle
+            label="How It Works"
+            title="Three Core Principles of HVAC"
+            subtitle="When Heating, Air Conditioning, and Ventilation work together, a complete purified air environment is created."
+            center
+          />
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {principles.map((p) => (
+              <motion.div
+                key={p.label}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="relative overflow-hidden bg-primary-900 text-white rounded-3xl p-8"
+              >
+                <span className="absolute top-4 right-5 text-8xl font-black text-white/8 leading-none select-none">
+                  {p.label}
+                </span>
+                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
+                  <span className="text-3xl font-black text-accent-400">{p.label}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2">{p.title}</h3>
+                <p className="text-primary-300 text-sm leading-relaxed">{p.desc}</p>
+              </motion.div>
+            ))}
+          </div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+            className="rounded-3xl overflow-hidden h-52 shadow-sm"
           >
             <img
               src="/assets/cent-hvac3.jpg"
-              alt="Precision Air Conditioning"
+              alt="HVAC Principles"
               className="w-full h-full object-cover"
             />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h4 className="text-slate-600 leading-relaxed mb-6 text-sm">
-              <strong>More about Centralized Air Conditioning Solutions (HVAC)</strong>
-            </h4>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              HVAC system works on three principles –Heating, Air Conditioning & Ventilation, i.e. it conditions the air in the space occupied by the building, ventilates the air by diluting and removing contaminants present inside the building. When all these three principles work together, a complete purified air conditioning environment gets created.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              When an HVAC system is installed, it provides natural ventilation, reduces exposure to air-born biological threats and regulates the temperature according to weather conditions to make the occupants comfortable.
-            </p>
           </motion.div>
         </div>
       </section>
