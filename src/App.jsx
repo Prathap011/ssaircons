@@ -17,6 +17,7 @@ import WaterBalancing from './pages/WaterBalancing'
 import VrfVrv from './pages/VrfVrv'
 import VentilationSystem from './pages/VentilationSystem'
 import CentralizedHvac from './pages/CentralizedHvac'
+import CentralizedAC from './pages/CentralizedAC'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/products/vertiv" element={<Vertiv />} />
           <Route path="/products/air-testing" element={<AirTesting />} />
           <Route path="/products/water-balancing" element={<WaterBalancing />} />
+          <Route path="/products/centralized-ac" element={<CentralizedAC />} />
           <Route path="/products/vrf-vrv" element={<VrfVrv />} />
           <Route path="/products/ventilation" element={<VentilationSystem />} />
           <Route path="/products/centralized-hvac" element={<CentralizedHvac />} />

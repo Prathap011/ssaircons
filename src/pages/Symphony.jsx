@@ -361,15 +361,14 @@ export default function Symphony() {
       <PageHero
         title="Symphony Industrial Air Coolers"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Symphony' }]}
-        bg="/assets/hvaclanding04.jpeg"
+        bg="/assets/symphony-landing.jpeg"
       />
 
       {/* ── Brand Banner ───────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-14">
+      {/* <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-14">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* Left: logo + description */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -390,7 +389,6 @@ export default function Symphony() {
               </div>
             </motion.div>
 
-            {/* Right: stat chips */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -408,7 +406,7 @@ export default function Symphony() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── XL & DD Series (5 products) ────────────────────────────────────────── */}
       <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
@@ -459,7 +457,7 @@ export default function Symphony() {
       </section>
 
       {/* ── Why SS Aircon + Symphony ─────────────────────────────────────────────── */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -513,7 +511,7 @@ export default function Symphony() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── CTA ──────────────────────────────────────────────────────────────────── */}
       <section className="section-padding bg-gradient-to-r from-primary-800 to-primary-600">

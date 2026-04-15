@@ -19,7 +19,7 @@ const services = [
     title: 'Precision Air Conditioning',
     description:
       'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level for critical environments.',
-    image: 'https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product1.png',
   },
   {
     id: 'ac-repair',
@@ -28,7 +28,7 @@ const services = [
     title: 'Air Handling Unit (AHU)',
     description:
       'An AHU is used to re-condition and circulate air as part of a heating & air-conditioning system, improving indoor air quality.',
-    image: 'https://images.unsplash.com/photo-1581094271901-8022df4c53f0?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product2.png',
   },
   {
     id: 'heating',
@@ -37,7 +37,7 @@ const services = [
     title: 'Cassette Air Conditioner',
     description:
       'Gives you the freedom to choose a model according to your requirements and budget for optimal ceiling-mounted cooling.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product3.png',
   },
   {
     id: 'ventilation',
@@ -46,7 +46,7 @@ const services = [
     title: 'Chillers',
     description:
       'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools fluid for large commercial applications.',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product4.png',
   },
   {
     id: 'thermostat',
@@ -55,7 +55,7 @@ const services = [
     title: 'Ductable Air Conditioner',
     description:
       'A balanced air controlling device which makes the air capable to breathe in for large commercial and industrial spaces.',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product5.png',
   },
   {
     id: 'hvac-design',
@@ -64,7 +64,7 @@ const services = [
     title: 'Fan Coil Unit (FCU)',
     description:
       'A fan coil unit uses a coil and a fan to heat or cool a room without connecting to ductwork, ideal for individual room control.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+    image: 'assets/product/product6.png',
   },
 ]
 
@@ -94,7 +94,7 @@ function ServiceCard({ service, index }) {
       }}
     >
       {/* Product image */}
-      <div className="relative overflow-hidden" style={{ height: 180 }}>
+      <div className="relative overflow-hidden h-full">
         {!imgError ? (
           <motion.img
             src={service.image}

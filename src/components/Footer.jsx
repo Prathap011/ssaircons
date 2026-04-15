@@ -18,6 +18,7 @@ const productLinks = [
   { label: 'Symphony Air Coolers', href: '/products/symphony' },
   { label: 'Air Testing & Balancing', href: '/products/air-testing' },
   { label: 'Water Balancing', href: '/products/water-balancing' },
+  { label: 'Centralized Air Conditioning', href: '/products/centralized-ac' },
   { label: 'VRF / VRV', href: '/products/vrf-vrv' },
   { label: 'Ventilation System', href: '/products/ventilation' },
   { label: 'Centralized HVAC Services', href: '/products/centralized-hvac' },

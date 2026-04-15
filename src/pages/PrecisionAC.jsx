@@ -60,7 +60,7 @@ export default function PrecisionAC() {
       />
 
       {/* Intro banner */}
-      <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
+      {/* <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.08, scale: 1 }}
@@ -113,7 +113,7 @@ export default function PrecisionAC() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* What is section */}
       <section className="section-padding bg-white">
@@ -128,13 +128,19 @@ export default function PrecisionAC() {
               label="Precision Cooling"
               title="What Is Precision Air Conditioning?"
             />
-            <p className="text-slate-600 leading-relaxed mb-4 text-sm">
-              Precision air conditioning is a specialised form of close-control cooling designed to maintain exact temperature and humidity conditions for sensitive electrical and electronic equipment. Unlike comfort cooling, a precision AC maintains stable conditions to the last degree throughout the year.
+            <h4 className="text-slate-600 leading-relaxed mb-4">
+              <strong>SS Aircon deal in precision and central Air Conditioning services all across India for below mentioned applications:</strong>
+            </h4>
+            <h4 className="text-slate-600 leading-relaxed mb-4 text-sm">
+              <strong>IT Cooling Soutions, Research Labs AC’s, Server Room Air Conditioner, Data center Air Conditioner, Control Room etc.</strong>
+            </h4>
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              SS AIRCON – We offers complete precision air conditioning solutions starting from Supplying, Installing, Testing & Commissioning. We are tied up with EMERSON NETWORK POWER (I) PVT LTD in the Precision air-conditioning to help you choose best machines as per your requirements.
             </p>
             <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-              In data centres and server room operations, continuous precision cooling ensures the high availability of computer systems. The technology is indispensable wherever high volumes of heat must be dissipated reliably.
+              SS AIRCON – We offers complete precision air conditioning solutions starting from Supplying, Installing, Testing & Commissioning. We are tied up with EMERSON NETWORK POWER (I) PVT LTD in the Precision air-conditioning to help you choose best machines as per your requirements.
             </p>
-            <div ref={feat} className="space-y-2">
+            {/* <div ref={feat} className="space-y-2">
               {features.map((f, i) => (
                 <motion.div
                   key={f}
@@ -147,22 +153,62 @@ export default function PrecisionAC() {
                   {f}
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-accent-400/10 rounded-3xl h-80 flex items-center justify-center shadow-sm border border-primary-100"
+            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
           >
-            <HiServer className="w-32 h-32 text-primary-300" />
+            <img
+              src="/assets/precision-ac.jpg"
+              alt="Precision Air Conditioning"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         </div>
       </section>
 
+      <section className="section-padding bg-white">
+        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+                    <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+          >
+            <img
+              src="/assets/precision-ac2.jpg"
+              alt="Precision Air Conditioning"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle
+              label="More about Precision AC"
+              title="Precision Air Conditioning Details"
+            />
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              Precision Air conditioning is a precise form of air conditioning specifically meant to control temperature and humidity of costly and sophistically sensitive electrical equipments for a longer time. Precision AC’s performs the above function by providing constant temperature to the last degree and humidity conditions throughout the year. In data centers and server room operations, their continuous operation reliably ensures the high availability of computer systems. Precision Air Conditioner has widespread applications in Data Center and Server Room Cooling to make them work efficiently and effectively and we help our client with complete execution up to their satisfaction.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              Precision Air Conditioning has widespread applications in environment where high level and volume of heat needs to be dissipated. Hence, precision air conditioning is required for Data Center, Server room, IT Cooling Solutions, Research Labs, Control Rooms, Luxury Hotels, Call Centers etc.
+            </p>
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* Applications */}
-      <section className="section-padding bg-slate-50">
+      {/* <section className="section-padding bg-slate-50">
         <div className="container-custom">
           <SectionTitle
             label="Applications"
@@ -193,10 +239,10 @@ export default function PrecisionAC() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="Our Process"
@@ -221,7 +267,7 @@ export default function PrecisionAC() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">

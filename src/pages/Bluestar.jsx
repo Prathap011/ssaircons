@@ -239,11 +239,11 @@ export default function Bluestar() {
       <PageHero
         title="Blue Star Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Blue Star' }]}
-        bg="/assets/hvaclanding03.jpeg"
+        bg="/assets/bluestar-landing.jpeg"
       />
 
       {/* Brand Intro Banner */}
-      {/* <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">
+      <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.08, scale: 1 }}
@@ -299,7 +299,7 @@ export default function Bluestar() {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
 
       {/* Products */}
       <section className="section-padding bg-white">
@@ -319,7 +319,7 @@ export default function Bluestar() {
       </section>
 
       {/* Why Blue Star + SS Aircon */}
-      <section className="section-padding bg-gradient-to-br from-blue-50 to-slate-50">
+      {/* <section className="section-padding bg-gradient-to-br from-blue-50 to-slate-50">
         <div className="container-custom">
           <SectionTitle
             label="Why Choose Us?"
@@ -355,7 +355,7 @@ export default function Bluestar() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-700 to-primary-900 text-white text-center">

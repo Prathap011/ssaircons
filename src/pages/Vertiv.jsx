@@ -271,11 +271,11 @@ export default function Vertiv() {
       <PageHero
         title="Vertiv Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Vertiv' }]}
-        bg="/assets/hvaclanding05.jpeg"
+        bg="/assets/vertiv-landing.jpeg"
       />
 
       {/* Brand Intro Banner */}
-      <section className="py-14 bg-gradient-to-r from-primary-800 to-primary-900 text-white overflow-hidden relative">
+      {/* <section className="py-14 bg-gradient-to-r from-primary-800 to-primary-900 text-white overflow-hidden relative">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.1, scale: 1 }}
@@ -353,7 +353,7 @@ export default function Vertiv() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Products */}
       <section className="section-padding bg-white">
@@ -373,7 +373,7 @@ export default function Vertiv() {
       </section>
 
       {/* Achievements */}
-      <section className="section-padding bg-gradient-to-br from-slate-50 to-primary-50">
+      {/* <section className="section-padding bg-gradient-to-br from-slate-50 to-primary-50">
         <div className="container-custom">
           <SectionTitle
             label="Project Highlights"
@@ -406,10 +406,10 @@ export default function Vertiv() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why SS Aircon + Vertiv */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -470,10 +470,10 @@ export default function Vertiv() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
+      {/* <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -491,7 +491,7 @@ export default function Vertiv() {
             Contact Us <HiArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
-      </section>
+      </section> */}
     </>
   )
 }

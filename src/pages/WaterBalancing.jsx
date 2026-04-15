@@ -50,8 +50,42 @@ export default function WaterBalancing() {
         bg="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80"
       />
 
+      <section className="section-padding bg-white">
+        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+          >
+            <img
+              src="/assets/water-filling-aircon.jpg"
+              alt="Precision Air Conditioning"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle
+              title="Water Balancing"
+            />
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              Water balancing crosses a large expanse of different type systems. Chilled, Heating, Domestic, Condenser, and Process water systems require adjustment and balancing for proper operation. Unbalanced distribution of any type of fluid results in inefficiencies and causes the system served to work improperly.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              Proper water balance has long been ignored in existing facilities and has proven to be the cause of many systems’ failure. Air Balancing Company understands that proper water balancing is as important as air balancing. Through this understanding ABC has become a premier water balancing company.                  </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Intro banner */}
-      <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
+      {/* <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.08, scale: 1 }}
@@ -89,10 +123,10 @@ export default function WaterBalancing() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* System types */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="Coverage"
@@ -123,10 +157,10 @@ export default function WaterBalancing() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits */}
-      <section className="section-padding bg-slate-50">
+      {/* <section className="section-padding bg-slate-50">
         <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
           <div ref={ben}>
             <SectionTitle label="Why Balance?" title="Benefits of Proper Water Balancing" />
@@ -158,7 +192,7 @@ export default function WaterBalancing() {
             <HiDatabase className="w-32 h-32 text-primary-300" />
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">

@@ -17,6 +17,7 @@ export const navLinks = [
       { label: 'Symphony Air Coolers', href: '/products/symphony' },
       { label: 'Air Testing & Balancing', href: '/products/air-testing' },
       { label: 'Water Balancing', href: '/products/water-balancing' },
+      { label: 'Centralized Air Conditioning', href: '/products/centralized-ac' },
       { label: 'VRF / VRV', href: '/products/vrf-vrv' },
       { label: 'Ventilation System', href: '/products/ventilation' },
       { label: 'Centralized HVAC Services', href: '/products/centralized-hvac' },
@@ -76,8 +77,8 @@ export const heroSlides = [
 export const stats = [
   { value: '300+', label: 'Projects Completed' },
   { value: '24+', label: 'Years of Experience' },
-  { value: '24/7', label: 'Service Support' },
-  { value: '30+', label: 'Service Executives' },
+  { value: '75+', label: 'Certified Workers' },
+  { value: '100+', label: 'Client Satisfaction' },
 ]
 
 // ─── Products ─────────────────────────────────────────────────────────────────
@@ -86,49 +87,49 @@ export const products = [
     id: 'precision',
     title: 'Precision Air Conditioning',
     description:
-      'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level for critical environments.',
+      'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level .',
     image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product1.png',
   },
   {
     id: 'ahu',
     title: 'Air Handling Unit (AHU)',
     description:
-      'An AHU is used to re-condition and circulate air as part of a heating & air-conditioning system, improving indoor air quality.',
+      'An Air Handling Unit (AHU) is used to re-condition and circulate air as part of a heating & air-conditioning system.',
     image:
-      'https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product2.png',
   },
   {
     id: 'cassette',
     title: 'Cassette Air Conditioner',
     description:
-      'Gives you the freedom to choose a model according to your requirements and budget for optimal ceiling-mounted cooling.',
+      'This gives you the freedom to choose a model according to your requirements and budget.',
     image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product3.png',
   },
   {
     id: 'chiller',
     title: 'Chillers',
     description:
-      'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools fluid for large commercial applications.',
+      'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools.',
     image:
-      'https://images.unsplash.com/photo-1581094271901-8022df4c53f0?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product4.png',
   },
   {
     id: 'ductable',
     title: 'Ductable Air Conditioner',
     description:
-      'A balanced air controlling device which makes the air capable to breathe in for large commercial and industrial spaces.',
+      'A balanced air controlling device which makes the air capable to breathe in is named as Air Conditioner.',
     image:
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product5.png',
   },
   {
     id: 'fcu',
     title: 'Fan Coil Unit (FCU)',
     description:
-      'A fan coil unit uses a coil and a fan to heat or cool a room without connecting to ductwork, ideal for individual room control.',
+      'A fan coil unit (FCU) is a device that uses a coil and a fan to heat or cool a room without connecting to ductwork.',
     image:
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&auto=format&fit=crop&q=80',
+      'assets/product/product6.png',
   },
 ]
 
@@ -141,7 +142,7 @@ export const services = [
       'Grab the best deal on AC maintenance here. Contact our service center and book maintenance services for your AC unit.',
     icon: 'wrench',
     image:
-      'assets/service/service_airtesting.jpg',
+      'assets/service/service-picture.png',
   },
   {
     id: 'cooling',
@@ -150,7 +151,7 @@ export const services = [
       'Common central air conditioning problems occur when rooms are closed off and air flow through the home is disrupted.',
     icon: 'thermometer',
     image:
-      'assets/service/service_dpac.jpg',
+      'assets/service/AC.jpg',
   },
   {
     id: 'service',
@@ -159,7 +160,7 @@ export const services = [
       'Get AC service with a certified technician. Hire expert professionals for all brands and types of air conditioners.',
     icon: 'cog',
     image:
-      'assets/service/service_engineering.jpg',
+      'assets/service/aircon-image.jpg',
   },
   {
     id: 'gas',
@@ -168,7 +169,7 @@ export const services = [
       'Book your AC gas filling services at SS Aircon. Our AC technician will provide you world-class experience.',
     icon: 'droplets',
     image:
-      'assets/service/service_hvac.jpg',
+      'assets/service/gas.jpg',
   },
   {
     id: 'air-testing',

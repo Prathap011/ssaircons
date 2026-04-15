@@ -1,40 +1,63 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 
+// const reasons = [
+//   {
+//     num: '01',
+//     title: 'Well-Equipped Infrastructure',
+//     description: 'Modern tools, tackles with calibration certification, and complete PPE safety kits.',
+//   },
+//   {
+//     num: '02',
+//     title: 'Expert Team',
+//     description: '12-member project team with fitters, welders, plumbers, and electricians on call.',
+//   },
+//   {
+//     num: '03',
+//     title: 'Own Transport Fleet',
+//     description: 'Our own vehicles ensure timely delivery of materials and manpower to your site.',
+//   },
+//   {
+//     num: '04',
+//     title: '24/7 Breakdown Support',
+//     description: 'Dedicated round-the-clock emergency service team with required tools & tackles.',
+//   },
+//   {
+//     num: '05',
+//     title: 'Wide Coverage',
+//     description: '30+ service executives deployed across various zones in Chennai and beyond.',
+//   },
+//   {
+//     num: '06',
+//     title: '24+ Years of Trust',
+//     description: '300+ completed projects across IT, Telecom, Banking, Healthcare, and Hospitality.',
+//   },
+// ]
+
+// Orbiting dot ring
+
 const reasons = [
   {
     num: '01',
-    title: 'Well-Equipped Infrastructure',
-    description: 'Modern tools, tackles with calibration certification, and complete PPE safety kits.',
+    title: 'Fast and Flexible Service',
+    description: "We know that when you need repairs or maintenance, you need it now, and we don't make you wait. We'll schedule our service at a time that's convenient for you, and we'll arrive on-time every time.",
   },
   {
     num: '02',
-    title: 'Expert Team',
-    description: '12-member project team with fitters, welders, plumbers, and electricians on call.',
+    title: 'Transparent Pricing',
+    description: "We don't charge flat rate. We charge by the job. That means that you'll know beforehand how much the job will cost — no surprises.",
   },
   {
     num: '03',
-    title: 'Own Transport Fleet',
-    description: 'Our own vehicles ensure timely delivery of materials and manpower to your site.',
+    title: 'We Respect Our Customers',
+    description: "Our technicians will always respect your home and property. They'll wear shoe covers, use drop cloths, and clean up after they finish their work. They'll also show up in a clean, professional uniform.",
   },
   {
     num: '04',
-    title: '24/7 Breakdown Support',
-    description: 'Dedicated round-the-clock emergency service team with required tools & tackles.',
-  },
-  {
-    num: '05',
-    title: 'Wide Coverage',
-    description: '30+ service executives deployed across various zones in Chennai and beyond.',
-  },
-  {
-    num: '06',
-    title: '24+ Years of Trust',
-    description: '300+ completed projects across IT, Telecom, Banking, Healthcare, and Hospitality.',
-  },
+    title: '24/7 Availability',
+    description: "Heating and cooling emergencies can happen any time of the day, so we make ourselves available 24/7 for your convenience. We have call-takers on duty to help you schedule your appointment.",
+  }
 ]
-
-// Orbiting dot ring
 function OrbitRing({ size, duration, dotColor, dotSize = 9, clockwise = true, delay = 0 }) {
   return (
     <div

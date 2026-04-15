@@ -24,6 +24,14 @@ const whyBalance = [
   'Mandatory for LEED / green building certification',
 ]
 
+const features = [
+  'Set up the amount of airflow that is distributed from each air diffuser.',
+  'Measure total airflow on all A/C and exhaust systems.',
+  'Balance airflow on each supply and exhaust grille.',
+  'Balance water flow on all pumps, cooling towers, chillers, boilers, and air handling unit coils.',
+  'Sound and vibration if required.'
+]
+
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
@@ -35,6 +43,8 @@ const fadeUp = {
 
 export default function AirTesting() {
   const { ref: why, inView: whyIn } = useInView()
+  const { ref: feat, inView: featIn } = useInView()
+    const { ref: proc, inView: procIn } = useInView()
 
   return (
     <>
@@ -49,8 +59,55 @@ export default function AirTesting() {
         bg="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&auto=format&fit=crop&q=80"
       />
 
+      <section className="section-padding bg-white">
+        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+          >
+            <img
+              src="/assets/air-testing.jpg"
+              alt="Precision Air Conditioning"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle
+              label="Precision Cooling"
+              title="What Is Precision Air Conditioning?"
+            />
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and ventilation systems. The need for balancing first came in the early 1980’s when new and more advanced A/C systems were being developed and installed. As these systems began to get more complex, the need for balancing increased. Most companies were not equipped to handle the TAB inspections. Independent TAB companies were created to handle these tasks.
+            </p>
+            <div ref={feat} className="space-y-2">
+              {features.map((f, i) => (
+                <motion.div
+                  key={f}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={featIn ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="flex items-center gap-2.5 text-sm text-slate-700"
+                >
+                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
+                  {f}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Intro banner */}
-      <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
+      {/* <section className="py-12 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.08, scale: 1 }}
@@ -88,10 +145,10 @@ export default function AirTesting() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Balancing tasks */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="What We Do"
@@ -122,10 +179,10 @@ export default function AirTesting() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why balance */}
-      <section className="section-padding bg-slate-50">
+      {/* <section className="section-padding bg-slate-50">
         <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
@@ -157,7 +214,7 @@ export default function AirTesting() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
