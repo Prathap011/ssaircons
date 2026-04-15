@@ -18,10 +18,11 @@ function ProductDetailCard({ product, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.6 }}
-      className={`grid md:grid-cols-2 gap-10 items-center py-10 border-b border-slate-100 last:border-0`}
+      className="grid md:grid-cols-2 gap-10 items-stretch py-10 border-b border-slate-100 last:border-0"
     >
-      <div className={isEven ? '' : 'md:order-2'}>
-        <div className="rounded-2xl overflow-hidden h-72 shadow-xl">
+      {/* Image */}
+      <div className={`${isEven ? '' : 'md:order-2'} h-full`}>
+        <div className="rounded-2xl overflow-hidden h-full shadow-xl">
           {!imgError ? (
             <img
               src={product.image}
@@ -31,23 +32,27 @@ function ProductDetailCard({ product, index }) {
               loading="lazy"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300"><HiCube className="w-20 h-20 text-primary-400" /></div>
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-300">
+              <HiCube className="w-20 h-20 text-primary-400" />
+            </div>
           )}
         </div>
       </div>
-      <div className={isEven ? '' : 'md:order-1'}>
+
+      {/* Content */}
+      <div className={`${isEven ? '' : 'md:order-1'} flex flex-col justify-center`}>
         <span className="section-label block mb-2">Product</span>
-        <h2 className="text-2xl md:text-3xl font-bold text-primary-800 font-heading mb-4">{product.title}</h2>
-        <p className="text-slate-600 leading-relaxed text-lg mb-6">{product.description}</p>
-        <div className="flex gap-4">
-          <Link to="/contact" className="btn-primary">
-            Get a Quote <HiArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-primary-800 font-heading mb-4">
+          {product.title}
+        </h2>
+        <p className="text-slate-600 leading-relaxed text-lg mb-6">
+          {product.description}
+        </p>
       </div>
     </motion.div>
   )
 }
+
 
 export default function Products() {
   return (
@@ -60,7 +65,7 @@ export default function Products() {
       <PageHero
         title="Our Products"
         breadcrumbs={[{ label: 'Products' }]}
-        bg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format&fit=crop&q=80"
+        bg="/assets/about.jpeg"
       />
 
       {/* Quick nav grid */}

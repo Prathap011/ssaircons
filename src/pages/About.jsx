@@ -75,7 +75,7 @@ export default function About() {
       <PageHero
         title="About Our Company"
         breadcrumbs={[{ label: 'About Us' }]}
-        bg="/assets/about.jpeg"
+        bg="/assets/slide1.png"
       />
 
       {/* ── SECTION 1 · Company Overview ───────────────────────────────────── */}
