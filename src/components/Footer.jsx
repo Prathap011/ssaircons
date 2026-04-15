@@ -7,8 +7,8 @@ const quickLinks = [
   { label: 'Company Profile', href: '/about' },
   { label: 'Products', href: '/products' },
   { label: 'Services', href: '/services' },
-  { label: 'Our Partners', href: '/about#partners' },
-  { label: 'Clients', href: '/about#clients' },
+  { label: 'Collaborators', href: '/our-partners' },
+  { label: 'Clients', href: '/clients' },
   { label: 'Contact Us', href: '/contact' },
 ]
 

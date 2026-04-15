@@ -11,6 +11,7 @@ import Clients from './pages/Clients'
 import Bluestar from './pages/Bluestar'
 import Vertiv from './pages/Vertiv'
 import Symphony from './pages/Symphony'
+import PartnersSymphony from './pages/PartnersSymphony'
 import PrecisionAC from './pages/PrecisionAC'
 import AirTesting from './pages/AirTesting'
 import WaterBalancing from './pages/WaterBalancing'
@@ -19,6 +20,7 @@ import VentilationSystem from './pages/VentilationSystem'
 import CentralizedHvac from './pages/CentralizedHvac'
 import CentralizedAC from './pages/CentralizedAC'
 import ScrollToTop from './components/ScrollToTop'
+import PartnersBluestar from './pages/PartnersBluestar'
 
 export default function App() {
   return (
@@ -43,6 +45,8 @@ export default function App() {
           <Route path="/products/centralized-hvac" element={<CentralizedHvac />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/our-partners" element={<OurPartners />} />
+          <Route path="/our-partners/symphony" element={<PartnersSymphony />} />
+          <Route path="/our-partners/bluestar" element={<PartnersBluestar />} />
           <Route path="/clients" element={<Clients />} />
         </Routes>
       </main>

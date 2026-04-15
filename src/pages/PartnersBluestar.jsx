@@ -225,7 +225,7 @@ function ProductCard({ product, index }) {
   )
 }
 
-export default function Bluestar() {
+export default function PartnersBluestar() {
   return (
     <>
       <Helmet>
@@ -238,7 +238,7 @@ export default function Bluestar() {
 
       <PageHero
         title="Blue Star Products"
-        breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
+        breadcrumbs={[{ label: 'Our Partners' }, { label: 'Blue Star' }]}
         bg="/assets/bluestar-landing.jpeg"
       />
 

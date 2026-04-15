@@ -354,7 +354,7 @@ function ProductCard({ product, index }) {
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
-export default function Symphony() {
+export default function PartnersSymphony() {
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -367,7 +367,7 @@ export default function Symphony() {
 
       <PageHero
         title="Symphony Industrial Air Coolers"
-        breadcrumbs={[{ label: 'Products' }, { label: 'Symphony' }]}
+        breadcrumbs={[{ label: 'Our Partners' }, { label: 'Symphony' }]}
         bg="/assets/symphony-landing.jpeg"
       />
 

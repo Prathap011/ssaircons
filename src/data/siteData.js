@@ -5,7 +5,9 @@ export const navLinks = [
     label: 'About Us',
     href: '/about',
     // children: [
-    //   { label: 'Company Overview', href: '/about' }
+    //   { label: 'Company Overview', href: '/about#company-overview' },
+    //   { label: 'Vision & Mission', href: '/about#vision-mission' },
+    //   { label: 'Our Team', href: '/about#our-team' },
     // ],
   },
   {
@@ -28,8 +30,8 @@ export const navLinks = [
     label: 'Collaborators',
     href: '/our-partners',
     children: [
-      { label: 'Blue Star', href: '/products/bluestar' },
-      { label: 'Symphony', href: '/products/symphony' },
+      { label: 'Blue Star', href: '/our-partners/bluestar' },
+      { label: 'Symphony', href: '/our-partners/symphony' },
       { separator: true },
       { label: 'Vertiv', href: '/products/vertiv' },
     ],

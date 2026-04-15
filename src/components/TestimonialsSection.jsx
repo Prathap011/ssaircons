@@ -8,47 +8,39 @@ import { HiArrowRight } from 'react-icons/hi'
 const clients = [
   {
     name: 'Apollo Hospitals',
-    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_1.jpg',
   },
   {
     name: 'Cognizant',
-    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_2.jpg',
   },
   {
     name: 'TCS Chennai',
-    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_3.jpg',
   },
   {
     name: 'Ashok Leyland',
-    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_4.jpg',
   },
   {
     name: 'BHEL Trichy',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_5.jpg',
   },
   {
     name: 'Infosys',
-    img: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_6.jpg',
   },
   {
     name: 'HCL Technologies',
-    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&auto=format&fit=crop&q=80',
+    img: 'assets/clients/Client_7.jpg',
   },
   {
     name: 'Hyundai India',
-    img: 'https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=400&auto=format&fit=crop&q=80',
-  },
-  {
-    name: 'TNEB',
-    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&auto=format&fit=crop&q=80',
-  },
-  {
-    name: 'SRM Institute',
-    img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&auto=format&fit=crop&q=80',
-  },
+    img: 'assets/clients/Client_8.jpg',
+  }
 ]
 
-const PER_PAGE = 5
+const PER_PAGE = 4
 
 const groupVariants = {
   enter: {
@@ -83,7 +75,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="section-padding bg-white overflow-hidden">
-      <div className="container-custom">
+      <div className="max-w-5xl mx-auto px-4">
         <SectionTitle
           label="Our Clients"
           title="Trusted by Leading Companies"
@@ -99,7 +91,7 @@ export default function TestimonialsSection() {
               initial="enter"
               animate="center"
               exit="exit"
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center"
             >
               {visible.map((client, i) => (
                 <motion.div
@@ -108,22 +100,24 @@ export default function TestimonialsSection() {
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: i * 0.07, duration: 0.4 }}
                   whileHover={{ y: -6, boxShadow: '0 16px 32px -8px rgba(30,58,138,0.2)' }}
-                  className="rounded-2xl overflow-hidden border border-primary-100 bg-white shadow-sm cursor-default"
+                  className="group flex items-center justify-center h-24 w-full max-w-[160px] transition-all duration-300 hover:shadow-md"
+
                 >
-                  <div className="relative h-28 overflow-hidden">
+                  <div className="flex items-center justify-center h-full w-full">
+
                     <img
                       src={client.img}
                       alt={client.name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 to-transparent" />
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 to-transparent" /> */}
                   </div>
-                  <div className="px-3 py-2.5 bg-white">
+                  {/* <div className="px-3 py-2.5 bg-white">
                     <p className="text-xs font-semibold text-primary-800 text-center leading-tight truncate">
                       {client.name}
                     </p>
-                  </div>
+                  </div> */}
                 </motion.div>
               ))}
             </motion.div>
@@ -131,7 +125,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Page dots */}
-        <div className="flex gap-2 justify-center mt-8">
+        <div className="flex gap-2 justify-center">
           {Array.from({ length: totalPages }).map((_, i) => {
             const groupKey = clients[i * PER_PAGE]?.name ?? `group-${i}`
             return (
