@@ -243,7 +243,7 @@ export default function PartnersBluestar() {
       />
 
       {/* Brand Intro Banner */}
-      <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">
+      {/* <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">
         <motion.div
           initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 0.08, scale: 1 }}
@@ -299,7 +299,7 @@ export default function PartnersBluestar() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Products */}
       <section className="section-padding bg-white">
