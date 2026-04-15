@@ -112,18 +112,20 @@ export default function CertificatesSection() {
               >
                 {/* CARD */}
                 <div
-                  className="rounded-2xl w-full h-full object-contain shadow-lg bg-white"
+                  className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center"
                   style={{
-                    width: isActive ? 340 : 240,
-                    height: isActive ? 400 : 280, // 👈 taller like real certificate
+                    width: isActive ? 360 : 240,
+                    height: isActive ? 420 : 280,
                   }}
                 >
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="w-full h-full object-contain"
+                    className="h-full w-full"
                   />
                 </div>
+
+
 
 
                 {/* TEXT OUTSIDE (ONLY ACTIVE) */}

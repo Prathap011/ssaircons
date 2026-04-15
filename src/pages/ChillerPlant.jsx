@@ -1,0 +1,148 @@
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import PageHero from '../components/PageHero'
+import SectionTitle from '../components/SectionTitle'
+import { useInView } from '../hooks/useInView'
+import { HiArrowRight, HiCheckCircle, HiLightningBolt, HiRefresh, HiChartBar, HiCog } from 'react-icons/hi'
+
+const chillerTypes = [
+  { Icon: HiLightningBolt, title: 'Air-Cooled Chillers', desc: 'Ideal for facilities without a dedicated cooling tower. Uses ambient air to reject heat from the refrigerant cycle.' },
+  { Icon: HiRefresh, title: 'Water-Cooled Chillers', desc: 'Higher efficiency option paired with cooling towers for large commercial and industrial applications.' },
+  { Icon: HiCog, title: 'Skidded Chillers', desc: 'Factory-assembled chiller plants mounted on a structural skid for rapid deployment and easy relocation.' },
+  { Icon: HiChartBar, title: 'Green / Modular Chillers', desc: 'Energy-efficient modular systems that can be scaled up or down as building load requirements change.' },
+]
+
+const designFeatures = [
+  'Complete refrigerant cycle design: evaporator, compressor, condenser and expansion valve sizing',
+  'Cooling tower selection and water circuit design for water-cooled systems',
+  'Pump sizing and piping layout for primary and secondary circuits',
+  'BMS integration for energy monitoring and remote diagnostics',
+  'Commissioning and performance verification against design load',
+  'Chiller plant retrofits and energy optimization audits',
+]
+
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+}
+
+export default function ChillerPlant() {
+  const { ref, inView } = useInView()
+
+  return (
+    <>
+      <Helmet>
+        <title>Chiller Plant Design & Installation | SS Aircon</title>
+        <meta name="description" content="SS Aircon provides expert chiller plant design and installation — air-cooled, water-cooled, skidded and modular chillers for commercial and industrial buildings." />
+      </Helmet>
+
+      <PageHero
+        title="Chiller Plant Design & Installation"
+        breadcrumbs={[{ label: 'Services' }, { label: 'Chiller Plant' }]}
+        bg="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&auto=format&fit=crop&q=80"
+      />
+
+      <section className="section-padding bg-white">
+        <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl overflow-hidden shadow-sm border border-primary-100 h-[400px]"
+          >
+            <img
+              src="https://www.ssaircons.com/wp-content/uploads/2022/04/chiller-unit.jpg"
+              alt="Chiller Plant"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle
+              label="Chiller Systems"
+              title="Best Chiller Plant Design & Installation"
+            />
+            <p className="text-slate-600 leading-relaxed mb-4 text-sm">
+              SS AIRCON is the best Chiller Plant Design and Installation Service Provider. Our chiller plant operates on a refrigerant cycle — the refrigerant absorbs heat from the water in the evaporator, cooling it down.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+              The chilled water then circulates through the building to cool it. We offer Air-Cooled Chillers, Water-Cooled Chillers, Skidded Chillers, and Green / Modular Chillers — designed and installed to meet your building's exact load requirements.
+            </p>
+            <div ref={ref} className="space-y-2">
+              {designFeatures.map((f, i) => (
+                <motion.div
+                  key={f}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="flex items-start gap-2.5 text-sm text-slate-700"
+                >
+                  <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" />
+                  {f}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-slate-50">
+        <div className="container-custom">
+          <SectionTitle
+            label="Our Solutions"
+            title="Chiller Types We Install"
+            subtitle="We supply, install, and commission all major chiller types for commercial, industrial, and data centre applications."
+            center
+          />
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {chillerTypes.map((s) => (
+              <motion.div
+                key={s.title}
+                variants={fadeUp}
+                whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(37,99,235,0.18)' }}
+                className="bg-white rounded-2xl p-6 border border-primary-100 shadow-sm"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-3">
+                  <s.Icon className="w-6 h-6 text-primary-600" />
+                </div>
+                <h3 className="font-bold text-primary-800 text-base mb-1">{s.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-r from-primary-700 to-primary-900 text-white text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container-custom"
+        >
+          <h2 className="text-3xl font-bold font-heading mb-4">Plan Your Chiller Plant with Us</h2>
+          <p className="text-primary-200 mb-8 max-w-xl mx-auto">
+            From load calculation to final commissioning — SS Aircon delivers turnkey chiller plant solutions for every building type.
+          </p>
+          <Link to="/contact" className="btn-primary">
+            Request a Design Consultation <HiArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
+      </section>
+    </>
+  )
+}

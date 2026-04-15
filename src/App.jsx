@@ -19,6 +19,12 @@ import VrfVrv from './pages/VrfVrv'
 import VentilationSystem from './pages/VentilationSystem'
 import CentralizedHvac from './pages/CentralizedHvac'
 import CentralizedAC from './pages/CentralizedAC'
+import DuctablePackaged from './pages/DuctablePackaged'
+import ChillerPlant from './pages/ChillerPlant'
+import ExperienceKnowledge from './pages/ExperienceKnowledge'
+import EngineeringContracting from './pages/EngineeringContracting'
+import AirConditioningService from './pages/AirConditioningService'
+import PlannedMaintenance from './pages/PlannedMaintenance'
 import ScrollToTop from './components/ScrollToTop'
 import PartnersBluestar from './pages/PartnersBluestar'
 
@@ -43,6 +49,12 @@ export default function App() {
           <Route path="/products/vrf-vrv" element={<VrfVrv />} />
           <Route path="/products/ventilation" element={<VentilationSystem />} />
           <Route path="/products/centralized-hvac" element={<CentralizedHvac />} />
+          <Route path="/services/ductable-packaged" element={<DuctablePackaged />} />
+          <Route path="/services/chiller-plant" element={<ChillerPlant />} />
+          <Route path="/services/experience-knowledge" element={<ExperienceKnowledge />} />
+          <Route path="/services/engineering-contracting" element={<EngineeringContracting />} />
+          <Route path="/services/air-conditioning" element={<AirConditioningService />} />
+          <Route path="/services/planned-maintenance" element={<PlannedMaintenance />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/our-partners" element={<OurPartners />} />
           <Route path="/our-partners/symphony" element={<PartnersSymphony />} />

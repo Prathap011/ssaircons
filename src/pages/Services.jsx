@@ -7,6 +7,7 @@ import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import { services } from '../data/siteData'
 import { HiArrowRight } from 'react-icons/hi'
+import Servicessection from '../pages/Servicessection'
 
 function ServiceDetailCard({ service, index }) {
   const { ref, inView } = useInView()
@@ -61,6 +62,8 @@ export default function Services() {
         breadcrumbs={[{ label: 'Services' }]}
         bg="https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=1600&auto=format&fit=crop&q=80"
       />
+
+      <Servicessection />
 
       {/* Grid overview */}
       <section className="section-padding bg-white">

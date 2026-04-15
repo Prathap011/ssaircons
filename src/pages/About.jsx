@@ -136,7 +136,7 @@ export default function About() {
       </section>
 
       {/* ── SECTION 2 · Our Strength ────────────────────────────────────────── */}
-      <section className="section-padding bg-gradient-to-br from-primary-800 to-primary-900 text-white relative overflow-hidden">
+      {/* <section className="section-padding bg-gradient-to-br from-primary-800 to-primary-900 text-white relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.06 }}
@@ -163,10 +163,10 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── SECTION 3 · Why Choose Us ───────────────────────────────────────── */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             label="Why Choose Us"
@@ -197,7 +197,7 @@ export default function About() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── SECTION 4 · Vision & Mission ────────────────────────────────────── */}
       <section id="vision-mission" className="section-padding bg-slate-50">
