@@ -85,7 +85,7 @@ export default function Services() {
       </motion.h2>
 
       {/* Center Image */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -98,10 +98,9 @@ export default function Services() {
             className="rounded-3xl shadow-2xl transition duration-500 group-hover:scale-105"
           />
 
-          {/* Glow Effect */}
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary-500/20 to-accent-500/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Services Row Grid (Unique Design) */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">

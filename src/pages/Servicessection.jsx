@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+    HiCog, HiOfficeBuilding, HiStar, HiPhone, HiCheckCircle,
+} from "react-icons/hi";
 
 const services = [
     {
@@ -126,7 +129,7 @@ const services = [
         id: 10,
         cat: "Precision",
         title: "Our Vertiv Projects",
-        internalRoute: "/products/vertiv",
+        internalRoute: "/services/vertiv",
         img: "https://www.ssaircons.com/wp-content/uploads/2022/04/New_Project__7_-removebg-preview.png",
         desc: "As an authorized Vertiv (Emerson Network Power) franchisee, we have delivered 300+ precision cooling projects across India. Our customers include Project Management Consultants (JLLM, Johnson Controls, CBRE, Cushman & Wakefield), leading architects, HVAC consultants, and builders such as DLF, RMZ, Ascendas, and Embassy Group.",
         tags: ["300+ Projects", "Vertiv / Emerson", "PMC Clients", "DLF", "RMZ"],
@@ -232,11 +235,8 @@ function ServiceRow({ service, index }) {
     return (
         <div
             ref={ref}
+            className={`ss-service-row ${isEven ? "ss-row-even" : "ss-row-odd"}`}
             style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "0",
-                minHeight: "500px",
                 position: "relative",
                 background: isEven
                     ? "linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)"
@@ -247,11 +247,10 @@ function ServiceRow({ service, index }) {
         >
 {/* Image side */}
             <div
+                className="ss-row-img"
                 style={{
-                    order: isEven ? 2 : 1,
                     position: "relative",
                     overflow: "hidden",
-                    minHeight: "500px",
                 }}
             >
                 <div style={{ ...imgAnim, position: "absolute", inset: 0, width: "100%", height: "100%" }}>
@@ -319,8 +318,8 @@ function ServiceRow({ service, index }) {
 
             {/* Text side */}
             <div
+                className="ss-row-content"
                 style={{
-                    order: isEven ? 1 : 2,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -405,22 +404,34 @@ function ServiceRow({ service, index }) {
                                 fontSize: "14px",
                                 fontWeight: "700",
                                 color: "#1e3a8a",
-                                marginBottom: "8px",
+                                marginBottom: "10px",
                             }}
                         >
                             {service.extra.title}
                         </h4>
-                        <ul style={{ paddingLeft: "18px" }}>
+                        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                             {service.extra.points.map((point, i) => (
                                 <li
                                     key={i}
                                     style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
                                         fontSize: "14px",
                                         color: "#475569",
-                                        marginBottom: "6px",
+                                        marginBottom: "8px",
                                         lineHeight: 1.6,
                                     }}
                                 >
+                                    <HiCheckCircle
+                                        style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            color: "#2563eb",
+                                            flexShrink: 0,
+                                            marginTop: "3px",
+                                        }}
+                                    />
                                     {point}
                                 </li>
                             ))}
@@ -496,6 +507,36 @@ function ServiceRow({ service, index }) {
 export default function ServicesSection() {
     return (
         <section style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+            <style>{`
+                .ss-service-row {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .ss-row-img {
+                    order: 1;
+                    min-height: 280px;
+                }
+                .ss-row-content {
+                    order: 2;
+                    padding: 32px 24px !important;
+                }
+                @media (min-width: 768px) {
+                    .ss-service-row {
+                        grid-template-columns: 1fr 1fr;
+                        min-height: 500px;
+                    }
+                    .ss-row-img {
+                        min-height: 500px;
+                    }
+                    .ss-row-content {
+                        padding: 48px 52px !important;
+                    }
+                    .ss-row-even .ss-row-img   { order: 2; }
+                    .ss-row-even .ss-row-content { order: 1; }
+                    .ss-row-odd  .ss-row-img   { order: 1; }
+                    .ss-row-odd  .ss-row-content { order: 2; }
+                }
+            `}</style>
             {/* Section header */}
             <div
                 style={{
@@ -555,32 +596,78 @@ export default function ServicesSection() {
                         style={{
                             display: "flex",
                             justifyContent: "center",
-                            gap: "40px",
-                            marginTop: "40px",
+                            gap: "16px",
+                            marginTop: "44px",
                             flexWrap: "wrap",
                         }}
                     >
                         {[
-                            { num: "14", label: "Services" },
-                            { num: "300+", label: "Projects" },
-                            { num: "20+", label: "Years" },
-                            { num: "24/7", label: "Support" },
+                            { num: "14", label: "Services", sub: "Professional", Icon: HiCog },
+                            { num: "300+", label: "Projects", sub: "Completed", Icon: HiOfficeBuilding },
+                            { num: "20+", label: "Years", sub: "Of Excellence", Icon: HiStar },
+                            { num: "24/7", label: "Support", sub: "Always Ready", Icon: HiPhone },
                         ].map((s) => (
-                            <div key={s.label} style={{ textAlign: "center" }}>
+                            <div
+                                key={s.label}
+                                style={{
+                                    position: "relative",
+                                    background: "rgba(255,255,255,0.07)",
+                                    border: "1px solid rgba(255,255,255,0.16)",
+                                    borderRadius: "18px",
+                                    padding: "20px 28px 18px",
+                                    textAlign: "center",
+                                    backdropFilter: "blur(12px)",
+                                    minWidth: "110px",
+                                    overflow: "hidden",
+                                    flex: "1 1 110px",
+                                    maxWidth: "160px",
+                                }}
+                            >
+                                {/* Top glow line */}
+                                <div style={{
+                                    position: "absolute",
+                                    top: 0, left: "15%", right: "15%",
+                                    height: "2px",
+                                    background: "linear-gradient(90deg, transparent, #38bdf8, transparent)",
+                                    borderRadius: "1px",
+                                }} />
+                                {/* Icon */}
+                                <div style={{ display: "flex", justifyContent: "center", marginBottom: "8px" }}>
+                                    <s.Icon style={{ width: "26px", height: "26px", color: "#38bdf8" }} />
+                                </div>
+                                {/* Number */}
                                 <div
                                     style={{
-                                        fontSize: "28px",
-                                        fontWeight: "800",
-                                        color: "#38bdf8",
+                                        fontSize: "38px",
+                                        fontWeight: "900",
                                         lineHeight: 1,
+                                        marginBottom: "2px",
+                                        background: "linear-gradient(135deg, #38bdf8 0%, #e0f2fe 100%)",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        backgroundClip: "text",
                                     }}
                                 >
                                     {s.num}
                                 </div>
-                                <div
-                                    style={{ fontSize: "12px", color: "#93c5fd", marginTop: "4px", letterSpacing: "0.06em" }}
-                                >
+                                {/* Label */}
+                                <div style={{
+                                    fontSize: "13px",
+                                    fontWeight: "700",
+                                    color: "#ffffff",
+                                    letterSpacing: "0.04em",
+                                    marginBottom: "3px",
+                                }}>
                                     {s.label}
+                                </div>
+                                {/* Sub */}
+                                <div style={{
+                                    fontSize: "10px",
+                                    color: "#93c5fd",
+                                    letterSpacing: "0.07em",
+                                    textTransform: "uppercase",
+                                }}>
+                                    {s.sub}
                                 </div>
                             </div>
                         ))}

@@ -46,20 +46,23 @@ export default function PlannedMaintenance() {
         bg="https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=1600&auto=format&fit=crop&q=80"
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gradient-to-br from-primary-50 to-white relative overflow-hidden">
+        <div className="absolute -top-28 -right-28 w-72 h-72 bg-primary-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
         <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl overflow-hidden shadow-sm border border-primary-100 h-[420px]"
+            className="pi-card"
           >
-            <img
-              src="https://www.ssaircons.com/wp-content/uploads/2022/03/69976319_551710165568325_1461633102324432896_n-1024x768.jpg"
-              alt="Planned Maintenance"
-              className="w-full h-full object-cover"
-            />
+            <div className="pi-frame h-[420px]">
+              <img
+                src="https://www.ssaircons.com/wp-content/uploads/2022/03/69976319_551710165568325_1461633102324432896_n-1024x768.jpg"
+                alt="Planned Maintenance"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

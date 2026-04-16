@@ -116,7 +116,8 @@ export default function PrecisionAC() {
       </section> */}
 
       {/* What is section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gradient-to-br from-primary-50 to-white relative overflow-hidden">
+        <div className="absolute -top-28 -right-28 w-72 h-72 bg-primary-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
         <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -160,13 +161,15 @@ export default function PrecisionAC() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+            className="pi-card"
           >
-            <img
-              src="/assets/precision-ac.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
+            <div className="pi-frame h-full">
+              <img
+                src="/assets/precision-ac.jpg"
+                alt="Precision Air Conditioning"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -178,13 +181,15 @@ export default function PrecisionAC() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl h-full overflow-hidden shadow-sm border border-primary-100"
+            className="pi-card"
           >
-            <img
-              src="/assets/precision-ac2.jpg"
-              alt="Precision Air Conditioning"
-              className="w-full h-full object-cover"
-            />
+            <div className="pi-frame h-full">
+              <img
+                src="/assets/precision-ac2.jpg"
+                alt="Precision Air Conditioning"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -30 }}

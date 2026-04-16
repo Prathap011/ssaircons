@@ -27,6 +27,7 @@ import AirConditioningService from './pages/AirConditioningService'
 import PlannedMaintenance from './pages/PlannedMaintenance'
 import ScrollToTop from './components/ScrollToTop'
 import PartnersBluestar from './pages/PartnersBluestar'
+import OurVertivProjects from './pages/OurVertivProjects'
 
 export default function App() {
   return (
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="/services/engineering-contracting" element={<EngineeringContracting />} />
           <Route path="/services/air-conditioning" element={<AirConditioningService />} />
           <Route path="/services/planned-maintenance" element={<PlannedMaintenance />} />
+          <Route path="/services/vertiv" element={<OurVertivProjects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/our-partners" element={<OurPartners />} />
           <Route path="/our-partners/symphony" element={<PartnersSymphony />} />

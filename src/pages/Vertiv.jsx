@@ -1,11 +1,9 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import {
-  HiArrowRight, HiCheckCircle, HiShieldCheck,
-  HiCog, HiLightBulb, HiOfficeBuilding,
+  HiCog, HiLightBulb, HiOfficeBuilding,HiShieldCheck
 } from 'react-icons/hi'
 import { MdOutlineEmojiEvents } from 'react-icons/md'
 
@@ -182,76 +180,32 @@ function ProductCard({ product, index }) {
   const isEven = index % 2 === 0
   return (
     <motion.div
-      initial={{ opacity: 0, y: 48 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-      className="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch py-14 border-b border-slate-100 last:border-0"
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-shadow duration-300"
     >
-      <div className={isEven ? '' : 'md:order-2'}>
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.4 }}
-          className="rounded-2xl overflow-hidden shadow-2xl min-h-[450px] h-full bg-white relative group"
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </motion.div>
+      {/* Image — stacks on top on mobile, alternates left/right on md+ */}
+      <div className={`relative min-h-[380px] bg-white ${isEven ? '' : 'md:order-2'}`}>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+        />
+        <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-primary-800 to-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+          {product.subtitle}
+        </span>
       </div>
 
-      <div className={isEven ? '' : 'md:order-1'}>
-        <motion.span
-          initial={{ opacity: 0, x: -12 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.4 }}
-          className="inline-block text-xs font-bold px-3 py-1.5 rounded-full text-white bg-gradient-to-r from-primary-800 to-primary-500 mb-3"
-        >
-          {product.subtitle}
-        </motion.span>
-
-        <motion.h3
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.45 }}
-          className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-3"
-        >
+      {/* Content — stacks below on mobile, alternates left/right on md+ */}
+      <div className={`p-8 flex flex-col justify-center ${isEven ? '' : 'md:order-1'}`}>
+        <h3 className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-3">
           {product.name}
-        </motion.h3>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.25, duration: 0.4 }}
-          className="text-slate-600 leading-relaxed text-sm mb-5"
-        >
+        </h3>
+        <p className="text-slate-600 leading-relaxed text-sm">
           {product.description}
-        </motion.p>
-
-        {/* <div className="flex flex-wrap gap-3 mb-5">
-          {product.specs.map((s) => (
-            <div key={s.label} className="bg-primary-50 border border-primary-100 rounded-xl px-4 py-2 text-center min-w-[80px]">
-              <p className="text-primary-800 font-bold text-sm leading-tight">{s.value}</p>
-              <p className="text-primary-400 text-xs mt-0.5">{s.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-6">
-          {product.features.map((f) => (
-            <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
-              <HiCheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-              {f}
-            </div>
-          ))}
-        </div> */}
-
+        </p>
       </div>
     </motion.div>
   )
@@ -364,7 +318,7 @@ export default function Vertiv() {
             subtitle="From close-control units to in-row cooling — the complete Vertiv Liebert range supplied, installed, and serviced by SS Aircon."
             center
           />
-          <div>
+          <div className="space-y-10">
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
