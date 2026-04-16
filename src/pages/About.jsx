@@ -283,12 +283,19 @@ export default function About() {
           <SectionTitle
             label="Our Team"
             title="Core Team"
-            subtitle="We are a well-led organization with a distinct approach. Our highly qualified, professional and experienced employees lead in developing breakthrough technologies to combat client problems."
+            subtitle={
+              <>
+                "We are a well-led organization with a distinct approach. Our eco-friendly style of working has also been a huge contribution. Our highly qualified, professional and experienced employees lead in developing breakthrough technologies to combat client’s problems. Our distinct and loyal workforce has pushed us to a greater level of success that is dedicated and courteous.
+                <br />
+                <br />
+                We believe in providing not just a service, but an experience, by maintaining a trusting relationship with our clients. Always ahead of our times, we lead the giants of the industry to success."
+              </>
+            }
             center
           />
 
-          <div ref={ref2} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-            {team.map((t, i) => (
+          <div ref={ref2} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* {team.map((t, i) => (
               <motion.div
                 key={t.role}
                 initial={{ opacity: 0, y: 30 }}
@@ -303,8 +310,38 @@ export default function About() {
                 <div className="font-semibold text-slate-800 mb-2">{t.role}</div>
                 <p className="text-slate-500 text-sm">{t.detail}</p>
               </motion.div>
-            ))}
+            ))} */}
           </div>
+          {/* Center Highlight Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={inView2 ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="relative w-full h-[320px] md:h-[420px] lg:h-[500px] rounded-3xl overflow-hidden mb-16 shadow-lg"
+          >
+            {/* Image */}
+            <img
+              src="/assets/teams.jpeg"
+              alt="Our Team"
+              className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/70 via-primary-800/40 to-transparent flex items-center">
+
+              {/* Content */}
+              <div className="px-6 md:px-12 max-w-xl text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                  Driven by Expertise
+                </h3>
+                <p className="text-sm md:text-base text-blue-100">
+                  Our skilled professionals deliver reliable HVAC solutions with precision and care.
+                </p>
+              </div>
+
+            </div>
+          </motion.div>
+
 
           <div ref={refTeam}>
             <SectionTitle label="Team at Work" title="Our Team in Action" center />
