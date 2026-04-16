@@ -596,7 +596,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Bottom CTA */}
-            <div
+            {/* <div
                 style={{
                     background: "linear-gradient(135deg, #1e3a8a, #1d4ed8)",
                     padding: "56px 24px",
@@ -678,7 +678,7 @@ export default function ServicesSection() {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }

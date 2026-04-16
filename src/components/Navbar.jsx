@@ -56,21 +56,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <header
-        ref={navRef}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white shadow-lg'
-            : 'bg-primary-800'
-        }`}
-      >
-        <div className="container-custom flex items-center justify-between py-1 md:py-1.5">
-          {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img src="/assets/logo.jpg" alt="SS Aircon" className="h-12 md:h-14 w-auto object-contain" />
-          </Link>
-          {/* <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+      {/* <Link to="/" className="flex items-center gap-3 flex-shrink-0">
             <div className={`font-heading font-bold text-xl md:text-2xl transition-colors ${scrolled ? 'text-primary-800' : 'text-white'}`}>
               SS AIRCON 
             </div>
@@ -79,6 +65,37 @@ export default function Navbar() {
               <div>Since 2004</div>
             </div>
           </Link> */}
+      {/* Main Navbar */}
+      <header
+        ref={navRef}
+        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-white shadow-lg'
+          : 'bg-primary-800'
+          }`}
+      >
+        <div className="container-custom flex items-center justify-between py-1 md:py-1.5">
+          {/* Logo */}
+          <Link to="/" className="flex items-center flex-shrink-0">
+            {/* Logo */}
+            <img
+              src={scrolled ? "/assets/logo4.png" : "/assets/logo3.png"}
+              alt="SS Aircon"
+              className={`transition-all duration-300 ${scrolled ? 'h-10 md:h-12 mr-2' : 'h-12 md:h-14 mr-0'
+                }`}
+            />
+
+            {/* Text */}
+            <div
+              className={`leading-tight transition-all duration-300 ${scrolled
+                ? 'opacity-100 ml-2 text-slate-600 text-xs'
+                : 'opacity-100 ml-1 text-blue-200 text-xs'
+                }`}
+            >
+              <div className="font-medium">The HVAC Experts</div>
+              <div className="text-[11px]">Since 2004</div>
+            </div>
+          </Link>
+
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -92,11 +109,10 @@ export default function Navbar() {
                 {link.children ? (
                   <>
                     <button
-                      className={`flex items-center gap-1 px-3 py-2 rounded-md font-medium text-sm transition-colors ${
-                        scrolled
-                          ? 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
-                          : 'text-white hover:text-white hover:bg-white/10'
-                      }`}
+                      className={`flex items-center gap-1 px-3 py-2 rounded-md font-medium text-sm transition-colors ${scrolled
+                        ? 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
+                        : 'text-white hover:text-white hover:bg-white/10'
+                        }`}
                     >
                       {link.label}
                       <HiChevronDown
@@ -116,20 +132,20 @@ export default function Navbar() {
                             child.separator ? (
                               <div key={`sep-${ci}`} className="mx-3 my-1 border-t border-slate-100" />
                             ) : (
-                            <motion.div
-                              key={child.href}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: ci * 0.05, duration: 0.2 }}
-                            >
-                              <Link
-                                to={child.href}
-                                onClick={() => setOpenDropdown(null)}
-                                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                              <motion.div
+                                key={child.href}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: ci * 0.05, duration: 0.2 }}
                               >
-                                {child.label}
-                              </Link>
-                            </motion.div>
+                                <Link
+                                  to={child.href}
+                                  onClick={() => setOpenDropdown(null)}
+                                  className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                                >
+                                  {child.label}
+                                </Link>
+                              </motion.div>
                             )
                           )}
                         </motion.div>
@@ -141,15 +157,13 @@ export default function Navbar() {
                     to={link.href}
                     className={({ isActive }) => {
                       if (scrolled) {
-                        return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${
-                          isActive
-                            ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm'
-                            : 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
-                        }`
+                        return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive
+                          ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm'
+                          : 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
+                          }`
                       }
-                      return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${
-                        isActive ? 'bg-white/25 text-white' : 'text-white hover:text-white hover:bg-white/10'
-                      }`
+                      return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive ? 'bg-white/25 text-white' : 'text-white hover:text-white hover:bg-white/10'
+                        }`
                     }}
                   >
                     {({ isActive }) => (
@@ -181,9 +195,8 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
-            }`}
+            className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              }`}
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
@@ -234,14 +247,14 @@ export default function Navbar() {
                                 child.separator ? (
                                   <div key={`msep-${ci}`} className="my-1 border-t border-slate-100" />
                                 ) : (
-                                <Link
-                                  key={child.href}
-                                  to={child.href}
-                                  onClick={() => { setMobileOpen(false); setOpenDropdown(null) }}
-                                  className="block px-3 py-2 text-sm text-slate-600 hover:text-primary-700"
-                                >
-                                  {child.label}
-                                </Link>
+                                  <Link
+                                    key={child.href}
+                                    to={child.href}
+                                    onClick={() => { setMobileOpen(false); setOpenDropdown(null) }}
+                                    className="block px-3 py-2 text-sm text-slate-600 hover:text-primary-700"
+                                  >
+                                    {child.label}
+                                  </Link>
                                 )
                               )}
                             </motion.div>
@@ -253,8 +266,7 @@ export default function Navbar() {
                         to={link.href}
                         onClick={() => setMobileOpen(false)}
                         className={({ isActive }) =>
-                          `block px-3 py-2.5 rounded-lg font-medium transition-colors ${
-                            isActive ? 'bg-primary-700 text-white' : 'text-slate-700 hover:bg-primary-50'
+                          `block px-3 py-2.5 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary-700 text-white' : 'text-slate-700 hover:bg-primary-50'
                           }`
                         }
                       >
