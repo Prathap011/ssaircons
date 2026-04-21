@@ -210,7 +210,7 @@ export default function Bluestar() {
       <PageHero
         title="Blue Star Products"
         breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
-        bg="/assets/bluestar-landing.jpeg"
+        bg="/assets/bluestarlanding.jpeg"
       />
 
       {/* Brand Intro Banner */}

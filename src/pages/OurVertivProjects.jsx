@@ -118,7 +118,7 @@ export default function OurVertivProjects() {
       <PageHero
         title="Our Vertiv Projects"
         breadcrumbs={[{ label: 'Services' }, { label: 'Our Vertiv Projects' }]}
-        bg="/assets/vertiv-landing.jpeg"
+        bg="/assets/vertivlanding.jpeg"
       />
 
       {/* Stats Strip */}

@@ -225,7 +225,7 @@ export default function Vertiv() {
       <PageHero
         title="Vertiv Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Vertiv' }]}
-        bg="/assets/vertiv-landing.jpeg"
+        bg="/assets/vertivlanding.jpeg"
       />
 
       {/* Brand Intro Banner */}
