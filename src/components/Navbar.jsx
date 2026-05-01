@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useScrolled } from '../hooks/useScrolled'
+
 import { navLinks } from '../data/siteData'
 import { HiMenu, HiX, HiChevronDown, HiPhone, HiMail } from 'react-icons/hi'
 
 export default function Navbar() {
-  const scrolled = useScrolled(80)
+
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
   const navRef = useRef(null)
@@ -68,28 +68,21 @@ export default function Navbar() {
       {/* Main Navbar */}
       <header
         ref={navRef}
-        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white shadow-lg'
-          : 'bg-primary-800'
-          }`}
+        className="sticky top-0 z-50 transition-all duration-300 bg-white shadow-lg"
       >
         <div className="container-custom flex items-center justify-between py-1 md:py-1.5">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
             {/* Logo */}
             <img
-              src={scrolled ? "/assets/logo4.png" : "/assets/logo3.png"}
+              src="/assets/logo4.png"
               alt="SS Aircon"
-              className={`transition-all duration-300 ${scrolled ? 'h-10 md:h-12 mr-2' : 'h-12 md:h-14 mr-0'
-                }`}
+              className="transition-all duration-300 h-10 md:h-12 mr-2"
             />
 
             {/* Text */}
             <div
-              className={`leading-tight transition-all duration-300 ${scrolled
-                ? 'opacity-100 ml-2 text-slate-600 text-xs'
-                : 'opacity-100 ml-1 text-blue-200 text-xs'
-                }`}
+              className="leading-tight transition-all duration-300 opacity-100 ml-2 text-slate-600 text-xs"
             >
               <div className="font-medium">The HVAC Experts</div>
               <div className="text-[11px]">Since 2004</div>
@@ -109,10 +102,7 @@ export default function Navbar() {
                 {link.children ? (
                   <>
                     <button
-                      className={`flex items-center gap-1 px-3 py-2 rounded-md font-medium text-sm transition-colors ${scrolled
-                        ? 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
-                        : 'text-white hover:text-white hover:bg-white/10'
-                        }`}
+                      className="flex items-center gap-1 px-3 py-2 rounded-md font-medium text-sm transition-colors text-slate-700 hover:text-primary-700 hover:bg-primary-50"
                     >
                       {link.label}
                       <HiChevronDown
@@ -155,21 +145,17 @@ export default function Navbar() {
                 ) : (
                   <NavLink
                     to={link.href}
-                    className={({ isActive }) => {
-                      if (scrolled) {
-                        return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive
-                          ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm'
-                          : 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
-                          }`
-                      }
-                      return `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive ? 'bg-white/25 text-white' : 'text-white hover:text-white hover:bg-white/10'
-                        }`
-                    }}
+                    className={({ isActive }) =>
+                      `relative px-3 py-2 rounded-md font-medium text-sm transition-colors ${isActive
+                        ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm'
+                        : 'text-slate-700 hover:text-primary-700 hover:bg-primary-50'
+                      }`
+                    }
                   >
                     {({ isActive }) => (
                       <>
                         {link.label}
-                        {isActive && scrolled && (
+                        {isActive && (
                           <span
                             className="absolute -bottom-[9px] left-1/2 -translate-x-1/2 pointer-events-none z-10"
                             style={{ width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '5px solid #1d4ed8' }}
@@ -195,8 +181,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
-              }`}
+            className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100"
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
