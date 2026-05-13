@@ -58,7 +58,7 @@ export default function AirConditioning() {
           >
             <div className="pi-frame h-[420px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/04/service3.jpg"
+                src="/assets/service3.jpg"
                 alt="Air Conditioning"
                 className="w-full h-full object-cover"
               />
@@ -144,7 +144,7 @@ export default function AirConditioning() {
             SS Aircon delivers reliable, on-time, within-budget air conditioning installations. Contact us to discuss your requirements.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:9840750471" className="btn-primary">Call 9840750471</a>
+            <a href="tel:+919840750471" className="btn-primary">Call +91 98407 50471</a>
             <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-primary-800">
               Send Enquiry <HiArrowRight className="w-4 h-4" />
             </Link>

@@ -10,7 +10,7 @@ const services = [
         cat: "Testing",
         title: "Air Testing & Balancing",
         internalRoute: "/products/air-testing",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/air-balancing-1.jpg",
+        img: "/assets/air-balancing-1.jpg",
         desc: "Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and ventilation systems. The need for balancing first came in the early 1980s when new and more advanced A/C systems were being developed and installed. As these systems became more complex, the need for balancing increased. Independent TAB companies were created to handle these tasks.",
         extra: {
             title: "Balancing Tasks",
@@ -28,7 +28,7 @@ const services = [
         cat: "Testing",
         title: "Water Balancing",
         internalRoute: "/products/water-balancing",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/9.-Water-Balancing.jpg",
+        img: "/assets/9.-Water-Balancing.jpg",
         desc: "Water balancing crosses a large expanse of different type systems. Chilled, Heating, Domestic, Condenser, and Process water systems require adjustment and balancing for proper operation. Unbalanced distribution of any type of fluid results in inefficiencies and causes the system served to work improperly. Proper water balance has long been ignored in existing facilities and has proven to be the cause of many systems failures. SS AIRCON understands that proper water balancing is as important as air balancing.",
         tags: ["Chilled Water", "Heating Water", "Domestic Water", "Condenser Water", "Process Water"],
     },
@@ -37,7 +37,7 @@ const services = [
         cat: "Cooling",
         title: "Centralized Air Conditioning",
         internalRoute: "/products/centralized-ac",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/hvac.jpg",
+        img: "/assets/hvac.jpg",
         desc: "Centralized Air conditioning is a well-known process used for changing the behavior of air to make the environment more comfortable. The defined aim of centralized air conditioning is to distribute the air at every corner of the space where it is installed. It is designed to offer more comfort by improving air quality within homes, offices or other big indoor areas. Air conditioning machines manage the refrigeration cycle to keep the air temperature cool.",
         tags: ["Hospitals", "Auditoriums", "Supermarkets", "Malls", "Hotels", "Buildings"],
         extra: {
@@ -57,7 +57,7 @@ const services = [
         cat: "VRF/VRV",
         title: "VRF / VRV Systems",
         internalRoute: "/products/vrf-vrv",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/7.-VRF-VRV-UNIT.jpg",
+        img: "/assets/7.-VRF-VRV-UNIT.jpg",
         desc: "As we specialize in HVAC Domain, we provide VRV (Variable Refrigerant Volume) and VRF (Variable Refrigerant Flow) services to our clients on a turnkey basis. We are leading VRF and VRV air conditioning manufacturers providing service all across India. VRV/VRF is a modern and sophisticated technology which helps in reducing electricity consumption by regulating refrigerant flow of liquid, performing efficiently with a payback period of approximately three and a half years.",
         extra: {
             title: "Key Advantages of VRF / VRV Systems",
@@ -75,7 +75,7 @@ const services = [
         cat: "Ventilation",
         title: "Ventilation System",
         internalRoute: "/products/ventilation",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/3.-Ventilation_Services-removebg-preview.png",
+        img: "/assets/3.-Ventilation_Services-removebg-preview.png",
         desc: "Ventilation Contractor for Industrial Ventilation, Pollution Control, and Acoustics Services. SS AIRCON provides Industrial Ventilation Services across India for all types of commercial and industrial spaces.",
         tags: ["Commercial Kitchen Ventilation", "Industrial Ventilation", "Roof (Ceiling) Ventilation", "Factory Ventilation", "Building Ventilation", "Basement Ventilation", "Parking Ventilation", "Warehouse Ventilation", "Pollution Control System"],
         extra: {
@@ -94,7 +94,7 @@ const services = [
         cat: "Cooling",
         title: "Centralized HVAC Services",
         internalRoute: "/products/centralized-hvac",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/Gurgaon-HVAC-Service-Repair-Maintenance-Installation-Maxwell-Builders-9999402080.jpg",
+        img: "/assets/Gurgaon-HVAC-Service-Repair-Maintenance-Installation-Maxwell-Builders-9999402080.jpg",
         desc: "From feasibility study to final handover, we manage the complete HVAC lifecycle - load calculations, equipment selection, MEP coordination, installation, commissioning, and O&M training for hospitals, data centers, malls, and more. Our team handles every kind of centralized and industrial air conditioning solution for any building type on a full turnkey basis.",
         tags: ["Industrial", "Turnkey", "O&M", "MEP Coordination", "Data Centers"],
     },
@@ -103,7 +103,7 @@ const services = [
         cat: "Cooling",
         title: "Ductable & Packaged AC",
         internalRoute: "/services/ductable-packaged",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/Flat-Oval-duct-2-1024x768.jpg",
+        img: "/assets/Flat-Oval-duct.jpg",
         desc: "We offer expert Designing and Installation Services for ductable split units and packaged air conditioners. Our packaged air conditioner is a self-contained unit that houses all cooling and heating components in a single cabinet, while ductable AC systems distribute conditioned air through a carefully designed duct network - optimized for low static pressure, uniform airflow, and acoustic performance.",
         tags: ["GI Ducts", "Flex Ducts", "Packaged Units", "Duct Design", "Acoustic Lining"],
     },
@@ -112,7 +112,7 @@ const services = [
         cat: "Chiller",
         title: "Chiller Plant Design & Installation",
         internalRoute: "/services/chiller-plant",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/chiller-unit.jpg",
+        img: "/assets/chiller-unit.jpg",
         desc: "SS AIRCON is the best Chiller Plant Design and Installation Service Provider. Our chiller plant operates on a refrigerant cycle - the refrigerant absorbs heat from the water in the evaporator, cooling it down. The chilled water then circulates through the building to cool it. We offer Air-Cooled Chillers, Water-Cooled Chillers, Skidded Chillers, and Green / Modular Chillers.",
         tags: ["Air-Cooled", "Water-Cooled", "Skidded", "Green / Modular", "Cooling Towers"],
     },
@@ -121,7 +121,7 @@ const services = [
         cat: "Precision",
         title: "Precision Air Conditioning",
         internalRoute: "/products/precision-ac",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/Precision-AC1-1024x768.jpg",
+        img: "/assets/Precision-AC1-1024x768.jpg",
         desc: "Precision air conditioner (precision cooling) is used to control temperature and humidity to a precision level. It is specifically designed for spaces such as data centers, server rooms, internet data rooms, medical equipment rooms, and any environment requiring critical environmental control. We are an Authorized Vertiv (formerly Emerson Network Power) franchisee and service partner.",
         tags: ["Data Centers", "Server Rooms", "Vertiv / Emerson", "Humidity Control", "24/7 Support"],
     },
@@ -130,7 +130,7 @@ const services = [
         cat: "Precision",
         title: "Our Vertiv Projects",
         internalRoute: "/services/vertiv",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/New_Project__7_-removebg-preview.png",
+        img: "/assets/New_Project__7_-removebg-preview.png",
         desc: "As an authorized Vertiv (Emerson Network Power) franchisee, we have delivered 300+ precision cooling projects across India. Our customers include Project Management Consultants (JLLM, Johnson Controls, CBRE, Cushman & Wakefield), leading architects, HVAC consultants, and builders such as DLF, RMZ, Ascendas, and Embassy Group.",
         tags: ["300+ Projects", "Vertiv / Emerson", "PMC Clients", "DLF", "RMZ"],
     },
@@ -139,7 +139,7 @@ const services = [
         cat: "Engineering",
         title: "Experience & Knowledge",
         internalRoute: "/services/experience-knowledge",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/booyco_havc_systems-1024x555.jpg",
+        img: "/assets/booyco_havc_systems-1024x555.jpg",
         desc: "SS AIRCON was started on 14th April 2004. We are authorized dealers for BLUESTAR LIMITED and SYMPHONY INDUSTRIAL AIR COOLERS, and an authorized franchisee and service partner with VERTIV ENERGY PVT LTD (formerly Emerson Network Power). We also carry out all kinds of MS/SS fabrication, roofing works, GI/PVC plumbing, and GI/Aluminium/PUF ducting works.",
         tags: ["IT & ITES", "Telecom", "Hospitals", "Banking", "Hotels & Malls"],
         extra: {
@@ -162,7 +162,7 @@ const services = [
         cat: "Engineering",
         title: "Engineering & Contracting",
         internalRoute: "/services/engineering-contracting",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/117175924_808897579849581_2949452215847255149_n-576x1024.jpg",
+        img: "/assets/117175924_808897579849581_2949452215847255149_n-576x1024.jpg",
         desc: "SS AIRCON provides engineered solutions for various HVAC applications with a trained and highly skilled design and drafting team, and well-experienced project delivery managers. Irrespective of project size, our design, planning and project execution teams are involved from the initial conceptual discussions right through to the final sign-off and handover. We maintain a safe work environment with appropriate PPE for all site personnel.",
         tags: ["Design-Build", "BOQ", "Site Supervision", "PMC", "Safe Work Environment"],
     },
@@ -171,7 +171,7 @@ const services = [
         cat: "Cooling",
         title: "Air Conditioning",
         internalRoute: "/services/air-conditioning",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/04/service3.jpg",
+        img: "/assets/service3.jpg",
         desc: "SS AIRCON has extensive experience and knowledge of all types of air conditioning systems - from single and multiple split systems to ducted air handlers and VRF/VRV installations. Our team of in-house air conditioning experts provide key project solutions enabling fast, effective, and reliable installation of any design requirement. From the initial concept to CAD drawings, our design team formulates the very best solution for the application.",
         tags: ["Split Systems", "Ducted Air Handlers", "VRF/VRV", "CAD Design", "Blue Star"],
     },
@@ -180,7 +180,7 @@ const services = [
         cat: "Maintenance",
         title: "Planned Maintenance & Breakdown Support",
         internalRoute: "/services/planned-maintenance",
-        img: "https://www.ssaircons.com/wp-content/uploads/2022/03/69976319_551710165568325_1461633102324432896_n-1024x768.jpg",
+        img: "/assets/69976319_551710165568325_1461633102324432896_n-1024x768.jpg",
         desc: "We have a dedicated 24/7 emergency breakdown service support team with required tools and tackles to support our clients with 2 to 4 hours response time and 24 to 48 hours turnaround time from the time of call receipt. Our service teams are equipped with fast-moving transport and carry all essential tools and basic spare parts. Planned maintenance dates are agreed through written communication and our dedicated PM team carries out preventive maintenance within the stipulated time frame.",
         tags: ["24/7 Support", "2-4 Hr Response", "PPM", "CAMC / NCAMC", "Service Reports"],
     },
@@ -717,7 +717,7 @@ export default function ServicesSection() {
                     </p>
                     <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
                         <a
-                            href="tel:8056041921"
+                            href="tel:+919840750471"
                             style={{
                                 display: "inline-flex",
                                 alignItems: "center",
@@ -734,7 +734,7 @@ export default function ServicesSection() {
                             onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; }}
                             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
                         >
-                            Call 8056041921
+                            Call +91 98407 50471
                         </a>
                         <a
                             href="/contact"

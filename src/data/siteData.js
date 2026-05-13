@@ -237,13 +237,13 @@ export const offices = [
   {
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar, Puzhuthivakkam, Chennai - 600091.',
-    phone: '9840750471',
+    phone: '+919840750471',
     email: ['sales@ssaircons.com', 'service@ssaircons.com'],
   },
   {
     city: 'Trichy',
     address: 'No.14, Jaya Nagar, 2nd Street, RMS Colony, Karumandapam, Trichy - 620 001',
-    phone: '9952964771',
+    phone: '+919952964771',
     email: ['sales@ssaircons.com', 'tnj@ssaircons.com'],
   },
 ]
@@ -305,27 +305,27 @@ export const achievements = [
 // ─── Our Vertiv Project images ─────────────────────────────────────────────────
 export const vertivProjectImages = [
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-1.jpg',
+    src: '',
     alt: 'Vertiv Precision AC Installation - Data Center',
   },
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-2.jpg',
+    src: '',
     alt: 'Vertiv Project - CRAC Unit Setup',
   },
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-3.jpg',
+    src: '',
     alt: 'Vertiv Project - Server Room Cooling',
   },
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-4.jpg',
+    src: '/assets/our-vertiv-project-4.jpg',
     alt: 'Vertiv Project - Precision Air Conditioning',
   },
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-5.jpg',
+    src: '/assets/our-vertiv-project-5.jpg',
     alt: 'Vertiv Project - Industrial HVAC',
   },
   {
-    src: 'https://www.ssaircons.com/wp-content/uploads/2022/04/our-vertiv-project-6.jpg',
+    src: '/assets/our-vertiv-project-6.jpg',
     alt: 'Vertiv Project - Commissioning Work',
   },
 ]

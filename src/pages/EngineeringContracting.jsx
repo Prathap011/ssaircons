@@ -56,7 +56,7 @@ export default function EngineeringContracting() {
           >
             <div className="pi-frame h-[420px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/03/117175924_808897579849581_2949452215847255149_n-576x1024.jpg"
+                src="/assets/117175924_808897579849581_2949452215847255149_n-576x1024.jpg"
                 alt="Engineering & Contracting"
                 className="w-full h-full object-cover object-top"
               />

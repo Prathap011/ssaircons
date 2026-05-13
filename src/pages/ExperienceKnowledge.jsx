@@ -60,7 +60,7 @@ export default function ExperienceKnowledge() {
           >
             <div className="pi-frame h-[420px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/03/booyco_havc_systems-1024x555.jpg"
+                src="/assets/booyco_havc_systems-1024x555.jpg"
                 alt="HVAC Experience"
                 className="w-full h-full object-cover"
               />

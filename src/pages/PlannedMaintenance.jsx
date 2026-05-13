@@ -58,7 +58,7 @@ export default function PlannedMaintenance() {
           >
             <div className="pi-frame h-[420px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/03/69976319_551710165568325_1461633102324432896_n-1024x768.jpg"
+                src="/assets/69976319_551710165568325_1461633102324432896_n-1024x768.jpg"
                 alt="Planned Maintenance"
                 className="w-full h-full object-cover"
               />
@@ -145,7 +145,7 @@ export default function PlannedMaintenance() {
             Don't let an HVAC failure disrupt your operations. Our team responds within 2 to 4 hours, any time of day or night.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:9840750471" className="btn-primary">Call Now: 9840750471</a>
+            <a href="tel:+919840750471" className="btn-primary">Call Now: +91 98407 50471</a>
             <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-primary-800">
               Request AMC <HiArrowRight className="w-4 h-4" />
             </Link>

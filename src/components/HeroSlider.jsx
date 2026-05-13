@@ -9,11 +9,11 @@ const locations = [
   {
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar,\nPuzhuthivakkam,\nChennai - 600 091',
-    phone: '+91 80560 41921',
+    phone: '+91 98407 50471',
   }, {
     city: 'Trichy',
     address: 'No.14, Jaya Nagar, 2nd Street,\nRMS Colony, Karumandapam,\nTrichy - 620 001',
-    phone: '+91 80560 41921',
+    phone: '+91 99529 64771',
   },
 ]
 

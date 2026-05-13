@@ -179,7 +179,7 @@ export default function Services() {
             From emergency breakdown support to planned maintenance, our team is always ready to help.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:9840750471" className="btn-primary">Call 9840750471</a>
+            <a href="tel:+919840750471" className="btn-primary">Call +91 98407 50471</a>
             <Link to="/contact" className="btn-outline">Send Enquiry</Link>
           </div>
         </div>

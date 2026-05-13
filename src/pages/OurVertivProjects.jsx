@@ -159,7 +159,7 @@ export default function OurVertivProjects() {
               className="rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-primary-50 to-white"
             >
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/04/New_Project__7_-removebg-preview.png"
+                src="/assets/New_Project__7_-removebg-preview.png"
                 alt="Vertiv Precision AC"
                 className="w-full h-72 md:h-96 object-contain p-6"
               />

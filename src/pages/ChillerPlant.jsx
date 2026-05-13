@@ -56,7 +56,7 @@ export default function ChillerPlant() {
           >
             <div className="pi-frame h-[400px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/04/chiller-unit.jpg"
+                src="/assets/chiller-unit.jpg"
                 alt="Chiller Plant"
                 className="w-full h-full object-cover"
               />

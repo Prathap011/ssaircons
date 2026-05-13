@@ -56,7 +56,7 @@ export default function DuctablePackaged() {
           >
             <div className="pi-frame h-[420px]">
               <img
-                src="https://www.ssaircons.com/wp-content/uploads/2022/04/Flat-Oval-duct-2-1024x768.jpg"
+                src="/assets/Flat-Oval-duct.jpg"
                 alt="Ductable & Packaged AC"
                 className="w-full h-full object-cover"
               />
