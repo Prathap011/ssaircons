@@ -184,6 +184,15 @@ const services = [
         desc: "We have a dedicated 24/7 emergency breakdown service support team with required tools and tackles to support our clients with 2 to 4 hours response time and 24 to 48 hours turnaround time from the time of call receipt. Our service teams are equipped with fast-moving transport and carry all essential tools and basic spare parts. Planned maintenance dates are agreed through written communication and our dedicated PM team carries out preventive maintenance within the stipulated time frame.",
         tags: ["24/7 Support", "2-4 Hr Response", "PPM", "CAMC / NCAMC", "Service Reports"],
     },
+    {
+        id: 15,
+        cat: "Heater banks",
+        title: "Heater Banks",
+        internalRoute: "/services/heater-banks-dehumidifiers",
+        img: "/assets/heater-bank.jpeg",
+        desc: "We provide design, installation, and maintenance services for heater banks and dehumidifiers. Heater banks are used in HVAC systems to provide additional heating capacity, while dehumidifiers control humidity levels in indoor spaces. Our team ensures optimal performance and energy efficiency for these critical components of your HVAC system.",
+        tags: ["Heater Banks", "Dehumidifiers", "Humidity Control", "Energy Efficiency", "Indoor Air Quality"],
+    }
 ];
 
 function useIntersectionObserver(options = {}) {
