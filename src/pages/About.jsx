@@ -41,12 +41,12 @@ const values = [
 ]
 
 const teamPhotos = [
-  { src: '/assets/homeAbout/93642.jpg', label: 'On-Site Execution' },
-  { src: '/assets/homeAbout/93645.jpeg', label: 'Piping & Cooling Systems' },
-  { src: '/assets/homeAbout/93648.jpeg', label: 'Blue Star Installations' },
-  { src: '/assets/homeAbout/93651.jpeg', label: 'Rooftop Plant Setup' },
-  { src: '/assets/homeAbout/93666.jpeg', label: 'Precision Ducting Work' },
-  { src: '/assets/homeAbout/93668.jpeg', label: 'HVAC Project Delivery' },
+  { src: '/assets/ourteams/103907.jpeg', label: 'Condenser Coil Cleaning' },
+  { src: '/assets/ourteams/103909.jpg', label: 'Control Panel Monitoring' },
+  { src: '/assets/ourteams/103910.jpeg', label: 'Cooling Coil Inspection' },
+  { src: '/assets/ourteams/103911.jpeg', label: 'Outdoor Unit Service' },
+  { src: '/assets/ourteams/103913.jpeg', label: 'On-Site Maintenance Work' },
+  { src: '/assets/ourteams/103917.jpeg', label: 'Electrical Panel Servicing' },
 ]
 
 const stagger = {
