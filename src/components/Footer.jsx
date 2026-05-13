@@ -129,7 +129,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-2 text-white text-sm">
               <HiPhone className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
-              <a href="tel:8056041921" className="hover:text-accent-300 transition-colors">8056041921</a>
+              <a href="tel:9840750471" className="hover:text-accent-300 transition-colors">9840750471</a>
             </div>
             <div className="flex flex-col gap-2">
               <a

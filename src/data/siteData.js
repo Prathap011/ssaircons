@@ -237,13 +237,13 @@ export const offices = [
   {
     city: 'Chennai',
     address: 'No.18/2, Village Road, Balaji Nagar, Puzhuthivakkam, Chennai - 600091.',
-    phone: '8056041921',
+    phone: '9840750471',
     email: ['sales@ssaircons.com', 'service@ssaircons.com'],
   },
   {
     city: 'Trichy',
     address: 'No.14, Jaya Nagar, 2nd Street, RMS Colony, Karumandapam, Trichy - 620 001',
-    phone: '8056041921',
+    phone: '9952964771',
     email: ['sales@ssaircons.com', 'tnj@ssaircons.com'],
   },
 ]

@@ -38,9 +38,9 @@ export default function Navbar() {
         <div className="container-custom flex justify-between items-center py-2">
           <span className="text-slate-300">India's Low-Cost Appliance Service — At Your Door Step</span>
           <div className="flex items-center gap-4">
-            <a href="tel:8056041921" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
+            <a href="tel:9840750471" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
               <HiPhone className="w-4 h-4" />
-              8056041921
+              9840750471
             </a>
             <span className="text-slate-500">|</span>
             <a href="mailto:sales@ssaircons.com" className="flex items-center gap-1.5 hover:text-accent-400 transition-colors">
@@ -204,8 +204,8 @@ export default function Navbar() {
             >
               <div className="container-custom py-4 flex flex-col gap-1">
                 {/* Top bar info on mobile */}
-                <a href="tel:8056041921" className="flex items-center gap-2 text-sm text-primary-700 font-medium py-2 border-b border-slate-100 mb-2">
-                  <HiPhone className="w-4 h-4" /> 8056041921
+                <a href="tel:9840750471" className="flex items-center gap-2 text-sm text-primary-700 font-medium py-2 border-b border-slate-100 mb-2">
+                  <HiPhone className="w-4 h-4" /> 9840750471
                 </a>
                 {navLinks.map((link) => (
                   <div key={link.href}>
