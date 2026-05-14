@@ -20,9 +20,8 @@ export const navLinks = [
       { label: 'Air Testing & Balancing', href: '/products/air-testing' },
       { label: 'Water Balancing', href: '/products/water-balancing' },
       { label: 'Centralized Air Conditioning', href: '/products/centralized-ac' },
-      { label: 'VRF / VRV', href: '/products/vrf-vrv' },
-      { label: 'Ventilation System', href: '/products/ventilation' },
-      { label: 'Centralized HVAC Services', href: '/products/centralized-hvac' },
+      { label: 'VRF', href: '/products/vrf' },
+      { label: 'Ventilation System', href: '/products/ventilation' }
     ],
   },
   { label: 'Services', href: '/services' },
@@ -183,10 +182,10 @@ export const services = [
       'assets/service/service_chiller-unit.jpg',
   },
   {
-    id: 'vrv',
-    title: 'VRF / VRV Systems',
+    id: 'vrf',
+    title: 'VRF Systems',
     description:
-      'We specialize in HVAC domain and provide VRV (Variable Refrigerant Volume) & VRF (Variable Refrigerant Flow) services.',
+      'We specialize in HVAC domain and provide VRF (Variable Refrigerant Flow) services.',
     icon: 'activity',
     image:
       'assets/service/service_water_balancing.jpg',
@@ -369,7 +368,7 @@ export const enquiryOptions = [
   'HVAC Contracting',
   'Precision Air Conditioning',
   'Chiller Plant',
-  'VRF / VRV System',
+  'VRF System',
   'Ventilation System',
   'Other',
 ]

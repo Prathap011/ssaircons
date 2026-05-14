@@ -62,7 +62,7 @@ export default function Services() {
     <>
       <Helmet>
         <title>Our Services | SS Aircon HVAC</title>
-        <meta name="description" content="SS Aircon offers AC maintenance, gas filling, VRF/VRV, centralized HVAC, chiller plant design, air balancing and more." />
+        <meta name="description" content="SS Aircon offers AC maintenance, gas filling, VRF, centralized HVAC, chiller plant design, air balancing and more." />
       </Helmet>
 
       <PageHero

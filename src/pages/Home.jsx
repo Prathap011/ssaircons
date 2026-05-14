@@ -41,7 +41,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>SS Aircon | Best AC Service &amp; The HVAC Experts in Chennai</title>
-        <meta name="description" content="SS Aircon – India's leading HVAC company since 2004. AC installation, servicing, maintenance, VRF/VRV, chillers and more." />
+        <meta name="description" content="SS Aircon – India's leading HVAC company since 2004. AC installation, servicing, maintenance, VRF, chillers and more." />
       </Helmet>
       <HeroSlider />
       <StatsSection />

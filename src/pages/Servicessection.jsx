@@ -54,13 +54,13 @@ const services = [
     },
     {
         id: 4,
-        cat: "VRF/VRV",
-        title: "VRF / VRV Systems",
-        internalRoute: "/products/vrf-vrv",
+        cat: "VRF",
+        title: "VRF Systems",
+        internalRoute: "/products/vrf",
         img: "/assets/7.-VRF-VRV-UNIT.jpg",
-        desc: "As we specialize in HVAC Domain, we provide VRV (Variable Refrigerant Volume) and VRF (Variable Refrigerant Flow) services to our clients on a turnkey basis. We are leading VRF and VRV air conditioning manufacturers providing service all across India. VRV/VRF is a modern and sophisticated technology which helps in reducing electricity consumption by regulating refrigerant flow of liquid, performing efficiently with a payback period of approximately three and a half years.",
+        desc: "As we specialize in HVAC Domain, we provide VRF (Variable Refrigerant Flow) services to our clients on a turnkey basis. We are leading VRF air conditioning manufacturers providing service all across India. VRF is a modern and sophisticated technology which helps in reducing electricity consumption by regulating refrigerant flow of liquid, performing efficiently with a payback period of approximately three and a half years.",
         extra: {
-            title: "Key Advantages of VRF / VRV Systems",
+            title: "Key Advantages of VRF Systems",
             points: [
                 "Energy Efficiency: VRF systems use less energy - designed to provide exactly the amount of cooling needed, running less frequently and at lower capacity. Heat from the cooling process is captured and reused in other areas that may need heating.",
                 "Quiet Operation: In a VRF system, the noisier condensing unit is typically outside, and the indoor air handlers are smaller and quieter than a traditional split system.",
@@ -172,8 +172,8 @@ const services = [
         title: "Air Conditioning",
         internalRoute: "/services/air-conditioning",
         img: "/assets/service3.jpg",
-        desc: "SS AIRCON has extensive experience and knowledge of all types of air conditioning systems - from single and multiple split systems to ducted air handlers and VRF/VRV installations. Our team of in-house air conditioning experts provide key project solutions enabling fast, effective, and reliable installation of any design requirement. From the initial concept to CAD drawings, our design team formulates the very best solution for the application.",
-        tags: ["Split Systems", "Ducted Air Handlers", "VRF/VRV", "CAD Design", "Blue Star"],
+        desc: "SS AIRCON has extensive experience and knowledge of all types of air conditioning systems - from single and multiple split systems to ducted air handlers and VRF installations. Our team of in-house air conditioning experts provide key project solutions enabling fast, effective, and reliable installation of any design requirement. From the initial concept to CAD drawings, our design team formulates the very best solution for the application.",
+        tags: ["Split Systems", "Ducted Air Handlers", "VRF", "CAD Design", "Blue Star"],
     },
     {
         id: 14,

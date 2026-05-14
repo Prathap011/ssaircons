@@ -10,7 +10,7 @@ const systemTypes = [
   { Icon: HiHome, title: 'Single & Multi-Split Systems', desc: 'Window, split, and multi-split units for homes, small offices, and retail spaces.' },
   { Icon: HiOfficeBuilding, title: 'Ducted Air Handlers', desc: 'Central ducted systems for offices, hospitals, and commercial facilities requiring uniform air distribution.' },
   { Icon: HiTemplate, title: 'Cassette & Concealed Units', desc: 'Ceiling cassette and concealed units delivering discreet, aesthetic air conditioning.' },
-  { Icon: HiLightningBolt, title: 'VRF / VRV Installations', desc: 'Variable refrigerant flow systems for precise multi-zone temperature control.' },
+  { Icon: HiLightningBolt, title: 'VRF Installations', desc: 'Variable refrigerant flow systems for precise multi-zone temperature control.' },
   { Icon: HiCog, title: 'Floor-Mounted Units', desc: 'Floor-standing air handlers for spaces where ceiling mounting is not practical.' },
   { Icon: HiVolumeUp, title: 'CAD Design Service', desc: 'Full CAD drawings and design documentation for every project we undertake.' },
 ]
@@ -37,7 +37,7 @@ export default function AirConditioning() {
     <>
       <Helmet>
         <title>Air Conditioning | SS Aircon</title>
-        <meta name="description" content="SS Aircon has extensive experience in all types of air conditioning systems — split, ducted, VRF/VRV, cassette and floor-mounted — installed on time and within budget." />
+        <meta name="description" content="SS Aircon has extensive experience in all types of air conditioning systems — split, ducted, VRF, cassette and floor-mounted — installed on time and within budget." />
       </Helmet>
 
       <PageHero
@@ -75,7 +75,7 @@ export default function AirConditioning() {
               title="Complete Air Conditioning Solutions"
             />
             <p className="text-slate-600 leading-relaxed mb-4 text-sm">
-              SS AIRCON has extensive experience and knowledge of all types of air conditioning systems — from single and multiple split systems to ducted air handlers and VRF/VRV installations.
+              SS AIRCON has extensive experience and knowledge of all types of air conditioning systems — from single and multiple split systems to ducted air handlers and VRF/ installations.
             </p>
             <p className="text-slate-600 leading-relaxed mb-6 text-sm">
               Our team of in-house air conditioning experts provides key project solutions enabling fast, effective, and reliable installation of any design requirement. From the initial concept to CAD drawings, our design team formulates the very best solution for the application.

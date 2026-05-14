@@ -19,9 +19,8 @@ const productLinks = [
   { label: 'Air Testing & Balancing', href: '/products/air-testing' },
   { label: 'Water Balancing', href: '/products/water-balancing' },
   { label: 'Centralized Air Conditioning', href: '/products/centralized-ac' },
-  { label: 'VRF / VRV', href: '/products/vrf-vrv' },
-  { label: 'Ventilation System', href: '/products/ventilation' },
-  { label: 'Centralized HVAC Services', href: '/products/centralized-hvac' },
+  { label: 'VRF', href: '/products/vrf' },
+  { label: 'Ventilation System', href: '/products/ventilation' }
 ]
 
 export default function Footer() {
@@ -153,6 +152,10 @@ export default function Footer() {
                 <HiLocationMarker className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
                 <span>No.14, Jaya Nagar, 2nd Street, RMS Colony, Karumandapam, Trichy - 620 001</span>
               </div>
+            </div>
+            <div className="flex gap-2 text-white text-sm">
+              <HiPhone className="w-4 h-4 flex-shrink-0 mt-0.5 text-accent-400" />
+              <a href="tel:+919952964771" className="hover:text-accent-300 transition-colors">+91 99529 64771</a>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const products = [
   },
   {
     id: 'vrf',
-    name: 'VRF / VRV Systems',
+    name: 'VRF Systems',
     subtitle: 'Variable Refrigerant Flow Technology',
     description:
       'The Blue Star VRF is an inverter compressor driven VRF system, designed with sleek and compact side air discharge outdoor units. This system is ideal for applications with limited floor space where conventional top discharge outdoor units cannot be placed.',
@@ -94,27 +94,27 @@ const products = [
       'Energy-efficient inverter models available',
     ],
   },
-  {
-    id: 'split',
-    name: 'Split & Window ACs',
-    subtitle: 'Residential & Light Commercial',
-    description:
-      'Here’s an AC that thinks and adjusts according to your needs. It’s Blue Star’s Inverter AC. The compressor of this AC changes frequentl y as per the ambient load. As the frequency changes, RPM of the compressor also changes. This eliminates any temperature fluctuations and helps maintain a comfortable temperature.',
-    image: '/assets/bluestar/bluestar_split_ac.jpg',
-    specs: [
-      { label: 'BEE Rating', value: '5-Star' },
-      { label: 'Technology', value: 'Inverter' },
-      { label: 'Condenser', value: '100% Copper' },
-    ],
-    features: [
-      '5-star BEE rated models available',
-      'Advanced inverter compressor',
-      'Self-cleaning filter technology',
-      '100% copper condenser coil',
-      'Anti-bacterial and anti-fungal filter',
-      'Auto restart on power restoration',
-    ],
-  },
+  // {
+  //   id: 'split',
+  //   name: 'Split & Window ACs',
+  //   subtitle: 'Residential & Light Commercial',
+  //   description:
+  //     'Here’s an AC that thinks and adjusts according to your needs. It’s Blue Star’s Inverter AC. The compressor of this AC changes frequentl y as per the ambient load. As the frequency changes, RPM of the compressor also changes. This eliminates any temperature fluctuations and helps maintain a comfortable temperature.',
+  //   image: '/assets/bluestar/bluestar_split_ac.jpg',
+  //   specs: [
+  //     { label: 'BEE Rating', value: '5-Star' },
+  //     { label: 'Technology', value: 'Inverter' },
+  //     { label: 'Condenser', value: '100% Copper' },
+  //   ],
+  //   features: [
+  //     '5-star BEE rated models available',
+  //     'Advanced inverter compressor',
+  //     'Self-cleaning filter technology',
+  //     '100% copper condenser coil',
+  //     'Anti-bacterial and anti-fungal filter',
+  //     'Auto restart on power restoration',
+  //   ],
+  // },
 ]
 
 const highlights = [
@@ -203,7 +203,7 @@ export default function PartnersBluestar() {
         <title>Blue Star Products | SS Aircon — Authorized Dealer</title>
         <meta
           name="description"
-          content="SS Aircon is an authorized Blue Star dealer in Chennai. Explore Blue Star chillers, VRF/VRV systems, ductable ACs, cassette units and split ACs — supply and installation across Tamil Nadu."
+          content="SS Aircon is an authorized Blue Star dealer in Chennai. Explore Blue Star chillers, VRF systems, ductable ACs, cassette units and split ACs — supply and installation across Tamil Nadu."
         />
       </Helmet>
 

@@ -47,7 +47,7 @@ export default function App() {
           <Route path="/products/air-testing" element={<AirTesting />} />
           <Route path="/products/water-balancing" element={<WaterBalancing />} />
           <Route path="/products/centralized-ac" element={<CentralizedAC />} />
-          <Route path="/products/vrf-vrv" element={<VrfVrv />} />
+          <Route path="/products/vrf" element={<VrfVrv />} />
           <Route path="/products/ventilation" element={<VentilationSystem />} />
           <Route path="/products/centralized-hvac" element={<CentralizedHvac />} />
           <Route path="/services/ductable-packaged" element={<DuctablePackaged />} />

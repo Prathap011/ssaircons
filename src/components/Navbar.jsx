@@ -77,12 +77,12 @@ export default function Navbar() {
             <img
               src="/assets/logo4.png"
               alt="SS Aircon"
-              className="transition-all duration-300 h-10 md:h-12 mr-2"
+              className="transition-all duration-300 h-10 md:h-14 mr-2"
             />
 
             {/* Text */}
             <div
-              className="leading-tight transition-all duration-300 opacity-100 ml-2 text-slate-600 text-xs"
+              className="leading-tight transition-all duration-300 opacity-100 ml-0 text-slate-600 text-xs"
             >
               <div className="font-medium">The HVAC Experts</div>
               <div className="text-[11px]">Since 2004</div>

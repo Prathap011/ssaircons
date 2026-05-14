@@ -46,13 +46,13 @@ export default function VrfVrv() {
   return (
     <>
       <Helmet>
-        <title>VRF / VRV System | SS Aircon</title>
-        <meta name="description" content="SS Aircon — Leading VRV and VRF air conditioning service providers in India. Variable Refrigerant Flow systems on a turnkey basis across Tamil Nadu." />
+        <title>VRF System | SS Aircon</title>
+        <meta name="description" content="SS Aircon — Leading VRF air conditioning service providers in India. Variable Refrigerant Flow systems on a turnkey basis across Tamil Nadu." />
       </Helmet>
 
       <PageHero
-        title="VRF / VRV System"
-        breadcrumbs={[{ label: 'Products' }, { label: 'VRF / VRV' }]}
+        title="VRF System"
+        breadcrumbs={[{ label: 'Products' }, { label: 'VRF' }]}
         bg="https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=1600&auto=format&fit=crop&q=80"
       />
 
@@ -81,7 +81,7 @@ export default function VrfVrv() {
             <div className="h-full rounded-3xl overflow-hidden border border-white/10 shadow-lg">
               <img
                 src="/assets/vrf.jpg" // 👉 change image path
-                alt="VRF VRV System"
+                alt="VRF System"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -96,15 +96,15 @@ export default function VrfVrv() {
             className="max-w-xl"
           >
             <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-6">
-              Leading VRV and VRF Air Conditioning<br />Manufacturers in India
+              Leading VRF Air Conditioning<br />Manufacturers in India
             </h2>
 
             <p className="text-primary-200 leading-relaxed mb-4">
-              As we specialize in HVAC Domain, provide VRV( Variable Refrigerant Volume) & VRF( Variable Refrigerant Flow) services to our clients on turnkey basis. We’re leading VRF abd VRV air conditioning manufactures and providing VRF VRV air conditioning service all across India.
+              As we specialize in HVAC Domain, provide VRF( Variable Refrigerant Flow) services to our clients on turnkey basis. We’re leading VRF air conditioning manufactures and providing VRF air conditioning service all across India.
             </p>
 
             <p className="text-primary-200 leading-relaxed mb-6">
-              VRV / VRF is a modern and sophisticated technology which helps in reducing electricity consumption by regualting refrigerant flow of liquid. Hence, the machine performs efficiently according to human occupancy, oreintation, direction of sun, heat generating equipment with a pay back period of approximately three and half years.
+              VRF is a modern and sophisticated technology which helps in reducing electricity consumption by regualting refrigerant flow of liquid. Hence, the machine performs efficiently according to human occupancy, oreintation, direction of sun, heat generating equipment with a pay back period of approximately three and half years.
             </p>
 
             {/* Stats */}
@@ -138,7 +138,7 @@ export default function VrfVrv() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
-            label="Why VRF / VRV?"
+            label="Why VRF?"
             title="Key Advantages of VRF Systems"
             subtitle="A smarter, energy-efficient alternative to conventional HVAC systems."
             center
@@ -178,7 +178,7 @@ export default function VrfVrv() {
           className="container-custom"
         >
           {/* <span className="text-5xl block mb-4">⚡</span> */}
-          <h2 className="text-3xl font-bold font-heading mb-4">Upgrade to VRF / VRV — Smart Multi-Zone Cooling</h2>
+          <h2 className="text-3xl font-bold font-heading mb-4">Upgrade to VRF — Smart Multi-Zone Cooling</h2>
           <p className="text-primary-200 mb-8 max-w-xl mx-auto">
             Our engineers will design the optimal VRF layout for your building and manage supply, installation, and commissioning end-to-end.
           </p>
