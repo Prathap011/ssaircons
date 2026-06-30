@@ -75,18 +75,19 @@ export default function Navbar() {
           <Link to="/" className="flex items-center flex-shrink-0">
             {/* Logo */}
             <img
-              src="/assets/logo4.png"
+              src="/assets/logo5.jpg"
               alt="SS Aircon"
-              className="transition-all duration-300 h-10 md:h-14 mr-2"
+              className="transition-all duration-300 h-10 md:h-14 mr-3 my-1"
             />
 
             {/* Text */}
-            <div
+            {/* <div
               className="leading-tight transition-all duration-300 opacity-100 ml-0 text-slate-600 text-xs"
             >
               <div className="font-medium">The HVAC Experts</div>
               <div className="text-[11px]">Since 2004</div>
-            </div>
+              <div className="text-[11px]">An ISO 9001 : 2015 Certified Company</div>
+            </div> */}
           </Link>
 
 
