@@ -490,7 +490,7 @@ export default function PartnersBluestarOutdoor() {
           <p className="text-blue-700 tracking-[0.3em] text-xs font-semibold mb-4 uppercase">
             Blue Star Outdoor
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
             Outdoor Units & Systems
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">

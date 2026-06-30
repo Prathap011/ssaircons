@@ -234,7 +234,7 @@ function UnitCard({ unit, index }) {
             <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-50 text-blue-700">
               <Icon size={22} />
             </span>
-            <h3 className="text-2xl font-bold text-slate-900">{unit.title}</h3>
+            <h3 className="text-2xl font-bold text-primary-900">{unit.title}</h3>
           </div>
 
           <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-wide">
@@ -281,7 +281,7 @@ export default function BlueStarIndoorPage() {
           <p className="text-blue-700 tracking-[0.3em] text-xs font-semibold mb-4 uppercase">
             Blue Star · VRF VI Plus
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
             Indoor Units
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -347,7 +347,7 @@ export default function BlueStarIndoorPage() {
       {/* Footer CTA strip */}
       <Reveal direction="up">
         <section className="bg-white border-t border-slate-100 py-14 px-6 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
+          <h2 className="text-2xl font-bold text-black mb-2">
             Need help selecting the right indoor unit?
           </h2>
           <p className="text-slate-500 mb-6">
