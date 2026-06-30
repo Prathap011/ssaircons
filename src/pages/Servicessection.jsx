@@ -340,13 +340,13 @@ function ServiceRow({ service, index }) {
             >
 {/* Title */}
                 <h2
+                    className="font-heading"
                     style={{
                         fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
                         fontWeight: "700",
                         color: "#1e3a8a",
                         lineHeight: 1.2,
                         marginBottom: "16px",
-                        fontFamily: "'Georgia', 'Times New Roman', serif",
                     }}
                 >
                     {service.title}
@@ -515,7 +515,7 @@ function ServiceRow({ service, index }) {
 
 export default function ServicesSection() {
     return (
-        <section style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+        <section>
             <style>{`
                 .ss-service-row {
                     display: grid;
@@ -585,12 +585,12 @@ export default function ServicesSection() {
                         HVAC Specialists Since 2004
                     </span>
                     <h1
+                        className="font-heading"
                         style={{
                             fontSize: "clamp(2rem, 5vw, 3rem)",
                             fontWeight: "800",
                             color: "#ffffff",
                             marginBottom: "12px",
-                            fontFamily: "'Georgia', serif",
                             lineHeight: 1.15,
                         }}
                     >
