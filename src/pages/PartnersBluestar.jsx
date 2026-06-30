@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
@@ -212,6 +212,49 @@ export default function PartnersBluestar() {
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Blue Star' }]}
         bg="/assets/bluestarlanding.jpeg"
       />
+
+      {/* Sub Navigation Bar */}
+      <div className="bg-slate-50 border-b border-slate-200">
+        <div className="container-custom py-6 flex justify-center gap-4">
+          <NavLink
+            to="/our-partners/bluestar"
+            end
+            className={({ isActive }) =>
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                isActive
+                  ? 'bg-primary-700 text-white shadow-md'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              }`
+            }
+          >
+            Overview
+          </NavLink>
+          <NavLink
+            to="/our-partners/bluestar/indoor"
+            className={({ isActive }) =>
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                isActive
+                  ? 'bg-primary-700 text-white shadow-md'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              }`
+            }
+          >
+            Indoor
+          </NavLink>
+          <NavLink
+            to="/our-partners/bluestar/outdoor"
+            className={({ isActive }) =>
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                isActive
+                  ? 'bg-primary-700 text-white shadow-md'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              }`
+            }
+          >
+            Outdoor
+          </NavLink>
+        </div>
+      </div>
 
       {/* Brand Intro Banner */}
       {/* <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">

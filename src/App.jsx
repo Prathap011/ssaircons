@@ -27,7 +27,10 @@ import AirConditioningService from './pages/AirConditioningService'
 import PlannedMaintenance from './pages/PlannedMaintenance'
 import ScrollToTop from './components/ScrollToTop'
 import PartnersBluestar from './pages/PartnersBluestar'
+import PartnersBluestarIndoor from './pages/PartnersBluestarIndoor'
+import PartnersBluestarOutdoor from './pages/PartnersBluestarOutdoor'
 import OurVertivProjects from './pages/OurVertivProjects'
+
 
 export default function App() {
   return (
@@ -61,6 +64,8 @@ export default function App() {
           <Route path="/our-partners" element={<OurPartners />} />
           <Route path="/our-partners/symphony" element={<PartnersSymphony />} />
           <Route path="/our-partners/bluestar" element={<PartnersBluestar />} />
+          <Route path="/our-partners/bluestar/indoor" element={<PartnersBluestarIndoor />} />
+          <Route path="/our-partners/bluestar/outdoor" element={<PartnersBluestarOutdoor />} />
           <Route path="/clients" element={<Clients />} />
         </Routes>
       </main>
