@@ -135,6 +135,27 @@ const products = [
       'Optional humidity control module',
     ],
   },
+  {
+    id: 'stp',
+    name: 'Vertiv (STP/WTP)',
+    subtitle: 'STP/WTP',
+    description:
+      'Li ebert® STP is designed for High air quantity to match equipment Sensible Load application. It is coupled with high energy efficient components and advanced control system which helps in maximum energy efficiency and guarantees proper environmental conditions inside Critical Technological rooms.',
+    image: '/assets/vertiv/verti_stp.jpeg',
+    specs: [
+      { label: 'Capacity Range', value: '3 – 20 TR' },
+      { label: 'Application', value: 'Small / Edge Sites' },
+      { label: 'Refrigerant', value: 'R410A / R407C' },
+    ],
+    features: [
+      'Compact design for space-constrained rooms',
+      'Free-cooling economiser option',
+      'Digital scroll compressor technology',
+      'Integrated electrical panel',
+      'Auto restart on power restoration',
+      'Optional humidity control module',
+    ],
+  },
 ]
 
 const achievements = [
