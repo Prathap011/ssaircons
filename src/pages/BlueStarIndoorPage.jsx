@@ -231,9 +231,9 @@ function UnitCard({ unit, index }) {
 
         <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-3">
-            <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-50 text-blue-700">
+            {/* <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-50 text-blue-700">
               <Icon size={22} />
-            </span>
+            </span> */}
             <h3 className="text-2xl font-bold text-primary-900">{unit.title}</h3>
           </div>
 
