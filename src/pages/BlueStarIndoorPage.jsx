@@ -338,6 +338,81 @@ export default function BlueStarIndoorPage() {
         </div>
       </div>
 
+      {/* Diverse Units Section */}
+      <section className="px-6 pt-14 max-w-6xl mx-auto">
+        <Reveal direction="up" className="w-full">
+          <div
+            className="flex flex-col lg:flex-row items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-shadow duration-500"
+          >
+            {/* Image Column */}
+            <div className="w-full lg:w-2/5 flex items-center justify-center py-5 px-4 min-h-[300px] lg:min-h-full shrink-0 overflow-hidden relative">
+              <img
+                src="/assets/outdoor/outdoor8.png"
+                alt="Diverse Indoor & Outdoor Unit Choices For Every Need"
+                className="w-full h-full max-h-[450px] object-contain transition-transform duration-700 hover:scale-105"
+              />
+              <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">
+                VRF Systems
+              </span>
+            </div>
+
+            {/* Content Column */}
+            <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-primary-900 mb-3 leading-tight">
+                  Diverse Indoor & Outdoor Unit Choices For Every Need
+                </h3>
+
+                {/* Applications */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {['Residences', 'Hospitality', 'Commercial', 'Industry'].map(app => (
+                    <span
+                      key={app}
+                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100"
+                    >
+                      {app}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Features */}
+                <h4 className="text-sm font-semibold text-primary-800 mb-2">Key Choices:</h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {[
+                    'Hi-Wall Units',
+                    'Four-Way Cassettes',
+                    'Compact Cassettes',
+                    'One-Way Cassettes',
+                    'Two-Way Cassettes',
+                    'Treated Fresh Air Unit',
+                    'Air Handling Units',
+                    'Floor Mounted Packaged Units',
+                    'Ductable IDUs',
+                    'Concealed Splits',
+                    'Verticools'
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-slate-700">
+                      <HiCheckCircle className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Range */}
+              <div className="pt-4 mt-6 border-t border-slate-100">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">
+                  Range
+                </p>
+                <p className="text-sm font-medium text-slate-700">
+                  Hi-Wall Units, Four-Way Cassettes, One-Way Cassettes, Compact Cassettes, Two-Way Cassettes, Treated Fresh Air Unit, Air Handling Units, Floor Mounted Packaged Units, Ductable IDUs, Concealed Splits, Verticools
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Units List */}
       <section className="px-6 py-20 max-w-6xl mx-auto flex flex-col gap-14">
         <StaggerGroup direction="up" step={0}>

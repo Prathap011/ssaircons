@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
@@ -16,7 +16,7 @@ const products = [
     subtitle: 'Air-cooled & Water-cooled Chillers',
     description:
       'Blue Star offers Process Chillers for medical, pharmaceutical industries and varied industrial applications like plastic mould cooling, printing and lamination processes. These chillers incorporate microprocessor based controls which offer intelligent cooling and are energy efficient apart from being extremely compact with a small footprint.',
-    image: '/assets/bluestar/bluestar_chiller.jpg',
+    image: '/assets/outdoor/outdoor9.png',
     specs: [
       { label: 'Capacity', value: '10 – 2000 TR' },
       { label: 'Types', value: 'Air / Water Cooled' },
@@ -37,7 +37,7 @@ const products = [
     subtitle: 'Variable Refrigerant Flow Technology',
     description:
       'The Blue Star VRF is an inverter compressor driven VRF system, designed with sleek and compact side air discharge outdoor units. This system is ideal for applications with limited floor space where conventional top discharge outdoor units cannot be placed.',
-    image: '/assets/bluestar/bluestar_vrf.jpg',
+    image: '/assets/outdoor/outdoor5.png',
     specs: [
       { label: 'Indoor Units', value: 'Up to 64 per ODU' },
       { label: 'Energy Savings', value: 'Up to 40%' },
@@ -58,7 +58,7 @@ const products = [
     subtitle: 'Ceiling Concealed & Floor Standing',
     description:
       'Ducted air conditioning provides heating or cooling through a system of ducts spread out all over your home or commercial space. A central unit, consisting of a condenser, compressor, and an air handling unit, is usually located in the basement, attic, or garage.',
-    image: '/assets/bluestar/bluestar_ductable.jpg',
+    image: '/assets/outdoor/outdoor1.png',
     specs: [
       { label: 'Capacity', value: '1 – 15 TR' },
       { label: 'Static Pressure', value: 'High ESP' },
@@ -197,6 +197,9 @@ function ProductCard({ product, index }) {
 }
 
 export default function PartnersBluestar() {
+  const location = useLocation()
+  const isOverviewActive = location.pathname === '/our-partners/bluestar' || location.pathname === '/products/bluestar'
+
   return (
     <>
       <Helmet>
@@ -221,7 +224,7 @@ export default function PartnersBluestar() {
             end
             className={({ isActive }) =>
               `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
+                isActive || isOverviewActive
                   ? 'bg-primary-700 text-white shadow-md'
                   : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`

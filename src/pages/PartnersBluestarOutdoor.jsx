@@ -170,28 +170,28 @@ const outdoorProducts = [
       'Demand Control Mode enables non-stop cooling for critical zones'
     ]
   },
-  {
-    id: 'diverse-units',
-    page: 18,
-    category: 'VRF Systems',
-    title: 'Diverse Indoor & Outdoor Unit Choices For Every Need',
-    range: 'Hi-Wall Units, Four-Way Cassettes, One-Way Cassettes, Compact Cassettes, Two-Way Cassettes, Treated Fresh Air Unit, Air Handling Units, Floor Mounted Packaged Units, Ductable IDUs, Concealed Splits, Verticools',
-    applications: ['Residences', 'Hospitality', 'Commercial', 'Industry'],
-    image: "/assets/outdoor/outdoor8.png",
-    features: [
-      'Hi-Wall Units',
-      'Four-Way Cassettes',
-      'Compact Cassettes',
-      'One-Way Cassettes',
-      'Two-Way Cassettes',
-      'Treated Fresh Air Unit',
-      'Air Handling Units',
-      'Floor Mounted Packaged Units',
-      'Ductable IDUs',
-      'Concealed Splits',
-      'Verticools'
-    ]
-  },
+  // {
+  //   id: 'diverse-units',
+  //   page: 18,
+  //   category: 'VRF Systems',
+  //   title: 'Diverse Indoor & Outdoor Unit Choices For Every Need',
+  //   range: 'Hi-Wall Units, Four-Way Cassettes, One-Way Cassettes, Compact Cassettes, Two-Way Cassettes, Treated Fresh Air Unit, Air Handling Units, Floor Mounted Packaged Units, Ductable IDUs, Concealed Splits, Verticools',
+  //   applications: ['Residences', 'Hospitality', 'Commercial', 'Industry'],
+  //   image: "/assets/outdoor/outdoor8.png",
+  //   features: [
+  //     'Hi-Wall Units',
+  //     'Four-Way Cassettes',
+  //     'Compact Cassettes',
+  //     'One-Way Cassettes',
+  //     'Two-Way Cassettes',
+  //     'Treated Fresh Air Unit',
+  //     'Air Handling Units',
+  //     'Floor Mounted Packaged Units',
+  //     'Ductable IDUs',
+  //     'Concealed Splits',
+  //     'Verticools'
+  //   ]
+  // },
   {
     id: 'air-cooled-screw-chillers',
     page: 21,

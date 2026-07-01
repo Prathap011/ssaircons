@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
@@ -19,7 +19,7 @@ const services = [
     title: 'Precision Air Conditioning',
     description:
       'Precision air conditioner (precision cooling) is used to control the temperature and humidity to precision level for critical environments.',
-    image: 'assets/product/product1.png',
+    image: 'assets/product/product1.jpg',
   },
   {
     id: 'ac-repair',
@@ -46,7 +46,7 @@ const services = [
     title: 'Chillers',
     description:
       'Chiller plant works on proper refrigerant cycle where vapor compression or absorption cools fluid for large commercial applications.',
-    image: 'assets/product/product4.png',
+    image: 'assets/product/product4.jpeg',
   },
   {
     id: 'thermostat',
@@ -55,7 +55,7 @@ const services = [
     title: 'Ductable Air Conditioner',
     description:
       'A balanced air controlling device which makes the air capable to breathe in for large commercial and industrial spaces.',
-    image: 'assets/product/product5.png',
+    image: 'assets/product/product5.jpeg',
   },
   {
     id: 'hvac-design',
@@ -64,7 +64,7 @@ const services = [
     title: 'Fan Coil Unit (FCU)',
     description:
       'A fan coil unit uses a coil and a fan to heat or cool a room without connecting to ductwork, ideal for individual room control.',
-    image: 'assets/product/product6.png',
+    image: 'assets/product/product6.jpeg',
   },
 ]
 
@@ -77,7 +77,7 @@ function ServiceCard({ service, index }) {
   return (
     <Link
       to={`/products#${service.productId}`}
-      className="block"
+      className="flex flex-col h-full"
       tabIndex={-1}
     >
     <motion.div
@@ -87,20 +87,20 @@ function ServiceCard({ service, index }) {
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative border overflow-hidden cursor-pointer transition-colors duration-300"
+      className="relative border overflow-hidden cursor-pointer transition-colors duration-300 flex flex-col h-full"
       style={{
         background: hovered ? 'rgba(219,234,254,0.7)' : 'rgba(255,255,255,0.92)',
         borderColor: hovered ? 'rgba(37,99,235,0.35)' : 'rgba(191,219,254,0.7)',
       }}
     >
       {/* Product image */}
-      <div className="relative overflow-hidden h-full">
+      <div className="relative overflow-hidden h-56 bg-white flex items-center justify-center p-4 shrink-0">
         {!imgError ? (
           <motion.img
             src={service.image}
             alt={service.title}
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             animate={{ scale: hovered ? 1.07 : 1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
             loading="lazy"
@@ -110,16 +110,15 @@ function ServiceCard({ service, index }) {
             <Icon className="w-14 h-14 text-primary-200" />
           </div>
         )}
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/70 to-transparent pointer-events-none" />
       </div>
 
       {/* Card body */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         {/* Icon box */}
         <motion.div
           animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+          className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 flex-shrink-0"
           style={{
             background: hovered ? 'rgba(37,99,235,0.12)' : 'rgba(96,165,250,0.12)',
             border: hovered ? '1px solid rgba(37,99,235,0.3)' : '1px solid rgba(147,197,253,0.5)',
@@ -149,7 +148,7 @@ function ServiceCard({ service, index }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.2 }}
-          className="mt-4 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
+          className="mt-auto pt-4 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
         >
           Discover
           <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>

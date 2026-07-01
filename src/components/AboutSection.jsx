@@ -13,7 +13,7 @@ const slides = [
     alt: 'Blue Star AC units — Sales',
     category: 'Sales',
     title: 'AC Sales & Supply',
-    subtitle: 'Authorised dealer for Blue Star, Daikin & more leading brands',
+    subtitle: 'Authorised dealer for Blue Star & more leading brands',
     accent: 'from-blue-600 to-cyan-400',
   },
   {
