@@ -30,7 +30,7 @@ const outdoorProducts = [
     title: 'Next Generation Inverter Ducted Split & Packaged System',
     range: 'Air-Cooled Ducted Splits: 7HP, 11HP, 14HP, 21HP, 28HP | Air-Cooled Packaged Units: 6.25HP, 10HP, 14HP, 21HP, 28HP',
     applications: ['Hospital', 'Retail', 'Hotels', 'Offices'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor1.png",
     features: [
       'Advanced Inverter Compressors',
       'Precise temperature control with special electronic expansion valve ensures consistent comfort across varying loads',
@@ -51,7 +51,7 @@ const outdoorProducts = [
     title: 'Air-Cooled Ducted Split and Packaged Air Conditioners',
     range: 'Air-Cooled Ducted Splits: 3TR, 4.3TR, 5.5TR, 8.5TR, 11TR, 16.5TR, 22TR | Air-Cooled Packaged Units: 5.5TR, 8.5TR, 11TR, 16.5TR, 23TR',
     applications: ['Banquets', 'Hotels', 'Offices', 'Cafeterias'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor2.png",
     features: [
       'Adaptable installation with packaged and ducted split choices for versatile cooling needs',
       'Intelligent microcontroller for smart system control and protection',
@@ -72,7 +72,7 @@ const outdoorProducts = [
     title: 'Water-Cooled Ducted Split and Packaged Air Conditioners',
     range: 'Ductable Split Units: 3TR, 5.5TR, 11TR | Packaged Units: 5.5TR, 11TR, 16.5TR | Mini Series: 1TR, 1.5TR, 2TR, 2.5TR',
     applications: ['Mall', 'Retail', 'Hotels', 'Offices'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor3.png",
     features: [
       'Space-saving ceiling suspended systems maximize usable floor space',
       '1 TR to 16.5 TR capacity range meets varied cooling needs for different room sizes',
@@ -93,7 +93,7 @@ const outdoorProducts = [
     title: 'HiPer+ Packaged and Ducted Split Air Conditioners',
     range: '5.5TR, 8.5TR, 11TR, 17TR',
     applications: ['Retail', 'Healthcare', 'Offices', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor4.png",
     features: [
       'HiPer+ systems provide effective cooling with minimal energy usage',
       'Maintains rated cooling capacity even at 45°C ambient',
@@ -114,7 +114,7 @@ const outdoorProducts = [
     title: 'VRF V Plus — Top Discharge System',
     range: 'VRF V Plus (Cool Only & Heat Pump): 8HP, 10HP, 12HP, 14HP, 16HP, 18HP, 20HP, 22HP, 24HP, 26HP, 28HP | Modular Systems: Upto 112HP',
     applications: ['Healthcare', 'Commercial Application', 'Mall', 'Educational Institutes'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor5.png",
     features: [
       'All Inverter Compressor system with special control logic',
       'Maintains 100% Capacity at 43°C, unique to Blue Star VRF',
@@ -135,7 +135,7 @@ const outdoorProducts = [
     title: 'VRF V S — Side Discharge System',
     range: 'VRF V S (Cool only & Heat Pump): 4HP, 5HP, 6HP, 8HP, 10HP, 12HP, 14HP, 16HP',
     applications: ['Residences', 'Hospital', 'Hotels', 'Offices', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor6.png",
     features: [
       'Precise temperature control with an efficient inverter compressor',
       'Sleek and compact design ideal for space-saving installations',
@@ -156,7 +156,7 @@ const outdoorProducts = [
     title: 'VRF Lite — Mini VRF',
     range: 'VRF Lite (Cool Only & Heat Pump): 4HP, 5HP, 6HP',
     applications: ['Residences', 'Hotels', 'Offices'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor7.png",
     features: [
       'Sleek and compact design with specially engineered inverter compressor',
       'Quieter operation for enhanced comfort in indoor environments',
@@ -177,7 +177,7 @@ const outdoorProducts = [
     title: 'Diverse Indoor & Outdoor Unit Choices For Every Need',
     range: 'Hi-Wall Units, Four-Way Cassettes, One-Way Cassettes, Compact Cassettes, Two-Way Cassettes, Treated Fresh Air Unit, Air Handling Units, Floor Mounted Packaged Units, Ductable IDUs, Concealed Splits, Verticools',
     applications: ['Residences', 'Hospitality', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor8.png",
     features: [
       'Hi-Wall Units',
       'Four-Way Cassettes',
@@ -199,7 +199,7 @@ const outdoorProducts = [
     title: 'Air-Cooled Screw Chillers (VFD & Fixed Speed)',
     range: '70TR – 540TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor9.png",
     features: [
       'Customized mix-and-match design offers flexibility in providing optimised solution',
       'Twin rotor semi-hermetic compressors ensure reliable performance and long life',
@@ -221,7 +221,7 @@ const outdoorProducts = [
     title: 'Water-Cooled Screw Chillers (VFD & Fixed Speed)',
     range: '80TR – 600TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor10.png",
     features: [
       'Flexible mix-and-match design to suit various applications and project needs',
       'Twin rotor semi-hermetic compressors ensure long-lasting and reliable performance',
@@ -242,7 +242,7 @@ const outdoorProducts = [
     title: 'Air-Cooled Scroll Chillers (Inverter & Fixed Speed)',
     range: '10TR – 120TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor11.png",
     features: [
       'Multiple refrigerant circuits provide maximum redundancy and ensure continuous operation',
       'Supports chilled water leaving temperature range from 5°C to 15°C',
@@ -262,7 +262,7 @@ const outdoorProducts = [
     title: 'Water-Cooled Scroll Chillers (Inverter & Fixed Speed)',
     range: '10TR – 85TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor12.png",
     features: [
       'Multiple refrigerant circuits provide maximum redundancy and ensure continuous operation',
       'Supports chilled water leaving temperature range from 5°C to 15°C',
@@ -282,7 +282,7 @@ const outdoorProducts = [
     title: 'Oil-Free Configured Chillers',
     range: '70TR – 450TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor13.png",
     features: [
       'Magnetic levitation compressors eliminate oil, ensuring higher efficiency and zero mechanical contact',
       'All oil-related performance losses are removed, significantly reducing maintenance needs',
@@ -303,7 +303,7 @@ const outdoorProducts = [
     title: 'Centrifugal Chillers (VFD & Fixed Speed)',
     range: 'Up to 1000TR',
     applications: ['Hospitality', 'Healthcare', 'Commercial', 'Industry'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor14.png",
     features: [
       'Best COP and ISEER (Star labelled) to meet ECSBC guidelines',
       'Energy Optimization Feature that intelligently locks the chiller based on actual capacity requirement',
@@ -323,7 +323,7 @@ const outdoorProducts = [
     title: 'Cassette Air Conditioners',
     range: 'Inverter: 1.5TR, 2TR, 3TR, 4TR | Fixed Speed: 1.5TR, 2TR, 3TR, 4TR',
     applications: ['Offices', 'Retail Stores', 'Salons', 'Home'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor15.png",
     features: [
       'Elegant design, seamlessly blending with interiors',
       'Super Silent operation powered by BLDC motor',
@@ -346,7 +346,7 @@ const outdoorProducts = [
     title: 'Concealed Splits',
     range: 'Fixed Speed: 1.5TR, 2TR | Inverter Cool Only: 1.5TR, 2TR | Inverter Heat Pump: 1.5TR, 2TR',
     applications: ['Hospital', 'Hotels', 'Retail', 'Offices'],
-    image: DUMMY_IMG,
+    image: "/assets/outdoor/outdoor16.png",
     features: [
       'Compact and sleek indoor units',
       'Minimal noise for enhanced comfort',
@@ -409,7 +409,7 @@ function ProductCard({ product, index }) {
       className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-shadow duration-300"
     >
       {/* Image — full height, white background */}
-      <div className={`relative min-h-[420px] bg-slate-50 flex items-center justify-center overflow-hidden ${isEven ? '' : 'md:order-2'}`}>
+      <div className={`relative min-h-[420px] flex items-center justify-center overflow-hidden ${isEven ? '' : 'md:order-2'}`}>
         {isImageAvailable ? (
           <img
             src={product.image}

@@ -37,7 +37,7 @@ const services = [
     title: 'Cassette Air Conditioner',
     description:
       'Gives you the freedom to choose a model according to your requirements and budget for optimal ceiling-mounted cooling.',
-    image: 'assets/product/product3.png',
+    image: 'assets/product/productn3.jpeg',
   },
   {
     id: 'ventilation',

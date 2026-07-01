@@ -50,7 +50,7 @@ const indoorUnits = [
       "Flexible airflow patterns with advanced louvres",
     ],
     icon: Wind,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor1.png",
   },
   {
     id: "four-way-cassette",
@@ -69,7 +69,7 @@ const indoorUnits = [
       "Saves wall and floor space",
     ],
     icon: Layers,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor2.png",
   },
   {
     id: "ducatable-idu",
@@ -87,7 +87,7 @@ const indoorUnits = [
       "Units above 8 TR connect via AHU Kit (ordered separately)",
     ],
     icon: Building2,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor3.png",
   },
   {
     id: "high-sensible-ducted",
@@ -104,7 +104,7 @@ const indoorUnits = [
       "Filter clean reminder",
     ],
     icon: Gauge,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor4.png",
   },
   {
     id: "low-static-ducted",
@@ -123,7 +123,7 @@ const indoorUnits = [
       "Filter clean reminder",
     ],
     icon: Volume2,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor5.png",
   },
   {
     id: "one-way-cassette",
@@ -141,7 +141,7 @@ const indoorUnits = [
       "Filter clean reminder",
     ],
     icon: Sparkles,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor6.png",
   },
   {
     id: "verticools",
@@ -158,7 +158,7 @@ const indoorUnits = [
       "Filter clean reminder",
     ],
     icon: Wind,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor7.png",
   },
   {
     id: "concealed-split",
@@ -176,7 +176,7 @@ const indoorUnits = [
       "Powder-coated for long life",
     ],
     icon: Droplets,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor8.png",
   },
   {
     id: "floor-mounted-packaged",
@@ -194,7 +194,7 @@ const indoorUnits = [
       "Filter clean reminder",
     ],
     icon: Building2,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor9.png",
   },
   {
     id: "treated-fresh-air",
@@ -209,12 +209,11 @@ const indoorUnits = [
       "Higher air quantity advantage",
     ],
     icon: RefreshCcw,
-    image: placeholderImage,
+    image: "/assets/indoor/indoor10.png",
   },
 ];
 
 function UnitCard({ unit, index }) {
-  const Icon = unit.icon;
   const reverse = index % 2 === 1;
 
   return (
@@ -224,9 +223,13 @@ function UnitCard({ unit, index }) {
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
         } items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-shadow duration-500`}
       >
-        {/* Left/Right Column: Icon (Symbol) with merged margin gaps */}
-        <div className={`w-full lg:w-2/5 flex items-center justify-center bg-slate-50 p-12 transition-colors duration-500 hover:bg-blue-50/50 min-h-[250px] lg:min-h-full shrink-0 border-b lg:border-b-0 border-slate-100 ${reverse ? 'lg:border-l' : 'lg:border-r'}`}>
-          <Icon className="w-24 h-24 text-blue-600/20 transition-transform duration-700 hover:scale-110" />
+        {/* Left/Right Column: Image with zoom effect */}
+        <div className={`w-full lg:w-2/5 flex items-center justify-center p-8 transition-colors duration-500 hover:bg-blue-50/50 min-h-[250px] lg:min-h-full shrink-0 border-b lg:border-b-0 border-slate-100 ${reverse ? 'lg:border-l' : 'lg:border-r'} overflow-hidden`}>
+          <img
+            src={unit.image}
+            alt={unit.title}
+            className="w-full h-full max-h-[220px] object-contain transition-transform duration-700 hover:scale-105"
+          />
         </div>
 
         <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
