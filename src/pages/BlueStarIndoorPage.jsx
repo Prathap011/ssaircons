@@ -226,10 +226,10 @@ function UnitCard({ unit, index }) {
         {/* Left/Right Column: Image with zoom effect */}
         <div className={`w-full lg:w-2/5 flex items-center justify-center p-8 transition-colors duration-500 hover:bg-blue-50/50 min-h-[250px] lg:min-h-full shrink-0 border-b lg:border-b-0 border-slate-100 ${reverse ? 'lg:border-l' : 'lg:border-r'} overflow-hidden`}>
           <img
-            src={unit.image}
-            alt={unit.title}
-            className="w-full h-full max-h-[220px] object-contain transition-transform duration-700 hover:scale-105"
-          />
+  src={unit.image}
+  alt={unit.title}
+  className="w-[120%] h-[120%] max-w-none max-h-none object-contain transition-transform duration-700 hover:scale-105"
+/>
         </div>
 
         <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
