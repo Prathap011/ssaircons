@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
@@ -8,6 +9,7 @@ import {
   HiCheckCircle, HiCog, HiLocationMarker, HiSupport,
   HiUsers, HiClock, HiStar, HiBadgeCheck,
   HiLightningBolt, HiHeart, HiGlobeAlt, HiLightBulb,
+  HiChevronLeft, HiChevronRight,
 } from 'react-icons/hi'
 import { MdPrecisionManufacturing } from 'react-icons/md'
 import ExperienceSection from '../components/ExperienceSection'
@@ -40,13 +42,17 @@ const values = [
   { Icon: HiGlobeAlt, title: 'Team Work', desc: 'We encourage good relationships among our employees to promote the trade of ideas and foster a collaborative spirit that drives success for our clients.' },
 ]
 
-const teamPhotos = [
-  { src: '/assets/ourteams/103907.jpeg', label: 'Condenser Coil Cleaning' },
-  { src: '/assets/ourteams/103909.jpg', label: 'Control Panel Monitoring' },
-  { src: '/assets/ourteams/103910.jpeg', label: 'Cooling Coil Inspection' },
-  { src: '/assets/ourteams/103911.jpeg', label: 'Outdoor Unit Service' },
-  { src: '/assets/ourteams/103913.jpeg', label: 'On-Site Maintenance Work' },
-  { src: '/assets/ourteams/103917.jpeg', label: 'Electrical Panel Servicing' },
+const teamWorkPhotos = [
+  '/assets/teamatwork/137348.jpeg',
+  '/assets/teamatwork/137351.jpeg',
+  '/assets/teamatwork/137354.jpeg',
+  '/assets/teamatwork/137357.jpeg',
+  '/assets/teamatwork/137360.jpeg',
+  '/assets/teamatwork/137363.jpeg',
+  '/assets/teamatwork/137366.jpeg',
+  '/assets/teamatwork/137369.jpeg',
+  '/assets/teamatwork/137372.jpeg',
+  '/assets/teamatwork/137375.jpeg',
 ]
 
 const stagger = {
@@ -64,6 +70,35 @@ export default function About() {
   const { ref: refStrength, inView: inViewStrength } = useInView()
   const { ref: refVision, inView: inViewVision } = useInView()
   const { ref: refTeam, inView: inViewTeam } = useInView()
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [visibleCount, setVisibleCount] = useState(5)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCount(1)
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(3)
+      } else {
+        setVisibleCount(5)
+      }
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const maxIndex = Math.max(0, teamWorkPhotos.length - visibleCount)
+  const safeCurrentIndex = Math.min(currentIndex, maxIndex)
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0))
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex))
+  }
 
   return (
     <>
@@ -343,29 +378,64 @@ export default function About() {
           </motion.div>
 
 
-          <div ref={refTeam}>
+          <div ref={refTeam} className="w-full">
             <SectionTitle label="Team at Work" title="Our Team in Action" center />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {teamPhotos.map((photo, i) => (
-                <motion.div
-                  key={photo.src}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={inViewTeam ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: i * 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative overflow-hidden rounded-2xl shadow-sm border border-primary-50"
-                  style={{ aspectRatio: '3/4' }}
+            <div className="relative px-8 md:px-14">
+              {/* Slider Track Wrapper */}
+              <div className="overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{
+                    transform: `translate3d(-${safeCurrentIndex * (100 / visibleCount)}%, 0, 0)`,
+                  }}
                 >
-                  <img
-                    src={photo.src}
-                    alt={photo.label}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    onError={(e) => { e.currentTarget.style.display = 'none' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                    <span className="text-white text-sm font-semibold">{photo.label}</span>
-                  </div>
-                </motion.div>
-              ))}
+                  {teamWorkPhotos.map((photo, i) => (
+                    <div
+                      key={photo}
+                      className="flex-shrink-0 px-2"
+                      style={{ width: `${100 / visibleCount}%` }}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={inViewTeam ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: (i % visibleCount) * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                        className="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-100 bg-white"
+                        style={{ aspectRatio: '1/2' }}
+                      >
+                        <img
+                          src={photo}
+                          alt={`Team Work ${i + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={handlePrev}
+                disabled={safeCurrentIndex === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex === 0
+                    ? 'opacity-30 cursor-not-allowed'
+                    : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                  }`}
+                aria-label="Previous slide"
+              >
+                <HiChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={safeCurrentIndex >= maxIndex}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex >= maxIndex
+                    ? 'opacity-30 cursor-not-allowed'
+                    : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                  }`}
+                aria-label="Next slide"
+              >
+                <HiChevronRight className="w-6 h-6" />
+              </button>
             </div>
           </div>
         </div>
