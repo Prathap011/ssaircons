@@ -10,7 +10,7 @@ const services = [
         cat: "Testing",
         title: "Air Testing & Balancing",
         internalRoute: "/products/air-testing",
-        img: "/assets/air-balancing-1.jpg",
+        img: "/assets/service/airbalancing.jpeg",
         desc: "Air balancing is testing, adjusting, and balancing (TAB) commercial air conditioning and ventilation systems. The need for balancing first came in the early 1980s when new and more advanced A/C systems were being developed and installed. As these systems became more complex, the need for balancing increased. Independent TAB companies were created to handle these tasks.",
         extra: {
             title: "Balancing Tasks",
@@ -125,15 +125,15 @@ const services = [
         desc: "Precision air conditioner (precision cooling) is used to control temperature and humidity to a precision level. It is specifically designed for spaces such as data centers, server rooms, internet data rooms, medical equipment rooms, and any environment requiring critical environmental control. We are an Authorized Vertiv (formerly Emerson Network Power) franchisee and service partner.",
         tags: ["Data Centers", "Server Rooms", "Vertiv / Emerson", "Humidity Control", "24/7 Support"],
     },
-    {
-        id: 10,
-        cat: "Precision",
-        title: "Our Vertiv Projects",
-        internalRoute: "/services/vertiv",
-        img: "/assets/New_Project__7_-removebg-preview.png",
-        desc: "As an authorized Vertiv (Emerson Network Power) franchisee, we have delivered 300+ precision cooling projects across India. Our customers include Project Management Consultants (JLLM, Johnson Controls, CBRE, Cushman & Wakefield), leading architects, HVAC consultants, and builders such as DLF, RMZ, Ascendas, and Embassy Group.",
-        tags: ["300+ Projects", "Vertiv / Emerson", "PMC Clients", "DLF", "RMZ"],
-    },
+    // {
+    //     id: 10,
+    //     cat: "Precision",
+    //     title: "Our Vertiv Projects",
+    //     internalRoute: "/services/vertiv",
+    //     img: "/assets/New_Project__7_-removebg-preview.png",
+    //     desc: "As an authorized Vertiv (Emerson Network Power) franchisee, we have delivered 300+ precision cooling projects across India. Our customers include Project Management Consultants (JLLM, Johnson Controls, CBRE, Cushman & Wakefield), leading architects, HVAC consultants, and builders such as DLF, RMZ, Ascendas, and Embassy Group.",
+    //     tags: ["300+ Projects", "Vertiv / Emerson", "PMC Clients", "DLF", "RMZ"],
+    // },
     {
         id: 11,
         cat: "Engineering",
@@ -223,259 +223,90 @@ function ServiceRow({ service, index }) {
     const [ref, visible] = useIntersectionObserver();
     const [imgError, setImgError] = useState(false);
 
-    const textAnim = {
-        opacity: visible ? 1 : 0,
-        transform: visible
-            ? "translateX(0) translateY(0)"
-            : `translateX(${isEven ? "-48px" : "48px"}) translateY(16px)`,
-        transition: "opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1)",
-        transitionDelay: "0.08s",
-    };
-
-    const imgAnim = {
-        opacity: visible ? 1 : 0,
-        transform: visible
-            ? "translateX(0) translateY(0) scale(1)"
-            : `translateX(${isEven ? "48px" : "-48px"}) translateY(16px) scale(0.97)`,
-        transition: "opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1)",
-        transitionDelay: "0s",
-    };
-
     return (
         <div
             ref={ref}
-            className={`ss-service-row ${isEven ? "ss-row-even" : "ss-row-odd"}`}
+            className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-3xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300"
             style={{
-                position: "relative",
-                background: isEven
-                    ? "linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)"
-                    : "#ffffff",
-                borderBottom: "1px solid #e0ecff",
-                overflow: "hidden",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(40px)",
+                transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
             }}
         >
-{/* Image side */}
-            <div
-                className="ss-row-img"
-                style={{
-                    position: "relative",
-                    overflow: "hidden",
-                }}
-            >
-                <div style={{ ...imgAnim, position: "absolute", inset: 0, width: "100%", height: "100%" }}>
-                    {!imgError ? (
-                        <img
-                            src={service.img}
-                            alt={service.title}
-                            onError={() => setImgError(true)}
-                            loading="lazy"
-                            style={{
-                                position: "absolute",
-                                inset: 0,
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                                objectPosition: "center",
-                                display: "block",
-                                transition: "transform 0.55s cubic-bezier(.22,1,.36,1)",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = "scale(1.06)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = "scale(1)";
-                            }}
-                        />
-                    ) : (
-                        <div
-                            style={{
-                                position: "absolute",
-                                inset: 0,
-                                background: "linear-gradient(135deg, #bfdbfe, #60a5fa)",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                fontSize: "64px",
-                            }}
-                        >
-                            ❄️
+            {/* Image side */}
+            <div className={`relative min-h-[320px] md:min-h-[420px] bg-slate-100 ${isEven ? "" : "md:order-2"}`}>
+                {!imgError ? (
+                    <img
+                        src={service.img}
+                        alt={service.title}
+                        onError={() => setImgError(true)}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center text-6xl">
+                        ❄️
+                    </div>
+                )}
+                <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-primary-800 to-primary-500 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full shadow">
+                    {service.cat}
+                </span>
+            </div>
+
+            {/* Content side */}
+            <div className={`p-8 md:p-12 flex flex-col justify-center ${isEven ? "" : "md:order-1"}`}>
+                <div>
+                    <h3 className="text-2xl md:text-3xl font-bold font-heading text-primary-900 mb-3">
+                        {service.title}
+                    </h3>
+                    <div className="w-12 h-[3.5px] bg-gradient-to-r from-primary-600 to-accent-500 rounded-full mb-5" />
+
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                        {service.desc}
+                    </p>
+
+                    {/* Tags */}
+                    {service.tags && service.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            {service.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="bg-primary-50 border border-primary-100 rounded-full px-3.5 py-1 text-xs text-primary-700 font-semibold"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Extra Section */}
+                    {service.extra && (
+                        <div className="mb-6">
+                            <h4 className="text-sm font-semibold text-primary-800 mb-3">
+                                {service.extra.title}:
+                            </h4>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                                {service.extra.points.map((point, i) => (
+                                    <li
+                                        key={i}
+                                        className="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed"
+                                    >
+                                        <HiCheckCircle className="w-4 h-4 text-primary-500 mt-0.5 shrink-0" />
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     )}
                 </div>
 
-                {/* Category pill overlay on image */}
-                <div
-                    style={{
-                        position: "absolute",
-                        top: "20px",
-                        ...(isEven ? { right: "20px" } : { left: "20px" }),
-                        background: "rgba(30,58,138,0.88)",
-                        color: "#bfdbfe",
-                        fontSize: "11px",
-                        fontWeight: "600",
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                        padding: "5px 14px",
-                        borderRadius: "999px",
-                        backdropFilter: "blur(6px)",
-                        zIndex: 2,
-                    }}
-                >
-                    {service.cat}
-                </div>
-            </div>
-
-            {/* Text side */}
-            <div
-                className="ss-row-content"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    padding: "48px 52px",
-                    position: "relative",
-                    zIndex: 1,
-                    ...textAnim,
-                }}
-            >
-{/* Title */}
-                <h2
-                    className="font-heading"
-                    style={{
-                        fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                        fontWeight: "700",
-                        color: "#1e3a8a",
-                        lineHeight: 1.2,
-                        marginBottom: "16px",
-                    }}
-                >
-                    {service.title}
-                </h2>
-
-                {/* Accent line */}
-                <div
-                    style={{
-                        width: "48px",
-                        height: "3px",
-                        background: "linear-gradient(90deg, #2563eb, #38bdf8)",
-                        borderRadius: "2px",
-                        marginBottom: "20px",
-                    }}
-                />
-
-                {/* Description */}
-                <p
-                    style={{
-                        fontSize: "15px",
-                        color: "#475569",
-                        lineHeight: "1.75",
-                        marginBottom: "20px",
-                    }}
-                >
-                    {service.desc}
-                </p>
-
-                {/* Tags */}
-                {service.tags && service.tags.length > 0 && (
-                    <div
-                        style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: "8px",
-                            marginBottom: "20px",
-                        }}
-                    >
-                        {service.tags.map((tag) => (
-                            <span
-                                key={tag}
-                                style={{
-                                    background: "#eff6ff",
-                                    color: "#1d4ed8",
-                                    fontSize: "11px",
-                                    fontWeight: "600",
-                                    padding: "4px 12px",
-                                    borderRadius: "999px",
-                                    border: "1px solid #bfdbfe",
-                                    letterSpacing: "0.03em",
-                                }}
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                )}
-
-                {/* Extra Section */}
-                {service.extra && (
-                    <div style={{ marginBottom: "24px" }}>
-                        <h4
-                            style={{
-                                fontSize: "14px",
-                                fontWeight: "700",
-                                color: "#1e3a8a",
-                                marginBottom: "10px",
-                            }}
-                        >
-                            {service.extra.title}
-                        </h4>
-                        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                            {service.extra.points.map((point, i) => (
-                                <li
-                                    key={i}
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "flex-start",
-                                        gap: "8px",
-                                        fontSize: "14px",
-                                        color: "#475569",
-                                        marginBottom: "8px",
-                                        lineHeight: 1.6,
-                                    }}
-                                >
-                                    <HiCheckCircle
-                                        style={{
-                                            width: "16px",
-                                            height: "16px",
-                                            color: "#2563eb",
-                                            flexShrink: 0,
-                                            marginTop: "3px",
-                                        }}
-                                    />
-                                    {point}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
-                {/* View More CTA */}
-                <div>
+                {/* View Details CTA */}
+                <div className="mt-4">
                     <Link
                         to={service.internalRoute}
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            background: "linear-gradient(135deg, #1d4ed8, #2563eb)",
-                            color: "#fff",
-                            fontSize: "13px",
-                            fontWeight: "600",
-                            padding: "11px 24px",
-                            borderRadius: "8px",
-                            textDecoration: "none",
-                            letterSpacing: "0.03em",
-                            transition: "transform 0.18s, box-shadow 0.18s",
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "translateY(-2px)";
-                            e.currentTarget.style.boxShadow = "0 8px 24px rgba(29,78,216,0.35)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = "translateY(0)";
-                            e.currentTarget.style.boxShadow = "none";
-                        }}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-700 to-primary-600 hover:from-primary-800 hover:to-primary-700 text-white font-semibold text-sm px-6 py-2.5 rounded-xl shadow transition duration-200"
                     >
-                        View More
+                        View Details
                         <svg
                             width="14"
                             height="14"
@@ -494,21 +325,6 @@ function ServiceRow({ service, index }) {
                     </Link>
                 </div>
             </div>
-
-            {/* Subtle diagonal accent on even rows */}
-            {isEven && (
-                <div
-                    style={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "3px",
-                        background: "linear-gradient(90deg, #3b82f6 0%, #38bdf8 50%, transparent 100%)",
-                        opacity: 0.35,
-                    }}
-                />
-            )}
         </div>
     );
 }
@@ -556,16 +372,6 @@ export default function ServicesSection() {
                     overflow: "hidden",
                 }}
             >
-                {/* Grid pattern overlay */}
-                <div
-                    style={{
-                        position: "absolute",
-                        inset: 0,
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-                        backgroundSize: "40px 40px",
-                    }}
-                />
                 <div style={{ position: "relative" }}>
                     <span
                         style={{
@@ -684,11 +490,13 @@ export default function ServicesSection() {
                 </div>
             </div>
 
-            {/* Alternating service rows */}
-            <div>
-                {services.map((service, index) => (
-                    <ServiceRow key={service.id} service={service} index={index} />
-                ))}
+            {/* Alternating service cards */}
+            <div className="container-custom py-16">
+                <div className="space-y-12">
+                    {services.map((service, index) => (
+                        <ServiceRow key={service.id} service={service} index={index} />
+                    ))}
+                </div>
             </div>
 
             {/* Bottom CTA */}

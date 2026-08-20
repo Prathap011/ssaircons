@@ -115,10 +115,18 @@ export default function OurVertivProjects() {
         />
       </Helmet>
 
-      <PageHero
+      {/* <PageHero
         title="Our Vertiv Projects"
         breadcrumbs={[{ label: 'Services' }, { label: 'Our Vertiv Projects' }]}
         bg="/assets/vertivlanding.jpeg"
+      /> */}
+      <PageHero
+        title="Our Vertiv Projects"
+        breadcrumbs={[{ label: 'Services' }, { label: 'Our Vertiv Projects' }]}
+        bg="/assets/vertiv.jpg"
+        overlayOpacity={30}
+        fullHeight={true}
+        contentShift={50}
       />
 
       {/* Stats Strip */}

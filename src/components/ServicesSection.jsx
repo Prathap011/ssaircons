@@ -76,12 +76,12 @@ function ServiceCard({ service, index }) {
 
         {/* Content */}
         <div className="relative z-10 p-6 flex flex-col flex-grow justify-end">
-          <motion.div
+          {/* <motion.div
             variants={iconBoxVariants}
             className="w-10 h-10 rounded-xl bg-accent-500/20 border border-accent-500/30 flex items-center justify-center mb-3 origin-center"
           >
             <Icon className="w-5 h-5 text-accent-400" />
-          </motion.div>
+          </motion.div> */}
           <h3 className="text-white font-heading font-semibold text-lg mb-2">{service.title}</h3>
           <p className="text-blue-100 text-sm leading-relaxed line-clamp-3 mb-4">{service.description}</p>
           <Link

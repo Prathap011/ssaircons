@@ -209,11 +209,18 @@ export default function PartnersBluestar() {
           content="SS Aircon is an authorized Blue Star dealer in Chennai. Explore Blue Star chillers, VRF systems, ductable ACs, cassette units and split ACs — supply and installation across Tamil Nadu."
         />
       </Helmet>
-
+      {/* 
       <PageHero
         title="Blue Star Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Blue Star' }]}
-        bg="/assets/bluestarlanding.jpeg"
+        bg="/assets/ourbluestar.jpg"
+      /> */}
+      <PageHero
+        title="Blue Star Products"
+        breadcrumbs={[{ label: 'Our Partners' }, { label: 'Blue Star' }]}
+        bg="/assets/ourbluestar1.jpg"
+        overlayOpacity={30}
+        fullHeight={true}
       />
 
       {/* Sub Navigation Bar */}
@@ -223,10 +230,9 @@ export default function PartnersBluestar() {
             to="/our-partners/bluestar"
             end
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive || isOverviewActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive || isOverviewActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >
@@ -235,10 +241,9 @@ export default function PartnersBluestar() {
           <NavLink
             to="/our-partners/bluestar/indoor"
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >
@@ -247,10 +252,9 @@ export default function PartnersBluestar() {
           <NavLink
             to="/our-partners/bluestar/outdoor"
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >

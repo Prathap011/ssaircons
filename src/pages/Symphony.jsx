@@ -213,17 +213,17 @@ const jumboSeries = [
     //   'Symphony\'s most powerful unit — 20,000 m³/hr of cool air distributed through 4-side honeycomb cooling pads with an incredible 30-metre throw. Designed for mega warehouses, large event spaces, sports complexes, and demanding outdoor industrial operations.',
     highlights: ['Powerful 25m air throw for faster cooling', '4-side high efficiency honeycomb cooling pads for superior cooling', 'Robust weather resistant body long life'],
     features: [
-  '20000 m^/hr Air Delivery',
-  'Fully Closable Horizontal Louvers',
-  'Low Power Consumption – 1100W Only',
-  'Powerful 3 Speed Fan',
-  'Easily Removable & Cleanable Cooling Pads',
-  '4-Side Dust Filters for Pure Healthy Air',
-  'Auto Vertical Swing',
-  'Cool Flow Dispenser for Enhanced Cooling',
-  'Float Valve for Auto Water Filling',
-  'Lockable Heavy-Duty Wheels',
-],
+      '20000 m^/hr Air Delivery',
+      'Fully Closable Horizontal Louvers',
+      'Low Power Consumption – 1100W Only',
+      'Powerful 3 Speed Fan',
+      'Easily Removable & Cleanable Cooling Pads',
+      '4-Side Dust Filters for Pure Healthy Air',
+      'Auto Vertical Swing',
+      'Cool Flow Dispenser for Enhanced Cooling',
+      'Float Valve for Auto Water Filling',
+      'Lockable Heavy-Duty Wheels',
+    ],
   },
   {
     name: 'Symphony Movi-cool',
@@ -365,10 +365,18 @@ export default function Symphony() {
         />
       </Helmet>
 
-      <PageHero
+      {/* <PageHero
         title="Symphony Industrial Air Coolers"
         breadcrumbs={[{ label: 'Products' }, { label: 'Symphony' }]}
         bg="/assets/symphony-landing.jpeg"
+      /> */}
+      <PageHero
+        title="Symphony Industrial Air Coolers"
+        breadcrumbs={[{ label: 'Products' }, { label: 'Symphony' }]}
+        bg="/assets/symphony.jpg"
+        overlayOpacity={30}
+        fullHeight={true}
+        contentShift={50}
       />
 
       {/* ── Brand Banner ───────────────────────────────────────────────────────── */}

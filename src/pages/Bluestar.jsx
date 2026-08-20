@@ -189,10 +189,17 @@ export default function Bluestar() {
         />
       </Helmet>
 
-      <PageHero
+      {/* <PageHero
         title="Blue Star Products"
         breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
         bg="/assets/bluestarlanding.jpeg"
+      /> */}
+      <PageHero
+        title="Blue Star Products"
+        breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
+        bg="/assets/ourbluestar1.jpg"
+        overlayOpacity={30}
+        fullHeight={true}
       />
 
       {/* Sub Navigation Bar */}
@@ -202,10 +209,9 @@ export default function Bluestar() {
             to="/our-partners/bluestar"
             end
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive || isOverviewActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive || isOverviewActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >
@@ -214,10 +220,9 @@ export default function Bluestar() {
           <NavLink
             to="/our-partners/bluestar/indoor"
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >
@@ -226,10 +231,9 @@ export default function Bluestar() {
           <NavLink
             to="/our-partners/bluestar/outdoor"
             className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-primary-700 text-white shadow-md'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
+                ? 'bg-primary-700 text-white shadow-md'
+                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
               }`
             }
           >

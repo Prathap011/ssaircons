@@ -67,7 +67,7 @@ export const heroSlides = [
   {
     id: 4,
     tagline: "India's Best Value",
-    title: "INDIA'S LOW-COST\nAPPLIANCE SERVICE",
+    title: "INDIA'S \nAPPLIANCE SERVICE",
     subtitle: 'At Your Door Step',
     cta: { label: 'Contact Us', href: '/contact' },
     bg: '/assets/hvaclanding05.jpeg',
@@ -77,7 +77,7 @@ export const heroSlides = [
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const stats = [
   { value: '300+', label: 'Projects Completed' },
-  { value: '24+', label: 'Years of Experience' },
+  { value: '22+', label: 'Years of Experience' },
   { value: '75+', label: 'Certified Workers' },
   { value: '100+', label: 'Client Satisfaction' },
 ]

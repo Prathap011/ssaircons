@@ -142,9 +142,8 @@ function IndustryCarousel({ images }) {
             <button
               key={`dot-${i}`}
               onClick={() => { setDirection(i > start ? 1 : -1); setStart(i) }}
-              className={`rounded-full transition-all duration-200 ${
-                i === start ? 'w-5 h-2 bg-primary-600' : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-              }`}
+              className={`rounded-full transition-all duration-200 ${i === start ? 'w-5 h-2 bg-primary-600' : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
@@ -200,11 +199,10 @@ function IndustrySection() {
             <button
               key={c.label}
               onClick={() => handleCategory(i)}
-              className={`flex-shrink-0 px-4 py-2 text-sm font-semibold transition-all duration-200 border-b-2 whitespace-nowrap ${
-                i === activeCategory
-                  ? 'text-primary-700 border-primary-600'
-                  : 'text-slate-500 border-transparent hover:text-primary-600 hover:border-primary-200'
-              }`}
+              className={`flex-shrink-0 px-4 py-2 text-sm font-semibold transition-all duration-200 border-b-2 whitespace-nowrap ${i === activeCategory
+                ? 'text-primary-700 border-primary-600'
+                : 'text-slate-500 border-transparent hover:text-primary-600 hover:border-primary-200'
+                }`}
             >
               {c.label}
             </button>
@@ -270,10 +268,17 @@ export default function Clients() {
         />
       </Helmet>
 
+      {/* <PageHero
+        title="Our Clients"
+        breadcrumbs={[{ label: 'Clients' }]}
+        bg="assets/ourclient.jpeg"
+      /> */}
       <PageHero
         title="Our Clients"
         breadcrumbs={[{ label: 'Clients' }]}
-        bg="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&auto=format&fit=crop&q=80"
+        bg="assets/ourservice.jpeg"
+        overlayOpacity={60}
+        fullHeight={true}
       />
 
       {/* Intro strip */}
@@ -308,7 +313,7 @@ export default function Clients() {
             <div className="grid grid-cols-2 gap-5">
               {[
                 { number: '300+', label: 'Projects Delivered' },
-                { number: '24+', label: 'Years Serving Clients' },
+                { number: '22+', label: 'Years Serving Clients' },
                 { number: '30+', label: 'Service Executives' },
                 { number: '24/7', label: 'Support Available' },
               ].map((s, i) => (

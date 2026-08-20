@@ -29,7 +29,7 @@ import { useInView } from '../hooks/useInView'
 //   },
 //   {
 //     num: '06',
-//     title: '24+ Years of Trust',
+//     title: '22+ Years of Trust',
 //     description: '300+ completed projects across IT, Telecom, Banking, Healthcare, and Hospitality.',
 //   },
 // ]
@@ -242,7 +242,7 @@ export default function WhyUsSection() {
                     className="font-heading font-bold text-white leading-none"
                     style={{ fontSize: '2.6rem' }}
                   >
-                    24+
+                    22+
                   </div>
                   <div
                     className="text-white/45 uppercase tracking-widest leading-snug mt-1.5"

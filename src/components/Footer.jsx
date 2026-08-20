@@ -52,7 +52,7 @@ export default function Footer() {
             >
               <FaFacebookF className="w-4 h-4" />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com/AirconSs"
               target="_blank"
               rel="noopener noreferrer"
@@ -69,7 +69,7 @@ export default function Footer() {
               className="w-9 h-9 rounded-full bg-white/10 hover:bg-accent-500 flex items-center justify-center transition-colors"
             >
               <FaInstagram className="w-4 h-4" />
-            </a>
+            </a> */}
           </div>
         </div>
 

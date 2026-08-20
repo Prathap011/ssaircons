@@ -53,6 +53,39 @@ const teamWorkPhotos = [
   '/assets/teamatwork/137369.jpeg',
   '/assets/teamatwork/137372.jpeg',
   '/assets/teamatwork/137375.jpeg',
+  '/assets/teamatwork/139773.jpeg',
+  '/assets/teamatwork/139774.jpeg',
+  '/assets/teamatwork/139775.jpeg',
+  '/assets/teamatwork/139776.jpeg',
+  '/assets/teamatwork/139777.jpeg',
+  '/assets/teamatwork/139783.jpeg',
+  '/assets/teamatwork/139785.jpeg',
+  '/assets/teamatwork/139786.jpeg',
+  '/assets/teamatwork/139787.jpeg',
+  '/assets/teamatwork/139793.jpeg',
+  '/assets/teamatwork/139795.jpeg',
+  '/assets/teamatwork/139797.jpeg',
+  '/assets/teamatwork/139801.jpeg',
+  '/assets/teamatwork/139804.jpeg',
+  '/assets/teamatwork/139807.jpeg',
+  '/assets/teamatwork/139810.jpeg',
+  '/assets/teamatwork/139813.jpeg',
+  '/assets/teamatwork/139816.jpeg',
+  '/assets/teamatwork/139819.jpeg',
+  '/assets/teamatwork/139822.jpeg',
+  '/assets/teamatwork/139825.jpeg',
+  '/assets/teamatwork/139827.jpeg',
+  '/assets/teamatwork/139830.jpeg',
+  '/assets/teamatwork/139833.jpeg',
+  '/assets/teamatwork/139836.jpeg',
+  '/assets/teamatwork/139839.jpeg',
+  '/assets/teamatwork/139842.jpeg',
+  '/assets/teamatwork/139845.jpeg',
+  '/assets/teamatwork/139952.jpeg',
+  '/assets/teamatwork/139954.jpeg',
+  '/assets/teamatwork/139956.jpeg',
+  '/assets/teamatwork/139958.jpeg',
+  '/assets/teamatwork/139960.jpeg',
 ]
 
 const stagger = {
@@ -71,7 +104,8 @@ export default function About() {
   const { ref: refVision, inView: inViewVision } = useInView()
   const { ref: refTeam, inView: inViewTeam } = useInView()
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [row1Index, setRow1Index] = useState(0)
+  const [row2Index, setRow2Index] = useState(0)
   const [visibleCount, setVisibleCount] = useState(5)
 
   useEffect(() => {
@@ -89,22 +123,21 @@ export default function About() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const maxIndex = Math.max(0, teamWorkPhotos.length - visibleCount)
-  const safeCurrentIndex = Math.min(currentIndex, maxIndex)
+  const half = Math.ceil(teamWorkPhotos.length / 2)
+  const row1Photos = teamWorkPhotos.slice(0, half)
+  const row2Photos = teamWorkPhotos.slice(half)
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0))
-  }
+  const maxIndex1 = Math.max(0, row1Photos.length - visibleCount)
+  const safeCurrentIndex1 = Math.min(row1Index, maxIndex1)
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex))
-  }
+  const maxIndex2 = Math.max(0, row2Photos.length - visibleCount)
+  const safeCurrentIndex2 = Math.min(row2Index, maxIndex2)
 
   return (
     <>
       <Helmet>
         <title>About SS Aircon | The HVAC Experts Since 2004</title>
-        <meta name="description" content="SS Aircon – Established 2004. Authorized dealer for Bluestar, Symphony and Vertiv. 300+ completed projects, 24+ years of HVAC excellence." />
+        <meta name="description" content="SS Aircon – Established 2004. Authorized dealer for Bluestar, Symphony and Vertiv. 300+ completed projects, 22+ years of HVAC excellence." />
       </Helmet>
 
       <PageHero
@@ -378,18 +411,19 @@ export default function About() {
           </motion.div>
 
 
-          <div ref={refTeam} className="w-full">
+          <div ref={refTeam} className="w-full space-y-10">
             <SectionTitle label="Team at Work" title="Our Team in Action" center />
+
+            {/* Row 1 Slider */}
             <div className="relative px-8 md:px-14">
-              {/* Slider Track Wrapper */}
               <div className="overflow-hidden">
                 <div
                   className="flex transition-transform duration-500 ease-out"
                   style={{
-                    transform: `translate3d(-${safeCurrentIndex * (100 / visibleCount)}%, 0, 0)`,
+                    transform: `translate3d(-${safeCurrentIndex1 * (100 / visibleCount)}%, 0, 0)`,
                   }}
                 >
-                  {teamWorkPhotos.map((photo, i) => (
+                  {row1Photos.map((photo, i) => (
                     <div
                       key={photo}
                       className="flex-shrink-0 px-2"
@@ -404,7 +438,7 @@ export default function About() {
                       >
                         <img
                           src={photo}
-                          alt={`Team Work ${i + 1}`}
+                          alt={`Team Work Row 1 - ${i + 1}`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                       </motion.div>
@@ -413,24 +447,82 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Navigation Arrows */}
+              {/* Navigation Arrows Row 1 */}
               <button
-                onClick={handlePrev}
-                disabled={safeCurrentIndex === 0}
-                className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex === 0
-                    ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                onClick={() => setRow1Index((prev) => Math.max(prev - 1, 0))}
+                disabled={safeCurrentIndex1 === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex1 === 0
+                  ? 'opacity-30 cursor-not-allowed'
+                  : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
                   }`}
                 aria-label="Previous slide"
               >
                 <HiChevronLeft className="w-6 h-6" />
               </button>
               <button
-                onClick={handleNext}
-                disabled={safeCurrentIndex >= maxIndex}
-                className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex >= maxIndex
-                    ? 'opacity-30 cursor-not-allowed'
-                    : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                onClick={() => setRow1Index((prev) => Math.min(prev + 1, maxIndex1))}
+                disabled={safeCurrentIndex1 >= maxIndex1}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex1 >= maxIndex1
+                  ? 'opacity-30 cursor-not-allowed'
+                  : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                  }`}
+                aria-label="Next slide"
+              >
+                <HiChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Row 2 Slider */}
+            <div className="relative px-8 md:px-14">
+              <div className="overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{
+                    transform: `translate3d(-${safeCurrentIndex2 * (100 / visibleCount)}%, 0, 0)`,
+                  }}
+                >
+                  {row2Photos.map((photo, i) => (
+                    <div
+                      key={photo}
+                      className="flex-shrink-0 px-2"
+                      style={{ width: `${100 / visibleCount}%` }}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={inViewTeam ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: (i % visibleCount) * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                        className="group relative overflow-hidden rounded-2xl shadow-sm border border-slate-100 bg-white"
+                        style={{ aspectRatio: '1/2' }}
+                      >
+                        <img
+                          src={photo}
+                          alt={`Team Work Row 2 - ${i + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Arrows Row 2 */}
+              <button
+                onClick={() => setRow2Index((prev) => Math.max(prev - 1, 0))}
+                disabled={safeCurrentIndex2 === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex2 === 0
+                  ? 'opacity-30 cursor-not-allowed'
+                  : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
+                  }`}
+                aria-label="Previous slide"
+              >
+                <HiChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={() => setRow2Index((prev) => Math.min(prev + 1, maxIndex2))}
+                disabled={safeCurrentIndex2 >= maxIndex2}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white text-primary-700 rounded-full flex items-center justify-center shadow-lg border border-slate-100 transition-all duration-300 z-10 ${safeCurrentIndex2 >= maxIndex2
+                  ? 'opacity-30 cursor-not-allowed'
+                  : 'hover:bg-primary-600 hover:text-white hover:border-primary-600 cursor-pointer active:scale-95'
                   }`}
                 aria-label="Next slide"
               >

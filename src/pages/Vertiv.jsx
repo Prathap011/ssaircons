@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
 import {
-  HiCog, HiLightBulb, HiOfficeBuilding,HiShieldCheck
+  HiCog, HiLightBulb, HiOfficeBuilding, HiShieldCheck
 } from 'react-icons/hi'
 import { MdOutlineEmojiEvents } from 'react-icons/md'
 
@@ -135,27 +135,27 @@ const products = [
       'Optional humidity control module',
     ],
   },
-  {
-    id: 'stp',
-    name: 'Vertiv (STP/WTP)',
-    subtitle: 'STP/WTP',
-    description:
-      'Li ebert® STP is designed for High air quantity to match equipment Sensible Load application. It is coupled with high energy efficient components and advanced control system which helps in maximum energy efficiency and guarantees proper environmental conditions inside Critical Technological rooms.',
-    image: '/assets/vertiv/verti_stp.jpeg',
-    specs: [
-      { label: 'Capacity Range', value: '3 – 20 TR' },
-      { label: 'Application', value: 'Small / Edge Sites' },
-      { label: 'Refrigerant', value: 'R410A / R407C' },
-    ],
-    features: [
-      'Compact design for space-constrained rooms',
-      'Free-cooling economiser option',
-      'Digital scroll compressor technology',
-      'Integrated electrical panel',
-      'Auto restart on power restoration',
-      'Optional humidity control module',
-    ],
-  },
+  // {
+  //   id: 'stp',
+  //   name: 'Vertiv (STP/WTP)',
+  //   subtitle: 'Small / Medium Room Cooling',
+  //   description:
+  //     'Liebert® SRC is designed for High air quantity to match equipment Sensible Load application. It is coupled with high energy efficient components and advanced control system which helps in maximum energy efficiency and guarantees proper environmental conditions inside Critical Technological rooms.',
+  //   image: '/assets/vertiv/verti_src.jpg',
+  //   specs: [
+  //     { label: 'Capacity Range', value: '3 – 20 TR' },
+  //     { label: 'Application', value: 'Small / Edge Sites' },
+  //     { label: 'Refrigerant', value: 'R410A / R407C' },
+  //   ],
+  //   features: [
+  //     'Compact design for space-constrained rooms',
+  //     'Free-cooling economiser option',
+  //     'Digital scroll compressor technology',
+  //     'Integrated electrical panel',
+  //     'Auto restart on power restoration',
+  //     'Optional humidity control module',
+  //   ],
+  // }
 ]
 
 const achievements = [
@@ -243,10 +243,18 @@ export default function Vertiv() {
         />
       </Helmet>
 
-      <PageHero
+      {/* <PageHero
         title="Vertiv Products"
         breadcrumbs={[{ label: 'Our Partners' }, { label: 'Vertiv' }]}
         bg="/assets/vertivlanding.jpeg"
+      /> */}
+      <PageHero
+        title="Vertiv Products"
+        breadcrumbs={[{ label: 'Our Partners' }, { label: 'Vertiv' }]}
+        bg="/assets/ourvertiv.jpg"
+        overlayOpacity={30}
+        fullHeight={true}
+        contentShift={50}
       />
 
       {/* Brand Intro Banner */}

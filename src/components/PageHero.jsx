@@ -2,29 +2,51 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiChevronRight } from 'react-icons/hi'
 
-export default function PageHero({ title, breadcrumbs = [], bg }) {
+export default function PageHero({
+  title,
+  breadcrumbs = [],
+  bg,
+  hideOverlay = false,
+  fullHeight = false,
+  overlayOpacity = 75,
+  contentShift = 0,
+}) {
   const words = title.split(' ')
 
   return (
     <section
-      className="relative py-36 md:py-44 flex items-center"
+      className={`relative flex items-center ${fullHeight ? 'py-44 md:py-52' : 'py-36 md:py-44'
+        }`}
       style={{
         backgroundImage: bg ? `url(${bg})` : undefined,
         backgroundColor: bg ? undefined : '#1e3a8a',
-        backgroundSize: 'cover',
+        backgroundSize: fullHeight ? '100% 100%' : 'cover',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-primary-900/75" />
+      {!hideOverlay && (
+        <>
+          <div
+            className="absolute inset-0 bg-primary-900"
+            style={{ opacity: overlayOpacity / 100 }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-primary-800/30 via-transparent to-accent-900/20 pointer-events-none"
+            style={{ opacity: overlayOpacity / 75 }}
+            animate={{ opacity: [0.4, 0.8, 0.4] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </>
+      )}
 
-      {/* Subtle animated gradient shimmer */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-primary-800/30 via-transparent to-accent-900/20 pointer-events-none"
-        animate={{ opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
-      <div className="relative z-10 container-custom text-white">
+      <div
+        className={`relative z-10 container-custom text-white ${hideOverlay || overlayOpacity < 40
+            ? 'drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]'
+            : ''
+          }`}
+        style={contentShift ? { transform: `translateY(${contentShift}px)` } : undefined}
+      >
         {/* Word-by-word title reveal */}
         <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">
           {words.map((word, i) => (

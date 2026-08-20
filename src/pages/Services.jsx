@@ -68,24 +68,26 @@ export default function Services() {
       <PageHero
         title="Our Services"
         breadcrumbs={[{ label: 'Services' }]}
-        bg="https://images.unsplash.com/photo-1621873495914-1c1c58e9f9e0?w=1600&auto=format&fit=crop&q=80"
+        bg="assets/ourservice.jpeg"
+        overlayOpacity={60}
+        fullHeight={true}
       />
 
       <Servicessection />
 
       <div className="bg-primary-50 py-20 px-6 md:px-16 text-center">
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-5xl font-bold text-primary-800 mb-12"
-      >
-        Our Specialized HVAC Services
-      </motion.h2>
+        {/* Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-5xl font-bold text-primary-800 mb-12"
+        >
+          Our Specialized HVAC Services
+        </motion.h2>
 
-      {/* Center Image */}
-      {/* <motion.div
+        {/* Center Image */}
+        {/* <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -102,40 +104,40 @@ export default function Services() {
         </div>
       </motion.div> */}
 
-      {/* Services Row Grid (Unique Design) */}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -8, scale: 1.03 }}
-            className="relative group p-5 rounded-2xl bg-white shadow-lg overflow-hidden flex items-center gap-4"
-          >
-            {/* Animated Border */}
-            <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent-500 rounded-2xl transition duration-300"></div>
+        {/* Services Row Grid (Unique Design) */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.03 }}
+              className="relative group p-5 rounded-2xl bg-white shadow-lg overflow-hidden flex items-center gap-4"
+            >
+              {/* Animated Border */}
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent-500 rounded-2xl transition duration-300"></div>
 
-            {/* Dot + Text in same row */}
-            <div className="w-3 h-3 bg-accent-500 rounded-full shrink-0 group-hover:scale-125 transition"></div>
+              {/* Dot + Text in same row */}
+              <div className="w-3 h-3 bg-accent-500 rounded-full shrink-0 group-hover:scale-125 transition"></div>
 
-            <p className="text-gray-700 font-medium text-left">{service}</p>
+              <p className="text-gray-700 font-medium text-left">{service}</p>
 
-            {/* Hover Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 opacity-0 group-hover:opacity-100 transition duration-300 -z-10"></div>
-          </motion.div>
-        ))}
+              {/* Hover Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 opacity-0 group-hover:opacity-100 transition duration-300 -z-10"></div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-12 px-8 py-4 bg-primary-600 text-white rounded-xl shadow-lg hover:bg-primary-700 transition"
+        >
+          Get Service Now
+        </motion.button>
       </div>
-
-      {/* CTA Button */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="mt-12 px-8 py-4 bg-primary-600 text-white rounded-xl shadow-lg hover:bg-primary-700 transition"
-      >
-        Get Service Now
-      </motion.button>
-    </div>
 
       {/* Grid overview */}
       {/* <section className="section-padding bg-white">

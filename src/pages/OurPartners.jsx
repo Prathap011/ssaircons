@@ -111,7 +111,7 @@ export default function OurPartners() {
             {[
               { number: '300+', label: 'Projects Completed' },
               { number: '#1', label: 'Vertiv Franchisee Rank' },
-              { number: '24+', label: 'Years of Experience' },
+              { number: '22+', label: 'Years of Experience' },
               { number: '1500+', label: 'TR Capacity Installed' },
             ].map((s, i) => (
               <motion.div

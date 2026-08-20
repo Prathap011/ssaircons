@@ -80,104 +80,104 @@ function ServiceCard({ service, index }) {
       className="flex flex-col h-full"
       tabIndex={-1}
     >
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative border overflow-hidden cursor-pointer transition-colors duration-300 flex flex-col h-full"
-      style={{
-        background: hovered ? 'rgba(219,234,254,0.7)' : 'rgba(255,255,255,0.92)',
-        borderColor: hovered ? 'rgba(37,99,235,0.35)' : 'rgba(191,219,254,0.7)',
-      }}
-    >
-      {/* Product image */}
-      <div className="relative overflow-hidden h-56 bg-white flex items-center justify-center p-4 shrink-0">
-        {!imgError ? (
-          <motion.img
-            src={service.image}
-            alt={service.title}
-            onError={() => setImgError(true)}
-            className="w-full h-full object-contain"
-            animate={{ scale: hovered ? 1.07 : 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full bg-primary-50 flex items-center justify-center">
-            <Icon className="w-14 h-14 text-primary-200" />
-          </div>
-        )}
-      </div>
-
-      {/* Card body */}
-      <div className="p-6 flex flex-col flex-grow">
-        {/* Icon box */}
-        <motion.div
-          animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 flex-shrink-0"
-          style={{
-            background: hovered ? 'rgba(37,99,235,0.12)' : 'rgba(96,165,250,0.12)',
-            border: hovered ? '1px solid rgba(37,99,235,0.3)' : '1px solid rgba(147,197,253,0.5)',
-          }}
-        >
-          <Icon
-            className="w-5 h-5 transition-colors duration-300"
-            style={{ color: hovered ? '#2563eb' : '#3b82f6' }}
-          />
-        </motion.div>
-
-        {/* Title */}
-        <h3
-          className="font-heading font-semibold text-base text-primary-800 mb-2 leading-snug transition-colors duration-300"
-          style={{ color: hovered ? '#1d4ed8' : '#1e40af' }}
-        >
-          {service.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-sm text-slate-500 leading-relaxed">
-          {service.description}
-        </p>
-
-        {/* Discover link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="mt-auto pt-4 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
-        >
-          Discover
-          <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
-            <HiArrowRight className="w-3.5 h-3.5" />
-          </motion.span>
-        </motion.div>
-      </div>
-
-      {/* Bottom accent line */}
       <motion.div
-        animate={{ scaleX: hovered ? 1 : 0 }}
-        initial={{ scaleX: 0 }}
-        transition={{ duration: 0.35, ease: 'easeOut' }}
-        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 origin-left"
-      />
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="relative border overflow-hidden cursor-pointer transition-colors duration-300 flex flex-col h-full"
+        style={{
+          background: hovered ? 'rgba(219,234,254,0.7)' : 'rgba(255,255,255,0.92)',
+          borderColor: hovered ? 'rgba(37,99,235,0.35)' : 'rgba(191,219,254,0.7)',
+        }}
+      >
+        {/* Product image */}
+        <div className="relative overflow-hidden h-56 bg-white flex items-center justify-center p-4 shrink-0">
+          {!imgError ? (
+            <motion.img
+              src={service.image}
+              alt={service.title}
+              onError={() => setImgError(true)}
+              className="w-full h-full object-contain"
+              animate={{ scale: hovered ? 1.07 : 1 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              loading="lazy"
+            />
+          ) : (
+            <div className="w-full h-full bg-primary-50 flex items-center justify-center">
+              <Icon className="w-14 h-14 text-primary-200" />
+            </div>
+          )}
+        </div>
 
-      {/* Top-left corner glow */}
-      {hovered && (
+        {/* Card body */}
+        <div className="p-6 flex flex-col flex-grow">
+          {/* Icon box */}
+          {/* <motion.div
+            animate={{ scale: hovered ? 1.15 : 1, rotate: hovered ? -6 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 flex-shrink-0"
+            style={{
+              background: hovered ? 'rgba(37,99,235,0.12)' : 'rgba(96,165,250,0.12)',
+              border: hovered ? '1px solid rgba(37,99,235,0.3)' : '1px solid rgba(147,197,253,0.5)',
+            }}
+          >
+            <Icon
+              className="w-5 h-5 transition-colors duration-300"
+              style={{ color: hovered ? '#2563eb' : '#3b82f6' }}
+            />
+          </motion.div> */}
+
+          {/* Title */}
+          <h3
+            className="font-heading font-semibold text-base text-primary-800 mb-2 leading-snug transition-colors duration-300"
+            style={{ color: hovered ? '#1d4ed8' : '#1e40af' }}
+          >
+            {service.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-slate-500 leading-relaxed">
+            {service.description}
+          </p>
+
+          {/* Discover link */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+            className="mt-auto pt-4 flex items-center gap-1.5 text-primary-600 text-xs font-semibold tracking-widest uppercase"
+          >
+            Discover
+            <motion.span animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
+              <HiArrowRight className="w-3.5 h-3.5" />
+            </motion.span>
+          </motion.div>
+        </div>
+
+        {/* Bottom accent line */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle at top left, rgba(59,130,246,0.1) 0%, transparent 70%)',
-          }}
+          animate={{ scaleX: hovered ? 1 : 0 }}
+          initial={{ scaleX: 0 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 origin-left"
         />
-      )}
-    </motion.div>
+
+        {/* Top-left corner glow */}
+        {hovered && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
+            style={{
+              background: 'radial-gradient(circle at top left, rgba(59,130,246,0.1) 0%, transparent 70%)',
+            }}
+          />
+        )}
+      </motion.div>
     </Link>
   )
 }
@@ -199,11 +199,11 @@ export default function ProductsSection() {
         {/* Blue grid line */}
         <div
           className="absolute inset-0"
-          // style={{
-          //   backgroundImage:
-          //     'linear-gradient(rgba(14,116,144,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14,116,144,0.06) 1px, transparent 1px)',
-          //   backgroundSize: '48px 48px',
-          // }}
+        // style={{
+        //   backgroundImage:
+        //     'linear-gradient(rgba(14,116,144,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(14,116,144,0.06) 1px, transparent 1px)',
+        //   backgroundSize: '48px 48px',
+        // }}
         />
         {/* Glow blobs */}
         <div
