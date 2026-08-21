@@ -50,9 +50,9 @@ export const heroSlides = [
   },
   {
     id: 2,
-    tagline: '24 Years of Excellence',
+    tagline: '22 Years of Excellence',
     title: 'HVAC CONTRACTING\nCOMPANY WHO IS SERVING',
-    subtitle: 'The Industry for the Past 24 Years',
+    subtitle: 'The Industry for the Past 22 Years',
     cta: { label: 'Contact Us', href: '/contact' },
     bg: '/assets/hvaclanding03.jpeg',
   },
@@ -67,7 +67,7 @@ export const heroSlides = [
   {
     id: 4,
     tagline: "India's Best Value",
-    title: "INDIA'S \nAPPLIANCE SERVICE",
+    title: "INDIA'S AFFORDABLE\nAPPLIANCE SERVICE",
     subtitle: 'At Your Door Step',
     cta: { label: 'Contact Us', href: '/contact' },
     bg: '/assets/hvaclanding05.jpeg',
@@ -215,7 +215,7 @@ export const highlights = [
   { icon: 'users', label: 'Highly Skilled & Experienced Engineers' },
   { icon: 'hardhat', label: "We're Professional Contractors" },
   { icon: 'clock', label: 'Service Within 24 Hours' },
-  { icon: 'award', label: '24 Years of Experience' },
+  { icon: 'award', label: '22 Years of Experience' },
 ]
 
 // ─── About capabilities ───────────────────────────────────────────────────────

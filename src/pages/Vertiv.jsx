@@ -294,7 +294,7 @@ export default function Vertiv() {
                 { v: '110+', l: 'PAC Units Installed' },
                 { v: 'No. 1', l: 'Vertiv Franchisee' },
                 { v: '24/7', l: 'Service Support' },
-                { v: '24 yr', l: 'Industry Experience' },
+                { v: '22 yr', l: 'Industry Experience' },
               ].map((s, i) => (
                 <motion.div
                   key={s.l}

@@ -32,7 +32,7 @@ const whyChooseUs = [
   { Icon: HiUsers, title: 'Highly Skilled Engineers', desc: 'Our highly qualified, professional and experienced team leads in developing breakthrough technologies to combat client problems.' },
   { Icon: HiCog, title: 'Professional Contractors', desc: 'We deliver market-leading products & services with a touch of extravagance and innovation, leading to improved energy conservation.' },
   { Icon: HiClock, title: 'Service Within 24 Hours', desc: 'Our dedicated support team ensures rapid response breakdown service support for all our valued customers — 365 days a year.' },
-  { Icon: HiStar, title: '24 Years of Experience', desc: 'Established in 2004, SS Aircon has successfully completed 300+ projects with a strong reputation for quality workmanship.' },
+  { Icon: HiStar, title: '22 Years of Experience', desc: 'Established in 2004, SS Aircon has successfully completed 300+ projects with a strong reputation for quality workmanship.' },
 ]
 
 const values = [
@@ -163,7 +163,7 @@ export default function About() {
                 </p>
                 <p>
                   M/s. SS AIRCON is one of the <strong>leading HVAC contracting companies</strong> serving the
-                  industry for over <strong>24 years</strong>, handling various types of HVAC projects, services,
+                  industry for over <strong>22 years</strong>, handling various types of HVAC projects, services,
                   operations and maintenance. From 2004 to date we have successfully{' '}
                   <strong>completed more than 300 projects</strong> and provide post-sales support, preventive
                   maintenance, and breakdown service support for our valued customers.

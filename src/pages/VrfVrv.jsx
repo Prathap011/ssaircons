@@ -112,7 +112,7 @@ export default function VrfVrv() {
               {[
                 { v: '3.5 yr', l: 'Payback' },
                 { v: '100%', l: 'Turnkey' },
-                { v: '24 yrs', l: 'Experience' },
+                { v: '22 yrs', l: 'Experience' },
                 { v: 'Pan India', l: 'Coverage' },
               ].map((s, i) => (
                 <motion.div

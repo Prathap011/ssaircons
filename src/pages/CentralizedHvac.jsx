@@ -101,7 +101,7 @@ export default function CentralizedHvac() {
           >
             {[
               { v: '300+', l: 'Projects Delivered' },
-              { v: '24 yrs', l: 'HVAC Experience' },
+              { v: '22 yrs', l: 'HVAC Experience' },
               { v: '30+', l: 'Service Executives' },
               { v: '100%', l: 'Turnkey Execution' },
             ].map((s, i) => (
