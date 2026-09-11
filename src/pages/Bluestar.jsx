@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import SectionTitle from '../components/SectionTitle'
@@ -7,6 +7,8 @@ import {
   HiArrowRight, HiCheckCircle, HiLightningBolt,
   HiStar, HiShieldCheck, HiCog,
 } from 'react-icons/hi'
+import { IndoorUnitsSection } from './BlueStarIndoorPage'
+import { OutdoorUnitsSection } from './PartnersBluestarOutdoor'
 
 // ─── Products ─────────────────────────────────────────────────────────────────
 const products = [
@@ -133,14 +135,14 @@ function ProductCard({ product, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-shadow duration-300"
+      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500"
     >
-      {/* Image — full height, white background */}
-      <div className={`relative min-h-[420px] bg-white ${isEven ? '' : 'md:order-2'}`}>
+      {/* Image — full height */}
+      <div className={`relative min-h-[350px] md:min-h-[420px] flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 border-slate-100 ${isEven ? 'md:border-r md:order-1' : 'md:border-l md:order-2'} overflow-hidden`}>
         <img
           src={product.image}
           alt={product.name}
-          className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
         />
         <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
           {product.subtitle}
@@ -148,7 +150,7 @@ function ProductCard({ product, index }) {
       </div>
 
       {/* Content */}
-      <div className={`p-8 flex flex-col justify-between ${isEven ? '' : 'md:order-1'}`}>
+      <div className={`p-8 flex flex-col justify-start ${isEven ? 'md:order-2' : 'md:order-1'}`}>
         <div>
           <h3 className="text-2xl md:text-3xl font-bold font-heading text-primary-800 mb-3">
             {product.name}
@@ -156,19 +158,6 @@ function ProductCard({ product, index }) {
           <p className="text-slate-600 leading-relaxed text-sm mb-5">
             {product.description}
           </p>
-          {/* {product.features?.length > 0 && (
-            <h4 className="text-sm font-semibold text-primary-800 mb-2">Key Features:</h4>
-          )}
-          {product.features?.length > 0 && (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
-              {product.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
-                  <HiCheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          )} */}
         </div>
       </div>
     </motion.div>
@@ -176,9 +165,6 @@ function ProductCard({ product, index }) {
 }
 
 export default function Bluestar() {
-  const location = useLocation()
-  const isOverviewActive = location.pathname === '/our-partners/bluestar' || location.pathname === '/products/bluestar'
-
   return (
     <>
       <Helmet>
@@ -189,11 +175,6 @@ export default function Bluestar() {
         />
       </Helmet>
 
-      {/* <PageHero
-        title="Blue Star Products"
-        breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
-        bg="/assets/bluestarlanding.jpeg"
-      /> */}
       <PageHero
         title="Blue Star Products"
         breadcrumbs={[{ label: 'Products' }, { label: 'Blue Star' }]}
@@ -201,105 +182,6 @@ export default function Bluestar() {
         overlayOpacity={30}
         fullHeight={true}
       />
-
-      {/* Sub Navigation Bar */}
-      <div className="bg-slate-50 border-b border-slate-200">
-        <div className="container-custom py-6 flex justify-center gap-4">
-          <NavLink
-            to="/our-partners/bluestar"
-            end
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive || isOverviewActive
-                ? 'bg-primary-700 text-white shadow-md'
-                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
-              }`
-            }
-          >
-            Overview
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/indoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
-                ? 'bg-primary-700 text-white shadow-md'
-                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
-              }`
-            }
-          >
-            Indoor
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/outdoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${isActive
-                ? 'bg-primary-700 text-white shadow-md'
-                : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
-              }`
-            }
-          >
-            Outdoor
-          </NavLink>
-        </div>
-      </div>
-
-      {/* Brand Intro Banner */}
-      {/* <section className="py-14 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden relative">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 0.08, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#60a5fa_0%,_transparent_70%)] pointer-events-none"
-        />
-        <div className="container-custom flex flex-col md:flex-row items-start md:items-center gap-10">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex-1"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight mb-3">
-              India's Premier HVAC &<br />Refrigeration Brand
-            </h2>
-            <p className="text-blue-200 leading-relaxed max-w-xl mb-6">
-              SS Aircon is a proud authorized dealer of <strong className="text-white">Blue Star Limited</strong> —
-              India's leading integrated HVAC-R company with 70+ years of excellence since 1943. We supply,
-              install, and service the complete Blue Star product range across Tamil Nadu.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {highlights.map((h, i) => (
-                <motion.div
-                  key={h.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.45 }}
-                  className="bg-white/10 backdrop-blur border border-white/15 rounded-2xl p-4 text-center"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-2">
-                    <h.Icon className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="font-bold text-white text-xs leading-tight">{h.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex-shrink-0 self-center"
-          >
-            <div className="w-40 h-40 rounded-3xl bg-white/10 border border-white/20 backdrop-blur flex items-center justify-center overflow-hidden shadow-xl p-4">
-              <img src="/assets/bluestar.jpg" alt="Blue Star" className="w-full h-full object-contain" />
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
 
       {/* Products */}
       <section className="section-padding bg-white">
@@ -318,44 +200,11 @@ export default function Bluestar() {
         </div>
       </section>
 
-      {/* Why Blue Star + SS Aircon */}
-      {/* <section className="section-padding bg-gradient-to-br from-blue-50 to-slate-50">
-        <div className="container-custom">
-          <SectionTitle
-            label="Why Choose Us?"
-            title="Blue Star + SS Aircon — The Right Combination"
-            subtitle="As an authorized Blue Star dealer, SS Aircon brings together the best of brand reliability and local service excellence."
-            center
-          />
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {[
-              { title: 'Authorized Supply', desc: 'Genuine Blue Star products with full manufacturer warranty and official documentation.' },
-              { title: 'Expert Installation', desc: 'Certified technicians handle every installation to Blue Star specifications for warranty validity.' },
-              { title: 'AMC Support', desc: 'Annual maintenance contracts to keep your Blue Star systems running at peak performance.' },
-              { title: 'Pan Tamil Nadu Service', desc: '30+ service executives deployed across Chennai and Trichy for rapid response.' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                whileHover={{ y: -6, boxShadow: '0 20px 40px -12px rgba(30,58,138,0.18)' }}
-                className="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm text-center"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-800 to-primary-500 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-black text-lg">0{i + 1}</span>
-                </div>
-                <h3 className="font-bold text-primary-800 mb-2">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
+      {/* Indoor Units Design */}
+      <IndoorUnitsSection />
+
+      {/* Outdoor Units Design */}
+      <OutdoorUnitsSection />
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-700 to-primary-900 text-white text-center">

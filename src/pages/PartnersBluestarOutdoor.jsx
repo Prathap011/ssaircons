@@ -394,10 +394,10 @@ function getCategoryIcon(category) {
 
 function ProductCard({ product, index }) {
   const isEven = index % 2 === 0
-  const isImageAvailable = product.image && 
-                           !product.image.includes('via.placeholder') && 
-                           !product.image.includes('placeholder.com') && 
-                           !product.image.includes('placehold.co')
+  const isImageAvailable = product.image &&
+    !product.image.includes('via.placeholder') &&
+    !product.image.includes('placeholder.com') &&
+    !product.image.includes('placehold.co')
   const Icon = getCategoryIcon(product.category)
 
   return (
@@ -406,15 +406,15 @@ function ProductCard({ product, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 hover:shadow-xl transition-shadow duration-300"
+      className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500"
     >
-      {/* Image — full height, white background */}
-      <div className={`relative min-h-[420px] flex items-center justify-center overflow-hidden ${isEven ? '' : 'md:order-2'}`}>
+      {/* Image — full height */}
+      <div className={`relative min-h-[350px] md:min-h-[420px] flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 border-slate-100 ${isEven ? 'md:border-r md:order-1' : 'md:border-l md:order-2'} overflow-hidden`}>
         {isImageAvailable ? (
           <img
             src={product.image}
             alt={product.title}
-            className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-slate-50 hover:bg-primary-50/50 transition-colors duration-500">
@@ -427,7 +427,7 @@ function ProductCard({ product, index }) {
       </div>
 
       {/* Content */}
-      <div className={`p-8 flex flex-col justify-between ${isEven ? '' : 'md:order-1'}`}>
+      <div className={`p-8 flex flex-col justify-start ${isEven ? 'md:order-2' : 'md:order-1'}`}>
         <div>
           <h3 className="text-2xl md:text-3xl font-bold font-heading text-primary-900 mb-3">
             {product.title}
@@ -450,7 +450,7 @@ function ProductCard({ product, index }) {
             <h4 className="text-sm font-semibold text-primary-800 mb-2">Key Features:</h4>
           )}
           {product.features?.length > 0 && (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-4">
               {product.features.map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
                   <HiCheckCircle className="w-4 h-4 text-primary-500 mt-0.5 shrink-0" />
@@ -462,7 +462,7 @@ function ProductCard({ product, index }) {
         </div>
 
         {/* Range */}
-        <div className="pt-4 mt-6 border-t border-slate-100">
+        <div className="pt-3 border-t border-slate-100">
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">
             Range
           </p>
@@ -473,74 +473,23 @@ function ProductCard({ product, index }) {
   )
 }
 
-export default function PartnersBluestarOutdoor() {
+export function OutdoorUnitsSection() {
   return (
     <>
-      <Helmet>
-        <title>Blue Star Outdoor Products | SS Aircon — Authorized Dealer</title>
-        <meta
-          name="description"
-          content="Explore Blue Star outdoor air conditioning systems, VRF condenser units, outdoor chillers, and heat pumps, supplied and installed by SS Aircon."
-        />
-      </Helmet>
-
-      {/* Hero */}
-      <section className="relative overflow-hidden py-20 px-6 text-center bg-white border-b border-slate-100">
+      {/* Hero / Section Header */}
+      {/* <section className="relative overflow-hidden py-16 px-6 text-center bg-white border-b border-slate-100">
         <Reveal direction="fade">
           <p className="text-blue-700 tracking-[0.3em] text-xs font-semibold mb-4 uppercase">
             Blue Star Outdoor
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-4">
             Outdoor Units & Systems
-          </h1>
+          </h2>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
             A comprehensive range of Blue Star outdoor condensing units — ducted splits & packaged systems, VRF outdoor units, chillers, and light commercial outdoor units — engineered for India's toughest ambient conditions.
           </p>
         </Reveal>
-      </section>
-
-      {/* Sub Navigation Bar */}
-      <div className="border-b border-slate-100 bg-white">
-        <div className="container-custom py-4 flex justify-center gap-4">
-          <NavLink
-            to="/our-partners/bluestar"
-            end
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Overview
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/indoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Indoor
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/outdoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Outdoor
-          </NavLink>
-        </div>
-      </div>
+      </section> */}
 
       {/* Category Sections */}
       {categories.map((cat, catIdx) => {
@@ -561,6 +510,22 @@ export default function PartnersBluestarOutdoor() {
           </section>
         )
       })}
+    </>
+  )
+}
+
+export default function PartnersBluestarOutdoor() {
+  return (
+    <>
+      <Helmet>
+        <title>Blue Star Outdoor Products | SS Aircon — Authorized Dealer</title>
+        <meta
+          name="description"
+          content="Explore Blue Star outdoor air conditioning systems, VRF condenser units, outdoor chillers, and heat pumps, supplied and installed by SS Aircon."
+        />
+      </Helmet>
+
+      <OutdoorUnitsSection />
 
       {/* CTA */}
       <section className="section-padding bg-primary-700">

@@ -219,137 +219,66 @@ function UnitCard({ unit, index }) {
   return (
     <Reveal direction={reverse ? "right" : "left"} className="w-full">
       <div
-        className={`flex flex-col ${
-          reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-        } items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-shadow duration-500`}
+        className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500"
       >
         {/* Left/Right Column: Image with zoom effect */}
-        <div className={`w-full lg:w-2/5 flex items-center justify-center p-8 transition-colors duration-500 hover:bg-blue-50/50 min-h-[250px] lg:min-h-full shrink-0 border-b lg:border-b-0 border-slate-100 ${reverse ? 'lg:border-l' : 'lg:border-r'} overflow-hidden`}>
+        <div className={`relative min-h-[350px] md:min-h-[420px] flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 border-slate-100 ${reverse ? 'md:border-l md:order-2' : 'md:border-r md:order-1'} overflow-hidden`}>
           <img
-  src={unit.image}
-  alt={unit.title}
-  className="w-[120%] h-[120%] max-w-none max-h-none object-contain transition-transform duration-700 hover:scale-105"
-/>
+            src={unit.image}
+            alt={unit.title}
+            className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+          />
         </div>
 
-        <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
-          <div className="flex items-center gap-3 mb-3">
-            {/* <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-50 text-blue-700">
-              <Icon size={22} />
-            </span> */}
-            <h3 className="text-2xl font-bold text-primary-900">{unit.title}</h3>
+        <div className={`p-8 flex flex-col justify-start ${reverse ? 'md:order-1' : 'md:order-2'}`}>
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="text-2xl font-bold text-primary-900">{unit.title}</h3>
+            </div>
+
+            <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-wide">
+              Capacity: {unit.capacity}
+            </p>
+
+            <p className="text-slate-600 leading-relaxed mb-5">
+              {unit.description}
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+              {unit.features.map((feat, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm text-slate-700"
+                >
+                  <HiCheckCircle
+                    className="w-4 h-4 text-blue-600 mt-0.5 shrink-0"
+                  />
+                  {feat}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <p className="text-sm font-semibold text-blue-700 mb-3 uppercase tracking-wide">
-            Capacity: {unit.capacity}
-          </p>
-
-          <p className="text-slate-600 leading-relaxed mb-5">
-            {unit.description}
-          </p>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
-            {unit.features.map((feat, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-2 text-sm text-slate-700"
-              >
-                <HiCheckCircle
-                  className="w-4 h-4 text-blue-600 mt-0.5 shrink-0"
-                />
-                {feat}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </Reveal>
   );
 }
 
-export default function BlueStarIndoorPage() {
+export function IndoorUnitsSection() {
   return (
-    <div className="bg-slate-50">
-      <Helmet>
-        <title>Blue Star Indoor Units | SS Aircon — Authorized Dealer</title>
-        <meta
-          name="description"
-          content="Explore Blue Star's widest range of indoor units — from sleek hi-wall splits to high-sensible ducted systems, engineered for precise comfort."
-        />
-      </Helmet>
-
-      {/* Hero */}
-      <section className="relative overflow-hidden py-20 px-6 text-center bg-white border-b border-slate-100">
-        <Reveal direction="fade">
-          <p className="text-blue-700 tracking-[0.3em] text-xs font-semibold mb-4 uppercase">
-            Blue Star · VRF VI Plus
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
-            Indoor Units
-          </h1>
-          <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Blue Star's widest range of indoor units — from sleek hi-wall
-            splits to high-sensible ducted systems — engineered for precise
-            comfort across every application.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* Sub Navigation Bar */}
-      <div className="border-b border-slate-100 bg-white">
-        <div className="container-custom py-4 flex justify-center gap-4">
-          <NavLink
-            to="/our-partners/bluestar"
-            end
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Overview
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/indoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Indoor
-          </NavLink>
-          <NavLink
-            to="/our-partners/bluestar/outdoor"
-            className={({ isActive }) =>
-              `px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`
-            }
-          >
-            Outdoor
-          </NavLink>
-        </div>
-      </div>
-
-      {/* Diverse Units Section */}
-      <section className="px-6 pt-14 max-w-6xl mx-auto">
+    <section className="section-padding bg-slate-50">
+      <div className="container-custom space-y-10">
+        {/* Diverse Units Section */}
         <Reveal direction="up" className="w-full">
           <div
-            className="flex flex-col lg:flex-row items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-shadow duration-500"
+            className="group grid grid-cols-1 md:grid-cols-2 items-stretch bg-white rounded-2xl shadow-lg shadow-slate-900/5 border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-900/10 transition-all duration-500"
           >
             {/* Image Column */}
-            <div className="w-full lg:w-2/5 flex items-center justify-center py-5 px-4 min-h-[300px] lg:min-h-full shrink-0 overflow-hidden relative">
+            <div className="relative min-h-[350px] md:min-h-[420px] flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-slate-100 overflow-hidden">
               <img
                 src="/assets/outdoor/outdoor8.png"
                 alt="Diverse Indoor & Outdoor Unit Choices For Every Need"
-                className="w-full h-full max-h-[450px] object-contain transition-transform duration-700 hover:scale-105"
+                className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
               />
               <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow">
                 VRF Systems
@@ -357,9 +286,9 @@ export default function BlueStarIndoorPage() {
             </div>
 
             {/* Content Column */}
-            <div className="w-full lg:w-3/5 p-8 lg:p-10 flex flex-col justify-between">
+            <div className="p-8 flex flex-col justify-start">
               <div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-primary-900 mb-3 leading-tight">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary-900 mb-3 leading-tight">
                   Diverse Indoor & Outdoor Unit Choices For Every Need
                 </h3>
 
@@ -377,7 +306,7 @@ export default function BlueStarIndoorPage() {
 
                 {/* Features */}
                 <h4 className="text-sm font-semibold text-primary-800 mb-2">Key Choices:</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-4">
                   {[
                     'Hi-Wall Units',
                     'Four-Way Cassettes',
@@ -400,7 +329,7 @@ export default function BlueStarIndoorPage() {
               </div>
 
               {/* Range */}
-              <div className="pt-4 mt-6 border-t border-slate-100">
+              <div className="pt-3 border-t border-slate-100">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">
                   Range
                 </p>
@@ -411,16 +340,30 @@ export default function BlueStarIndoorPage() {
             </div>
           </div>
         </Reveal>
-      </section>
 
-      {/* Units List */}
-      <section className="px-6 py-20 max-w-6xl mx-auto flex flex-col gap-14">
-        <StaggerGroup direction="up" step={0}>
+        {/* Units List */}
+        <StaggerGroup direction="up" step={0} className="space-y-10">
           {indoorUnits.map((unit, i) => (
             <UnitCard unit={unit} index={i} key={unit.id} />
           ))}
         </StaggerGroup>
-      </section>
+      </div>
+    </section>
+  );
+}
+
+export default function BlueStarIndoorPage() {
+  return (
+    <div className="bg-slate-50">
+      <Helmet>
+        <title>Blue Star Indoor Units | SS Aircon — Authorized Dealer</title>
+        <meta
+          name="description"
+          content="Explore Blue Star's widest range of indoor units — from sleek hi-wall splits to high-sensible ducted systems, engineered for precise comfort."
+        />
+      </Helmet>
+
+      <IndoorUnitsSection />
 
       {/* Footer CTA strip */}
       <Reveal direction="up">
